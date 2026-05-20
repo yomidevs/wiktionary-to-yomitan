@@ -17,41 +17,45 @@ use crate::{Map, models::kaikki::Tag};
 /// This does not properly match anything in the yomitan schemas. It is just convenient
 /// to store some information that gets erased at [`YomitanEntry`] level.
 ///
-/// For instance, `term_info` and `term_info_form` are virtually the same to yomitan, but
-/// we want to remember that the [`YomitanEntry`] in `term_info_form` represent forms.
+/// For instance, `term_bank` and `term_bank_form` are virtually the same to yomitan, but
+/// we want to remember that the [`YomitanEntry`] in `term_bank_form` represent forms.
 /// This allows to separate them when we write the yomitan dictionary, but also to
 /// easily be able to discriminate them when it comes to other formats made from the
 /// yomitan data model.
 pub struct YomitanDict {
-    pub term_info: Vec<TermInfo>,
-    pub term_info_form: Vec<TermInfoForm>,
-    pub term_meta: Vec<TermMeta>,
+    pub term_bank: Vec<TermBankEntry>,
+    pub term_bank_form: Vec<TermBankEntryForm>,
+    pub term_meta_bank: Vec<TermMetaBankEntry>,
 }
 
 impl YomitanDict {
     pub const fn new(
-        term_info: Vec<TermInfo>,
-        term_info_form: Vec<TermInfoForm>,
-        term_meta: Vec<TermMeta>,
+        term_bank: Vec<TermBankEntry>,
+        term_bank_form: Vec<TermBankEntryForm>,
+        term_meta_bank: Vec<TermMetaBankEntry>,
     ) -> Self {
         Self {
-            term_info,
-            term_info_form,
-            term_meta,
+            term_bank,
+            term_bank_form,
+            term_meta_bank,
         }
     }
 
     /// Flat iterator over type-erased [`YomitanEntry`].
     pub fn into_iter_flat(self) -> impl Iterator<Item = YomitanEntry> {
-        self.term_info
+        self.term_bank
             .into_iter()
-            .map(YomitanEntry::TermInfo)
+            .map(YomitanEntry::TermBankEntry)
             .chain(
-                self.term_info_form
+                self.term_bank_form
                     .into_iter()
-                    .map(YomitanEntry::TermInfoForm),
+                    .map(YomitanEntry::TermBankEntryForm),
             )
-            .chain(self.term_meta.into_iter().map(YomitanEntry::TermMeta))
+            .chain(
+                self.term_meta_bank
+                    .into_iter()
+                    .map(YomitanEntry::TermMetaBankEntry),
+            )
     }
 
     /// Grouped iterator over type-erased [`YomitanEntry`].
@@ -61,23 +65,23 @@ impl YomitanDict {
         vec![
             EntryGroup::new(
                 "term",
-                self.term_info
+                self.term_bank
                     .into_iter()
-                    .map(YomitanEntry::TermInfo)
+                    .map(YomitanEntry::TermBankEntry)
                     .collect(),
             ),
             EntryGroup::new(
                 "form",
-                self.term_info_form
+                self.term_bank_form
                     .into_iter()
-                    .map(YomitanEntry::TermInfoForm)
+                    .map(YomitanEntry::TermBankEntryForm)
                     .collect(),
             ),
             EntryGroup::new(
                 "meta",
-                self.term_meta
+                self.term_meta_bank
                     .into_iter()
-                    .map(YomitanEntry::TermMeta)
+                    .map(YomitanEntry::TermMetaBankEntry)
                     .collect(),
             ),
         ]
@@ -98,25 +102,25 @@ impl EntryGroup {
 #[derive(Debug, Serialize, Clone)]
 #[serde(untagged)]
 pub enum YomitanEntry {
-    TermInfo(TermInfo),         // 120 (24 * 5)
-    TermInfoForm(TermInfoForm), // 120 (24 * 5)
-    TermMeta(TermMeta),         // 104
+    TermBankEntry(TermBankEntry),         // 120 (24 * 5)
+    TermBankEntryForm(TermBankEntryForm), // 120 (24 * 5)
+    TermMetaBankEntry(TermMetaBankEntry), // 104
 }
 
 impl YomitanEntry {
     pub const fn file_prefix(&self) -> &'static str {
         match self {
-            Self::TermInfo(_) | Self::TermInfoForm(_) => "term_bank",
-            Self::TermMeta(_) => "term_meta_bank",
+            Self::TermBankEntry(_) | Self::TermBankEntryForm(_) => "term_bank",
+            Self::TermMetaBankEntry(_) => "term_meta_bank",
         }
     }
 
     pub const fn term(&self) -> &str {
         match self {
-            Self::TermInfo(t) => t.term.as_str(),
-            Self::TermInfoForm(t) => t.term.as_str(),
-            Self::TermMeta(t) => {
-                let TermMeta::TermPhoneticTranscription(t) = t;
+            Self::TermBankEntry(t) => t.term.as_str(),
+            Self::TermBankEntryForm(t) => t.term.as_str(),
+            Self::TermMetaBankEntry(t) => {
+                let TermMetaBankEntry::TermPhoneticTranscription(t) = t;
                 t.term.as_str()
             }
         }
@@ -127,12 +131,12 @@ impl YomitanEntry {
 //
 // The skipped fields are (at index): frequency (4), sequence (6), term_tags (7)
 //
-/// A term information. See [yomitan-dict-builder] and the [spec].
+/// A term information (in the ts model). See [yomitan-dict-builder] and the [spec].
 ///
 /// [yomitan-dict-builder]: https://github.com/MarvNC/yomichan-dict-builder/blob/master/src/types/yomitan/termbank.ts#L159
 /// [spec]: https://github.com/yomidevs/yomitan/blob/master/ext/data/schemas/dictionary-term-bank-v3-schema.json
 #[derive(Debug, Clone)]
-pub struct TermInfo {
+pub struct TermBankEntry {
     pub term: String,
     pub reading: String,
     // While we could store just a String, and let Yomitan deal with it, it is
@@ -143,7 +147,7 @@ pub struct TermInfo {
     pub definitions: Vec<DetailedDefinition>,
 }
 
-impl TermInfo {
+impl TermBankEntry {
     pub fn new(
         term: String,
         reading: String,
@@ -164,7 +168,7 @@ impl TermInfo {
     }
 }
 
-impl Serialize for TermInfo {
+impl Serialize for TermBankEntry {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
@@ -189,16 +193,16 @@ impl Serialize for TermInfo {
     }
 }
 
-/// A term information with hardcoded definition tags. Used in forms.
+/// A [`TermBankEntry`] with hardcoded definition tags. Used in forms.
 #[derive(Debug, Clone)]
-pub struct TermInfoForm {
+pub struct TermBankEntryForm {
     pub term: String,
     pub reading: String,
     pub rules: String, // space-separated rules
     pub definitions: Vec<DetailedDefinition>,
 }
 
-impl TermInfoForm {
+impl TermBankEntryForm {
     pub fn new(
         term: String,
         reading: String,
@@ -217,7 +221,7 @@ impl TermInfoForm {
     }
 }
 
-impl Serialize for TermInfoForm {
+impl Serialize for TermBankEntryForm {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
@@ -242,7 +246,7 @@ impl Serialize for TermInfoForm {
 /// [yomitan-dict-builder]: https://github.com/MarvNC/yomichan-dict-builder/blob/master/src/types/yomitan/termbankmeta.ts#L49
 #[derive(Debug, Serialize, Clone)]
 #[serde(untagged)]
-pub enum TermMeta {
+pub enum TermMetaBankEntry {
     TermPhoneticTranscription(TermPhoneticTranscription),
 }
 
@@ -353,6 +357,20 @@ pub enum NTag {
     Li,
     Details,
     Summary,
+}
+
+impl NTag {
+    pub const fn as_str(&self) -> &'static str {
+        match self {
+            Self::Span => "span",
+            Self::Div => "div",
+            Self::Ol => "ol",
+            Self::Ul => "ul",
+            Self::Li => "li",
+            Self::Details => "details",
+            Self::Summary => "summary",
+        }
+    }
 }
 
 /// One of the possible values of the [`Node`] enum.

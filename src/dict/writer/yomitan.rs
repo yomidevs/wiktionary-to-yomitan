@@ -15,7 +15,10 @@ use zip::write::SimpleFileOptions;
 
 use crate::{
     cli::Options,
-    dict::index::get_index,
+    dict::{
+        index::get_index,
+        writer::{STYLES_CSS, STYLES_CSS_EXPERIMENTAL},
+    },
     lang::Lang,
     models::yomitan::{YomitanDict, YomitanEntry},
     path::PathManager,
@@ -24,9 +27,6 @@ use crate::{
 };
 
 const BANK_SIZE: usize = 25_000;
-
-const STYLES_CSS: &[u8] = include_bytes!("../../../assets/styles.css");
-const STYLES_CSS_EXPERIMENTAL: &[u8] = include_bytes!("../../../assets/styles_experimental.css");
 
 enum Sink<'a> {
     Disk,
@@ -54,9 +54,7 @@ pub fn write_test_yomitan(opts: &Options, pm: &PathManager, ydict: YomitanDict) 
     Ok(out_dir)
 }
 
-/// Write a [`YomitanDict`] to a sink (either disk or zip).
-///
-/// When zipping, also write metadata (index, css etc.).
+/// Write a [`YomitanDict`] to a zip sink, along with metadata (index, css etc.).
 pub fn write_yomitan(
     source: Lang,
     target: Lang,

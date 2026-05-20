@@ -6,7 +6,7 @@ use maud::{Markup, html};
 
 use crate::{
     dict::writer::renderer::Renderer,
-    models::yomitan::{BacklinkContent, GenericNode, NodeDataKey, TagInfo},
+    models::yomitan::{BacklinkContent, GenericNode, NTag, NodeDataKey, TagInfo},
 };
 
 // Rendering that mostly targets KOReader
@@ -14,6 +14,9 @@ pub struct StardictRenderer;
 
 impl Renderer for StardictRenderer {
     fn skip_render_generic_node(node: &GenericNode) -> bool {
+        if matches!(node.tag, NTag::Details) {
+            return true;
+        }
         let data = node.data.as_ref();
         let content_attr = data
             .and_then(|d| d.0.get(&NodeDataKey::Content))
@@ -34,10 +37,14 @@ impl Renderer for StardictRenderer {
         )
     }
 
-    // b doesnt work :/
-    fn render_definition_tag(tag: &TagInfo) -> Markup {
+    fn render_definition_tags(tags: &[TagInfo]) -> Markup {
         html! {
-            h3 { (tag.long_tag) }
+            h3 {
+                @for (i, tag) in tags.iter().enumerate() {
+                    @if i > 0 { " · " }
+                    (tag.long_tag)
+                }
+            }
         }
     }
 

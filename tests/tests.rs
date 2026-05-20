@@ -1,10 +1,6 @@
-use std::{
-    fs,
-    path::{Path, PathBuf},
-};
+use std::{fs, path::Path, sync::OnceLock};
 
 use anyhow::{Ok, Result};
-use tracing_subscriber::{EnvFilter, fmt::format::FmtSpan};
 
 use wty::{
     cli::{DictName, GlossaryArgs, GlossaryLangs, IpaArgs, MainArgs, MainLangs, Options},
@@ -13,33 +9,58 @@ use wty::{
     path::PathManager,
 };
 
-/// Clean empty folders under folder "root" recursively.
-fn cleanup(root: &Path) -> bool {
+const FIXTURE_DIR: &str = "tests";
+
+static CASES: OnceLock<(Vec<(Lang, Lang)>, Vec<Lang>)> = OnceLock::new();
+
+// iterdir and search for source-target-extract.jsonl files
+fn cases() -> &'static (Vec<(Lang, Lang)>, Vec<Lang>) {
+    CASES.get_or_init(|| {
+        let fixture_input_dir = Path::new(FIXTURE_DIR).join("kaikki");
+        let mut cases = Vec::new();
+        let mut langs = Vec::new();
+
+        for entry in fs::read_dir(&fixture_input_dir).unwrap().flatten() {
+            let path = entry.path();
+            if let Some(fname) = path.file_name().and_then(|f| f.to_str())
+                && let Some(base) = fname.strip_suffix("-extract.jsonl")
+                && let Some((source, target)) = base.split_once('-')
+            {
+                let src = source.parse::<Lang>().unwrap();
+                let tar = target.parse::<Lang>().unwrap();
+                cases.push((src, tar));
+                if !langs.contains(&src) {
+                    langs.push(src);
+                }
+                if !langs.contains(&tar) {
+                    langs.push(tar);
+                }
+            }
+        }
+        (cases, langs)
+    })
+}
+
+/// Scan folders under "root" recursively and assert no zip files are present.
+fn assert_no_zip_files(root: &Path) {
     let entries = fs::read_dir(root).unwrap();
-
-    let mut is_empty = true;
-
     for entry in entries.flatten() {
         let path = entry.path();
         if path.is_dir() {
-            let child_empty = cleanup(&path);
-            if child_empty {
-                fs::remove_dir(&path).unwrap();
-            } else {
-                is_empty = false;
-            }
+            assert_no_zip_files(&path);
         } else if path
             .extension()
             .and_then(|e| e.to_str())
             .is_some_and(|ext| ext.eq_ignore_ascii_case("zip"))
         {
-            panic!("zip found in tests");
-        } else {
-            is_empty = false;
+            panic!("zip found in tests: {}", path.display());
         }
     }
+}
 
-    is_empty
+#[test]
+fn no_zip_files_in_fixtures() {
+    assert_no_zip_files(Path::new(FIXTURE_DIR));
 }
 
 fn fixture_options(fixture_dir: &Path, format: WriterFormat) -> Options {
@@ -91,132 +112,6 @@ fn fixture_glossary_args(
     }
 }
 
-fn setup_tracing_test() {
-    let filter = EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("warn"));
-
-    tracing_subscriber::fmt()
-        .with_env_filter(filter)
-        .with_span_events(FmtSpan::CLOSE)
-        .with_target(true)
-        .with_level(true)
-        .init();
-}
-
-/// Test via snapshots and git diffs like the original
-#[test]
-fn snapshot() {
-    setup_tracing_test();
-
-    let fixture_dir = PathBuf::from("tests");
-    // have to hardcode this since we have not initialized args
-    let fixture_input_dir = fixture_dir.join("kaikki");
-
-    // Nuke the output dir to prevent pollution
-    // It has the disadvantage of massive diffs if we failfast.
-    //
-    // let fixture_output_dir = fixture_dir.join("dict");
-    // Don't crash if there is no output dir. It may happen if we nuke it manually
-    // let _ = fs::remove_dir_all(fixture_output_dir);
-
-    let mut cases = Vec::new();
-    let mut langs_in_testsuite = Vec::new();
-
-    // iterdir and search for source-target-extract.jsonl files
-    for entry in fs::read_dir(&fixture_input_dir).unwrap() {
-        let entry = entry.unwrap();
-        let path = entry.path();
-
-        if let Some(fname) = path.file_name().and_then(|f| f.to_str())
-            && let Some(base) = fname.strip_suffix("-extract.jsonl")
-            && let Some((source, target)) = base.split_once('-')
-        {
-            let src = source.parse::<Lang>().unwrap();
-            let tar = target.parse::<Lang>().unwrap();
-            cases.push((src, tar));
-
-            if !langs_in_testsuite.contains(&src) {
-                langs_in_testsuite.push(src);
-            }
-            if !langs_in_testsuite.contains(&tar) {
-                langs_in_testsuite.push(tar);
-            }
-        }
-    }
-
-    tracing::debug!("Found {} cases: {cases:?}", cases.len());
-
-    // failfast
-    // main
-    for (source, target) in &cases {
-        let Result::Ok(target) = (*target).try_into() else {
-            continue; // skip if target is not edition
-        };
-        let args = fixture_main_args(*source, target, &fixture_dir, WriterFormat::TestYomitanMain);
-
-        if let Err(e) = shapshot_main(args) {
-            panic!("({source}): {e}");
-        }
-    }
-
-    // glossary
-    for (source, target) in &cases {
-        if source != target {
-            continue;
-        }
-
-        let Result::Ok(source) = (*source).try_into() else {
-            continue; // skip if source is not edition
-        };
-
-        for possible_target in &langs_in_testsuite {
-            if Lang::from(source) == *possible_target {
-                continue;
-            }
-            if source == Edition::Simple || *possible_target == Lang::Simple {
-                continue;
-            }
-            let args = fixture_glossary_args(
-                source,
-                *possible_target,
-                &fixture_dir,
-                WriterFormat::TestYomitan,
-            );
-            make_dict_from_jsonl(DGlossary, args).unwrap();
-        }
-    }
-
-    // ipa
-    for (source, target) in &cases {
-        let Result::Ok(target) = (*target).try_into() else {
-            continue; // skip if target is not edition
-        };
-        let args = fixture_ipa_args(*source, target, &fixture_dir, WriterFormat::TestYomitan);
-        make_dict_from_jsonl(DIpa, args).unwrap();
-    }
-
-    // html format tests
-    snapshot_main_html(&fixture_dir).unwrap();
-
-    cleanup(&fixture_dir.join("dict"));
-}
-
-fn snapshot_main_html(fixture_dir: &Path) -> Result<()> {
-    let format = WriterFormat::TestHtml;
-
-    let args = fixture_main_args(Lang::En, Edition::En, fixture_dir, format);
-    make_dict_from_jsonl(DMain, args).unwrap();
-    let args = fixture_main_args(Lang::Ja, Edition::Ja, fixture_dir, format);
-    make_dict_from_jsonl(DMain, args).unwrap();
-
-    let args = fixture_ipa_args(Lang::Ja, Edition::Ja, fixture_dir, format);
-    make_dict_from_jsonl(DIpa, args).unwrap();
-
-    let args = fixture_glossary_args(Edition::Ja, Lang::En, fixture_dir, format);
-    make_dict_from_jsonl(DGlossary, args).unwrap();
-
-    Ok(())
-}
-
 /// Delete generated artifacts from previous tests runs, if any
 fn delete_previous_output(pm: &PathManager) -> Result<()> {
     let pathdir_dict_temp = pm.dir_temp_dict();
@@ -227,7 +122,7 @@ fn delete_previous_output(pm: &PathManager) -> Result<()> {
     Ok(())
 }
 
-/// Run git --diff for charges in the generated json
+/// Run git --diff for changes in the generated json
 fn check_git_diff(pm: &PathManager) -> Result<()> {
     let output = std::process::Command::new("git")
         .args([
@@ -243,15 +138,127 @@ fn check_git_diff(pm: &PathManager) -> Result<()> {
         eprintln!("{}", String::from_utf8_lossy(&output.stdout));
         anyhow::bail!("changes!")
     }
-
     Ok(())
 }
 
+#[test]
+fn snapshot_main() {
+    let fixture_dir = Path::new(FIXTURE_DIR);
+    let (cases, _) = cases();
+
+    for (source, target) in cases {
+        let Result::Ok(target) = (*target).try_into() else {
+            continue;
+        };
+        let args = fixture_main_args(*source, target, fixture_dir, WriterFormat::TestYomitanMain);
+        if let Err(e) = shapshot_main_go(args) {
+            panic!("({source}): {e}");
+        }
+    }
+}
+
 /// Read the expected result in the snapshot first, then git diff
-fn shapshot_main(margs: MainArgs) -> Result<()> {
+fn shapshot_main_go(margs: MainArgs) -> Result<()> {
     let pm = &PathManager::try_from(margs.clone())?;
     delete_previous_output(pm)?;
     make_dict_from_jsonl(DMain, margs)?;
     check_git_diff(pm)?;
+    Ok(())
+}
+
+#[test]
+fn snapshot_glossary() {
+    let fixture_dir = Path::new(FIXTURE_DIR);
+    let (cases, langs) = cases();
+
+    for (source, target) in cases {
+        if source != target {
+            continue;
+        }
+        let Result::Ok(source) = (*source).try_into() else {
+            continue; // skip if source is not edition
+        };
+        for possible_target in langs {
+            if Lang::from(source) == *possible_target {
+                continue;
+            }
+            if source == Edition::Simple || *possible_target == Lang::Simple {
+                continue;
+            }
+            let args = fixture_glossary_args(
+                source,
+                *possible_target,
+                fixture_dir,
+                WriterFormat::TestYomitan,
+            );
+            make_dict_from_jsonl(DGlossary, args).unwrap();
+        }
+    }
+}
+
+#[test]
+fn snapshot_ipa() {
+    let fixture_dir = Path::new(FIXTURE_DIR);
+    let (cases, _) = cases();
+
+    for (source, target) in cases {
+        let Result::Ok(target) = (*target).try_into() else {
+            continue; // skip if target is not edition
+        };
+        let args = fixture_ipa_args(*source, target, fixture_dir, WriterFormat::TestYomitan);
+        make_dict_from_jsonl(DIpa, args).unwrap();
+    }
+}
+
+#[test]
+fn snapshot_html_format() -> Result<()> {
+    let fixture_dir = Path::new(FIXTURE_DIR);
+    let format = WriterFormat::TestHtml;
+
+    let args = fixture_main_args(Lang::En, Edition::En, fixture_dir, format);
+    make_dict_from_jsonl(DMain, args).unwrap();
+    let args = fixture_main_args(Lang::Ja, Edition::Ja, fixture_dir, format);
+    make_dict_from_jsonl(DMain, args).unwrap();
+
+    let args = fixture_glossary_args(Edition::Ja, Lang::En, fixture_dir, format);
+    make_dict_from_jsonl(DGlossary, args).unwrap();
+
+    let args = fixture_ipa_args(Lang::Ja, Edition::Ja, fixture_dir, format);
+    make_dict_from_jsonl(DIpa, args).unwrap();
+
+    Ok(())
+}
+
+#[test]
+fn snapshot_main_stardict() -> Result<()> {
+    let fixture_dir = Path::new(FIXTURE_DIR);
+    let format = WriterFormat::Stardict;
+
+    let args = fixture_main_args(Lang::En, Edition::En, fixture_dir, format);
+    make_dict_from_jsonl(DMain, args).unwrap();
+    let args = fixture_main_args(Lang::Ja, Edition::Ja, fixture_dir, format);
+    make_dict_from_jsonl(DMain, args).unwrap();
+
+    // This isn't really a snapshot (for now): we only test that it doesn't explode
+    fs::remove_dir_all(fixture_dir.join("dict/en/en/main/stardict")).ok();
+    fs::remove_dir_all(fixture_dir.join("dict/ja/ja/main/stardict")).ok();
+
+    Ok(())
+}
+
+#[test]
+fn snapshot_main_mdict() -> Result<()> {
+    let fixture_dir = Path::new(FIXTURE_DIR);
+    let format = WriterFormat::Mdict;
+
+    let args = fixture_main_args(Lang::En, Edition::En, fixture_dir, format);
+    make_dict_from_jsonl(DMain, args).unwrap();
+    let args = fixture_main_args(Lang::Ja, Edition::Ja, fixture_dir, format);
+    make_dict_from_jsonl(DMain, args).unwrap();
+
+    // This isn't really a snapshot (for now): we only test that it doesn't explode
+    fs::remove_dir_all(fixture_dir.join("dict/en/en/main/mdict")).ok();
+    fs::remove_dir_all(fixture_dir.join("dict/ja/ja/main/mdict")).ok();
+
     Ok(())
 }

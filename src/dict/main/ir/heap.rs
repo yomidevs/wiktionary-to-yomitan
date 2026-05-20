@@ -125,14 +125,14 @@ impl<T: HeapSize> HeapSize for Box<T> {
 impl HeapSize for YomitanEntry {
     fn heap_size(&self) -> usize {
         match self {
-            Self::TermInfo(tb) => tb.heap_size(),
-            Self::TermInfoForm(tbs) => tbs.heap_size(),
-            Self::TermMeta(tbm) => tbm.heap_size(),
+            Self::TermBankEntry(e) => e.heap_size(),
+            Self::TermBankEntryForm(e) => e.heap_size(),
+            Self::TermMetaBankEntry(e) => e.heap_size(),
         }
     }
 }
 
-impl HeapSize for TermInfo {
+impl HeapSize for TermBankEntry {
     fn heap_size(&self) -> usize {
         self.term.heap_size()
             + self.reading.heap_size()
@@ -142,13 +142,13 @@ impl HeapSize for TermInfo {
     }
 }
 
-impl HeapSize for TermInfoForm {
+impl HeapSize for TermBankEntryForm {
     fn heap_size(&self) -> usize {
         self.term.heap_size() + self.reading.heap_size() + self.definitions.heap_size()
     }
 }
 
-impl HeapSize for TermMeta {
+impl HeapSize for TermMetaBankEntry {
     fn heap_size(&self) -> usize {
         match self {
             Self::TermPhoneticTranscription(tpt) => tpt.heap_size(),

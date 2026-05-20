@@ -1,0 +1,211 @@
+/* ============================================================
+   Minimal Yomitan CSS — only what the renderer actually uses
+   ============================================================ */
+
+/* Variables */
+:root {
+    --font-size-no-units: 14;
+    --font-size: calc(1px * var(--font-size-no-units));
+
+    --headword-font-size-no-units: 2;
+    --headword-font-size: calc(1em * var(--headword-font-size-no-units));
+
+    --line-height-no-units: 20;
+    --line-height: calc(var(--line-height-no-units) / var(--font-size-no-units));
+
+    --thin-border-size: calc(1em / var(--font-size-no-units));
+    --list-padding1: 1.4em;
+    --list-padding2: var(--list-padding1);
+
+    --entry-horizontal-padding: 0.72em;
+    --entry-vertical-padding: 0.72em;
+
+    /* Tag sizing */
+    --tag-height-no-units: 20;
+    --tag-height: calc(1em * var(--tag-height-no-units) / var(--font-size-no-units));
+    --tag-font-size-no-units: 11;
+    --tag-font-size: calc(1em * var(--tag-font-size-no-units) / var(--font-size-no-units));
+    --tag-border-radius: 0.25em;
+    --tag-font-weight: bold;
+    --tag-border-size-no-units: 1;
+    --tag-border-size: calc(1em * (var(--tag-border-size-no-units) / var(--font-size-no-units)));
+    --tag-border-style: solid;
+
+    /* Tag colors */
+    --tag-text-color: #ffffff;
+    --tag-default-background-color: #8a8a91;
+    --tag-name-background-color: #b6327a;
+    --tag-expression-background-color: #f0ad4e;
+    --tag-popular-background-color: #0275d8;
+    --tag-frequent-background-color: #5bc0de;
+    --tag-archaism-background-color: #d9534f;
+    --tag-dictionary-background-color: #aa66cc;
+    --tag-frequency-background-color: #5cb85c;
+    --tag-part-of-speech-background-color: #565656;
+    --tag-search-background-color: #8a8a91;
+    --tag-pronunciation-dictionary-background-color: #6640be;
+
+    /* General colors */
+    --text-color: #000000;
+    --text-color-light3: #777777;
+    --text-color-light4: #888888;
+    --background-color: #ffffff;
+    --light-border-color: #eeeeee;
+    --link-color: #1a73e8;
+    --accent-color: #1a73e8;
+    --notification-background-color-lighter: #bbbbbb;
+    --checkbox-disabled-color: #aaaaaa;
+
+    /* Headword colors */
+    --headword-text-color: var(--text-color);
+    --headword-furigana-text-color: var(--headword-text-color);
+    --headword-reading-text-color: var(--headword-furigana-text-color);
+}
+
+/* Root font size — everything is sized relative to this */
+:root {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* General resets */
+ol, ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+a {
+    color: var(--link-color);
+    text-decoration: underline;
+    cursor: pointer;
+}
+h2 {
+    font-size: calc(1em * 1.25);
+    font-weight: normal;
+    margin: 0.25em 0 0;
+    border-bottom: calc(1em / (var(--font-size-no-units) * 1.25)) solid var(--light-border-color);
+}
+h3 {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0.25em 0 0.375em;
+    padding: 0;
+}
+
+/* Entries */
+.entry {
+    padding: var(--entry-vertical-padding) var(--entry-horizontal-padding);
+    position: relative;
+}
+.entry + .entry {
+    border-top: var(--thin-border-size) solid var(--light-border-color);
+}
+.entry-body {
+    clear: both;
+}
+
+/* Headword — ruby with furigana */
+.headword-term {
+    color: var(--headword-text-color);
+    font-size: var(--headword-font-size);
+}
+.headword-term > ruby > rt {
+    color: var(--headword-furigana-text-color);
+    font-size: 0.5em;
+}
+
+/* Tags — definition-level colored pills */
+.tag {
+    --tag-color: var(--tag-default-background-color);
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    font-size: 1em;
+    min-height: var(--tag-height);
+    margin: calc(1em / var(--font-size-no-units)) 0.375em calc(1em / var(--font-size-no-units)) 0;
+}
+.tag-label {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    background-color: var(--tag-color);
+    border-radius: var(--tag-border-radius);
+    padding: calc(2.5em / var(--font-size-no-units)) 0.375em;
+    color: var(--tag-text-color);
+    cursor: pointer;
+}
+.tag-label-content {
+    display: block;
+    font-size: var(--tag-font-size);
+    font-weight: var(--tag-font-weight);
+}
+.tag[data-category=name]            { --tag-color: var(--tag-name-background-color); }
+.tag[data-category=expression]      { --tag-color: var(--tag-expression-background-color); }
+.tag[data-category=popular]         { --tag-color: var(--tag-popular-background-color); }
+.tag[data-category=frequent]        { --tag-color: var(--tag-frequent-background-color); }
+.tag[data-category=archaism]        { --tag-color: var(--tag-archaism-background-color); }
+.tag[data-category=dictionary]      { --tag-color: var(--tag-dictionary-background-color); }
+.tag[data-category=frequency]       { --tag-color: var(--tag-frequency-background-color); }
+.tag[data-category=partOfSpeech]    { --tag-color: var(--tag-part-of-speech-background-color); }
+.tag[data-category=search]          { --tag-color: var(--tag-search-background-color); }
+.tag[data-category=pronunciation-dictionary] { --tag-color: var(--tag-pronunciation-dictionary-background-color); }
+
+/* Definitions */
+.definition-list {
+    margin: 0;
+    /* Remove padding, it is only relevant for multiple definitions from different dicts */
+    padding: 0;
+    list-style-type: none;
+}
+.gloss-content {
+    display: block;
+    white-space: pre-line;
+}
+.definition-item {
+    display: list-item;
+    position: relative;
+}
+.definition-item-inner {
+    display: flex;
+    flex-flow: row nowrap;
+}
+.definition-item-content {
+    width: 100%;
+    flex: 1 1 auto;
+}
+
+/* Structured content — lists and collapsibles */
+.gloss-sc-ol,
+.gloss-sc-ul {
+    padding-left: var(--list-padding2);
+}
+.gloss-sc-details {
+    padding-left: var(--list-padding1);
+}
+.gloss-sc-summary {
+    list-style-position: outside;
+    cursor: pointer;
+}
+
+/* Structured content — span/div generic nodes */
+.gloss-sc-span,
+.gloss-sc-div,
+.gloss-sc-li {
+    display: revert;
+}
+
+/* Links */
+.gloss-link-text {
+    color: var(--link-color);
+    vertical-align: baseline;
+    text-decoration: underline;
+}

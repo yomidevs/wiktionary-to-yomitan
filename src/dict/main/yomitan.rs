@@ -15,20 +15,22 @@ use crate::{
         kaikki::{Example, Offset, Synonym, Tag},
         yomitan::{
             BacklinkContent, BacklinkContentKind, DetailedDefinition, GenericNode, NTag, Node,
-            NodeData, NodeDataKey, TagInfo, TermInfo, TermInfoForm, YomitanDict, wrap,
+            NodeData, NodeDataKey, TagInfo, TermBankEntry, TermBankEntryForm, YomitanDict, wrap,
         },
     },
     tags::{Pos, find_tag_in_bank, localize_tag, localize_tag_info},
 };
 
 pub fn to_yomitan_impl(langs: LangSpecs, irs: &Tidy) -> YomitanDict {
-    let term_info = to_yomitan_lemmas(langs.target, &irs.lemma_map);
-    let term_info_form = to_yomitan_forms(langs.source, &irs.form_map);
-    YomitanDict::new(term_info, term_info_form, vec![])
+    YomitanDict::new(
+        to_yomitan_lemmas(langs.target, &irs.lemma_map),
+        to_yomitan_forms(langs.source, &irs.form_map),
+        vec![],
+    )
 }
 
 #[tracing::instrument(skip_all, level = "trace")]
-fn to_yomitan_lemmas(target: Lang, lemma_map: &LemmaMap) -> Vec<TermInfo> {
+fn to_yomitan_lemmas(target: Lang, lemma_map: &LemmaMap) -> Vec<TermBankEntry> {
     lemma_map
         .flat_iter()
         .map(move |(lemma, reading, pos, info)| to_yomitan_lemma(target, lemma, reading, pos, info))
@@ -41,7 +43,7 @@ fn to_yomitan_lemma(
     reading: &str,
     pos: Pos,
     info: &LemmaInfo,
-) -> TermInfo {
+) -> TermBankEntry {
     let short_pos = pos.short();
 
     let common_tag_infos_found = get_found_tags(pos, info);
@@ -82,7 +84,7 @@ fn to_yomitan_lemma(
         info.link_kaikki.clone(),
     ));
 
-    TermInfo::new(
+    TermBankEntry::new(
         lemma.to_string(),
         reading.to_string(),
         definition_tags,
@@ -459,7 +461,7 @@ fn sanitize_offsets(offsets: &[Offset], upto: usize) -> Vec<Offset> {
 }
 
 #[tracing::instrument(skip_all, level = "trace")]
-fn to_yomitan_forms(source: Lang, form_map: &FormMap) -> Vec<TermInfoForm> {
+fn to_yomitan_forms(source: Lang, form_map: &FormMap) -> Vec<TermBankEntryForm> {
     form_map
         .flat_iter()
         .map(move |(uninflected, inflected, pos, _, tags)| {
@@ -481,7 +483,7 @@ fn to_yomitan_forms(source: Lang, form_map: &FormMap) -> Vec<TermInfoForm> {
 
             let short_pos = pos.short();
 
-            TermInfoForm::new(
+            TermBankEntryForm::new(
                 normalized_inflected,
                 reading,
                 get_rule_identifier(short_pos),

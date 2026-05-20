@@ -28,7 +28,7 @@ pub fn write_debug_forms(_: &Options, _: &PathManager, ydict: YomitanDict) -> Re
     let mut grouped_by: HashMap<&str, Vec<&str>> = HashMap::new();
     let mut from_to_rules: HashMap<&str, Vec<&str>> = HashMap::new(); // it's short pos
 
-    for entry in &ydict.term_info_form {
+    for entry in &ydict.term_bank_form {
         for def in &entry.definitions {
             let DetailedDefinition::Inflection((from, _tags)) = def else {
                 panic!("forms must be made from inflections");

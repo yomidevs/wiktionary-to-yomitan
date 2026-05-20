@@ -6,51 +6,30 @@ use maud::{Markup, html};
 pub trait Renderer {
     fn render_entry(entry: &YomitanEntry) -> Markup {
         match entry {
-            YomitanEntry::TermInfo(t) => Self::render_term_info(t),
-            YomitanEntry::TermInfoForm(t) => Self::render_term_info_form(t),
-            YomitanEntry::TermMeta(t) => Self::render_term_meta(t),
+            YomitanEntry::TermBankEntry(t) => Self::render_term_bank_entry(t),
+            YomitanEntry::TermBankEntryForm(t) => Self::render_term_bank_entry_form(t),
+            YomitanEntry::TermMetaBankEntry(t) => Self::render_term_meta_bank_entry(t),
         }
     }
 
-    // 1. Reading
-    // A simple reading can be rendered with
-    // div class="entry" {
-    //    h2 { (self.term) }
-    //    div class="reading" { (self.reading) }
-    //    ...
-    // but yomitan renders them as ruby.
-    // See https://github.com/yomidevs/yomitan/blob/master/ext/js/display/display-generator.js#L1050
-    //
-    // WARN: rendering as ruby may not be supported in some readers.
-    // See https://github.com/koreader/koreader/issues/15259#issuecomment-4231135351
-    //
-    //
-    // 2. Multiple definitions
-    // This part works in yomitan because they group multiple definitions...
-    // but other formats may not.
-    //
-    // It is unclear to me if we want to merge them or not, prior to this rendering.
-    //
-    // Note that, for the main dictionary, we always have exactly one definition in lemmas.
-    // This is NOT true for forms in the main dictionary, nor for the glossary dictionary.
-    fn render_term_info(entry: &TermInfo) -> Markup {
+    fn render_term_bank_entry(entry: &TermBankEntry) -> Markup {
         html! {
             div class="entry" {
                 div class="headword" {
-                    (Self::render_headword(&entry.term, &entry.reading))
-                }
-                div class="definition-tag-list tag-list" {
-                    @for tag in &entry.definition_tags {
-                        (Self::render_definition_tag(tag))
+                    span class="headword-term" {
+                        (Self::render_headword(&entry.term, &entry.reading))
                     }
                 }
-                @if entry.definitions.len() == 1 {
-                    (Self::render_detailed_definition(&entry.definitions[0]))
-                } @else {
-                    ol class="definition-list" {
-                        @for def in &entry.definitions {
-                            li {
-                                (Self::render_detailed_definition(def))
+                div class="entry-body" {
+                    (Self::render_definition_tags(&entry.definition_tags))
+                    @if entry.definitions.len() == 1 {
+                        (Self::render_detailed_definition(&entry.definitions[0]))
+                    } @else {
+                        ol class="definition-list" {
+                            @for def in &entry.definitions {
+                                li {
+                                    (Self::render_detailed_definition(def))
+                                }
                             }
                         }
                     }
@@ -65,6 +44,16 @@ pub trait Renderer {
                 (term)
                 @if !reading.is_empty() {
                     rt { (reading) }
+                }
+            }
+        )
+    }
+
+    fn render_definition_tags(tags: &[TagInfo]) -> Markup {
+        html!(
+            div class="definition-tag-list tag-list" {
+                @for tag in tags {
+                    (Self::render_definition_tag(tag))
                 }
             }
         )
@@ -85,7 +74,7 @@ pub trait Renderer {
         )
     }
 
-    fn render_term_info_form(entry: &TermInfoForm) -> Markup {
+    fn render_term_bank_entry_form(entry: &TermBankEntryForm) -> Markup {
         html! {
             div class="entry form" {
                 h2 { (&entry.term) }
@@ -99,8 +88,8 @@ pub trait Renderer {
         }
     }
 
-    fn render_term_meta(entry: &TermMeta) -> Markup {
-        let TermMeta::TermPhoneticTranscription(tm) = entry;
+    fn render_term_meta_bank_entry(entry: &TermMetaBankEntry) -> Markup {
+        let TermMetaBankEntry::TermPhoneticTranscription(tm) = entry;
         html! {
             div class="entry form" {
                 h2 { (tm.term) }
@@ -123,7 +112,11 @@ pub trait Renderer {
     fn render_detailed_definition(def: &DetailedDefinition) -> Markup {
         match def {
             DetailedDefinition::Text(s) => html! { (s) },
-            DetailedDefinition::StructuredContent(s) => Self::render_structured_content(s),
+            DetailedDefinition::StructuredContent(s) => html! {
+                span class="gloss-content structured-content" {
+                    (Self::render_structured_content(s))
+                }
+            },
             DetailedDefinition::Inflection((label, forms)) => html! {
                 b { (label) } ": " (forms.join(", "))
             },
@@ -152,6 +145,8 @@ pub trait Renderer {
         false
     }
 
+    // This is way more convoluted that the pangloss version because maud requires
+    // knowing the tag at compile time...
     fn render_generic_node(node: &GenericNode) -> Markup {
         if Self::skip_render_generic_node(node) {
             return html! {};
@@ -166,17 +161,14 @@ pub trait Renderer {
         let category_attr = data
             .and_then(|d| d.0.get(&NodeDataKey::Category))
             .map(|s| s.as_str());
-        let class = match content_attr {
-            Some("tag") => Some("gloss-sc-span"),
-            _ => None,
-        };
+        let class = format!("gloss-sc-{}", node.tag.as_str());
 
         // https://github.com/lambda-fairy/maud/issues/240
         // The attr=[value] syntax skips the attribute if the value is None
         match node.tag {
             NTag::Span => html! {
                 span
-                    class=[class]
+                    class=(class)
                     title=[node.title.clone()]
                     data-sc-content=[content_attr]
                     data-sc-category=[category_attr]
@@ -184,37 +176,42 @@ pub trait Renderer {
             },
             NTag::Div => html! {
                 div
-                    class=[class]
+                    class=(class)
                     data-sc-content=[content_attr]
                     data-sc-category=[category_attr]
                 { (content) }
             },
             NTag::Ol => html! {
                 ol
+                    class=(class)
                     data-sc-content=[content_attr]
                     data-sc-category=[category_attr]
                 { (content) }
             },
             NTag::Ul => html! {
                 ul
+                    class=(class)
                     data-sc-content=[content_attr]
                     data-sc-category=[category_attr]
                 { (content) }
             },
             NTag::Li => html! {
                 li
+                    class=(class)
                     data-sc-content=[content_attr]
                     data-sc-category=[category_attr]
                 { (content) }
             },
             NTag::Details => html! {
                 details
+                    class=(class)
                     data-sc-content=[content_attr]
                     data-sc-category=[category_attr]
                 { (content) }
             },
             NTag::Summary => html! {
                 summary
+                    class=(class)
                     data-sc-content=[content_attr]
                     data-sc-category=[category_attr]
                 { (content) }

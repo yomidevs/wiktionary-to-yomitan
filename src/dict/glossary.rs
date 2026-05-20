@@ -7,7 +7,7 @@ use crate::{
     lang::{Edition, Lang},
     models::{
         kaikki::WordEntry,
-        yomitan::{DetailedDefinition, NTag, Node, TermInfo, YomitanDict, wrap},
+        yomitan::{DetailedDefinition, NTag, Node, TermBankEntry, YomitanDict, wrap},
     },
     tags::{Pos, find_tag_in_bank, localize_tag_info},
 };
@@ -20,7 +20,7 @@ pub struct DGlossaryExtended;
 
 impl Dictionary for DGlossary {
     type A = GlossaryArgs;
-    type I = Vec<TermInfo>;
+    type I = Vec<TermBankEntry>;
 
     fn process(&self, langs: Langs, entry: &WordEntry, irs: &mut Self::I) {
         process_glossary(langs.edition, langs.target, entry, irs);
@@ -68,7 +68,12 @@ impl Dictionary for DGlossaryExtended {
     }
 }
 
-fn process_glossary(source: Edition, target: Lang, entry: &WordEntry, irs: &mut Vec<TermInfo>) {
+fn process_glossary(
+    source: Edition,
+    target: Lang,
+    entry: &WordEntry,
+    irs: &mut Vec<TermBankEntry>,
+) {
     let mut translations: Map<&str, Vec<String>> = Map::default();
     for translation in entry.non_trivial_translations() {
         if translation.lang_code == target.iso() {
@@ -122,7 +127,7 @@ fn process_glossary(source: Edition, target: Lang, entry: &WordEntry, irs: &mut 
     let pos = Pos::from(entry.pos.as_str());
     let rules = pos.short();
 
-    irs.push(TermInfo::new(
+    irs.push(TermBankEntry::new(
         entry.word.clone(),
         reading,
         definition_tags,
@@ -181,7 +186,7 @@ fn process_glossary_extended(
     }));
 }
 
-fn to_yomitan_glossary_extended(target: Lang, irs: &IGlossaryExtended) -> Vec<TermInfo> {
+fn to_yomitan_glossary_extended(target: Lang, irs: &IGlossaryExtended) -> Vec<TermBankEntry> {
     irs.iter()
         .map(|(lemma, pos, _, translations)| {
             let definition_tags = match find_tag_in_bank(pos.long()) {
@@ -193,7 +198,7 @@ fn to_yomitan_glossary_extended(target: Lang, irs: &IGlossaryExtended) -> Vec<Te
             };
             let rules = pos.short();
 
-            TermInfo::new(
+            TermBankEntry::new(
                 lemma.clone(),
                 String::new(),
                 definition_tags,

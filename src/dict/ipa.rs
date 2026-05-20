@@ -7,7 +7,9 @@ use crate::{
     lang::{Edition, Lang},
     models::{
         kaikki::WordEntry,
-        yomitan::{Ipa, PhoneticTranscription, TermMeta, TermPhoneticTranscription, YomitanDict},
+        yomitan::{
+            Ipa, PhoneticTranscription, TermMetaBankEntry, TermPhoneticTranscription, YomitanDict,
+        },
     },
     tags::{find_tag_in_bank, localize_tag},
 };
@@ -162,7 +164,7 @@ fn process_ipa(edition: Edition, source: Lang, target: Lang, entry: &WordEntry, 
     }
 }
 
-fn to_yomitan_ipa(irs: &IIpa) -> Vec<TermMeta> {
+fn to_yomitan_ipa(irs: &IIpa) -> Vec<TermMetaBankEntry> {
     irs.into_iter()
         .map(|((lemma, reading), transcriptions)| {
             // NOTE: sorting is tricky because the order in Wiktionary may matter, with the first
@@ -173,7 +175,7 @@ fn to_yomitan_ipa(irs: &IIpa) -> Vec<TermMeta> {
             //
             // transcriptions.sort_unstable_by(|a, b| ipa_inner(&a.ipa).cmp(ipa_inner(&b.ipa)));
 
-            TermMeta::TermPhoneticTranscription(TermPhoneticTranscription::new(
+            TermMetaBankEntry::TermPhoneticTranscription(TermPhoneticTranscription::new(
                 lemma.clone(),
                 PhoneticTranscription {
                     reading: reading.clone(),

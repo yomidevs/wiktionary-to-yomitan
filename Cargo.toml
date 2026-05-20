@@ -45,6 +45,8 @@ rayon = { version = "1.12.0", default-features = false }
 rusqlite = { version = "0.38.0", default-features = false, features = ["bundled"] }
 walkdir = { version = "2.5.0", default-features = false }
 maud = { version = "0.27.0", default-features = false }
+# pangloss = { path = "../pangloss/" }
+pangloss = "0.1.6"
 
 [dev-dependencies]
 criterion = "0.8.2"
