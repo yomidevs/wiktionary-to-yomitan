@@ -114,7 +114,7 @@ fn get_found_tags(pos: Pos, info: &LemmaInfo) -> Vec<TagInfo> {
     std::iter::once(pos.long())
         .chain(info.tags.iter().map(String::as_str)) // top level tags (the non-En preferred way)
         .chain(common_tags_iter)
-        .filter_map(|tag| find_tag_in_bank(tag))
+        .filter_map(find_tag_in_bank)
         .collect()
 }
 

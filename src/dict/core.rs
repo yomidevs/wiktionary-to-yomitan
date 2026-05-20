@@ -154,9 +154,7 @@ impl fmt::Debug for Langs {
     }
 }
 
-pub(crate) fn iter_datasets(
-    pm: &PathManager,
-) -> impl Iterator<Item = Result<(Edition, PathBuf)>> + '_ {
+pub fn iter_datasets(pm: &PathManager) -> impl Iterator<Item = Result<(Edition, PathBuf)>> + '_ {
     let (edition_pm, source_pm, _) = pm.langs();
 
     edition_pm.variants().into_iter().map(move |edition| {
@@ -169,7 +167,7 @@ pub(crate) fn iter_datasets(
 
 #[derive(Deserialize)]
 #[serde(default)]
-pub(crate) struct LangCodeProbe<'a> {
+pub struct LangCodeProbe<'a> {
     #[serde(borrow)]
     lang_code: Cow<'a, str>,
 }

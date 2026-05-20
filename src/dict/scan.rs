@@ -44,7 +44,7 @@ impl TagDiagnostics {
             return;
         }
 
-        self.process_simple(tag.to_string());
+        self.process_simple(tag.clone());
 
         match find_tag_in_bank(&tag) {
             // No localizations for English: go a bit faster

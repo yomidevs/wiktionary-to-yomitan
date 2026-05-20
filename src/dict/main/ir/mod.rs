@@ -100,7 +100,7 @@ impl Tidy {
     }
 }
 
-pub(crate) fn postprocess_main(irs: &mut Tidy) {
+pub fn postprocess_main(irs: &mut Tidy) {
     postprocess_forms(&mut irs.form_map);
 
     // Check for form redirects A > B where B does not have a lemma, to remove bloat.
@@ -137,7 +137,7 @@ fn check_orphaned_redirects(irs: &mut Tidy) {
     tracing::error!("{orphaned_count} orphaned_count from {total}");
 }
 
-pub(crate) fn found_ir_message_impl(langs: LangSpecs, irs: &Tidy) {
+pub fn found_ir_message_impl(langs: LangSpecs, irs: &Tidy) {
     let n_lemmas = irs.lemma_map.len();
     let n_forms = irs.form_map.len();
     let n_irs = n_lemmas + n_forms;
@@ -280,7 +280,7 @@ impl FormKey {
         }
     }
 
-    fn unpack(&self) -> (&str, &str, Pos) {
+    const fn unpack(&self) -> (&str, &str, Pos) {
         (self.uninflected.as_str(), self.inflected.as_str(), self.pos)
     }
 }
@@ -473,7 +473,7 @@ fn postprocess_forms(form_map: &mut FormMap) {
     }
 }
 
-pub(crate) fn process_main(edition: Edition, source: Lang, entry: &WordEntry, irs: &mut Tidy) {
+pub fn process_main(edition: Edition, source: Lang, entry: &WordEntry, irs: &mut Tidy) {
     process_forms(edition, source, entry, irs);
 
     process_alt_forms(entry, irs);
@@ -498,13 +498,13 @@ pub(crate) fn process_main(edition: Edition, source: Lang, entry: &WordEntry, ir
 /// Whether we should completely skip this entry.
 ///
 /// The function is trivial at the moment and only relevant for the [ja-en] dict.
-pub(crate) fn should_skip_entry(entry: &WordEntry) -> bool {
+pub fn should_skip_entry(entry: &WordEntry) -> bool {
     // https://en.wiktionary.org/wiki/toraware#Japanese
     entry.pos == "romanization"
 }
 
 // Everything that mutates entry
-pub(crate) fn preprocess_main(
+pub fn preprocess_main(
     edition: Edition,
     source: Lang,
     opts: &Options,
@@ -829,7 +829,7 @@ pub fn get_reading(edition: Edition, source: Lang, entry: &WordEntry) -> Option<
 fn get_canonical_word(source: Lang, entry: &WordEntry) -> Option<String> {
     match source {
         Lang::La | Lang::Ru | Lang::Grc | Lang::Ar | Lang::Fa => {
-            entry.canonical_form().map(|f| f.form.to_string())
+            entry.canonical_form().map(|f| f.form.clone())
         }
         _ => None,
     }
@@ -1302,11 +1302,11 @@ static JA_KANJI_RE: LazyLock<Regex> = LazyLock::new(|| {
 /// instead of using the proper {{wago}} template.
 ///
 /// Example pages:
-/// - https://ja.wiktionary.org/wiki/減らす (correct page)
-/// - https://ja.wiktionary.org/wiki/好み#Japanese (このみの漢字表記。)
-/// - https://ja.wiktionary.org/wiki/勢い#日本語 (いきおい　参照)
-/// - https://ja.wiktionary.org/wiki/諄い (くどいを参照。)
-/// - https://ja.wiktionary.org/wiki/予言 (「かねごと」参照。)
+/// - <https://ja.wiktionary.org/wiki/減らす> (correct page)
+/// - <https://ja.wiktionary.org/wiki/好み#Japanese> (このみの漢字表記。)
+/// - <https://ja.wiktionary.org/wiki/勢い#日本語> (いきおい　参照)
+/// - <https://ja.wiktionary.org/wiki/諄い> (くどいを参照。)
+/// - <https://ja.wiktionary.org/wiki/予言> (「かねごと」参照。)
 fn handle_see_sense(edition: Edition, entry: &WordEntry, sense: &Sense, irs: &mut Tidy) -> bool {
     let Some(gloss) = (matches!(edition, Edition::Ja))
         .then(|| sense.glosses.first())
@@ -1334,7 +1334,7 @@ fn handle_see_sense(edition: Edition, entry: &WordEntry, sense: &Sense, irs: &mu
     true
 }
 
-pub(crate) fn normalize_orthography(source: Lang, word: &str) -> String {
+pub fn normalize_orthography(source: Lang, word: &str) -> String {
     const ARABIC_DIACRITICS: [char; 16] = [
         '\u{0618}', '\u{0619}', '\u{061A}', '\u{064B}', '\u{064C}', '\u{064D}', '\u{064E}',
         '\u{064F}', '\u{0650}', '\u{0651}', '\u{0652}', '\u{0653}', '\u{0654}', '\u{0655}',

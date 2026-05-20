@@ -157,10 +157,10 @@ pub trait Renderer {
         let data = node.data.as_ref();
         let content_attr = data
             .and_then(|d| d.0.get(&NodeDataKey::Content))
-            .map(|s| s.as_str());
+            .map(String::as_str);
         let category_attr = data
             .and_then(|d| d.0.get(&NodeDataKey::Category))
-            .map(|s| s.as_str());
+            .map(String::as_str);
         let class = format!("gloss-sc-{}", node.tag.as_str());
 
         // https://github.com/lambda-fairy/maud/issues/240

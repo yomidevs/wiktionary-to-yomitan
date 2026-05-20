@@ -540,7 +540,7 @@ impl From<&str> for Pos {
 }
 
 impl Pos {
-    pub fn long(&self) -> &str {
+    pub const fn long(&self) -> &str {
         match self {
             Self::Adjective => "adjective",
             Self::AdjNoun => "adj_noun",
@@ -580,7 +580,7 @@ impl Pos {
 }
 
 impl Pos {
-    pub fn short(&self) -> &str {
+    pub const fn short(&self) -> &str {
         match self {
             Self::Adjective => "adj",
             Self::AdjNoun => "adj_noun",

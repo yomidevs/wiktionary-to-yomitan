@@ -33,7 +33,7 @@ pub fn merge_tags_by_person(tags: &mut Vec<Tag>) {
 
         match person_tags.as_slice() {
             [person] => grouped.entry(other_tags).or_default().push(person),
-            _ => tags.push(tag.to_string()),
+            _ => tags.push(tag.clone()),
         }
     }
 
@@ -144,7 +144,7 @@ fn merge_tags_by_category(tags: &mut Vec<Tag>, category_tags: &[&str]) {
 
         match person_tags.as_slice() {
             [person] => grouped.entry(other_tags).or_default().push(person),
-            _ => tags.push(tag.to_string()),
+            _ => tags.push(tag.clone()),
         }
     }
 

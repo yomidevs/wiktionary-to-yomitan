@@ -189,7 +189,7 @@ def generate_tags_rs(
 
     # long
     w("impl Pos {\n")
-    w(f"{idt}pub fn long(&self) -> &str {{\n")
+    w(f"{idt}pub const fn long(&self) -> &str {{\n")
     w(f"{idt * 2}match self {{\n")
     for pos in poses:
         w(f'{idt * 3}Self::{pos.ident} => "{pos.long_tag()}",\n')
@@ -201,7 +201,7 @@ def generate_tags_rs(
 
     # short
     w("impl Pos {\n")
-    w(f"{idt}pub fn short(&self) -> &str {{\n")
+    w(f"{idt}pub const fn short(&self) -> &str {{\n")
     w(f"{idt * 2}match self {{\n")
     for pos in poses:
         w(f'{idt * 3}Self::{pos.ident} => "{pos.short_tag}",\n')

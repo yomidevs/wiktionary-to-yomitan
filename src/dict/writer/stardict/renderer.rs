@@ -1,4 +1,4 @@
-//! Rendering for the Stardict format that mostly targets KOReader.
+//! Rendering for the Stardict format that mostly targets `KOReader`.
 //!
 //! Note that, as of now, ruby is not supported, nor are links.
 
@@ -20,7 +20,7 @@ impl Renderer for StardictRenderer {
         let data = node.data.as_ref();
         let content_attr = data
             .and_then(|d| d.0.get(&NodeDataKey::Content))
-            .map(|s| s.as_str());
+            .map(String::as_str);
         matches!(
             content_attr,
             Some("preamble" | "summary-entry" | "example-sentence")

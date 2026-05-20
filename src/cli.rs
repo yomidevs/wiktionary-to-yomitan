@@ -289,7 +289,7 @@ impl FilterKey {
             "lang_code" => Ok(Self::LangCode),
             "word" => Ok(Self::Word),
             "pos" => Ok(Self::Pos),
-            other => bail!("unknown filter key '{other}'. Choose between: lang_code | word | pos",),
+            other => bail!("unknown filter key '{other}'. Choose between: lang_code | word | pos"),
         }
     }
 }
