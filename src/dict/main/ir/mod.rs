@@ -561,7 +561,7 @@ fn process_forms(edition: Edition, source: Lang, entry: &WordEntry, irs: &mut Ti
             break;
         }
 
-        if should_skip_form(edition, source, &entry.pos, form) {
+        if should_skip_form(edition, source, entry, form) {
             continue;
         }
 
@@ -595,7 +595,7 @@ fn process_forms(edition: Edition, source: Lang, entry: &WordEntry, irs: &mut Ti
 //
 // Eventually it would be preferable if these were done at wiktextract level, but let's do the work
 // ourselves for now
-fn should_skip_form(edition: Edition, source: Lang, pos: &str, form: &Form) -> bool {
+fn should_skip_form(edition: Edition, source: Lang, entry: &WordEntry, form: &Form) -> bool {
     match (edition, source) {
         (Edition::Fr, Lang::Fr) => {
             // Objectively better
@@ -655,18 +655,11 @@ fn should_skip_form(edition: Edition, source: Lang, pos: &str, form: &Form) -> b
             }
         }
         (Edition::Ja, Lang::Ja) => {
-            // Skip {{ja-noun-suru}} conjugation table.
-            // Yomitan will find a result anyway if search resolution is set to Letter (as it
-            // works best for Japanese).
-            // The issue is that sometimes the pos is "verb" depending on the editor, and on if they
-            // decided to add the table in a "verb" section... And selecting pos == "verb" trims
-            // actually useful tables of non-suru verbs.
-            if pos == "noun"
-                && !form
-                    .tags
-                    .iter()
-                    .any(|tag| tag == "transliteration" || tag == "kanji")
-            {
+            // Since we expect "Letter" as Yomitan "Dictionary search resolution", forms prefixed
+            // by the lemma are redundant.
+            // - lemma: ぷくぷく
+            // - forms: ぷくぷくし | ぷくぷくせ | ぷくぷくさ etc.
+            if form.form.starts_with(&entry.word) {
                 return true;
             }
         }

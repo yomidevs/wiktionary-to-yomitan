@@ -23,113 +23,6 @@
           "transliteration"
         ]
       ]
-    },
-    "立命し": {
-      "verb": [
-        "extracted",
-        [
-          "imperfective sa-row irregular",
-          "sa-row irregular continuative"
-        ]
-      ]
-    },
-    "立命せ": {
-      "verb": [
-        "extracted",
-        [
-          "imperfective sa-row irregular"
-        ]
-      ]
-    },
-    "立命さ": {
-      "verb": [
-        "extracted",
-        [
-          "imperfective sa-row irregular"
-        ]
-      ]
-    },
-    "立命する": {
-      "verb": [
-        "extracted",
-        [
-          "definitive terminal",
-          "sa-row irregular attributive",
-          "sa-row irregular terminal"
-        ]
-      ]
-    },
-    "立命すれ": {
-      "verb": [
-        "extracted",
-        [
-          "sa-row irregular hypothetical"
-        ]
-      ]
-    },
-    "立命しろ": {
-      "verb": [
-        "extracted",
-        [
-          "imperative sa-row irregular"
-        ]
-      ]
-    },
-    "立命せよ": {
-      "verb": [
-        "extracted",
-        [
-          "imperative sa-row irregular"
-        ]
-      ]
-    },
-    "立命しない": {
-      "verb": [
-        "extracted",
-        [
-          "imperfective negative"
-        ]
-      ]
-    },
-    "立命される": {
-      "verb": [
-        "extracted",
-        [
-          "imperfective active passive possibly honorific"
-        ]
-      ]
-    },
-    "立命します": {
-      "verb": [
-        "extracted",
-        [
-          "polite continuative"
-        ]
-      ]
-    },
-    "立命した": {
-      "verb": [
-        "extracted",
-        [
-          "past completive continuative"
-        ]
-      ]
-    },
-    "立命すること": {
-      "verb": [
-        "extracted",
-        [
-          "noun-from-verb attributive"
-        ]
-      ]
-    },
-    "立命すれば": {
-      "verb": [
-        "extracted",
-        [
-          "conditional hypothetical"
-        ]
-      ]
     }
   },
   "全然": {
@@ -251,14 +144,6 @@
         "extracted",
         [
           "past completive continuative"
-        ]
-      ]
-    },
-    "うえかえること": {
-      "verb": [
-        "extracted",
-        [
-          "noun-from-verb attributive"
         ]
       ]
     },
