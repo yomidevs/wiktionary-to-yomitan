@@ -12,6 +12,9 @@ use heap::HeapSize;
 mod preprocess_forms;
 use preprocess_forms::preprocess_forms;
 
+mod postprocess;
+pub use postprocess::postprocess_main;
+
 use crate::{
     Map, Set,
     cli::{LangSpecs, Options},
@@ -19,11 +22,7 @@ use crate::{
     lang::{Edition, Lang},
     models::kaikki::{Example, Form, HeadTemplate, Sense, Synonym, Tag, WordEntry},
     path::PathManager,
-    tags::{
-        Pos, REDUNDANT_FORM_TAGS, merge_tags_by_case, merge_tags_by_definitiveness,
-        merge_tags_by_gender, merge_tags_by_german_verb_type, merge_tags_by_person,
-        merge_tags_by_verb_form, remove_redundant_tags, sort_tags, sort_tags_by_similar,
-    },
+    tags::{Pos, REDUNDANT_FORM_TAGS},
     utils::{human_size, link_kaikki, link_wiktionary},
 };
 
@@ -98,43 +97,6 @@ impl Tidy {
 
         Ok(dir_tidy)
     }
-}
-
-pub fn postprocess_main(irs: &mut Tidy) {
-    postprocess_forms(&mut irs.form_map);
-
-    // Check for form redirects A > B where B does not have a lemma, to remove bloat.
-    // This can happen when:
-    // 1. A form redirects to another form that's not registered as a lemma
-    // 2. Data inconsistencies in the source dictionary
-    //
-    // Caveats:
-    // 1. People using multiple dictionaries, where B as a lemma in another dict.
-    // 2. A > B > C and C has a lemma (to test)
-    // check_orphaned_redirects(irs);
-}
-
-// For now, only diagnostic.
-#[allow(unused)]
-fn check_orphaned_redirects(irs: &mut Tidy) {
-    let mut orphaned_count = 0;
-    let total = irs.form_map.len();
-
-    let lemmas_found: Set<_> = irs
-        .lemma_map
-        .0
-        .iter()
-        .map(|(key, _)| key.lemma.as_str())
-        .collect();
-
-    for (uninfl, _, _, _, _) in irs.form_map.flat_iter() {
-        if !lemmas_found.contains(uninfl) {
-            // tracing::debug!("{:?} does not exist as lemma", uninfl);
-            orphaned_count += 1;
-        }
-    }
-
-    tracing::error!("{orphaned_count} orphaned_count from {total}");
 }
 
 pub fn found_ir_message_impl(langs: LangSpecs, irs: &Tidy) {
@@ -444,33 +406,6 @@ pub struct GlossInfo {
     /// on every leaf node - which is the common case.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub children: Option<Box<GlossTree>>,
-}
-
-fn postprocess_forms(form_map: &mut FormMap) {
-    for (_, _, _, _, tags) in form_map.flat_iter_mut() {
-        // Keep only unique tags and remove tags subsets
-        remove_redundant_tags(tags);
-
-        // Merges
-        // Note that while some of the merges are only relevant for certain editions,
-        // they are quite cheap, and don't deserve (for now), to be only applied in case
-        // we match some (Edition, Lang) pairs.
-        merge_tags_by_person(tags);
-        merge_tags_by_case(tags);
-        merge_tags_by_verb_form(tags);
-        merge_tags_by_definitiveness(tags); // [ko-en]
-        merge_tags_by_gender(tags);
-        merge_tags_by_german_verb_type(tags);
-
-        // Sort inner words
-        for tag in tags.iter_mut() {
-            let mut words: Vec<&str> = tag.split(' ').collect();
-            sort_tags(&mut words);
-            *tag = words.join(" ");
-        }
-
-        sort_tags_by_similar(tags);
-    }
 }
 
 pub fn process_main(edition: Edition, source: Lang, entry: &WordEntry, irs: &mut Tidy) {
@@ -844,6 +779,7 @@ fn get_japanese_reading(entry: &WordEntry) -> Option<String> {
     // There is no pronunciation template info in en-wiktextract, and while I think that
     // information ends up in sounds, it is not always reliable. For example:
     // https://en.wiktionary.org/wiki/お腹が空いた
+    // https://kaikki.org/dictionary/Japanese/meaning/お/お腹/お腹が空いた.html
     // has a pronunciation template:
     // {{ja-pron|おなか が すいた}}
     // but no "other" sounds, which is where pronunciations are usually stored.
