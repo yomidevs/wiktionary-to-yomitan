@@ -69,33 +69,29 @@ impl Tidy {
             .insert(uninflected, inflected, pos, source, tags);
     }
 
-    // NOTE: we write stuff even if irs.attribute is empty
     #[tracing::instrument(skip_all)]
     fn write(&self, pm: &PathManager) -> Result<PathBuf> {
         let dir_tidy = pm.dir_tidy();
         _ = std::fs::create_dir_all(&dir_tidy);
 
-        let opath = pm.path_lemmas();
-        let file = File::create(&opath)?;
-        let writer = BufWriter::new(file);
-
-        if pm.opts.pretty {
-            serde_json::to_writer_pretty(writer, &self.lemma_map)?;
-        } else {
-            serde_json::to_writer(writer, &self.lemma_map)?;
+        if !self.lemma_map.0.is_empty() {
+            self.write_json(pm.path_lemmas(), &self.lemma_map, pm.opts.pretty)?;
         }
-
-        let opath = pm.path_forms();
-        let file = File::create(&opath)?;
-        let writer = BufWriter::new(file);
-
-        if pm.opts.pretty {
-            serde_json::to_writer_pretty(writer, &self.form_map)?;
-        } else {
-            serde_json::to_writer(writer, &self.form_map)?;
+        if !self.form_map.0.is_empty() {
+            self.write_json(pm.path_forms(), &self.form_map, pm.opts.pretty)?;
         }
 
         Ok(dir_tidy)
+    }
+
+    fn write_json<T: Serialize>(&self, path: PathBuf, data: &T, pretty: bool) -> Result<()> {
+        let writer = BufWriter::new(File::create(&path)?);
+        if pretty {
+            serde_json::to_writer_pretty(writer, data)?;
+        } else {
+            serde_json::to_writer(writer, data)?;
+        }
+        Ok(())
     }
 }
 
