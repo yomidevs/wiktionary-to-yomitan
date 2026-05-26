@@ -135,6 +135,21 @@ impl Serialize for TagCounterWithLink {
     }
 }
 
+/// Check if the word has at least some Kanji.
+///
+/// This is used to exclude kana-only words from being labelled as having no readings.
+fn has_kanji(word: &str) -> bool {
+    word.chars().any(|c| {
+        matches!(c, '\u{4E00}'..='\u{9FFF}'
+            | '\u{3400}'..='\u{4DBF}'
+            | '\u{F900}'..='\u{FAFF}'
+            | '\u{20000}'..='\u{2A6DF}'
+            | '\u{2A700}'..='\u{2CEAF}'
+            | '\u{2CEB0}'..='\u{2EBEF}'
+        )
+    })
+}
+
 #[derive(Default, Serialize)]
 struct Diagnostics {
     words: i32,
@@ -154,7 +169,10 @@ impl Diagnostics {
         self.words += 1;
 
         if get_reading(edition, source, &entry).is_none() {
-            self.words_without_reading += 1;
+            match edition {
+                Edition::Ja if !has_kanji(&entry.word) => (),
+                _ => self.words_without_reading += 1,
+            }
         }
 
         let target: Lang = edition.into();
