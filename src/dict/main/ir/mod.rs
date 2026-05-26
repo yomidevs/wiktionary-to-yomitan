@@ -734,7 +734,14 @@ fn process_no_gloss(edition: Edition, entry: &WordEntry, irs: &mut Tidy) {
     }
 }
 
-// There are potentially more than one, but yomitan doesn't really support it
+// There are potentially more than one, but yomitan doesn't really support displaying
+// multiple readings at the same time (other than adding a copy of the yomitan entry).
+//
+// For Japanese, if there are multiple readings, they are added as forms, but the reading
+// displayed over the word is always the first, which is not what we want if we search
+// an alternative reading. F.e. in 鉛粉 (えんぷん 又は なまりふん), searching
+// なまりふん will display 鉛粉 with furigana えんぷん.
+// It is relatively rare (since extra readings are rare), and as such, it has low priority.
 pub fn get_reading(edition: Edition, source: Lang, entry: &WordEntry) -> Option<String> {
     match (edition, source) {
         (Edition::En, Lang::Ja) => get_japanese_reading(entry),
