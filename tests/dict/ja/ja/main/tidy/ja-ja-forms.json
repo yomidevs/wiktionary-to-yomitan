@@ -195,5 +195,23 @@
         ]
       ]
     }
+  },
+  "鉛粉": {
+    "えんぷん": {
+      "noun": [
+        "extracted",
+        [
+          "transliteration"
+        ]
+      ]
+    },
+    "なまりふん": {
+      "noun": [
+        "extracted",
+        [
+          "transliteration"
+        ]
+      ]
+    }
   }
 }

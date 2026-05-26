@@ -12,3 +12,4 @@
 {"word": "名前", "pos": "unknown", "lang_code": "ja", "lang": "日本語", "pos_title": "和語の漢字表記", "senses": [{"glosses": ["なまえの漢字表記。"], "form_of": [{"word": "なまえ"}]}], "categories": ["日本語", "日本語 和語の漢字表記"], "tags": ["form-of", "kanji"], "forms": [{"form": "なまえ", "tags": ["transliteration"]}]}
 {"word": "まわり", "pos": "counter", "lang_code": "ja", "lang": "日本語", "pos_title": "助数詞", "senses": [{"glosses": ["回る回数を表す語。"]}, {"glosses": ["年齢を12年を一つの期間で数える語。"]}]}
 {"word":"諄い","lang_code":"ja","lang":"日本語","pos":"unknown","pos_title":"和語の漢字表記","senses":[{"glosses":["くどいを参照。"]}],"categories":["日本語","日本語 和語の漢字表記"],"tags":["form-of","kanji"]}
+{"word":"鉛粉","lang_code":"ja","lang":"日本語","pos":"noun","pos_title":"名詞","senses":[{"glosses":["鉛を原料とする白色の顔料。かつてはおしろいに使われた。"]}],"categories":["日本語","日本語 名詞"],"forms":[{"form":"えんぷん","tags":["transliteration"]},{"form":"なまりふん","tags":["transliteration"]}],"related":[{"word":"鉛華"}]}
