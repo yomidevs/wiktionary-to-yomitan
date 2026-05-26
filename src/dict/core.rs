@@ -105,7 +105,7 @@ pub trait Dictionary {
     ///
     /// This can be implemented to merge entries from different edition, to postprocess tags etc.
     #[allow(unused_variables)]
-    fn postprocess(&self, irs: &mut Self::I) {}
+    fn postprocess(&self, langs: LangSpecs, irs: &mut Self::I) {}
 
     /// Console message for found irs. It is customized for the main dictionary.
     fn found_ir_message(&self, langs: LangSpecs, irs: &Self::I) {
@@ -270,7 +270,7 @@ pub fn make_dict_from_jsonl<D: Dictionary>(dict: D, raw_args: D::A) -> Result<()
         return Ok(());
     }
 
-    dict.postprocess(&mut irs);
+    dict.postprocess(pm.langs, &mut irs);
 
     opts.format.write(&dict, pm.langs, opts, pm, &irs)?;
 

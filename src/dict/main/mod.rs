@@ -31,8 +31,8 @@ impl Dictionary for DMain {
         ir::process_main(langs.edition, langs.source, entry, irs);
     }
 
-    fn postprocess(&self, irs: &mut Self::I) {
-        ir::postprocess_main(irs);
+    fn postprocess(&self, langs: LangSpecs, irs: &mut Self::I) {
+        ir::postprocess_main(langs, irs);
     }
 
     fn found_ir_message(&self, langs: LangSpecs, irs: &Self::I) {

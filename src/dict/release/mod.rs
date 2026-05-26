@@ -416,7 +416,7 @@ pub fn make_dict_from_db<D: Dictionary + DQuery>(dict: D, raw_args: D::A) -> Res
         return Ok(());
     }
 
-    dict.postprocess(&mut irs);
+    dict.postprocess(pm.langs, &mut irs);
 
     opts.format.write(&dict, pm.langs, opts, pm, &irs)?;
 

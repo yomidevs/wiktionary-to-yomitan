@@ -41,7 +41,7 @@ impl Dictionary for DIpaMerged {
         process_ipa(langs.edition, langs.source, langs.target, entry, irs);
     }
 
-    fn postprocess(&self, irs: &mut Self::I) {
+    fn postprocess(&self, _: LangSpecs, irs: &mut Self::I) {
         // Sorting is not needed ~ just for visibility
         irs.sort_unstable_keys();
     }
@@ -303,7 +303,7 @@ mod tests {
         entry.sounds = vec![Sound::new("ipa2")];
         dict.process(langs, &entry, &mut irs);
 
-        dict.postprocess(&mut irs);
+        dict.postprocess(LangSpecs::from(langs), &mut irs);
 
         let keys: Vec<&String> = irs.keys().map(|(word, _)| word).collect();
         assert_eq!(keys, vec!["apple", "zebra"]);

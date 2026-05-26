@@ -44,7 +44,7 @@ impl Dictionary for DGlossaryExtended {
     }
 
     // TODO: change type "I" to not have to merge lemmas here
-    fn postprocess(&self, irs: &mut Self::I) {
+    fn postprocess(&self, _: LangSpecs, irs: &mut Self::I) {
         let mut map = Map::default();
 
         for (lemma, pos, edition, translations) in irs.drain(..) {
@@ -277,7 +277,7 @@ mod tests {
         assert_eq!(defs2, &expected);
         assert_eq!(defs3, &expected);
 
-        dict.postprocess(&mut irs);
+        dict.postprocess(LangSpecs::from(langs), &mut irs);
         assert_eq!(irs.len(), 2);
 
         let yomitan_entries = to_yomitan_glossary_extended(Lang::Grc, &irs);

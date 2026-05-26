@@ -3,7 +3,7 @@
 //! Deduplicates and normalizes tags across all forms.
 
 use crate::{
-    Set,
+    cli::LangSpecs,
     dict::main::ir::{FormMap, Tidy},
     tags::{
         merge_tags_by_case, merge_tags_by_definitiveness, merge_tags_by_gender,
@@ -12,7 +12,7 @@ use crate::{
     },
 };
 
-pub fn postprocess_main(irs: &mut Tidy) {
+pub fn postprocess_main(_: LangSpecs, irs: &mut Tidy) {
     postprocess_forms(&mut irs.form_map);
 
     // Check for form redirects A > B where B does not have a lemma, to remove bloat.

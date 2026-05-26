@@ -6,7 +6,7 @@ use anyhow::{Ok, Result, bail};
 use clap::{Parser, Subcommand};
 
 use crate::{
-    dict::WriterFormat,
+    dict::{Langs, WriterFormat},
     lang::{Edition, EditionSpec, Lang},
     models::kaikki::WordEntry,
     path::{DictionaryType, PathManager},
@@ -333,6 +333,16 @@ pub struct LangSpecs {
     pub edition: EditionSpec,
     pub source: Lang,
     pub target: Lang,
+}
+
+impl From<Langs> for LangSpecs {
+    fn from(value: Langs) -> Self {
+        Self {
+            edition: EditionSpec::One(value.edition),
+            source: value.source,
+            target: value.target,
+        }
+    }
 }
 
 impl TryFrom<MainLangs> for LangSpecs {
