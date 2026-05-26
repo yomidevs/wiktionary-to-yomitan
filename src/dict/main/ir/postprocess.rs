@@ -3,6 +3,7 @@
 //! Deduplicates and normalizes tags across all forms.
 
 use crate::{
+    Set,
     cli::LangSpecs,
     dict::main::ir::{FormMap, Tidy},
     tags::{
