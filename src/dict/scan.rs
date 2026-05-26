@@ -169,8 +169,8 @@ impl Diagnostics {
         self.words += 1;
 
         if get_reading(edition, source, &entry).is_none() {
-            match edition {
-                Edition::Ja if !has_kanji(&entry.word) => (),
+            match (edition, source) {
+                (Edition::Ja, Lang::Ja) if !has_kanji(&entry.word) => (),
                 _ => self.words_without_reading += 1,
             }
         }
