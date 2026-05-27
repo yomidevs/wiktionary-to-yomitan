@@ -35,6 +35,7 @@ pub fn postprocess_main(langs: LangSpecs, irs: &mut Tidy) {
             let kana_to_kanji = collect_kana_to_kanji(&irs.form_map);
             postprocess_japanese_kanji_lemmas(irs, &kana_to_kanji);
             postprocess_japanese_kanji_forms(&mut irs.form_map, &kana_to_kanji);
+            postprocess_japanese_odoriji_lemmas(irs);
             // Write ir message again after the changes.
             found_ir_message_impl(langs, irs);
         }
@@ -250,6 +251,57 @@ fn replace_kana_prefix_with_kanji(
     } else {
         None
     }
+}
+
+fn postprocess_japanese_odoriji_lemmas(irs: &mut Tidy) {
+    let lemmas: Set<&str> = irs
+        .lemma_map
+        .0
+        .keys()
+        .map(|key| key.lemma.as_str())
+        .collect();
+
+    let mut new_lemmas = LemmaMap::default();
+    for (lemma, reading, pos, info) in irs.lemma_map.flat_iter() {
+        let Some(odoriji) = to_odoriji(lemma) else {
+            continue;
+        };
+        if !lemmas.contains(odoriji.as_str()) {
+            new_lemmas.insert(&odoriji, reading, pos.long(), info.clone());
+        }
+    }
+
+    let n_inserted = new_lemmas.len();
+    for (key, infos) in new_lemmas.0 {
+        let (lemma, reading, pos) = key.unpack();
+        for info in infos {
+            irs.lemma_map.insert(lemma, reading, pos.long(), info);
+        }
+    }
+
+    tracing::debug!("[ja] odoriji: {n_inserted} lemmas inserted");
+}
+
+/// Replaces the second kanji in a pair of identical kanji with 々.
+/// e.g. 種種 -> 種々, 日日 -> 日々
+/// Returns None if the word has no repeated kanji pair.
+fn to_odoriji(lemma: &str) -> Option<String> {
+    let chars: Vec<char> = lemma.chars().collect();
+    let mut result = chars.clone();
+    let mut found = false;
+
+    for i in 0..chars.len().saturating_sub(1) {
+        if is_kanji(chars[i]) && chars[i] == chars[i + 1] {
+            result[i + 1] = '々';
+            found = true;
+        }
+    }
+
+    found.then(|| result.into_iter().collect())
+}
+
+fn is_kanji(c: char) -> bool {
+    matches!(c, '\u{4E00}'..='\u{9FFF}' | '\u{3400}'..='\u{4DBF}' | '\u{F900}'..='\u{FAFF}')
 }
 
 #[cfg(test)]
