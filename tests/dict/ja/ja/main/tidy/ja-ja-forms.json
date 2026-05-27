@@ -142,7 +142,7 @@
   },
   "このみ": {
     "好み": {
-      "unknown": [
+      "character": [
         "inflection",
         [
           "redirected from 好み"
@@ -152,7 +152,7 @@
   },
   "なまえ": {
     "名前": {
-      "unknown": [
+      "character": [
         "inflection",
         [
           "redirected from 名前"
@@ -162,7 +162,7 @@
   },
   "名前": {
     "なまえ": {
-      "unknown": [
+      "character": [
         "extracted",
         [
           "transliteration"
@@ -172,7 +172,7 @@
   },
   "くどい": {
     "諄い": {
-      "unknown": [
+      "character": [
         "inflection",
         [
           "redirected from 諄い"
