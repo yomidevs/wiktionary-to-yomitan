@@ -100,7 +100,7 @@ fn postprocess_japanese_kanji_lemmas(irs: &mut Tidy) {
     for (kana, kanji) in &kana_to_kanji {
         for (lemma, reading, pos, info) in irs.lemma_map.flat_iter() {
             if lemma == kana || reading == kana {
-                new_lemmas.insert(kanji, kana, pos.short(), info.clone());
+                new_lemmas.insert(kanji, kana, pos.long(), info.clone());
                 break;
             }
         }
@@ -110,7 +110,7 @@ fn postprocess_japanese_kanji_lemmas(irs: &mut Tidy) {
     for (key, infos) in new_lemmas.0 {
         let (kanji, kana_reading, pos) = key.unpack();
         for info in infos {
-            irs.lemma_map.insert(kanji, kana_reading, pos.short(), info);
+            irs.lemma_map.insert(kanji, kana_reading, pos.long(), info);
         }
     }
 
