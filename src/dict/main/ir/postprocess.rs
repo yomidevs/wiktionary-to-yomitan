@@ -12,6 +12,7 @@ use crate::{
         merge_tags_by_german_verb_type, merge_tags_by_person, merge_tags_by_verb_form,
         remove_redundant_tags, sort_tags, sort_tags_by_similar,
     },
+    utils::is_kanji,
 };
 
 pub fn postprocess_main(langs: LangSpecs, irs: &mut Tidy) {
@@ -294,10 +295,6 @@ fn to_odoriji(lemma: &str) -> Option<String> {
     }
 
     found.then(|| result.into_iter().collect())
-}
-
-const fn is_kanji(c: char) -> bool {
-    matches!(c, '\u{4E00}'..='\u{9FFF}' | '\u{3400}'..='\u{4DBF}' | '\u{F900}'..='\u{FAFF}')
 }
 
 #[cfg(test)]

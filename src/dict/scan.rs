@@ -22,7 +22,7 @@ use crate::{
     models::kaikki::WordEntry,
     path::{DictionaryType, PathManager},
     tags::{find_tag_in_bank, localize_tag},
-    utils::link_wiktionary,
+    utils::{has_kanji, link_wiktionary},
 };
 
 /// Any tag with this count or less are not serialized. They are too rare to care.
@@ -133,21 +133,6 @@ impl Serialize for TagCounterWithLink {
         }
         map.end()
     }
-}
-
-/// Check if the word has at least some Kanji.
-///
-/// This is used to exclude kana-only words from being labelled as having no readings.
-fn has_kanji(word: &str) -> bool {
-    word.chars().any(|c| {
-        matches!(c, '\u{4E00}'..='\u{9FFF}'
-            | '\u{3400}'..='\u{4DBF}'
-            | '\u{F900}'..='\u{FAFF}'
-            | '\u{20000}'..='\u{2A6DF}'
-            | '\u{2A700}'..='\u{2CEAF}'
-            | '\u{2CEB0}'..='\u{2EBEF}'
-        )
-    })
 }
 
 #[derive(Default, Serialize)]
