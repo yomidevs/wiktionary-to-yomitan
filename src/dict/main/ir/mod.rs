@@ -102,10 +102,11 @@ pub fn found_ir_message_impl(langs: LangSpecs, irs: &Tidy) {
     let n_forms_inflection = irs.form_map.len_inflection();
     let n_forms_extracted = irs.form_map.len_extracted();
     let n_forms_alt_of = irs.form_map.len_alt_of();
+    let n_forms_postprocessed = irs.form_map.len_postprocessed();
 
     debug_assert_eq!(
         n_forms,
-        n_forms_inflection + n_forms_extracted + n_forms_alt_of,
+        n_forms_inflection + n_forms_extracted + n_forms_alt_of + n_forms_postprocessed,
         "mismatch in form counts"
     );
 
@@ -341,6 +342,10 @@ impl FormMap {
 
     fn len_alt_of(&self) -> usize {
         self.len_of(FormSource::AltOfTop) + self.len_of(FormSource::AltOfSense)
+    }
+
+    fn len_postprocessed(&self) -> usize {
+        self.len_of(FormSource::PostProcessed)
     }
 }
 
