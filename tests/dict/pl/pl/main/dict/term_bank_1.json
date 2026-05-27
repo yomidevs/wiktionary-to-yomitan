@@ -278,12 +278,12 @@
                         "content": [
                           {
                             "tag": "span",
-                            "title": "dated",
+                            "title": "obsolete",
                             "data": {
                               "content": "tag",
                               "category": "archaism"
                             },
-                            "content": "dated"
+                            "content": "obs"
                           }
                         ]
                       },

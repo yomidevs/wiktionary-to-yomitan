@@ -494,7 +494,7 @@
                                   "data": {
                                     "content": "example-sentence-c"
                                   },
-                                  "content": "Heinrich Böll: Ansichten eines Clowns. Roman. Insel, Leipzig 1990, , Seite 68."
+                                  "content": "Heinrich Böll: Ansichten eines Clowns. Roman. Insel, Leipzig 1990, ISBN 3-7351-0161-5, Seite 68."
                                 }
                               ]
                             }
@@ -589,7 +589,7 @@
                                   "data": {
                                     "content": "example-sentence-c"
                                   },
-                                  "content": "Heinrich Böll: Ansichten eines Clowns. Roman. Insel, Leipzig 1990, , Seite 68."
+                                  "content": "Heinrich Böll: Ansichten eines Clowns. Roman. Insel, Leipzig 1990, ISBN 3-7351-0161-5, Seite 68."
                                 }
                               ]
                             }
@@ -621,13 +621,6 @@
                                     },
                                     " gehe, sehe ich die Post auf dem Wohnzimmertisch.“"
                                   ]
-                                },
-                                {
-                                  "tag": "div",
-                                  "data": {
-                                    "content": "example-sentence-c"
-                                  },
-                                  "content": "Rolf W. Brednich: www.worldwidewitz.com. Humor im Cyberspace. Herder, Freiburg/Basel/Wien 2005, , Seite 145."
                                 }
                               ]
                             }
@@ -1079,7 +1072,7 @@
                                   "data": {
                                     "content": "example-sentence-c"
                                   },
-                                  "content": "Katharina Adler: Ida. Roman. 1. Auflage. Rowohlt Verlag, Reinbek bei Hamburg 2018, , Seite 384 ."
+                                  "content": "Katharina Adler: Ida. Roman. 1. Auflage. Rowohlt Verlag, Reinbek bei Hamburg 2018, ISBN 978-3-498-00093-6, Seite 384 ."
                                 }
                               ]
                             }
