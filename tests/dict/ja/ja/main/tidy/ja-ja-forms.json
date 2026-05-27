@@ -197,5 +197,155 @@
         ]
       ]
     }
+  },
+  "植え替える": {
+    "植え替え": {
+      "verb": [
+        "postprocessed",
+        [
+          "a-row shimoichidan ichidan continuative",
+          "imperfective a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "植え替えれ": {
+      "verb": [
+        "postprocessed",
+        [
+          "a-row shimoichidan ichidan hypothetical"
+        ]
+      ]
+    },
+    "植え替えろ": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "植え替えよ": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "植え替えない": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperfective negative"
+        ]
+      ]
+    },
+    "植え替えよう": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperfective volitional"
+        ]
+      ]
+    },
+    "植え替えます": {
+      "verb": [
+        "postprocessed",
+        [
+          "polite continuative"
+        ]
+      ]
+    },
+    "植え替えた": {
+      "verb": [
+        "postprocessed",
+        [
+          "past completive continuative"
+        ]
+      ]
+    },
+    "植え替えれば": {
+      "verb": [
+        "postprocessed",
+        [
+          "conditional hypothetical"
+        ]
+      ]
+    }
+  },
+  "植え換える": {
+    "植え換え": {
+      "verb": [
+        "postprocessed",
+        [
+          "a-row shimoichidan ichidan continuative",
+          "imperfective a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "植え換えれ": {
+      "verb": [
+        "postprocessed",
+        [
+          "a-row shimoichidan ichidan hypothetical"
+        ]
+      ]
+    },
+    "植え換えろ": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "植え換えよ": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "植え換えない": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperfective negative"
+        ]
+      ]
+    },
+    "植え換えよう": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperfective volitional"
+        ]
+      ]
+    },
+    "植え換えます": {
+      "verb": [
+        "postprocessed",
+        [
+          "polite continuative"
+        ]
+      ]
+    },
+    "植え換えた": {
+      "verb": [
+        "postprocessed",
+        [
+          "past completive continuative"
+        ]
+      ]
+    },
+    "植え換えれば": {
+      "verb": [
+        "postprocessed",
+        [
+          "conditional hypothetical"
+        ]
+      ]
+    }
   }
 }

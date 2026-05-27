@@ -355,6 +355,8 @@ pub enum FormSource {
     /// Alternative forms (top-level and sense-level)
     AltOfTop,
     AltOfSense,
+    /// Form added via postprocess
+    PostProcessed,
 }
 
 // NOTE: the less we have here the better. For example, the links could be entirely moved to the

@@ -5,10 +5,10 @@
 use crate::{
     Map, Set,
     cli::LangSpecs,
-    dict::main::ir::{FormMap, LemmaMap, Tidy},
+    dict::main::ir::{FormMap, FormSource, LemmaMap, Tidy, found_ir_message_impl},
     lang::{Edition, Lang},
     tags::{
-        merge_tags_by_case, merge_tags_by_definitiveness, merge_tags_by_gender,
+        Pos, merge_tags_by_case, merge_tags_by_definitiveness, merge_tags_by_gender,
         merge_tags_by_german_verb_type, merge_tags_by_person, merge_tags_by_verb_form,
         remove_redundant_tags, sort_tags, sort_tags_by_similar,
     },
@@ -34,6 +34,9 @@ pub fn postprocess_main(langs: LangSpecs, irs: &mut Tidy) {
         (Edition::Ja, Lang::Ja) => {
             let kana_to_kanji = collect_kana_to_kanji(&irs.form_map);
             postprocess_japanese_kanji_lemmas(irs, &kana_to_kanji);
+            postprocess_japanese_kanji_forms(&mut irs.form_map, &kana_to_kanji);
+            // Write ir message again after the changes.
+            found_ir_message_impl(langs, irs);
         }
         _ => (),
     }
@@ -154,4 +157,133 @@ fn postprocess_japanese_kanji_lemmas(irs: &mut Tidy, kana_to_kanji: &Map<String,
     tracing::debug!(
         "[ja] kanji postprocess: {n_forms_promoted} forms promoted to lemmas, {n_forms_removed} forms removed"
     );
+}
+
+fn postprocess_japanese_kanji_forms(
+    form_map: &mut FormMap,
+    kana_to_kanji: &Map<String, Vec<String>>,
+) {
+    // Step 1: Collect conjugated kana forms: kana_root -> Vec<(conjugated_kana, pos, tags)>
+    // uninflected=kana, inflected=conjugated_kana
+    let mut kana_conjugations: Map<String, Vec<(String, String, Vec<String>)>> = Map::default();
+    for (uninflected, inflected, pos, _, tags) in form_map.flat_iter() {
+        if pos == Pos::Verb && kana_to_kanji.contains_key(uninflected) {
+            kana_conjugations
+                .entry(uninflected.to_string())
+                .or_default()
+                .push((inflected.to_string(), pos.long().to_string(), tags.clone()));
+        }
+    }
+
+    // Step 2: For each kanji writing, synthesize conjugated kanji forms.
+    // Replace the kana root prefix in conjugated_kana with the kanji writing.
+    let mut new_forms = FormMap::default();
+    for (kana, kanji_writings) in kana_to_kanji {
+        let Some(conjugations) = kana_conjugations.get(kana) else {
+            continue;
+        };
+        for kanji in kanji_writings {
+            for (conjugated_kana, pos, tags) in conjugations {
+                if let Some(inflected_kanji) =
+                    replace_kana_prefix_with_kanji(kana, kanji, conjugated_kana)
+                {
+                    new_forms.insert(
+                        kanji,
+                        &inflected_kanji,
+                        pos,
+                        FormSource::PostProcessed,
+                        tags.clone(),
+                    );
+                }
+            }
+        }
+    }
+
+    let n_forms_synthesized = new_forms.len();
+    let before = form_map.len();
+    for (uninflected, inflected, pos, source, tags) in new_forms.flat_iter() {
+        form_map.insert(uninflected, inflected, pos.long(), *source, tags.clone());
+    }
+    let n_forms_inserted = form_map.len() - before;
+
+    tracing::debug!(
+        "[ja] kanji forms: {n_forms_synthesized} synthesized, {n_forms_inserted} inserted (dedup: {})",
+        n_forms_synthesized - n_forms_inserted
+    );
+}
+
+/// Given:
+/// - `kana_root`:       "うえかえる"
+/// - `kanji_root`:      "植え換える"
+/// - `conjugated_kana`: "うえかえない"
+///
+/// Returns `Some("植え換えない")` by finding the longest shared kana prefix,
+/// then prepending the corresponding kanji prefix.
+fn replace_kana_prefix_with_kanji(
+    kana_root: &str,
+    kanji_root: &str,
+    conjugated_kana: &str,
+) -> Option<String> {
+    // Find the longest common prefix (by chars)
+    let shared_len = kana_root
+        .chars()
+        .zip(conjugated_kana.chars())
+        .take_while(|(a, b)| a == b)
+        .count();
+
+    if shared_len == 0 {
+        return None;
+    }
+
+    let kana_suffix = &conjugated_kana[kana_root
+        .char_indices()
+        .nth(shared_len)
+        .map(|(i, _)| i)
+        .unwrap_or(kana_root.len())..];
+
+    // Simple heuristic: strip the non-shared kana suffix from the kanji root,
+    // assuming the non-shared kana suffix corresponds to the non-shared kanji suffix.
+    let kana_non_shared: String = kana_root.chars().skip(shared_len).collect();
+    if kanji_root.ends_with(&kana_non_shared) {
+        let kanji_prefix = &kanji_root[..kanji_root.len() - kana_non_shared.len()];
+        Some(format!("{kanji_prefix}{kana_suffix}"))
+    } else {
+        None
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn ja_form_promotion_basic() {
+        // うえかえる + うえかえない -> 植え換えない
+        assert_eq!(
+            replace_kana_prefix_with_kanji("うえかえる", "植え換える", "うえかえない"),
+            Some("植え換えない".to_string())
+        );
+    }
+
+    #[test]
+    fn ja_form_promotion_full_match() {
+        assert_eq!(
+            replace_kana_prefix_with_kanji("たべる", "食べる", "たべる"),
+            Some("食べる".to_string())
+        );
+    }
+
+    #[test]
+    fn ja_form_promotion_return_none() {
+        // completely different kana: no shared prefix -> None
+        assert_eq!(
+            replace_kana_prefix_with_kanji("たべる", "食べる", "のむ"),
+            None
+        );
+        // kanji root does not end with the non-shared kana -> None
+        assert_eq!(
+            replace_kana_prefix_with_kanji("いく", "行くX", "いかない"),
+            None
+        );
+    }
 }
