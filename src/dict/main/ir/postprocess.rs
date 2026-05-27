@@ -3,7 +3,7 @@
 //! Deduplicates and normalizes tags across all forms.
 
 use crate::{
-    Set,
+    Map, Set,
     cli::LangSpecs,
     dict::main::ir::{FormMap, LemmaMap, Tidy},
     lang::{Edition, Lang},
@@ -32,7 +32,8 @@ pub fn postprocess_main(langs: LangSpecs, irs: &mut Tidy) {
     let edition: Edition = langs.edition.try_into().unwrap();
     match (edition, langs.source) {
         (Edition::Ja, Lang::Ja) => {
-            postprocess_japanese_kanji_lemmas(irs);
+            let kana_to_kanji = collect_kana_to_kanji(&irs.form_map);
+            postprocess_japanese_kanji_lemmas(irs, &kana_to_kanji);
         }
         _ => (),
     }
@@ -88,20 +89,27 @@ fn postprocess_forms(form_map: &mut FormMap) {
     }
 }
 
-fn postprocess_japanese_kanji_lemmas(irs: &mut Tidy) {
-    let kana_to_kanji: Vec<_> = irs
-        .form_map
-        .flat_iter()
-        .filter(|(_, _, _, _, tags)| tags.iter().any(|t| t == "kanji"))
-        .map(|(uninflected, inflected, _, _, _)| (uninflected.to_string(), inflected.to_string()))
-        .collect();
+fn collect_kana_to_kanji(form_map: &FormMap) -> Map<String, Vec<String>> {
+    let mut map: Map<String, Vec<String>> = Map::default();
+    for (uninflected, inflected, _, _, tags) in form_map.flat_iter() {
+        if tags.iter().any(|t| t == "kanji") {
+            map.entry(uninflected.to_string())
+                .or_default()
+                .push(inflected.to_string());
+        }
+    }
+    map
+}
 
+fn postprocess_japanese_kanji_lemmas(irs: &mut Tidy, kana_to_kanji: &Map<String, Vec<String>>) {
     let mut new_lemmas = LemmaMap::default();
-    for (kana, kanji) in &kana_to_kanji {
-        for (lemma, reading, pos, info) in irs.lemma_map.flat_iter() {
-            if lemma == kana || reading == kana {
-                new_lemmas.insert(kanji, kana, pos.long(), info.clone());
-                break;
+    for (lemma, reading, pos, info) in irs.lemma_map.flat_iter() {
+        let kanji_writings = kana_to_kanji
+            .get(lemma)
+            .or_else(|| kana_to_kanji.get(reading));
+        if let Some(kanjis) = kanji_writings {
+            for kanji in kanjis {
+                new_lemmas.insert(kanji, lemma, pos.long(), info.clone());
             }
         }
     }
@@ -116,8 +124,9 @@ fn postprocess_japanese_kanji_lemmas(irs: &mut Tidy) {
 
     // Remove forms that were just promoted to lemmas
     let promoted: Set<&str> = kana_to_kanji
-        .iter()
-        .map(|(_, kanji)| kanji.as_str())
+        .values()
+        .flatten()
+        .map(String::as_str)
         .collect();
     let lemmas: Set<&str> = irs
         .lemma_map
