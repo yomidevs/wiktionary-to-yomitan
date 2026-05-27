@@ -84169,6 +84169,45 @@
         }
       },
       {
+        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/植/植え/植え替える.html",
+        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/植/植え/植え替える.jsonl",
+        "json": {
+          "word": "植え替える",
+          "pos": "character",
+          "lang_code": "ja",
+          "lang": "日本語",
+          "pos_title": "和語の漢字表記",
+          "senses": [
+            {
+              "glosses": [
+                "うえかえるの漢字表記。"
+              ],
+              "form_of": [
+                {
+                  "word": "うえかえる"
+                }
+              ]
+            }
+          ],
+          "categories": [
+            "日本語",
+            "日本語 和語の漢字表記"
+          ],
+          "tags": [
+            "form-of",
+            "wago-kanji"
+          ],
+          "forms": [
+            {
+              "form": "うえかえる",
+              "tags": [
+                "transliteration"
+              ]
+            }
+          ]
+        }
+      },
+      {
         "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/と/とあ/とある.html",
         "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/と/とあ/とある.jsonl",
         "json": {
@@ -84191,7 +84230,7 @@
         "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/好/好み/好み.jsonl",
         "json": {
           "word": "好み",
-          "pos": "unknown",
+          "pos": "character",
           "lang_code": "ja",
           "lang": "日本語",
           "pos_title": "和語の漢字表記",
@@ -84208,7 +84247,7 @@
           ],
           "tags": [
             "form-of",
-            "kanji"
+            "wago-kanji"
           ]
         }
       },
@@ -84217,7 +84256,7 @@
         "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/名/名前/名前.jsonl",
         "json": {
           "word": "名前",
-          "pos": "unknown",
+          "pos": "character",
           "lang_code": "ja",
           "lang": "日本語",
           "pos_title": "和語の漢字表記",
@@ -84239,7 +84278,7 @@
           ],
           "tags": [
             "form-of",
-            "kanji"
+            "wago-kanji"
           ],
           "forms": [
             {
@@ -84270,6 +84309,138 @@
               "glosses": [
                 "年齢を12年を一つの期間で数える語。"
               ]
+            }
+          ]
+        }
+      },
+      {
+        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/諄/諄い/諄い.html",
+        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/諄/諄い/諄い.jsonl",
+        "json": {
+          "word": "諄い",
+          "pos": "character",
+          "lang_code": "ja",
+          "lang": "日本語",
+          "pos_title": "和語の漢字表記",
+          "senses": [
+            {
+              "glosses": [
+                "くどいを参照。"
+              ]
+            }
+          ],
+          "categories": [
+            "日本語",
+            "日本語 和語の漢字表記"
+          ],
+          "tags": [
+            "form-of",
+            "wago-kanji"
+          ]
+        }
+      },
+      {
+        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/鉛/鉛粉/鉛粉.html",
+        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/鉛/鉛粉/鉛粉.jsonl",
+        "json": {
+          "word": "鉛粉",
+          "pos": "noun",
+          "lang_code": "ja",
+          "lang": "日本語",
+          "pos_title": "名詞",
+          "senses": [
+            {
+              "glosses": [
+                "鉛を原料とする白色の顔料。かつてはおしろいに使われた。"
+              ]
+            }
+          ],
+          "categories": [
+            "日本語",
+            "日本語 名詞"
+          ],
+          "forms": [
+            {
+              "form": "えんぷん",
+              "tags": [
+                "transliteration"
+              ]
+            },
+            {
+              "form": "なまりふん",
+              "tags": [
+                "transliteration"
+              ]
+            }
+          ],
+          "related": [
+            {
+              "word": "鉛華"
+            }
+          ]
+        }
+      },
+      {
+        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/種/種種/種種.html",
+        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/種/種種/種種.jsonl",
+        "json": {
+          "word": "種種",
+          "pos": "noun",
+          "lang_code": "ja",
+          "lang": "日本語",
+          "pos_title": "名詞",
+          "senses": [
+            {
+              "glosses": [
+                "いろいろ。"
+              ]
+            }
+          ],
+          "categories": [
+            "日本語",
+            "日本語 名詞",
+            "日本語 国際音声記号あり",
+            "日本語_副詞"
+          ],
+          "forms": [
+            {
+              "form": "しゅじゅ",
+              "tags": [
+                "transliteration"
+              ]
+            },
+            {
+              "form": "しゅしゅ",
+              "tags": [
+                "transliteration"
+              ]
+            },
+            {
+              "form": "くさぐさ",
+              "tags": [
+                "transliteration"
+              ]
+            }
+          ],
+          "sounds": [
+            {
+              "tags": [
+                "Atamadaka",
+                "Tokyo"
+              ],
+              "other": "しゅじゅ",
+              "roman": "[shúꜜjù]"
+            },
+            {
+              "ipa": "[ɕɨᵝʑɨᵝ]"
+            },
+            {
+              "tags": [
+                "Atamadaka",
+                "Kyoto",
+                "Osaka"
+              ],
+              "other": "("
             }
           ]
         }

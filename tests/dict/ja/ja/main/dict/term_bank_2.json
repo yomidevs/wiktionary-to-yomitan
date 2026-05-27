@@ -51,245 +51,6 @@
     ""
   ],
   [
-    "立命し",
-    "",
-    "non-lemma",
-    "v",
-    0,
-    [
-      [
-        "立命",
-        [
-          "imperfective sa-row irregular"
-        ]
-      ],
-      [
-        "立命",
-        [
-          "sa-row irregular continuative"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "立命せ",
-    "",
-    "non-lemma",
-    "v",
-    0,
-    [
-      [
-        "立命",
-        [
-          "imperfective sa-row irregular"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "立命さ",
-    "",
-    "non-lemma",
-    "v",
-    0,
-    [
-      [
-        "立命",
-        [
-          "imperfective sa-row irregular"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "立命する",
-    "",
-    "non-lemma",
-    "v",
-    0,
-    [
-      [
-        "立命",
-        [
-          "definitive terminal"
-        ]
-      ],
-      [
-        "立命",
-        [
-          "sa-row irregular attributive"
-        ]
-      ],
-      [
-        "立命",
-        [
-          "sa-row irregular terminal"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "立命すれ",
-    "",
-    "non-lemma",
-    "v",
-    0,
-    [
-      [
-        "立命",
-        [
-          "sa-row irregular hypothetical"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "立命しろ",
-    "",
-    "non-lemma",
-    "v",
-    0,
-    [
-      [
-        "立命",
-        [
-          "imperative sa-row irregular"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "立命せよ",
-    "",
-    "non-lemma",
-    "v",
-    0,
-    [
-      [
-        "立命",
-        [
-          "imperative sa-row irregular"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "立命しない",
-    "",
-    "non-lemma",
-    "v",
-    0,
-    [
-      [
-        "立命",
-        [
-          "imperfective negative"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "立命される",
-    "",
-    "non-lemma",
-    "v",
-    0,
-    [
-      [
-        "立命",
-        [
-          "imperfective active passive possibly honorific"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "立命します",
-    "",
-    "non-lemma",
-    "v",
-    0,
-    [
-      [
-        "立命",
-        [
-          "polite continuative"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "立命した",
-    "",
-    "non-lemma",
-    "v",
-    0,
-    [
-      [
-        "立命",
-        [
-          "past completive continuative"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "立命すること",
-    "",
-    "non-lemma",
-    "v",
-    0,
-    [
-      [
-        "立命",
-        [
-          "noun-from-verb attributive"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "立命すれば",
-    "",
-    "non-lemma",
-    "v",
-    0,
-    [
-      [
-        "立命",
-        [
-          "conditional hypothetical"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
     "ぜんぜん",
     "",
     "non-lemma",
@@ -351,40 +112,6 @@
         "婉曲",
         [
           "transliteration"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "植え替える",
-    "",
-    "non-lemma",
-    "v",
-    0,
-    [
-      [
-        "うえかえる",
-        [
-          "kanji"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "植え換える",
-    "",
-    "non-lemma",
-    "v",
-    0,
-    [
-      [
-        "うえかえる",
-        [
-          "kanji"
         ]
       ]
     ],
@@ -534,23 +261,6 @@
     ""
   ],
   [
-    "うえかえること",
-    "",
-    "non-lemma",
-    "v",
-    0,
-    [
-      [
-        "うえかえる",
-        [
-          "noun-from-verb attributive"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
     "うえかえれば",
     "",
     "non-lemma",
@@ -571,7 +281,7 @@
     "好み",
     "",
     "non-lemma",
-    "?",
+    "char",
     0,
     [
       [
@@ -588,7 +298,7 @@
     "名前",
     "",
     "non-lemma",
-    "?",
+    "char",
     0,
     [
       [
@@ -605,7 +315,7 @@
     "なまえ",
     "",
     "non-lemma",
-    "?",
+    "char",
     0,
     [
       [
@@ -622,13 +332,416 @@
     "諄い",
     "",
     "non-lemma",
-    "?",
+    "char",
     0,
     [
       [
         "くどい",
         [
           "redirected from 諄い"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "えんぷん",
+    "",
+    "non-lemma",
+    "n",
+    0,
+    [
+      [
+        "鉛粉",
+        [
+          "transliteration"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "なまりふん",
+    "",
+    "non-lemma",
+    "n",
+    0,
+    [
+      [
+        "鉛粉",
+        [
+          "transliteration"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "しゅじゅ",
+    "",
+    "non-lemma",
+    "n",
+    0,
+    [
+      [
+        "種種",
+        [
+          "transliteration"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "しゅしゅ",
+    "",
+    "non-lemma",
+    "n",
+    0,
+    [
+      [
+        "種種",
+        [
+          "transliteration"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "くさぐさ",
+    "",
+    "non-lemma",
+    "n",
+    0,
+    [
+      [
+        "種種",
+        [
+          "transliteration"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え替え",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え替える",
+        [
+          "a-row shimoichidan ichidan continuative"
+        ]
+      ],
+      [
+        "植え替える",
+        [
+          "imperfective a-row shimoichidan ichidan"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え替えれ",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え替える",
+        [
+          "a-row shimoichidan ichidan hypothetical"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え替えろ",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え替える",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え替えよ",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え替える",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え替えない",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え替える",
+        [
+          "imperfective negative"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え替えよう",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え替える",
+        [
+          "imperfective volitional"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え替えます",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え替える",
+        [
+          "polite continuative"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え替えた",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え替える",
+        [
+          "past completive continuative"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え替えれば",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え替える",
+        [
+          "conditional hypothetical"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え換え",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え換える",
+        [
+          "a-row shimoichidan ichidan continuative"
+        ]
+      ],
+      [
+        "植え換える",
+        [
+          "imperfective a-row shimoichidan ichidan"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え換えれ",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え換える",
+        [
+          "a-row shimoichidan ichidan hypothetical"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え換えろ",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え換える",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え換えよ",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え換える",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え換えない",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え換える",
+        [
+          "imperfective negative"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え換えよう",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え換える",
+        [
+          "imperfective volitional"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え換えます",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え換える",
+        [
+          "polite continuative"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え換えた",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え換える",
+        [
+          "past completive continuative"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "植え換えれば",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "植え換える",
+        [
+          "conditional hypothetical"
         ]
       ]
     ],

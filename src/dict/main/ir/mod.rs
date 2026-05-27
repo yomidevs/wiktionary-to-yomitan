@@ -102,10 +102,11 @@ pub fn found_ir_message_impl(langs: LangSpecs, irs: &Tidy) {
     let n_forms_inflection = irs.form_map.len_inflection();
     let n_forms_extracted = irs.form_map.len_extracted();
     let n_forms_alt_of = irs.form_map.len_alt_of();
+    let n_forms_postprocessed = irs.form_map.len_postprocessed();
 
     debug_assert_eq!(
         n_forms,
-        n_forms_inflection + n_forms_extracted + n_forms_alt_of,
+        n_forms_inflection + n_forms_extracted + n_forms_alt_of + n_forms_postprocessed,
         "mismatch in form counts"
     );
 
@@ -342,6 +343,10 @@ impl FormMap {
     fn len_alt_of(&self) -> usize {
         self.len_of(FormSource::AltOfTop) + self.len_of(FormSource::AltOfSense)
     }
+
+    fn len_postprocessed(&self) -> usize {
+        self.len_of(FormSource::PostProcessed)
+    }
 }
 
 /// Enum used exclusively for debugging. This information doesn't appear on the dictionary.
@@ -355,6 +360,8 @@ pub enum FormSource {
     /// Alternative forms (top-level and sense-level)
     AltOfTop,
     AltOfSense,
+    /// Form added via postprocess
+    PostProcessed,
 }
 
 // NOTE: the less we have here the better. For example, the links could be entirely moved to the
@@ -561,7 +568,7 @@ fn process_forms(edition: Edition, source: Lang, entry: &WordEntry, irs: &mut Ti
             break;
         }
 
-        if should_skip_form(edition, source, &entry.pos, form) {
+        if should_skip_form(edition, source, entry, form) {
             continue;
         }
 
@@ -595,7 +602,7 @@ fn process_forms(edition: Edition, source: Lang, entry: &WordEntry, irs: &mut Ti
 //
 // Eventually it would be preferable if these were done at wiktextract level, but let's do the work
 // ourselves for now
-fn should_skip_form(edition: Edition, source: Lang, pos: &str, form: &Form) -> bool {
+fn should_skip_form(edition: Edition, source: Lang, entry: &WordEntry, form: &Form) -> bool {
     match (edition, source) {
         (Edition::Fr, Lang::Fr) => {
             // Objectively better
@@ -655,18 +662,11 @@ fn should_skip_form(edition: Edition, source: Lang, pos: &str, form: &Form) -> b
             }
         }
         (Edition::Ja, Lang::Ja) => {
-            // Skip {{ja-noun-suru}} conjugation table.
-            // Yomitan will find a result anyway if search resolution is set to Letter (as it
-            // works best for Japanese).
-            // The issue is that sometimes the pos is "verb" depending on the editor, and on if they
-            // decided to add the table in a "verb" section... And selecting pos == "verb" trims
-            // actually useful tables of non-suru verbs.
-            if pos == "noun"
-                && !form
-                    .tags
-                    .iter()
-                    .any(|tag| tag == "transliteration" || tag == "kanji")
-            {
+            // Since we expect "Letter" as Yomitan "Dictionary search resolution", forms prefixed
+            // by the lemma are redundant.
+            // - lemma: ぷくぷく
+            // - forms: ぷくぷくし | ぷくぷくせ | ぷくぷくさ etc.
+            if form.form.starts_with(&entry.word) {
                 return true;
             }
         }
@@ -741,7 +741,14 @@ fn process_no_gloss(edition: Edition, entry: &WordEntry, irs: &mut Tidy) {
     }
 }
 
-// There are potentially more than one, but yomitan doesn't really support it
+// There are potentially more than one, but yomitan doesn't really support displaying
+// multiple readings at the same time (other than adding a copy of the yomitan entry).
+//
+// For Japanese, if there are multiple readings, they are added as forms, but the reading
+// displayed over the word is always the first, which is not what we want if we search
+// an alternative reading. F.e. in 鉛粉 (えんぷん 又は なまりふん), searching
+// なまりふん will display 鉛粉 with furigana えんぷん.
+// It is relatively rare (since extra readings are rare), and as such, it has low priority.
 pub fn get_reading(edition: Edition, source: Lang, entry: &WordEntry) -> Option<String> {
     match (edition, source) {
         (Edition::En, Lang::Ja) => get_japanese_reading(entry),

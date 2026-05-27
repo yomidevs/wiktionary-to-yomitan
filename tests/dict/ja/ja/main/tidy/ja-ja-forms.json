@@ -23,113 +23,6 @@
           "transliteration"
         ]
       ]
-    },
-    "立命し": {
-      "verb": [
-        "extracted",
-        [
-          "imperfective sa-row irregular",
-          "sa-row irregular continuative"
-        ]
-      ]
-    },
-    "立命せ": {
-      "verb": [
-        "extracted",
-        [
-          "imperfective sa-row irregular"
-        ]
-      ]
-    },
-    "立命さ": {
-      "verb": [
-        "extracted",
-        [
-          "imperfective sa-row irregular"
-        ]
-      ]
-    },
-    "立命する": {
-      "verb": [
-        "extracted",
-        [
-          "definitive terminal",
-          "sa-row irregular attributive",
-          "sa-row irregular terminal"
-        ]
-      ]
-    },
-    "立命すれ": {
-      "verb": [
-        "extracted",
-        [
-          "sa-row irregular hypothetical"
-        ]
-      ]
-    },
-    "立命しろ": {
-      "verb": [
-        "extracted",
-        [
-          "imperative sa-row irregular"
-        ]
-      ]
-    },
-    "立命せよ": {
-      "verb": [
-        "extracted",
-        [
-          "imperative sa-row irregular"
-        ]
-      ]
-    },
-    "立命しない": {
-      "verb": [
-        "extracted",
-        [
-          "imperfective negative"
-        ]
-      ]
-    },
-    "立命される": {
-      "verb": [
-        "extracted",
-        [
-          "imperfective active passive possibly honorific"
-        ]
-      ]
-    },
-    "立命します": {
-      "verb": [
-        "extracted",
-        [
-          "polite continuative"
-        ]
-      ]
-    },
-    "立命した": {
-      "verb": [
-        "extracted",
-        [
-          "past completive continuative"
-        ]
-      ]
-    },
-    "立命すること": {
-      "verb": [
-        "extracted",
-        [
-          "noun-from-verb attributive"
-        ]
-      ]
-    },
-    "立命すれば": {
-      "verb": [
-        "extracted",
-        [
-          "conditional hypothetical"
-        ]
-      ]
     }
   },
   "全然": {
@@ -173,22 +66,6 @@
     }
   },
   "うえかえる": {
-    "植え替える": {
-      "verb": [
-        "extracted",
-        [
-          "kanji"
-        ]
-      ]
-    },
-    "植え換える": {
-      "verb": [
-        "extracted",
-        [
-          "kanji"
-        ]
-      ]
-    },
     "うえかえ": {
       "verb": [
         "extracted",
@@ -254,14 +131,6 @@
         ]
       ]
     },
-    "うえかえること": {
-      "verb": [
-        "extracted",
-        [
-          "noun-from-verb attributive"
-        ]
-      ]
-    },
     "うえかえれば": {
       "verb": [
         "extracted",
@@ -273,7 +142,7 @@
   },
   "このみ": {
     "好み": {
-      "unknown": [
+      "character": [
         "inflection",
         [
           "redirected from 好み"
@@ -283,7 +152,7 @@
   },
   "なまえ": {
     "名前": {
-      "unknown": [
+      "character": [
         "inflection",
         [
           "redirected from 名前"
@@ -293,7 +162,7 @@
   },
   "名前": {
     "なまえ": {
-      "unknown": [
+      "character": [
         "extracted",
         [
           "transliteration"
@@ -303,10 +172,204 @@
   },
   "くどい": {
     "諄い": {
-      "unknown": [
+      "character": [
         "inflection",
         [
           "redirected from 諄い"
+        ]
+      ]
+    }
+  },
+  "鉛粉": {
+    "えんぷん": {
+      "noun": [
+        "extracted",
+        [
+          "transliteration"
+        ]
+      ]
+    },
+    "なまりふん": {
+      "noun": [
+        "extracted",
+        [
+          "transliteration"
+        ]
+      ]
+    }
+  },
+  "種種": {
+    "しゅじゅ": {
+      "noun": [
+        "extracted",
+        [
+          "transliteration"
+        ]
+      ]
+    },
+    "しゅしゅ": {
+      "noun": [
+        "extracted",
+        [
+          "transliteration"
+        ]
+      ]
+    },
+    "くさぐさ": {
+      "noun": [
+        "extracted",
+        [
+          "transliteration"
+        ]
+      ]
+    }
+  },
+  "植え替える": {
+    "植え替え": {
+      "verb": [
+        "postprocessed",
+        [
+          "a-row shimoichidan ichidan continuative",
+          "imperfective a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "植え替えれ": {
+      "verb": [
+        "postprocessed",
+        [
+          "a-row shimoichidan ichidan hypothetical"
+        ]
+      ]
+    },
+    "植え替えろ": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "植え替えよ": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "植え替えない": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperfective negative"
+        ]
+      ]
+    },
+    "植え替えよう": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperfective volitional"
+        ]
+      ]
+    },
+    "植え替えます": {
+      "verb": [
+        "postprocessed",
+        [
+          "polite continuative"
+        ]
+      ]
+    },
+    "植え替えた": {
+      "verb": [
+        "postprocessed",
+        [
+          "past completive continuative"
+        ]
+      ]
+    },
+    "植え替えれば": {
+      "verb": [
+        "postprocessed",
+        [
+          "conditional hypothetical"
+        ]
+      ]
+    }
+  },
+  "植え換える": {
+    "植え換え": {
+      "verb": [
+        "postprocessed",
+        [
+          "a-row shimoichidan ichidan continuative",
+          "imperfective a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "植え換えれ": {
+      "verb": [
+        "postprocessed",
+        [
+          "a-row shimoichidan ichidan hypothetical"
+        ]
+      ]
+    },
+    "植え換えろ": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "植え換えよ": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "植え換えない": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperfective negative"
+        ]
+      ]
+    },
+    "植え換えよう": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperfective volitional"
+        ]
+      ]
+    },
+    "植え換えます": {
+      "verb": [
+        "postprocessed",
+        [
+          "polite continuative"
+        ]
+      ]
+    },
+    "植え換えた": {
+      "verb": [
+        "postprocessed",
+        [
+          "past completive continuative"
+        ]
+      ]
+    },
+    "植え換えれば": {
+      "verb": [
+        "postprocessed",
+        [
+          "conditional hypothetical"
         ]
       ]
     }

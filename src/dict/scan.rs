@@ -22,7 +22,7 @@ use crate::{
     models::kaikki::WordEntry,
     path::{DictionaryType, PathManager},
     tags::{find_tag_in_bank, localize_tag},
-    utils::link_wiktionary,
+    utils::{has_kanji, link_wiktionary},
 };
 
 /// Any tag with this count or less are not serialized. They are too rare to care.
@@ -154,7 +154,10 @@ impl Diagnostics {
         self.words += 1;
 
         if get_reading(edition, source, &entry).is_none() {
-            self.words_without_reading += 1;
+            match (edition, source) {
+                (Edition::Ja, Lang::Ja) if !has_kanji(&entry.word) => (),
+                _ => self.words_without_reading += 1,
+            }
         }
 
         let target: Lang = edition.into();
