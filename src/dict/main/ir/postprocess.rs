@@ -6,7 +6,7 @@ use crate::{
     Set,
     cli::LangSpecs,
     dict::main::ir::{FormMap, LemmaMap, Tidy},
-    lang::Lang,
+    lang::{Edition, Lang},
     tags::{
         merge_tags_by_case, merge_tags_by_definitiveness, merge_tags_by_gender,
         merge_tags_by_german_verb_type, merge_tags_by_person, merge_tags_by_verb_form,
@@ -27,10 +27,14 @@ pub fn postprocess_main(langs: LangSpecs, irs: &mut Tidy) {
     // 2. A > B > C and C has a lemma (to test)
     // check_orphaned_redirects(irs);
 
-    // TODO: implement TryFrom<LangSpecs> for Lang, and use edition here
-    // also match on the language pair for safety
-    if matches!(langs.target, Lang::Ja) {
-        postprocess_japanese_kanji_lemmas(irs);
+    // SAFETY: for the main dictionary, EditionSpec is always of the One variant.
+    // This cast is only for convenience, we could match on EditionSpec variants directly.
+    let edition: Edition = langs.edition.try_into().unwrap();
+    match (edition, langs.source) {
+        (Edition::Ja, Lang::Ja) => {
+            postprocess_japanese_kanji_lemmas(irs);
+        }
+        _ => (),
     }
 }
 
