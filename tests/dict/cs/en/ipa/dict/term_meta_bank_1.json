@@ -46,5 +46,41 @@
         }
       ]
     }
+  ],
+  [
+    "být",
+    "ipa",
+    {
+      "reading": "být",
+      "transcriptions": [
+        {
+          "ipa": "[ˈbiːt]"
+        }
+      ]
+    }
+  ],
+  [
+    "nebýt",
+    "ipa",
+    {
+      "reading": "nebýt",
+      "transcriptions": [
+        {
+          "ipa": "[ˈnɛbiːt]"
+        }
+      ]
+    }
+  ],
+  [
+    "nebylo",
+    "ipa",
+    {
+      "reading": "nebylo",
+      "transcriptions": [
+        {
+          "ipa": "[ˈnɛbɪlo]"
+        }
+      ]
+    }
   ]
 ]

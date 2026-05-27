@@ -142,5 +142,146 @@
         }
       ]
     }
+  },
+  "být": {
+    "": {
+      "verb": [
+        {
+          "gloss_tree": {
+            "to be": {
+              "tags": [
+                "imperfective"
+              ],
+              "examples": [
+                {
+                  "text": "Ten kabát je vlhký",
+                  "translation": "The coat is wet.",
+                  "bold_text_offsets": [
+                    [
+                      10,
+                      12
+                    ]
+                  ],
+                  "bold_translation_offsets": [
+                    [
+                      9,
+                      11
+                    ]
+                  ]
+                }
+              ]
+            },
+            "to be (to exist)": {
+              "tags": [
+                "imperfective"
+              ],
+              "examples": [
+                {
+                  "text": "bylo nebylo",
+                  "translation": "once upon a time."
+                }
+              ]
+            },
+            "used to form past tense forms of verbs with past participles": {
+              "tags": [
+                "auxiliary",
+                "imperfective"
+              ],
+              "examples": [
+                {
+                  "text": "Jel jsem do Prahy.",
+                  "translation": "I went to Prague.",
+                  "bold_text_offsets": [
+                    [
+                      4,
+                      8
+                    ]
+                  ]
+                }
+              ]
+            },
+            "used to form future tense forms of verbs with infinitives": {
+              "tags": [
+                "auxiliary",
+                "imperfective"
+              ],
+              "examples": [
+                {
+                  "text": "Budu ti pomáhat.",
+                  "translation": "I will be helping you.",
+                  "bold_text_offsets": [
+                    [
+                      0,
+                      4
+                    ]
+                  ]
+                }
+              ]
+            },
+            "used to form conditional mood forms of verbs with past participles": {
+              "tags": [
+                "auxiliary",
+                "imperfective"
+              ],
+              "examples": [
+                {
+                  "text": "Já bych to neudělal.",
+                  "translation": "I would not do it.",
+                  "bold_text_offsets": [
+                    [
+                      3,
+                      7
+                    ]
+                  ]
+                }
+              ]
+            },
+            "used to form passive voice forms of verbs with passive participles": {
+              "tags": [
+                "auxiliary",
+                "imperfective"
+              ],
+              "examples": [
+                {
+                  "text": "Jsem překvapen.",
+                  "translation": "I am surprised.",
+                  "bold_text_offsets": [
+                    [
+                      0,
+                      4
+                    ]
+                  ]
+                }
+              ]
+            },
+            "used to form conditional forms of verbs with past and passive participles": {
+              "tags": [
+                "auxiliary",
+                "imperfective"
+              ],
+              "examples": [
+                {
+                  "text": "Byl by tam šel, kdyby ho byli pozvali.",
+                  "translation": "He would have gone there if they had invited him.",
+                  "bold_text_offsets": [
+                    [
+                      0,
+                      3
+                    ],
+                    [
+                      25,
+                      29
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "etymology_text": "Inherited from Old Czech býti, from Proto-Slavic *byti.",
+          "wlink": "https://en.wiktionary.org/wiki/být#Czech",
+          "klink": "https://kaikki.org/dictionary/Czech/meaning/b/bý/být.html"
+        }
+      ]
+    }
   }
 }

@@ -189,5 +189,337 @@
         ]
       ]
     }
+  },
+  "být": {
+    "bytí": {
+      "verb": [
+        "extracted",
+        [
+          "noun-from-verb"
+        ]
+      ]
+    },
+    "jsem": {
+      "verb": [
+        "extracted",
+        [
+          "first-person singular indicative"
+        ]
+      ]
+    },
+    "jsme": {
+      "verb": [
+        "extracted",
+        [
+          "first-person plural indicative"
+        ]
+      ]
+    },
+    "buďme": {
+      "verb": [
+        "extracted",
+        [
+          "first-person plural imperative"
+        ]
+      ]
+    },
+    "jsi": {
+      "verb": [
+        "extracted",
+        [
+          "second-person singular indicative"
+        ]
+      ]
+    },
+    "jste": {
+      "verb": [
+        "extracted",
+        [
+          "second-person plural indicative"
+        ]
+      ]
+    },
+    "buď": {
+      "verb": [
+        "extracted",
+        [
+          "second-person singular imperative"
+        ]
+      ]
+    },
+    "buďte": {
+      "verb": [
+        "extracted",
+        [
+          "second-person plural imperative"
+        ]
+      ]
+    },
+    "je": {
+      "verb": [
+        "extracted",
+        [
+          "third-person singular indicative"
+        ]
+      ]
+    },
+    "jest": {
+      "verb": [
+        "extracted",
+        [
+          "third-person singular indicative"
+        ]
+      ]
+    },
+    "jsou": {
+      "verb": [
+        "extracted",
+        [
+          "third-person plural indicative"
+        ]
+      ]
+    },
+    "jsa": {
+      "verb": [
+        "extracted",
+        [
+          "singular masculine present"
+        ]
+      ]
+    },
+    "byv": {
+      "verb": [
+        "extracted",
+        [
+          "singular masculine past"
+        ]
+      ]
+    },
+    "jsouc": {
+      "verb": [
+        "extracted",
+        [
+          "singular feminine neuter present"
+        ]
+      ]
+    },
+    "byvši": {
+      "verb": [
+        "extracted",
+        [
+          "singular feminine neuter past"
+        ]
+      ]
+    },
+    "jsouce": {
+      "verb": [
+        "extracted",
+        [
+          "plural present"
+        ]
+      ]
+    },
+    "byvše": {
+      "verb": [
+        "extracted",
+        [
+          "plural past"
+        ]
+      ]
+    },
+    "bejt": {
+      "verb": [
+        "extracted",
+        [
+          "informal alternative"
+        ]
+      ]
+    },
+    "nebýt": {
+      "verb": [
+        "inflection",
+        [
+          "negative form"
+        ]
+      ]
+    }
+  },
+  "nebýt": {
+    "nejsem": {
+      "verb": [
+        "extracted",
+        [
+          "first-person singular indicative"
+        ]
+      ]
+    },
+    "nejsme": {
+      "verb": [
+        "extracted",
+        [
+          "first-person plural indicative"
+        ]
+      ]
+    },
+    "nebuďme": {
+      "verb": [
+        "extracted",
+        [
+          "first-person plural imperative"
+        ]
+      ]
+    },
+    "nejsi": {
+      "verb": [
+        "extracted",
+        [
+          "second-person singular indicative"
+        ]
+      ]
+    },
+    "nejste": {
+      "verb": [
+        "extracted",
+        [
+          "second-person plural indicative"
+        ]
+      ]
+    },
+    "nebuď": {
+      "verb": [
+        "extracted",
+        [
+          "second-person singular imperative"
+        ]
+      ]
+    },
+    "nebuďte": {
+      "verb": [
+        "extracted",
+        [
+          "second-person plural imperative"
+        ]
+      ]
+    },
+    "není": {
+      "verb": [
+        "extracted",
+        [
+          "third-person singular indicative"
+        ]
+      ]
+    },
+    "nejsou": {
+      "verb": [
+        "extracted",
+        [
+          "third-person plural indicative"
+        ]
+      ]
+    },
+    "nebudu": {
+      "verb": [
+        "extracted",
+        [
+          "first-person singular"
+        ]
+      ]
+    },
+    "nebudeme": {
+      "verb": [
+        "extracted",
+        [
+          "first-person plural"
+        ]
+      ]
+    },
+    "nebudeš": {
+      "verb": [
+        "extracted",
+        [
+          "second-person singular"
+        ]
+      ]
+    },
+    "nebudete": {
+      "verb": [
+        "extracted",
+        [
+          "second-person plural"
+        ]
+      ]
+    },
+    "nebude": {
+      "verb": [
+        "extracted",
+        [
+          "third-person singular"
+        ]
+      ]
+    },
+    "nebudou": {
+      "verb": [
+        "extracted",
+        [
+          "third-person plural"
+        ]
+      ]
+    },
+    "nejsa": {
+      "verb": [
+        "extracted",
+        [
+          "singular masculine present"
+        ]
+      ]
+    },
+    "nebyv": {
+      "verb": [
+        "extracted",
+        [
+          "singular masculine past"
+        ]
+      ]
+    },
+    "nejsouc": {
+      "verb": [
+        "extracted",
+        [
+          "singular feminine neuter present"
+        ]
+      ]
+    },
+    "nebyvši": {
+      "verb": [
+        "extracted",
+        [
+          "singular feminine neuter past"
+        ]
+      ]
+    },
+    "nejsouce": {
+      "verb": [
+        "extracted",
+        [
+          "plural present"
+        ]
+      ]
+    },
+    "nebyvše": {
+      "verb": [
+        "extracted",
+        [
+          "plural past"
+        ]
+      ]
+    },
+    "nebylo": {
+      "verb": [
+        "inflection",
+        [
+          "singular neuter past active participle"
+        ]
+      ]
+    }
   }
 }
