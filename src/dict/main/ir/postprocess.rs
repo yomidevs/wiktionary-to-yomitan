@@ -30,16 +30,13 @@ pub fn postprocess_main(langs: LangSpecs, irs: &mut Tidy) {
     // SAFETY: for the main dictionary, EditionSpec is always of the One variant.
     // This cast is only for convenience, we could match on EditionSpec variants directly.
     let edition: Edition = langs.edition.try_into().unwrap();
-    match (edition, langs.source) {
-        (Edition::Ja, Lang::Ja) => {
-            let kana_to_kanji = collect_kana_to_kanji(&irs.form_map);
-            postprocess_japanese_kanji_lemmas(irs, &kana_to_kanji);
-            postprocess_japanese_kanji_forms(&mut irs.form_map, &kana_to_kanji);
-            postprocess_japanese_odoriji_lemmas(irs);
-            // Write ir message again after the changes.
-            found_ir_message_impl(langs, irs);
-        }
-        _ => (),
+    if (edition, langs.source) == (Edition::Ja, Lang::Ja) {
+        let kana_to_kanji = collect_kana_to_kanji(&irs.form_map);
+        postprocess_japanese_kanji_lemmas(irs, &kana_to_kanji);
+        postprocess_japanese_kanji_forms(&mut irs.form_map, &kana_to_kanji);
+        postprocess_japanese_odoriji_lemmas(irs);
+        // Write ir message again after the changes.
+        found_ir_message_impl(langs, irs);
     }
 }
 
@@ -156,7 +153,7 @@ fn postprocess_japanese_kanji_lemmas(irs: &mut Tidy, kana_to_kanji: &Map<String,
     let n_forms_removed = n_forms_before - irs.form_map.len();
 
     tracing::debug!(
-        "[ja] kanji postprocess: {n_forms_promoted} forms promoted to lemmas, {n_forms_removed} forms removed"
+        "[ja] kanji lemmas: {n_forms_promoted} forms promoted to lemmas, {n_forms_removed} forms removed"
     );
 }
 
@@ -239,8 +236,7 @@ fn replace_kana_prefix_with_kanji(
     let kana_suffix = &conjugated_kana[kana_root
         .char_indices()
         .nth(shared_len)
-        .map(|(i, _)| i)
-        .unwrap_or(kana_root.len())..];
+        .map_or(kana_root.len(), |(i, _)| i)..];
 
     // Simple heuristic: strip the non-shared kana suffix from the kanji root,
     // assuming the non-shared kana suffix corresponds to the non-shared kanji suffix.
@@ -300,7 +296,7 @@ fn to_odoriji(lemma: &str) -> Option<String> {
     found.then(|| result.into_iter().collect())
 }
 
-fn is_kanji(c: char) -> bool {
+const fn is_kanji(c: char) -> bool {
     matches!(c, '\u{4E00}'..='\u{9FFF}' | '\u{3400}'..='\u{4DBF}' | '\u{F900}'..='\u{FAFF}')
 }
 
