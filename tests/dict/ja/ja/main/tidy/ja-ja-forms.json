@@ -66,22 +66,6 @@
     }
   },
   "うえかえる": {
-    "植え替える": {
-      "verb": [
-        "extracted",
-        [
-          "kanji"
-        ]
-      ]
-    },
-    "植え換える": {
-      "verb": [
-        "extracted",
-        [
-          "kanji"
-        ]
-      ]
-    },
     "うえかえ": {
       "verb": [
         "extracted",
@@ -152,14 +136,6 @@
         "extracted",
         [
           "conditional hypothetical"
-        ]
-      ]
-    },
-    "植え替える": {
-      "unknown": [
-        "inflection",
-        [
-          "redirected from 植え替える"
         ]
       ]
     }

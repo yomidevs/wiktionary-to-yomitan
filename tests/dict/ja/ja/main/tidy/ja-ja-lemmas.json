@@ -443,5 +443,41 @@
         }
       ]
     }
+  },
+  "植え替える": {
+    "うえかえる": {
+      "unknown": [
+        {
+          "gloss_tree": {
+            "植物を他の鉢や場所に移して植える。": {}
+          },
+          "tags": [
+            "a-row",
+            "ichidan",
+            "shimoichidan"
+          ],
+          "wlink": "https://ja.wiktionary.org/wiki/うえかえる#Japanese",
+          "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/う/うえ/うえかえる.html"
+        }
+      ]
+    }
+  },
+  "植え換える": {
+    "うえかえる": {
+      "unknown": [
+        {
+          "gloss_tree": {
+            "植物を他の鉢や場所に移して植える。": {}
+          },
+          "tags": [
+            "a-row",
+            "ichidan",
+            "shimoichidan"
+          ],
+          "wlink": "https://ja.wiktionary.org/wiki/うえかえる#Japanese",
+          "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/う/うえ/うえかえる.html"
+        }
+      ]
+    }
   }
 }

@@ -5,7 +5,8 @@
 use crate::{
     Set,
     cli::LangSpecs,
-    dict::main::ir::{FormMap, Tidy},
+    dict::main::ir::{FormMap, LemmaMap, Tidy},
+    lang::Lang,
     tags::{
         merge_tags_by_case, merge_tags_by_definitiveness, merge_tags_by_gender,
         merge_tags_by_german_verb_type, merge_tags_by_person, merge_tags_by_verb_form,
@@ -13,7 +14,7 @@ use crate::{
     },
 };
 
-pub fn postprocess_main(_: LangSpecs, irs: &mut Tidy) {
+pub fn postprocess_main(langs: LangSpecs, irs: &mut Tidy) {
     postprocess_forms(&mut irs.form_map);
 
     // Check for form redirects A > B where B does not have a lemma, to remove bloat.
@@ -25,6 +26,12 @@ pub fn postprocess_main(_: LangSpecs, irs: &mut Tidy) {
     // 1. People using multiple dictionaries, where B as a lemma in another dict.
     // 2. A > B > C and C has a lemma (to test)
     // check_orphaned_redirects(irs);
+
+    // TODO: implement TryFrom<LangSpecs> for Lang, and use edition here
+    // also match on the language pair for safety
+    if matches!(langs.target, Lang::Ja) {
+        postprocess_japanese_kanji_lemmas(irs);
+    }
 }
 
 // For now, only diagnostic.
@@ -75,4 +82,63 @@ fn postprocess_forms(form_map: &mut FormMap) {
 
         sort_tags_by_similar(tags);
     }
+}
+
+fn postprocess_japanese_kanji_lemmas(irs: &mut Tidy) {
+    let kana_to_kanji: Vec<_> = irs
+        .form_map
+        .flat_iter()
+        .filter(|(_, _, _, _, tags)| tags.iter().any(|t| t == "kanji"))
+        .map(|(uninflected, inflected, _, _, _)| (uninflected.to_string(), inflected.to_string()))
+        .collect();
+
+    let mut new_lemmas = LemmaMap::default();
+    for (kana, kanji) in &kana_to_kanji {
+        for (lemma, reading, pos, info) in irs.lemma_map.flat_iter() {
+            if lemma == kana || reading == kana {
+                new_lemmas.insert(kanji, kana, pos.short(), info.clone());
+                break;
+            }
+        }
+    }
+
+    let n_forms_promoted = new_lemmas.len();
+    for (key, infos) in new_lemmas.0 {
+        let (kanji, kana_reading, pos) = key.unpack();
+        for info in infos {
+            irs.lemma_map.insert(kanji, kana_reading, pos.short(), info);
+        }
+    }
+
+    // Remove forms that were just promoted to lemmas
+    let promoted: Set<&str> = kana_to_kanji
+        .iter()
+        .map(|(_, kanji)| kanji.as_str())
+        .collect();
+    let lemmas: Set<&str> = irs
+        .lemma_map
+        .0
+        .iter()
+        .map(|(key, _)| key.lemma.as_str())
+        .collect();
+
+    let n_forms_before = irs.form_map.len();
+    irs.form_map.0.retain(|key, (_, tags)| {
+        // Remove promoted kanji entries entirely
+        if promoted.contains(key.uninflected.as_str()) {
+            return false;
+        }
+        // Remove kanji > kana redirections only if the uninflected kanji has a lemma.
+        // That is, remove redirection tags, and the form itself if it has no tags.
+        // ("redirected from" are from "form-of" of wagokanji templates)
+        if lemmas.contains(key.uninflected.as_str()) {
+            tags.retain(|tag| tag != "kanji" && !tag.starts_with("redirected from"));
+        }
+        !tags.is_empty()
+    });
+    let n_forms_removed = n_forms_before - irs.form_map.len();
+
+    tracing::debug!(
+        "[ja] kanji postprocess: {n_forms_promoted} forms promoted to lemmas, {n_forms_removed} forms removed"
+    );
 }
