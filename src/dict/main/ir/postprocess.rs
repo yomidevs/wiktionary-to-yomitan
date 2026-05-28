@@ -135,10 +135,14 @@ fn postprocess_japanese_kanji_lemmas(irs: &mut Tidy, kana_to_kanji: &Map<String,
 
     for (key, infos) in new_lemmas.0 {
         let (kanji, kana_reading, pos) = key.unpack();
-        // We use the wiktionary link to dedup to avoid inserting twice the same info
+        // We use the wiktionary link to dedup to avoid inserting twice the same info.
+        // Because the link alone includes many etymologies, we also use etymology_text
+        // (unrelated to etymology, it could have been any other field), to be less coarse.
+        // It is not unfallible (the proper, and expensive, solution would be to hash "info")
+        // but should be valid for almost, if not every practical case.
         let mut seen = Set::default();
         for info in infos {
-            if seen.insert(info.link_wiktionary.clone()) {
+            if seen.insert((info.etymology_text.clone(), info.link_wiktionary.clone())) {
                 debug_assert!(is_kana(kana_reading));
                 irs.lemma_map.insert(kanji, kana_reading, pos.long(), info);
             }
