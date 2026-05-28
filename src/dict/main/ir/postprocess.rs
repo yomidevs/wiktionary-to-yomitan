@@ -122,17 +122,13 @@ fn collect_kana_to_kanji(form_map: &FormMap) -> Map<String, Vec<String>> {
 
 fn postprocess_japanese_kanji_lemmas(irs: &mut Tidy, kana_to_kanji: &Map<String, Vec<String>>) {
     let mut new_lemmas = LemmaMap::default();
-    for (lemma, reading, pos, info) in irs.lemma_map.flat_iter() {
-        // Try to get kanji_writings if either the lemma or the reading is kana-only.
-        let (kana, kanji_writings) = if let Some(kanjis) = kana_to_kanji.get(lemma) {
-            (lemma, kanjis)
-        } else if let Some(kanjis) = kana_to_kanji.get(reading) {
-            (reading, kanjis)
-        } else {
+    for (lemma, _, pos, info) in irs.lemma_map.flat_iter() {
+        let Some(kanji_writings) = kana_to_kanji.get(lemma) else {
             continue;
         };
+
         for kanji in kanji_writings {
-            new_lemmas.insert(kanji, kana, pos.long(), info.clone());
+            new_lemmas.insert(kanji, lemma, pos.long(), info.clone());
         }
     }
     let n_forms_promoted = new_lemmas.len();

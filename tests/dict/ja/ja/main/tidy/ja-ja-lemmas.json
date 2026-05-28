@@ -479,6 +479,20 @@
       ]
     }
   },
+  "端役": {
+    "はやく": {
+      "noun": [
+        {
+          "gloss_tree": {
+            "演劇、ドラマ、映画などで主要、重要でない役。": {},
+            "物事で主要、重要でない役目。": {}
+          },
+          "wlink": "https://ja.wiktionary.org/wiki/端役#Japanese",
+          "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/端/端役/端役.html"
+        }
+      ]
+    }
+  },
   "植え替える": {
     "うえかえる": {
       "verb": [

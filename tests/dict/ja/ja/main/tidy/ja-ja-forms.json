@@ -289,6 +289,26 @@
       ]
     }
   },
+  "端役": {
+    "はやく": {
+      "noun": [
+        "extracted",
+        [
+          "transliteration"
+        ]
+      ]
+    }
+  },
+  "はやく": {
+    "速く": {
+      "character": [
+        "inflection",
+        [
+          "redirected from 速く"
+        ]
+      ]
+    }
+  },
   "植え替える": {
     "植え替え": {
       "verb": [
