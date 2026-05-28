@@ -224,6 +224,91 @@
       ]
     }
   },
+  "つけくわえる": {
+    "つけくわえ": {
+      "verb": [
+        "extracted",
+        [
+          "a-row shimoichidan ichidan continuative",
+          "imperfective a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "つけくわえれ": {
+      "verb": [
+        "extracted",
+        [
+          "a-row shimoichidan ichidan hypothetical"
+        ]
+      ]
+    },
+    "つけくわえろ": {
+      "verb": [
+        "extracted",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "つけくわえよ": {
+      "verb": [
+        "extracted",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "つけくわえない": {
+      "verb": [
+        "extracted",
+        [
+          "imperfective negative"
+        ]
+      ]
+    },
+    "つけくわえよう": {
+      "verb": [
+        "extracted",
+        [
+          "imperfective volitional"
+        ]
+      ]
+    },
+    "つけくわえます": {
+      "verb": [
+        "extracted",
+        [
+          "polite continuative"
+        ]
+      ]
+    },
+    "つけくわえた": {
+      "verb": [
+        "extracted",
+        [
+          "past completive continuative"
+        ]
+      ]
+    },
+    "つけくわえれば": {
+      "verb": [
+        "extracted",
+        [
+          "conditional hypothetical"
+        ]
+      ]
+    }
+  },
+  "付け加える": {
+    "つけくわえる": {
+      "character": [
+        "extracted",
+        [
+          "transliteration"
+        ]
+      ]
+    }
+  },
   "植え替える": {
     "植え替え": {
       "verb": [
