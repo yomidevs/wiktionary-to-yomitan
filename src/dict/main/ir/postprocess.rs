@@ -8,16 +8,14 @@ use crate::{
     dict::main::ir::{FormMap, FormSource, LemmaMap, Tidy, found_ir_message_impl},
     lang::{Edition, Lang},
     tags::{
-        Pos, merge_tags_by_case, merge_tags_by_definitiveness, merge_tags_by_gender,
+        merge_tags_by_case, merge_tags_by_definitiveness, merge_tags_by_gender,
         merge_tags_by_german_verb_type, merge_tags_by_person, merge_tags_by_verb_form,
         remove_redundant_tags, sort_tags, sort_tags_by_similar,
     },
-    utils::is_kanji,
+    utils::{has_kanji, is_kana, is_kanji_c},
 };
 
 pub fn postprocess_main(langs: LangSpecs, irs: &mut Tidy) {
-    postprocess_forms(&mut irs.form_map);
-
     // Check for form redirects A > B where B does not have a lemma, to remove bloat.
     // This can happen when:
     // 1. A form redirects to another form that's not registered as a lemma
@@ -39,6 +37,9 @@ pub fn postprocess_main(langs: LangSpecs, irs: &mut Tidy) {
         // Write ir message again after the changes.
         found_ir_message_impl(langs, irs);
     }
+
+    // Comes last in case some other postprocessing logic added redundant tags.
+    postprocess_forms(&mut irs.form_map);
 }
 
 // For now, only diagnostic.
@@ -91,10 +92,26 @@ fn postprocess_forms(form_map: &mut FormMap) {
     }
 }
 
+fn is_kana_to_kanji_tag(tag: &str) -> bool {
+    // "redirected from" are from "form-of" of wagokanji templates
+    // NOTE: the redirected from is error prone since it's used by other logic
+    tag == "kanji" || tag.starts_with("redirected from")
+}
+
+fn is_kana_to_kanji_form(tags: &[String]) -> bool {
+    tags.iter().any(|t| is_kana_to_kanji_tag(t))
+}
+
+fn is_kana_to_kanji_pair(kana: &str, kanji: &str) -> bool {
+    is_kana(kana) && has_kanji(kanji)
+}
+
 fn collect_kana_to_kanji(form_map: &FormMap) -> Map<String, Vec<String>> {
     let mut map: Map<String, Vec<String>> = Map::default();
     for (uninflected, inflected, _, _, tags) in form_map.flat_iter() {
-        if tags.iter().any(|t| t == "kanji") {
+        // NOTE: because the "redirected from" tag is error prone, be sure to only
+        // add kana to kanji pairs.
+        if is_kana_to_kanji_form(tags) && is_kana_to_kanji_pair(uninflected, inflected) {
             map.entry(uninflected.to_string())
                 .or_default()
                 .push(inflected.to_string());
@@ -106,21 +123,29 @@ fn collect_kana_to_kanji(form_map: &FormMap) -> Map<String, Vec<String>> {
 fn postprocess_japanese_kanji_lemmas(irs: &mut Tidy, kana_to_kanji: &Map<String, Vec<String>>) {
     let mut new_lemmas = LemmaMap::default();
     for (lemma, reading, pos, info) in irs.lemma_map.flat_iter() {
-        let kanji_writings = kana_to_kanji
-            .get(lemma)
-            .or_else(|| kana_to_kanji.get(reading));
-        if let Some(kanjis) = kanji_writings {
-            for kanji in kanjis {
-                new_lemmas.insert(kanji, lemma, pos.long(), info.clone());
-            }
+        // Try to get kanji_writings if either the lemma or the reading is kana-only.
+        let (kana, kanji_writings) = if let Some(kanjis) = kana_to_kanji.get(lemma) {
+            (lemma, kanjis)
+        } else if let Some(kanjis) = kana_to_kanji.get(reading) {
+            (reading, kanjis)
+        } else {
+            continue;
+        };
+        for kanji in kanji_writings {
+            new_lemmas.insert(kanji, kana, pos.long(), info.clone());
         }
     }
-
     let n_forms_promoted = new_lemmas.len();
+
     for (key, infos) in new_lemmas.0 {
         let (kanji, kana_reading, pos) = key.unpack();
+        // We use the wiktionary link to dedup to avoid inserting twice the same info
+        let mut seen = Set::default();
         for info in infos {
-            irs.lemma_map.insert(kanji, kana_reading, pos.long(), info);
+            if seen.insert(info.link_wiktionary.clone()) {
+                debug_assert!(is_kana(kana_reading));
+                irs.lemma_map.insert(kanji, kana_reading, pos.long(), info);
+            }
         }
     }
 
@@ -145,9 +170,8 @@ fn postprocess_japanese_kanji_lemmas(irs: &mut Tidy, kana_to_kanji: &Map<String,
         }
         // Remove kanji > kana redirections only if the uninflected kanji has a lemma.
         // That is, remove redirection tags, and the form itself if it has no tags.
-        // ("redirected from" are from "form-of" of wagokanji templates)
         if lemmas.contains(key.uninflected.as_str()) {
-            tags.retain(|tag| tag != "kanji" && !tag.starts_with("redirected from"));
+            tags.retain(|tag| !is_kana_to_kanji_tag(tag))
         }
         !tags.is_empty()
     });
@@ -166,7 +190,7 @@ fn postprocess_japanese_kanji_forms(
     // uninflected=kana, inflected=conjugated_kana
     let mut kana_conjugations: Map<String, Vec<(String, String, Vec<String>)>> = Map::default();
     for (uninflected, inflected, pos, _, tags) in form_map.flat_iter() {
-        if pos == Pos::Verb && kana_to_kanji.contains_key(uninflected) {
+        if kana_to_kanji.contains_key(uninflected) {
             kana_conjugations
                 .entry(uninflected.to_string())
                 .or_default()
@@ -288,7 +312,7 @@ fn to_odoriji(lemma: &str) -> Option<String> {
     let mut found = false;
 
     for i in 0..chars.len().saturating_sub(1) {
-        if is_kanji(chars[i]) && chars[i] == chars[i + 1] {
+        if is_kanji_c(chars[i]) && chars[i] == chars[i + 1] {
             result[i + 1] = '々';
             found = true;
         }

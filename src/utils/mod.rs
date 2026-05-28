@@ -5,7 +5,7 @@ use anyhow::Result;
 use crate::lang::{Edition, Lang};
 
 mod japanese;
-pub use japanese::{has_kanji, is_kanji};
+pub use japanese::*;
 
 pub const SKIP_C: &str = "⏭";
 pub const CHECK_C: &str = "✓";

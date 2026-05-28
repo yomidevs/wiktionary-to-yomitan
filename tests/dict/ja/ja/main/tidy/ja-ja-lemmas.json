@@ -515,6 +515,28 @@
       ]
     }
   },
+  "付け加える": {
+    "つけくわえる": {
+      "verb": [
+        {
+          "gloss_tree": {
+            "既にある物の上に、更に別の物を添える。": {
+              "tags": [
+                "transitive"
+              ]
+            }
+          },
+          "tags": [
+            "a-row",
+            "ichidan",
+            "shimoichidan"
+          ],
+          "wlink": "https://ja.wiktionary.org/wiki/つけくわえる#Japanese",
+          "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/つ/つけ/つけくわえる.html"
+        }
+      ]
+    }
+  },
   "種々": {
     "しゅじゅ": {
       "noun": [
