@@ -312,23 +312,6 @@
     ""
   ],
   [
-    "なまえ",
-    "",
-    "non-lemma",
-    "char",
-    0,
-    [
-      [
-        "名前",
-        [
-          "transliteration"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
     "諄い",
     "",
     "non-lemma",
@@ -424,6 +407,199 @@
         "種種",
         [
           "transliteration"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "つけくわえ",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "つけくわえる",
+        [
+          "a-row shimoichidan ichidan continuative"
+        ]
+      ],
+      [
+        "つけくわえる",
+        [
+          "imperfective a-row shimoichidan ichidan"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "つけくわえれ",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "つけくわえる",
+        [
+          "a-row shimoichidan ichidan hypothetical"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "つけくわえろ",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "つけくわえる",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "つけくわえよ",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "つけくわえる",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "つけくわえない",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "つけくわえる",
+        [
+          "imperfective negative"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "つけくわえよう",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "つけくわえる",
+        [
+          "imperfective volitional"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "つけくわえます",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "つけくわえる",
+        [
+          "polite continuative"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "つけくわえた",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "つけくわえる",
+        [
+          "past completive continuative"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "つけくわえれば",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "つけくわえる",
+        [
+          "conditional hypothetical"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "はやく",
+    "",
+    "non-lemma",
+    "n",
+    0,
+    [
+      [
+        "端役",
+        [
+          "transliteration"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "速く",
+    "",
+    "non-lemma",
+    "char",
+    0,
+    [
+      [
+        "はやく",
+        [
+          "redirected from 速く"
         ]
       ]
     ],
@@ -740,6 +916,165 @@
     [
       [
         "植え換える",
+        [
+          "conditional hypothetical"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "付け加え",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "付け加える",
+        [
+          "a-row shimoichidan ichidan continuative"
+        ]
+      ],
+      [
+        "付け加える",
+        [
+          "imperfective a-row shimoichidan ichidan"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "付け加えれ",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "付け加える",
+        [
+          "a-row shimoichidan ichidan hypothetical"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "付け加えろ",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "付け加える",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "付け加えよ",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "付け加える",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "付け加えない",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "付け加える",
+        [
+          "imperfective negative"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "付け加えよう",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "付け加える",
+        [
+          "imperfective volitional"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "付け加えます",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "付け加える",
+        [
+          "polite continuative"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "付け加えた",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "付け加える",
+        [
+          "past completive continuative"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "付け加えれば",
+    "",
+    "non-lemma",
+    "v",
+    0,
+    [
+      [
+        "付け加える",
         [
           "conditional hypothetical"
         ]

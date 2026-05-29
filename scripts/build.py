@@ -170,48 +170,44 @@ def generate_tags_rs(
     w("pub enum Pos {\n")
     for pos in poses:
         w(f"{idt}{pos.ident},\n")
-    # w(f"{idt}Other(Box<str>),\n")
     w(f"{idt}Unknown,\n")
     w("}\n\n")
 
-    # From<&str>
+    # From long(s)
     w("impl From<&str> for Pos {\n")
     w(f"{idt}fn from(s: &str) -> Self {{\n")
     w(f"{idt * 2}match s {{\n")
     for pos in poses:
         choices = " | ".join(f'"{long}"' for long in pos.longs_as_list())
         w(f"{idt * 3}{choices} => Self::{pos.ident},\n")
-    # w(f"{idt * 3}_ => Self::Other(s.into()),\n")
     w(f"{idt * 3}_ => Self::Unknown,\n")
     w(f"{idt * 2}}}\n")
     w(f"{idt}}}\n")
     w("}\n\n")
 
-    # long
+    # To long
     w("impl Pos {\n")
     w(f"{idt}pub const fn long(&self) -> &str {{\n")
     w(f"{idt * 2}match self {{\n")
     for pos in poses:
         w(f'{idt * 3}Self::{pos.ident} => "{pos.long_tag()}",\n')
-    # w(f"{idt * 3}Self::Other(s) => s,\n")
     w(f'{idt * 3}Self::Unknown => "unknown",\n')
     w(f"{idt * 2}}}\n")
     w(f"{idt}}}\n")
     w("}\n\n")
 
-    # short
+    # To short
     w("impl Pos {\n")
     w(f"{idt}pub const fn short(&self) -> &str {{\n")
     w(f"{idt * 2}match self {{\n")
     for pos in poses:
         w(f'{idt * 3}Self::{pos.ident} => "{pos.short_tag}",\n')
-    # w(f"{idt}{idt}{idt}Self::Other(s) => s,\n")
     w(f'{idt * 3}Self::Unknown => "?",\n')
     w(f"{idt * 2}}}\n")
     w(f"{idt}}}\n")
     w("}\n\n")
 
-    # Serde::serialize as sort
+    # Serde::serialize as long
     w("impl serde::Serialize for Pos {\n")
     w(
         f"{idt}fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {{\n"

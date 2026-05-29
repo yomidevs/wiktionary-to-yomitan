@@ -160,16 +160,6 @@
       ]
     }
   },
-  "名前": {
-    "なまえ": {
-      "character": [
-        "extracted",
-        [
-          "transliteration"
-        ]
-      ]
-    }
-  },
   "くどい": {
     "諄い": {
       "character": [
@@ -220,6 +210,101 @@
         "extracted",
         [
           "transliteration"
+        ]
+      ]
+    }
+  },
+  "つけくわえる": {
+    "つけくわえ": {
+      "verb": [
+        "extracted",
+        [
+          "a-row shimoichidan ichidan continuative",
+          "imperfective a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "つけくわえれ": {
+      "verb": [
+        "extracted",
+        [
+          "a-row shimoichidan ichidan hypothetical"
+        ]
+      ]
+    },
+    "つけくわえろ": {
+      "verb": [
+        "extracted",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "つけくわえよ": {
+      "verb": [
+        "extracted",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "つけくわえない": {
+      "verb": [
+        "extracted",
+        [
+          "imperfective negative"
+        ]
+      ]
+    },
+    "つけくわえよう": {
+      "verb": [
+        "extracted",
+        [
+          "imperfective volitional"
+        ]
+      ]
+    },
+    "つけくわえます": {
+      "verb": [
+        "extracted",
+        [
+          "polite continuative"
+        ]
+      ]
+    },
+    "つけくわえた": {
+      "verb": [
+        "extracted",
+        [
+          "past completive continuative"
+        ]
+      ]
+    },
+    "つけくわえれば": {
+      "verb": [
+        "extracted",
+        [
+          "conditional hypothetical"
+        ]
+      ]
+    }
+  },
+  "端役": {
+    "はやく": {
+      "noun": [
+        "extracted",
+        [
+          "transliteration"
+        ]
+      ]
+    }
+  },
+  "はやく": {
+    "速く": {
+      "character": [
+        "inflection",
+        [
+          "redirected from 速く"
         ]
       ]
     }
@@ -366,6 +451,81 @@
       ]
     },
     "植え換えれば": {
+      "verb": [
+        "postprocessed",
+        [
+          "conditional hypothetical"
+        ]
+      ]
+    }
+  },
+  "付け加える": {
+    "付け加え": {
+      "verb": [
+        "postprocessed",
+        [
+          "a-row shimoichidan ichidan continuative",
+          "imperfective a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "付け加えれ": {
+      "verb": [
+        "postprocessed",
+        [
+          "a-row shimoichidan ichidan hypothetical"
+        ]
+      ]
+    },
+    "付け加えろ": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "付け加えよ": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperative a-row shimoichidan ichidan"
+        ]
+      ]
+    },
+    "付け加えない": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperfective negative"
+        ]
+      ]
+    },
+    "付け加えよう": {
+      "verb": [
+        "postprocessed",
+        [
+          "imperfective volitional"
+        ]
+      ]
+    },
+    "付け加えます": {
+      "verb": [
+        "postprocessed",
+        [
+          "polite continuative"
+        ]
+      ]
+    },
+    "付け加えた": {
+      "verb": [
+        "postprocessed",
+        [
+          "past completive continuative"
+        ]
+      ]
+    },
+    "付け加えれば": {
       "verb": [
         "postprocessed",
         [

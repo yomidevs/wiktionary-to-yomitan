@@ -457,6 +457,42 @@
       ]
     }
   },
+  "つけくわえる": {
+    "": {
+      "verb": [
+        {
+          "gloss_tree": {
+            "既にある物の上に、更に別の物を添える。": {
+              "tags": [
+                "transitive"
+              ]
+            }
+          },
+          "tags": [
+            "a-row",
+            "ichidan",
+            "shimoichidan"
+          ],
+          "wlink": "https://ja.wiktionary.org/wiki/つけくわえる#Japanese",
+          "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/つ/つけ/つけくわえる.html"
+        }
+      ]
+    }
+  },
+  "端役": {
+    "はやく": {
+      "noun": [
+        {
+          "gloss_tree": {
+            "演劇、ドラマ、映画などで主要、重要でない役。": {},
+            "物事で主要、重要でない役目。": {}
+          },
+          "wlink": "https://ja.wiktionary.org/wiki/端役#Japanese",
+          "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/端/端役/端役.html"
+        }
+      ]
+    }
+  },
   "植え替える": {
     "うえかえる": {
       "verb": [
@@ -489,6 +525,28 @@
           ],
           "wlink": "https://ja.wiktionary.org/wiki/うえかえる#Japanese",
           "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/う/うえ/うえかえる.html"
+        }
+      ]
+    }
+  },
+  "付け加える": {
+    "つけくわえる": {
+      "verb": [
+        {
+          "gloss_tree": {
+            "既にある物の上に、更に別の物を添える。": {
+              "tags": [
+                "transitive"
+              ]
+            }
+          },
+          "tags": [
+            "a-row",
+            "ichidan",
+            "shimoichidan"
+          ],
+          "wlink": "https://ja.wiktionary.org/wiki/つけくわえる#Japanese",
+          "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/つ/つけ/つけくわえる.html"
         }
       ]
     }
