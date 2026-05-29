@@ -188,5 +188,26 @@
         }
       ]
     }
+  ],
+  [
+    "pulcher",
+    "ipa",
+    {
+      "reading": "pulcher",
+      "transcriptions": [
+        {
+          "ipa": "[ˈpʊɫ.kʰɛr]",
+          "tags": [
+            "Classical-Latin"
+          ]
+        },
+        {
+          "ipa": "[ˈpul.ker]",
+          "tags": [
+            "⛪"
+          ]
+        }
+      ]
+    }
   ]
 ]

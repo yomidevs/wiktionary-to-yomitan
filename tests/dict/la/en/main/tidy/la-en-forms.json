@@ -2564,5 +2564,163 @@
         ]
       ]
     }
+  },
+  "pulcher": {
+    "pulchra": {
+      "adjective": [
+        "extracted",
+        [
+          "nominative/accusative/vocative plural neuter",
+          "nominative/vocative singular feminine"
+        ]
+      ]
+    },
+    "pulchrum": {
+      "adjective": [
+        "extracted",
+        [
+          "accusative singular masculine",
+          "nominative/accusative/vocative singular neuter"
+        ]
+      ]
+    },
+    "pulchrior": {
+      "adjective": [
+        "extracted",
+        [
+          "comparative"
+        ]
+      ]
+    },
+    "pulcherrimus": {
+      "adjective": [
+        "extracted",
+        [
+          "superlative"
+        ]
+      ]
+    },
+    "pulchrē": {
+      "adjective": [
+        "extracted",
+        [
+          "adverb"
+        ]
+      ]
+    },
+    "in -er": {
+      "adjective": [
+        "extracted",
+        [
+          "nominative singular masculine"
+        ]
+      ]
+    },
+    "pulchrī": {
+      "adjective": [
+        "extracted",
+        [
+          "genitive singular masculine/neuter",
+          "nominative/vocative plural masculine"
+        ]
+      ]
+    },
+    "pulchrae": {
+      "adjective": [
+        "extracted",
+        [
+          "genitive/dative singular feminine",
+          "nominative/vocative plural feminine"
+        ]
+      ]
+    },
+    "pulchrōrum": {
+      "adjective": [
+        "extracted",
+        [
+          "genitive plural masculine/neuter"
+        ]
+      ]
+    },
+    "pulchrārum": {
+      "adjective": [
+        "extracted",
+        [
+          "genitive plural feminine"
+        ]
+      ]
+    },
+    "pulchrō": {
+      "adjective": [
+        "extracted",
+        [
+          "dative/ablative singular masculine/neuter"
+        ]
+      ]
+    },
+    "pulchrīs": {
+      "adjective": [
+        "extracted",
+        [
+          "dative/ablative plural masculine feminine neuter"
+        ]
+      ]
+    },
+    "pulchram": {
+      "adjective": [
+        "extracted",
+        [
+          "accusative singular feminine"
+        ]
+      ]
+    },
+    "pulchrōs": {
+      "adjective": [
+        "extracted",
+        [
+          "accusative plural masculine"
+        ]
+      ]
+    },
+    "pulchrās": {
+      "adjective": [
+        "extracted",
+        [
+          "accusative plural feminine"
+        ]
+      ]
+    },
+    "pulchrā": {
+      "adjective": [
+        "extracted",
+        [
+          "ablative singular feminine"
+        ]
+      ]
+    },
+    "pulcer": {
+      "adjective": [
+        "extracted",
+        [
+          "alternative"
+        ]
+      ]
+    },
+    "polcher": {
+      "adjective": [
+        "extracted",
+        [
+          "alternative"
+        ]
+      ]
+    },
+    "polcer": {
+      "adjective": [
+        "extracted",
+        [
+          "alternative"
+        ]
+      ]
+    }
   }
 }

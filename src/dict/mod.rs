@@ -6,6 +6,7 @@ mod index;
 mod ipa;
 mod main;
 mod release;
+mod rules;
 mod scan;
 mod writer;
 

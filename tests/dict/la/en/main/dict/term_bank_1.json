@@ -2,7 +2,7 @@
   [
     "fama",
     "fāma",
-    "n fem",
+    "n decl-1 fem",
     "n",
     0,
     [
@@ -798,7 +798,7 @@
   [
     "lilium",
     "līlium",
-    "n neut",
+    "n decl-2 neut",
     "n",
     0,
     [
@@ -1144,7 +1144,7 @@
   [
     "rectus",
     "rēctus",
-    "v ptcpl",
+    "v decl-1 decl-2 ptcpl",
     "v",
     0,
     [
@@ -1377,7 +1377,7 @@
   [
     "domus",
     "",
-    "n irreg fem",
+    "n decl-2 decl-4 irreg fem",
     "n",
     0,
     [
@@ -2298,7 +2298,7 @@
     "in",
     "",
     "prep",
-    "prep",
+    "",
     0,
     [
       {
@@ -3214,6 +3214,145 @@
               {
                 "tag": "a",
                 "href": "https://kaikki.org/dictionary/Latin/meaning/l/le/lente.html",
+                "content": "Kaikki"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    0,
+    ""
+  ],
+  [
+    "pulcher",
+    "",
+    "adj decl-1 decl-2",
+    "adj",
+    0,
+    [
+      {
+        "type": "structured-content",
+        "content": [
+          {
+            "tag": "div",
+            "content": [
+              {
+                "tag": "div",
+                "data": {
+                  "content": "preamble"
+                },
+                "content": [
+                  {
+                    "tag": "details",
+                    "data": {
+                      "content": "details-entry-Grammar"
+                    },
+                    "content": [
+                      {
+                        "tag": "summary",
+                        "data": {
+                          "content": "summary-entry"
+                        },
+                        "content": "Grammar"
+                      },
+                      {
+                        "tag": "div",
+                        "data": {
+                          "content": "Grammar-content"
+                        },
+                        "content": "pulcher (feminine pulchra, neuter pulchrum, comparative pulchrior, superlative pulcherrimus, adverb pulchrē); first/second-declension adjective (nominative masculine singular in -er)"
+                      }
+                    ]
+                  },
+                  {
+                    "tag": "details",
+                    "data": {
+                      "content": "details-entry-Etymology"
+                    },
+                    "content": [
+                      {
+                        "tag": "summary",
+                        "data": {
+                          "content": "summary-entry"
+                        },
+                        "content": "Etymology"
+                      },
+                      {
+                        "tag": "div",
+                        "data": {
+                          "content": "Etymology-content"
+                        },
+                        "content": "Uncertain. The earlier form polcer is traditionally derived from Proto-Italic *porkros, from Proto-Indo-European *pr̥ḱ-ró-s or Proto-Indo-European *perḱ-ro-, from the root *perḱ- (“motley, variegated”), with dissimilation of the first *-r- into *-l-. De Vaan has questioned this change, thinking that the second *r should have disappeared instead, and thus leaves this term without an etymology. Connection with poliō (“to polish, smooth”) or polleō (“to be strong”) is to be excluded.\nThe aspiration is often considered secondary when the word would have been made to derive from Ancient Greek πολύχροος (polúkhroos, “multicolor”) by folk etymology, while an Etruscan borrowing is usually discarded."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "ol",
+            "data": {
+              "content": "glosses"
+            },
+            "content": [
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "beautiful, fair, pretty"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      {
+                        "tag": "div",
+                        "data": {
+                          "content": "tags"
+                        },
+                        "content": [
+                          {
+                            "tag": "span",
+                            "title": "figurative",
+                            "data": {
+                              "content": "tag",
+                              "category": "usage"
+                            },
+                            "content": "fig"
+                          }
+                        ]
+                      },
+                      "noble, honorable, excellent"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "data": {
+              "content": "backlink"
+            },
+            "content": [
+              {
+                "tag": "a",
+                "href": "https://en.wiktionary.org/wiki/pulcher#Latin",
+                "content": "Wiktionary"
+              },
+              " | ",
+              {
+                "tag": "a",
+                "href": "https://kaikki.org/dictionary/Latin/meaning/p/pu/pulcher.html",
                 "content": "Kaikki"
               }
             ]

@@ -33,10 +33,14 @@ TODO: explain why this is important.
 import argparse
 import json
 import re
+from collections import Counter, defaultdict
 from pathlib import Path
 
+type Conditions = dict[str, dict[str, str]]
+"""Key is the rule ident. Values are {"name": "rule name, ...}."""
 
-def extract_conditions(js_text: str) -> dict | None:
+
+def extract_conditions(js_text: str) -> Conditions | None:
     """Extract the first `const conditions = { ... }` block from a JS file."""
     mch = re.search(r"const conditions\s*=\s*(\{.*?\});", js_text, re.DOTALL)
     if not mch:
@@ -55,12 +59,16 @@ def extract_conditions(js_text: str) -> dict | None:
     json_out = json.loads(obj)
     # Remove unwanted keys: i18n and subConditions
     return {
-        key: {k: v for k, v in val.items() if k not in ("i18n", "subConditions")}
-        for key, val in json_out.items()
+        ident: {
+            k: v
+            for k, v in val.items()
+            if k not in ("i18n", "subConditions", "isDictionaryForm")
+        }
+        for ident, val in json_out.items()
     }
 
 
-def scan_yomitan_repo(repo_path: Path) -> dict[str, dict]:
+def scan_yomitan_repo(repo_path: Path) -> dict[str, Conditions]:
     """Scan all language JS files and return conditions keyed by language folder."""
     if not repo_path.exists():
         raise FileNotFoundError(f"Repo not found @ {repo_path.resolve()}")
@@ -69,52 +77,88 @@ def scan_yomitan_repo(repo_path: Path) -> dict[str, dict]:
     if not lang_root.exists():
         raise FileNotFoundError(f"Language folder not found @ {lang_root}")
 
-    results: dict[str, dict] = {}
-    # For cross-language collision detection
-    seen: dict[str, dict] = {}
-    seen_lang: dict[str, str] = {}
+    results: dict[str, Conditions] = {}
+    name_counts = defaultdict(Counter)
+    all_conditions = defaultdict(list)
 
     for js_file in lang_root.rglob("*.js"):
         text = js_file.read_text(encoding="utf-8")
         conditions = extract_conditions(text)
-        if conditions is None:
+        if not conditions:
             continue
         lang = js_file.parent.name
-        for key, condition in conditions.items():
-            if key in seen and seen[key] != condition:
-                print(
-                    f"WARN: condition ident '{key}' conflict:\n  [{seen_lang[key]}] {seen[key]}\n  [{lang}] {condition}"
-                )
-            else:
-                seen[key] = condition
-                seen_lang[key] = lang
-        # Merge by language (if/when there are multiple transform files for it)
+        for ident, condition in conditions.items():
+            name = condition["name"]
+            name_counts[ident][name] += 1
+            all_conditions[ident].append((lang, condition))
+        rel_path = js_file.relative_to(repo_path).as_posix()
+        lang_result = {
+            ident: {"name": cond["name"], "path": rel_path}
+            for ident, cond in conditions.items()
+        }
         if lang in results:
-            results[lang].update(conditions)
+            results[lang].update(lang_result)
         else:
-            results[lang] = conditions
+            results[lang] = lang_result
+
+    # pass 1: canonical choice
+    canonical = {key: counts.most_common(1)[0] for key, counts in name_counts.items()}
+
+    # pass 2: find offenders and report
+    offenders = defaultdict(list)
+    for ident, entries in all_conditions.items():
+        winner, _ = canonical.get(ident, (None, None))
+        for lang, condition in entries:
+            if condition["name"] != winner:
+                offenders[ident].append((lang, condition))
+    for ident, bads in offenders.items():
+        cname, ccount = canonical[ident]
+        print(f"OFFENDER key={ident}, canonical={cname} ({ccount})")
+        for lang, cond in bads:
+            print(f"  [{lang}] {cond}")
+    if not offenders:
+        print("Found no offenders. Rules are consistent across languages.")
 
     return results
 
 
-def build_rules_rs(res: dict[str, list[str]], out_path: Path) -> None:
-    """Generate src/dict/rules.rs from the extracted conditions."""
+def build_valid_rules_rs(res: dict[str, Conditions], out_path: Path) -> None:
     idt = " " * 4
+
+    all_conditions: dict[str, str] = {}
+    ident_langs: dict[str, list[str]] = defaultdict(list)
+    ident_paths: dict[str, list[str]] = defaultdict(list)
+    for lang, conditions in res.items():
+        for ident, meta in conditions.items():
+            all_conditions[ident] = meta["name"]
+            ident_langs[ident].append(lang)
+            ident_paths[ident].append(meta["path"])
 
     with out_path.open("w", encoding="utf-8") as f:
         w = f.write
         w("//! This file was generated and should not be edited directly.\n")
-        w("//! The source code can be found at scripts/scan_yomitan.py\n\n")
+        w("//! The source code can be found at scripts/deinflection_rules.py\n\n")
+        # w("//! # Rule identifiers\n")
+        # w("//! | Rule | Languages | Name | Source |\n")
+        # w("//! |------|-----------|------|--------|\n")
+        # REPO_URL = "https://github.com/yomidevs/yomitan"
+        # for ident, name in sorted(all_conditions.items()):
+        #     langs = ", ".join(sorted(ident_langs[ident]))
+        #     sources = " ".join(
+        #         f"[{path.split('/')[-1]}]({REPO_URL}/blob/master/{path})"
+        #         for path in sorted(set(ident_paths[ident]))
+        #     )
+        #     w(f"//! | `{ident}` | {langs} | {name} | {sources} |\n")
         w("use crate::lang::Lang;\n\n")
+        w("#[rustfmt::skip]\n")
         w("pub fn is_valid_rule(lang: Lang, rule: &str) -> bool {\n")
         w(f"{idt}match lang {{\n")
-
         for lang, conditions in res.items():
             if not conditions:
                 continue
-            variants = " | ".join(f'"{c}"' for c in conditions)
+            items = sorted(conditions.items())
+            variants = " | ".join(f'"{ident}"' for ident, _ in items)
             w(f"{idt * 2}Lang::{lang.title()} => matches!(rule, {variants}),\n")
-
         w(f"{idt * 2}_ => false,\n")
         w(f"{idt}}}\n")
         w("}\n")
@@ -137,24 +181,21 @@ def main() -> None:
     args = parser.parse_args()
 
     results = scan_yomitan_repo(args.repo_path)
+    res: dict[str, Conditions] = {}
+    for lang, conditions in results.items():
+        res[lang] = {rule: cond for rule, cond in sorted(conditions.items())}
+
+    # TODO: snapshot some json (only once, and add it to the repo so one
+    # doesn't require to have a yomitan repo copy locally)
+    # build rules.rs from that snapshoted json
 
     if args.out:
-        # with args.out.open("w", encoding="utf-8") as f:
-        #     json.dump(results, f, indent=4, ensure_ascii=False)
-        res = {}
-        for k, v in results.items():
-            if k not in res:
-                res[k] = []
-            for k1 in v.keys():
-                res[k].append(k1)
-        print(res)
         with args.out.open("w", encoding="utf-8") as f:
             json.dump(res, f, indent=4, ensure_ascii=False)
-
         print(f"Wrote results to {args.out}")
 
-        rules_rs = Path("src/dict/rules.rs")
-        build_rules_rs(res, rules_rs)
+    valid_rules_rs = Path("src/dict/rules/valid.rs")
+    build_valid_rules_rs(res, valid_rules_rs)
 
 
 if __name__ == "__main__":

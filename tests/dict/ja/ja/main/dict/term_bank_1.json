@@ -3,7 +3,7 @@
     "立命",
     "りつめい",
     "名",
-    "n",
+    "",
     0,
     [
       {
@@ -57,7 +57,7 @@
     "全然",
     "ぜんぜん",
     "副",
-    "adv",
+    "",
     0,
     [
       {
@@ -750,7 +750,7 @@
     "命令",
     "めいれい",
     "名 irreg",
-    "n",
+    "",
     0,
     [
       {
@@ -856,7 +856,7 @@
     "水流",
     "",
     "名前",
-    "name",
+    "",
     0,
     [
       {
@@ -1059,7 +1059,7 @@
     "日本国",
     "",
     "名 俗",
-    "n",
+    "",
     0,
     [
       {
@@ -1166,7 +1166,7 @@
     "弁当",
     "べんとう",
     "名",
-    "n",
+    "",
     0,
     [
       {
@@ -1275,7 +1275,7 @@
     "婉曲",
     "えんきょく",
     "形容動詞",
-    "adj_noun",
+    "",
     0,
     [
       {
@@ -1457,7 +1457,7 @@
     "うえかえる",
     "",
     "動 一段 下一段",
-    "v",
+    "v1",
     0,
     [
       {
@@ -1511,7 +1511,7 @@
     "とある",
     "",
     "連体詞",
-    "adn",
+    "",
     0,
     [
       {
@@ -1565,7 +1565,7 @@
     "まわり",
     "",
     "助数詞",
-    "counter",
+    "",
     0,
     [
       {
@@ -1630,7 +1630,7 @@
     "鉛粉",
     "えんぷん",
     "名",
-    "n",
+    "",
     0,
     [
       {
@@ -1684,7 +1684,7 @@
     "種種",
     "しゅじゅ",
     "名",
-    "n",
+    "",
     0,
     [
       {
@@ -1738,7 +1738,7 @@
     "つけくわえる",
     "",
     "動 一段 下一段 他動",
-    "v",
+    "v1",
     0,
     [
       {
@@ -1792,7 +1792,7 @@
     "端役",
     "はやく",
     "名",
-    "n",
+    "",
     0,
     [
       {
@@ -1854,10 +1854,130 @@
     ""
   ],
   [
+    "きれい",
+    "",
+    "形容動詞",
+    "",
+    0,
+    [
+      {
+        "type": "structured-content",
+        "content": [
+          {
+            "tag": "ol",
+            "data": {
+              "content": "glosses"
+            },
+            "content": [
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "色などが華やかさを持っているさま"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "姿・顔が整っていて美しいさま"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "声などが快いさま"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "清潔なさま"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "男女間に肉体的な交渉がなく、清純であるさま。"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "整然としているさま。"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "残りなくすっかりしているさま。"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "data": {
+              "content": "backlink"
+            },
+            "content": [
+              {
+                "tag": "a",
+                "href": "https://ja.wiktionary.org/wiki/きれい#Japanese",
+                "content": "Wiktionary"
+              },
+              " | ",
+              {
+                "tag": "a",
+                "href": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/き/きれ/きれい.html",
+                "content": "Kaikki"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    0,
+    ""
+  ],
+  [
     "植え替える",
     "うえかえる",
     "動 一段 下一段",
-    "v",
+    "v1",
     0,
     [
       {
@@ -1911,7 +2031,7 @@
     "植え換える",
     "うえかえる",
     "動 一段 下一段",
-    "v",
+    "v1",
     0,
     [
       {
@@ -1965,7 +2085,7 @@
     "付け加える",
     "つけくわえる",
     "動 一段 下一段 他動",
-    "v",
+    "v1",
     0,
     [
       {
@@ -2016,10 +2136,250 @@
     ""
   ],
   [
+    "綺麗",
+    "きれい",
+    "形容動詞",
+    "",
+    0,
+    [
+      {
+        "type": "structured-content",
+        "content": [
+          {
+            "tag": "ol",
+            "data": {
+              "content": "glosses"
+            },
+            "content": [
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "色などが華やかさを持っているさま"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "姿・顔が整っていて美しいさま"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "声などが快いさま"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "清潔なさま"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "男女間に肉体的な交渉がなく、清純であるさま。"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "整然としているさま。"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "残りなくすっかりしているさま。"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "data": {
+              "content": "backlink"
+            },
+            "content": [
+              {
+                "tag": "a",
+                "href": "https://ja.wiktionary.org/wiki/きれい#Japanese",
+                "content": "Wiktionary"
+              },
+              " | ",
+              {
+                "tag": "a",
+                "href": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/き/きれ/きれい.html",
+                "content": "Kaikki"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    0,
+    ""
+  ],
+  [
+    "奇麗",
+    "きれい",
+    "形容動詞",
+    "",
+    0,
+    [
+      {
+        "type": "structured-content",
+        "content": [
+          {
+            "tag": "ol",
+            "data": {
+              "content": "glosses"
+            },
+            "content": [
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "色などが華やかさを持っているさま"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "姿・顔が整っていて美しいさま"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "声などが快いさま"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "清潔なさま"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "男女間に肉体的な交渉がなく、清純であるさま。"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "整然としているさま。"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "残りなくすっかりしているさま。"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "data": {
+              "content": "backlink"
+            },
+            "content": [
+              {
+                "tag": "a",
+                "href": "https://ja.wiktionary.org/wiki/きれい#Japanese",
+                "content": "Wiktionary"
+              },
+              " | ",
+              {
+                "tag": "a",
+                "href": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/き/きれ/きれい.html",
+                "content": "Kaikki"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    0,
+    ""
+  ],
+  [
     "種々",
     "しゅじゅ",
     "名",
-    "n",
+    "",
     0,
     [
       {

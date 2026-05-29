@@ -87,7 +87,7 @@ pub const TAG_ORDER: [&str; 82] = [
 ];
 
 #[rustfmt::skip]
-pub static TAG_BANK: [(&str, &str, i32, &[&str], i32); 372] = [
+pub static TAG_BANK: [(&str, &str, i32, &[&str], i32); 377] = [
     ("animate", "animacy", 0, &["animate"], 0),
     ("inanim", "animacy", 0, &["inanimate"], 0),
     ("arch", "archaism", 4, &["archaic"], -4),
@@ -101,6 +101,11 @@ pub static TAG_BANK: [(&str, &str, i32, &[&str], i32); 372] = [
     ("pf-only", "aspect", 0, &["perfective only"], 0),
     ("acc", "case", 0, &["with-accusative"], 0),
     ("dat", "case", 0, &["with-dative"], 0),
+    ("decl-1", "declension", 0, &["declension-1"], 0),
+    ("decl-2", "declension", 0, &["declension-2"], 0),
+    ("decl-3", "declension", 0, &["declension-3"], 0),
+    ("decl-4", "declension", 0, &["declension-4"], 0),
+    ("decl-5", "declension", 0, &["declension-5"], 0),
     ("def", "definiteness", 0, &["definite"], 0),
     ("indef", "definiteness", 0, &["indefinite"], 0),
     ("fem", "gender-feminine", -1, &["feminine"], 1),
