@@ -767,5 +767,34 @@
         }
       ]
     }
+  },
+  "pulcher": {
+    "": {
+      "adjective": [
+        {
+          "gloss_tree": {
+            "beautiful, fair, pretty": {
+              "tags": [
+                "adjective",
+                "declension-1",
+                "declension-2"
+              ]
+            },
+            "noble, honorable, excellent": {
+              "tags": [
+                "adjective",
+                "declension-1",
+                "declension-2",
+                "figuratively"
+              ]
+            }
+          },
+          "etymology_text": "Uncertain. The earlier form polcer is traditionally derived from Proto-Italic *porkros, from Proto-Indo-European *pr̥ḱ-ró-s or Proto-Indo-European *perḱ-ro-, from the root *perḱ- (“motley, variegated”), with dissimilation of the first *-r- into *-l-. De Vaan has questioned this change, thinking that the second *r should have disappeared instead, and thus leaves this term without an etymology. Connection with poliō (“to polish, smooth”) or polleō (“to be strong”) is to be excluded.\nThe aspiration is often considered secondary when the word would have been made to derive from Ancient Greek πολύχροος (polúkhroos, “multicolor”) by folk etymology, while an Etruscan borrowing is usually discarded.",
+          "head_info_text": "pulcher (feminine pulchra, neuter pulchrum, comparative pulchrior, superlative pulcherrimus, adverb pulchrē); first/second-declension adjective (nominative masculine singular in -er)",
+          "wlink": "https://en.wiktionary.org/wiki/pulcher#Latin",
+          "klink": "https://kaikki.org/dictionary/Latin/meaning/p/pu/pulcher.html"
+        }
+      ]
+    }
   }
 }
