@@ -11,7 +11,7 @@ use crate::{
                 localize_synonyms_string,
             },
         },
-        rules,
+        rules::rule_identifiers,
     },
     lang::Lang,
     models::{
@@ -92,7 +92,7 @@ fn to_yomitan_lemma(
         lemma.to_string(),
         reading.to_string(),
         definition_tags,
-        get_rule_identifiers(source, &common_short_tags_found),
+        rule_identifiers(source, &common_short_tags_found),
         vec![DetailedDefinition::structured(detailed_definition_content)],
     )
 }
@@ -125,50 +125,6 @@ fn get_found_tags(pos: Pos, info: &LemmaInfo) -> Vec<TagInfo> {
         .filter(|s| seen.insert(*s))
         .filter_map(find_tag_in_bank)
         .collect()
-}
-
-// TODO: move to rules.rs?
-fn get_rule_identifiers(source: Lang, short_tags: &[String]) -> String {
-    tags_to_rules(source, short_tags).join(" ")
-}
-
-// TODO: move to rules.rs?
-fn tags_to_rules<'a>(source: Lang, tags: &'a [String]) -> Vec<&'a str> {
-    let mut rules: Vec<_> = tags
-        .iter()
-        .filter_map(|tag| rules::is_valid_rule(source, tag).then_some(tag.as_str()))
-        .collect();
-
-    match source {
-        Lang::Es => {
-            if rules.contains(&"n") {
-                if tags.iter().any(|t| t == "sg") {
-                    rules.push("ns");
-                }
-                if tags.iter().any(|t| t == "pl") {
-                    rules.push("np");
-                }
-            }
-        }
-        Lang::Ja => {
-            for tag in tags {
-                match tag.as_str() {
-                    "ichidan" => rules.push("v1"),
-                    "godan" => rules.push("v5"),
-                    // "adj" => rules.push("adj-i"), // we don't know
-                    "sa-row" => rules.push("vs"),
-                    _ => {}
-                }
-            }
-        }
-        _ => {}
-    }
-
-    if let Some(invalid) = rules.iter().find(|r| !rules::is_valid_rule(source, r)) {
-        panic!("Found invalid rule for {source}: {invalid}")
-    };
-
-    rules
 }
 
 fn build_details_entry(ty: &str, ty_loc: &str, content: String) -> Node {
@@ -537,7 +493,7 @@ fn to_yomitan_forms(source: Lang, form_map: &FormMap) -> Vec<TermBankEntryForm> 
             TermBankEntryForm::new(
                 normalized_inflected,
                 reading,
-                get_rule_identifiers(source, &short_tags),
+                rule_identifiers(source, &short_tags),
                 deinflection_definitions,
             )
         })

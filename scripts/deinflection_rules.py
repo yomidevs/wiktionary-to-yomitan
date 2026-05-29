@@ -122,8 +122,7 @@ def scan_yomitan_repo(repo_path: Path) -> dict[str, Conditions]:
     return results
 
 
-def build_rules_rs(res: dict[str, Conditions], out_path: Path) -> None:
-    """Generate src/dict/rules.rs from the extracted conditions."""
+def build_valid_rules_rs(res: dict[str, Conditions], out_path: Path) -> None:
     idt = " " * 4
 
     all_conditions: dict[str, str] = {}
@@ -185,8 +184,8 @@ def main() -> None:
 
         print(f"Wrote results to {args.out}")
 
-        rules_rs = Path("src/dict/rules.rs")
-        build_rules_rs(res, rules_rs)
+        valid_rules_rs = Path("src/dict/rules/valid.rs")
+        build_valid_rules_rs(res, valid_rules_rs)
 
 
 if __name__ == "__main__":
