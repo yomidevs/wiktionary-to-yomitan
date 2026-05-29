@@ -33,6 +33,7 @@ TODO: explain why this is important.
 import argparse
 import json
 import re
+from collections import Counter, defaultdict
 from pathlib import Path
 
 
@@ -55,7 +56,11 @@ def extract_conditions(js_text: str) -> dict | None:
     json_out = json.loads(obj)
     # Remove unwanted keys: i18n and subConditions
     return {
-        key: {k: v for k, v in val.items() if k not in ("i18n", "subConditions")}
+        key: {
+            k: v
+            for k, v in val.items()
+            if k not in ("i18n", "subConditions", "isDictionaryForm")
+        }
         for key, val in json_out.items()
     }
 
@@ -70,29 +75,42 @@ def scan_yomitan_repo(repo_path: Path) -> dict[str, dict]:
         raise FileNotFoundError(f"Language folder not found @ {lang_root}")
 
     results: dict[str, dict] = {}
-    # For cross-language collision detection
-    seen: dict[str, dict] = {}
-    seen_lang: dict[str, str] = {}
+    name_counts = defaultdict(Counter)
+    all_conditions = defaultdict(list)
 
     for js_file in lang_root.rglob("*.js"):
         text = js_file.read_text(encoding="utf-8")
         conditions = extract_conditions(text)
-        if conditions is None:
+        if not conditions:
             continue
         lang = js_file.parent.name
         for key, condition in conditions.items():
-            if key in seen and seen[key] != condition:
-                print(
-                    f"WARN: condition ident '{key}' conflict:\n  [{seen_lang[key]}] {seen[key]}\n  [{lang}] {condition}"
-                )
+            name = condition["name"]
+            name_counts[key][name] += 1
+            all_conditions[key].append((lang, condition))
+            # Merge by language (if/when there are multiple transform files for it)
+            if lang in results:
+                results[lang].update(conditions)
             else:
-                seen[key] = condition
-                seen_lang[key] = lang
-        # Merge by language (if/when there are multiple transform files for it)
-        if lang in results:
-            results[lang].update(conditions)
-        else:
-            results[lang] = conditions
+                results[lang] = conditions
+
+    # pass 1: canonical choice
+    canonical = {key: counts.most_common(1)[0] for key, counts in name_counts.items()}
+
+    # pass 2: find offenders and report
+    offenders = defaultdict(list)
+    for key, entries in all_conditions.items():
+        winner, _ = canonical.get(key, (None, None))
+        for lang, condition in entries:
+            if condition["name"] != winner:
+                offenders[key].append((lang, condition))
+    for key, bads in offenders.items():
+        cname, ccount = canonical[key]
+        print(f"OFFENDER key={key}, canonical={cname} ({ccount})")
+        for lang, cond in bads:
+            print(f"  [{lang}] {cond}")
+    if not offenders:
+        print("Found no offenders. Rules are consistent across languages.")
 
     return results
 
