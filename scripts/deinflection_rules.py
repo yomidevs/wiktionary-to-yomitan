@@ -138,6 +138,17 @@ def build_valid_rules_rs(res: dict[str, Conditions], out_path: Path) -> None:
         w = f.write
         w("//! This file was generated and should not be edited directly.\n")
         w("//! The source code can be found at scripts/deinflection_rules.py\n\n")
+        # w("//! # Rule identifiers\n")
+        # w("//! | Rule | Languages | Name | Source |\n")
+        # w("//! |------|-----------|------|--------|\n")
+        # REPO_URL = "https://github.com/yomidevs/yomitan"
+        # for ident, name in sorted(all_conditions.items()):
+        #     langs = ", ".join(sorted(ident_langs[ident]))
+        #     sources = " ".join(
+        #         f"[{path.split('/')[-1]}]({REPO_URL}/blob/master/{path})"
+        #         for path in sorted(set(ident_paths[ident]))
+        #     )
+        #     w(f"//! | `{ident}` | {langs} | {name} | {sources} |\n")
         w("use crate::lang::Lang;\n\n")
         w("pub fn is_valid_rule(lang: Lang, rule: &str) -> bool {\n")
         w(f"{idt}match lang {{\n")
@@ -169,23 +180,21 @@ def main() -> None:
     args = parser.parse_args()
 
     results = scan_yomitan_repo(args.repo_path)
+    res: dict[str, Conditions] = {}
+    for lang, conditions in results.items():
+        res[lang] = {rule: cond for rule, cond in sorted(conditions.items())}
 
     # TODO: snapshot some json (only once, and add it to the repo so one
     # doesn't require to have a yomitan repo copy locally)
     # build rules.rs from that snapshoted json
+
     if args.out:
-        # with args.out.open("w", encoding="utf-8") as f:
-        #     json.dump(results, f, indent=4, ensure_ascii=False)
-        res: dict[str, Conditions] = {}
-        for lang, conditions in results.items():
-            res[lang] = {rule: cond for rule, cond in sorted(conditions.items())}
         with args.out.open("w", encoding="utf-8") as f:
             json.dump(res, f, indent=4, ensure_ascii=False)
-
         print(f"Wrote results to {args.out}")
 
-        valid_rules_rs = Path("src/dict/rules/valid.rs")
-        build_valid_rules_rs(res, valid_rules_rs)
+    valid_rules_rs = Path("src/dict/rules/valid.rs")
+    build_valid_rules_rs(res, valid_rules_rs)
 
 
 if __name__ == "__main__":

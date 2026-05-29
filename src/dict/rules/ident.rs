@@ -32,7 +32,6 @@ fn tags_to_rules<'a>(source: Lang, short_tags: &'a [String]) -> Vec<&'a str> {
                 match tag.as_str() {
                     "ichidan" => replace_rule(&mut rules, "v", "v1"),
                     "godan" => replace_rule(&mut rules, "v", "v5"),
-                    "sa-row" => replace_rule(&mut rules, "v", "vs"),
                     _ => {}
                 }
             }
@@ -40,10 +39,7 @@ fn tags_to_rules<'a>(source: Lang, short_tags: &'a [String]) -> Vec<&'a str> {
         _ => {}
     }
 
-    // WARN: this shouldn't be in release
-    if let Some(invalid) = rules.iter().find(|r| !is_valid_rule(source, r)) {
-        panic!("Found invalid rule for {source}: {invalid}")
-    };
+    debug_assert!(rules.iter().find(|r| !is_valid_rule(source, r)).is_none());
 
     rules
 }
