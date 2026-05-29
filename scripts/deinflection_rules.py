@@ -122,7 +122,7 @@ def build_rules_rs(res: dict[str, list[str]], out_path: Path) -> None:
     with out_path.open("w", encoding="utf-8") as f:
         w = f.write
         w("//! This file was generated and should not be edited directly.\n")
-        w("//! The source code can be found at scripts/scan_yomitan.py\n\n")
+        w("//! The source code can be found at scripts/deinflection_rules.py\n\n")
         w("use crate::lang::Lang;\n\n")
         w("pub fn is_valid_rule(lang: Lang, rule: &str) -> bool {\n")
         w(f"{idt}match lang {{\n")
@@ -160,12 +160,12 @@ def main() -> None:
         # with args.out.open("w", encoding="utf-8") as f:
         #     json.dump(results, f, indent=4, ensure_ascii=False)
         res = {}
-        for k, v in results.items():
-            if k not in res:
-                res[k] = []
-            for k1 in v.keys():
-                res[k].append(k1)
-        print(res)
+        for lang, rules in results.items():
+            if lang not in res:
+                res[lang] = []
+            items = sorted(rules.items(), key=lambda p: p[0])  # sort by key
+            for rule, _ in items:
+                res[lang].append(rule)
         with args.out.open("w", encoding="utf-8") as f:
             json.dump(res, f, indent=4, ensure_ascii=False)
 
