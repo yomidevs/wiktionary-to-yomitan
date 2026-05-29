@@ -493,6 +493,25 @@
       ]
     }
   },
+  "きれい": {
+    "": {
+      "adj_noun": [
+        {
+          "gloss_tree": {
+            "色などが華やかさを持っているさま": {},
+            "姿・顔が整っていて美しいさま": {},
+            "声などが快いさま": {},
+            "清潔なさま": {},
+            "男女間に肉体的な交渉がなく、清純であるさま。": {},
+            "整然としているさま。": {},
+            "残りなくすっかりしているさま。": {}
+          },
+          "wlink": "https://ja.wiktionary.org/wiki/きれい#Japanese",
+          "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/き/きれ/きれい.html"
+        }
+      ]
+    }
+  },
   "植え替える": {
     "うえかえる": {
       "verb": [
@@ -547,6 +566,44 @@
           ],
           "wlink": "https://ja.wiktionary.org/wiki/つけくわえる#Japanese",
           "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/つ/つけ/つけくわえる.html"
+        }
+      ]
+    }
+  },
+  "綺麗": {
+    "きれい": {
+      "adj_noun": [
+        {
+          "gloss_tree": {
+            "色などが華やかさを持っているさま": {},
+            "姿・顔が整っていて美しいさま": {},
+            "声などが快いさま": {},
+            "清潔なさま": {},
+            "男女間に肉体的な交渉がなく、清純であるさま。": {},
+            "整然としているさま。": {},
+            "残りなくすっかりしているさま。": {}
+          },
+          "wlink": "https://ja.wiktionary.org/wiki/きれい#Japanese",
+          "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/き/きれ/きれい.html"
+        }
+      ]
+    }
+  },
+  "奇麗": {
+    "きれい": {
+      "adj_noun": [
+        {
+          "gloss_tree": {
+            "色などが華やかさを持っているさま": {},
+            "姿・顔が整っていて美しいさま": {},
+            "声などが快いさま": {},
+            "清潔なさま": {},
+            "男女間に肉体的な交渉がなく、清純であるさま。": {},
+            "整然としているさま。": {},
+            "残りなくすっかりしているさま。": {}
+          },
+          "wlink": "https://ja.wiktionary.org/wiki/きれい#Japanese",
+          "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/き/きれ/きれい.html"
         }
       ]
     }
