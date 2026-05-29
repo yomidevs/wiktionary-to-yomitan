@@ -92,7 +92,7 @@ fn to_yomitan_lemma(
         lemma.to_string(),
         reading.to_string(),
         definition_tags,
-        rule_identifiers(source, &common_short_tags_found),
+        rule_identifiers(source, lemma, &common_short_tags_found),
         vec![DetailedDefinition::structured(detailed_definition_content)],
     )
 }
@@ -493,7 +493,7 @@ fn to_yomitan_forms(source: Lang, form_map: &FormMap) -> Vec<TermBankEntryForm> 
             TermBankEntryForm::new(
                 normalized_inflected,
                 reading,
-                rule_identifiers(source, &short_tags),
+                rule_identifiers(source, uninflected, &short_tags),
                 deinflection_definitions,
             )
         })

@@ -1,8 +1,8 @@
 use crate::{dict::rules::valid::is_valid_rule, lang::Lang};
 
 // Note that short_tags always includes the pos in the main dict
-pub fn rule_identifiers(source: Lang, short_tags: &[String]) -> String {
-    tags_to_rules(source, short_tags).join(" ")
+pub fn rule_identifiers(source: Lang, word: &str, short_tags: &[String]) -> String {
+    tags_to_rules(source, word, short_tags).join(" ")
 }
 
 fn replace_rule<'a>(rules: &mut Vec<&'a str>, remove: &str, add: &'a str) {
@@ -10,7 +10,7 @@ fn replace_rule<'a>(rules: &mut Vec<&'a str>, remove: &str, add: &'a str) {
     rules.push(add);
 }
 
-fn tags_to_rules<'a>(source: Lang, short_tags: &'a [String]) -> Vec<&'a str> {
+fn tags_to_rules<'a>(source: Lang, word: &str, short_tags: &'a [String]) -> Vec<&'a str> {
     let mut rules: Vec<_> = short_tags
         .iter()
         .filter_map(|tag| is_valid_rule(source, tag).then_some(tag.as_str()))
@@ -32,6 +32,8 @@ fn tags_to_rules<'a>(source: Lang, short_tags: &'a [String]) -> Vec<&'a str> {
                 match tag.as_str() {
                     "ichidan" => replace_rule(&mut rules, "v", "v1"),
                     "godan" => replace_rule(&mut rules, "v", "v5"),
+                    // na-adj that may end up in い have the adj_noun pos so this makes sense
+                    "adj" if word.ends_with("い") => replace_rule(&mut rules, "adj", "adj-i"),
                     _ => {}
                 }
             }
