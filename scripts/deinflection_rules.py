@@ -150,6 +150,7 @@ def build_valid_rules_rs(res: dict[str, Conditions], out_path: Path) -> None:
         #     )
         #     w(f"//! | `{ident}` | {langs} | {name} | {sources} |\n")
         w("use crate::lang::Lang;\n\n")
+        w("#[rustfmt::skip]\n")
         w("pub fn is_valid_rule(lang: Lang, rule: &str) -> bool {\n")
         w(f"{idt}match lang {{\n")
         for lang, conditions in res.items():

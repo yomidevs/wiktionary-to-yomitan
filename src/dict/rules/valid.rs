@@ -3,6 +3,7 @@
 
 use crate::lang::Lang;
 
+#[rustfmt::skip]
 pub fn is_valid_rule(lang: Lang, rule: &str) -> bool {
     match lang {
         Lang::Sq => matches!(rule, "adj" | "adv" | "n" | "np" | "ns" | "v"),
