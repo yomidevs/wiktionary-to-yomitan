@@ -3,12 +3,15 @@
 use crate::{
     Set,
     cli::LangSpecs,
-    dict::main::{
-        ir::{FormMap, GlossTree, LemmaInfo, LemmaMap, Tidy, normalize_orthography},
-        locale::{
-            localize_etymology_string, localize_examples_string, localize_grammar_string,
-            localize_synonyms_string,
+    dict::{
+        main::{
+            ir::{FormMap, GlossTree, LemmaInfo, LemmaMap, Tidy, normalize_orthography},
+            locale::{
+                localize_etymology_string, localize_examples_string, localize_grammar_string,
+                localize_synonyms_string,
+            },
         },
+        rules,
     },
     lang::Lang,
     models::{
@@ -24,7 +27,7 @@ use crate::{
 pub fn to_yomitan_impl(langs: LangSpecs, irs: &Tidy) -> YomitanDict {
     YomitanDict::new(
         to_yomitan_lemmas(langs.target, &irs.lemma_map),
-        to_yomitan_forms(langs.source, &irs.form_map),
+        to_yomitan_forms(langs.source, langs.target, &irs.form_map),
         vec![],
     )
 }
@@ -88,7 +91,7 @@ fn to_yomitan_lemma(
         lemma.to_string(),
         reading.to_string(),
         definition_tags,
-        get_rule_identifier(short_pos),
+        get_rule_identifier(target, short_pos),
         vec![DetailedDefinition::structured(detailed_definition_content)],
     )
 }
@@ -118,13 +121,21 @@ fn get_found_tags(pos: Pos, info: &LemmaInfo) -> Vec<TagInfo> {
         .collect()
 }
 
+// TODO: move to rules.rs?
+//
 // There could be multiple identifiers, but let's start with one.
 //
 // This function is trivial at the moment, but could be worked on to validate identifiers,
 // add multiple identifiers, merge tags into more useful identifiers (verb: v, transitive: t > vt),
 // remove unused identifiers etc.
-fn get_rule_identifier(short_pos: &str) -> String {
-    short_pos.to_string()
+fn get_rule_identifier(target: Lang, short_pos: &str) -> String {
+    let ident = short_pos.to_string();
+    if !rules::is_valid_rule(target, &ident) {
+        tracing::warn!("invalid rule identifier for lang {target}: {ident}");
+        String::new()
+    } else {
+        ident
+    }
 }
 
 fn build_details_entry(ty: &str, ty_loc: &str, content: String) -> Node {
@@ -461,7 +472,7 @@ fn sanitize_offsets(offsets: &[Offset], upto: usize) -> Vec<Offset> {
 }
 
 #[tracing::instrument(skip_all, level = "trace")]
-fn to_yomitan_forms(source: Lang, form_map: &FormMap) -> Vec<TermBankEntryForm> {
+fn to_yomitan_forms(source: Lang, target: Lang, form_map: &FormMap) -> Vec<TermBankEntryForm> {
     form_map
         .flat_iter()
         .map(move |(uninflected, inflected, pos, _, tags)| {
@@ -486,7 +497,7 @@ fn to_yomitan_forms(source: Lang, form_map: &FormMap) -> Vec<TermBankEntryForm> 
             TermBankEntryForm::new(
                 normalized_inflected,
                 reading,
-                get_rule_identifier(short_pos),
+                get_rule_identifier(target, short_pos),
                 deinflection_definitions,
             )
         })

@@ -8,6 +8,7 @@ mod main;
 mod release;
 mod scan;
 mod writer;
+mod rules;
 
 pub use core::{Dictionary, Intermediate, Langs, make_dict_from_jsonl};
 use core::{LangCodeProbe, iter_datasets};
