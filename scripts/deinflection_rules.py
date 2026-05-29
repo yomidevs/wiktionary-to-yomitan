@@ -36,8 +36,11 @@ import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
+type Conditions = dict[str, dict[str, str]]
+"""Key is the rule ident. Values are {"name": "rule name, ...}."""
 
-def extract_conditions(js_text: str) -> dict | None:
+
+def extract_conditions(js_text: str) -> Conditions | None:
     """Extract the first `const conditions = { ... }` block from a JS file."""
     mch = re.search(r"const conditions\s*=\s*(\{.*?\});", js_text, re.DOTALL)
     if not mch:
@@ -56,16 +59,16 @@ def extract_conditions(js_text: str) -> dict | None:
     json_out = json.loads(obj)
     # Remove unwanted keys: i18n and subConditions
     return {
-        key: {
+        ident: {
             k: v
             for k, v in val.items()
             if k not in ("i18n", "subConditions", "isDictionaryForm")
         }
-        for key, val in json_out.items()
+        for ident, val in json_out.items()
     }
 
 
-def scan_yomitan_repo(repo_path: Path) -> dict[str, dict]:
+def scan_yomitan_repo(repo_path: Path) -> dict[str, Conditions]:
     """Scan all language JS files and return conditions keyed by language folder."""
     if not repo_path.exists():
         raise FileNotFoundError(f"Repo not found @ {repo_path.resolve()}")
@@ -74,7 +77,7 @@ def scan_yomitan_repo(repo_path: Path) -> dict[str, dict]:
     if not lang_root.exists():
         raise FileNotFoundError(f"Language folder not found @ {lang_root}")
 
-    results: dict[str, dict] = {}
+    results: dict[str, Conditions] = {}
     name_counts = defaultdict(Counter)
     all_conditions = defaultdict(list)
 
@@ -84,29 +87,33 @@ def scan_yomitan_repo(repo_path: Path) -> dict[str, dict]:
         if not conditions:
             continue
         lang = js_file.parent.name
-        for key, condition in conditions.items():
+        for ident, condition in conditions.items():
             name = condition["name"]
-            name_counts[key][name] += 1
-            all_conditions[key].append((lang, condition))
-            # Merge by language (if/when there are multiple transform files for it)
-            if lang in results:
-                results[lang].update(conditions)
-            else:
-                results[lang] = conditions
+            name_counts[ident][name] += 1
+            all_conditions[ident].append((lang, condition))
+        rel_path = js_file.relative_to(repo_path).as_posix()
+        lang_result = {
+            ident: {"name": cond["name"], "path": rel_path}
+            for ident, cond in conditions.items()
+        }
+        if lang in results:
+            results[lang].update(lang_result)
+        else:
+            results[lang] = lang_result
 
     # pass 1: canonical choice
     canonical = {key: counts.most_common(1)[0] for key, counts in name_counts.items()}
 
     # pass 2: find offenders and report
     offenders = defaultdict(list)
-    for key, entries in all_conditions.items():
-        winner, _ = canonical.get(key, (None, None))
+    for ident, entries in all_conditions.items():
+        winner, _ = canonical.get(ident, (None, None))
         for lang, condition in entries:
             if condition["name"] != winner:
-                offenders[key].append((lang, condition))
-    for key, bads in offenders.items():
-        cname, ccount = canonical[key]
-        print(f"OFFENDER key={key}, canonical={cname} ({ccount})")
+                offenders[ident].append((lang, condition))
+    for ident, bads in offenders.items():
+        cname, ccount = canonical[ident]
+        print(f"OFFENDER key={ident}, canonical={cname} ({ccount})")
         for lang, cond in bads:
             print(f"  [{lang}] {cond}")
     if not offenders:
@@ -115,9 +122,18 @@ def scan_yomitan_repo(repo_path: Path) -> dict[str, dict]:
     return results
 
 
-def build_rules_rs(res: dict[str, list[str]], out_path: Path) -> None:
+def build_rules_rs(res: dict[str, Conditions], out_path: Path) -> None:
     """Generate src/dict/rules.rs from the extracted conditions."""
     idt = " " * 4
+
+    all_conditions: dict[str, str] = {}
+    ident_langs: dict[str, list[str]] = defaultdict(list)
+    ident_paths: dict[str, list[str]] = defaultdict(list)
+    for lang, conditions in res.items():
+        for ident, meta in conditions.items():
+            all_conditions[ident] = meta["name"]
+            ident_langs[ident].append(lang)
+            ident_paths[ident].append(meta["path"])
 
     with out_path.open("w", encoding="utf-8") as f:
         w = f.write
@@ -126,13 +142,12 @@ def build_rules_rs(res: dict[str, list[str]], out_path: Path) -> None:
         w("use crate::lang::Lang;\n\n")
         w("pub fn is_valid_rule(lang: Lang, rule: &str) -> bool {\n")
         w(f"{idt}match lang {{\n")
-
         for lang, conditions in res.items():
             if not conditions:
                 continue
-            variants = " | ".join(f'"{c}"' for c in conditions)
+            items = sorted(conditions.items())
+            variants = " | ".join(f'"{ident}"' for ident, _ in items)
             w(f"{idt * 2}Lang::{lang.title()} => matches!(rule, {variants}),\n")
-
         w(f"{idt * 2}_ => false,\n")
         w(f"{idt}}}\n")
         w("}\n")
@@ -156,16 +171,15 @@ def main() -> None:
 
     results = scan_yomitan_repo(args.repo_path)
 
+    # TODO: snapshot some json (only once, and add it to the repo so one
+    # doesn't require to have a yomitan repo copy locally)
+    # build rules.rs from that snapshoted json
     if args.out:
         # with args.out.open("w", encoding="utf-8") as f:
         #     json.dump(results, f, indent=4, ensure_ascii=False)
-        res = {}
-        for lang, rules in results.items():
-            if lang not in res:
-                res[lang] = []
-            items = sorted(rules.items(), key=lambda p: p[0])  # sort by key
-            for rule, _ in items:
-                res[lang].append(rule)
+        res: dict[str, Conditions] = {}
+        for lang, conditions in results.items():
+            res[lang] = {rule: cond for rule, cond in sorted(conditions.items())}
         with args.out.open("w", encoding="utf-8") as f:
             json.dump(res, f, indent=4, ensure_ascii=False)
 
