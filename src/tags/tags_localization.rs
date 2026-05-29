@@ -24,7 +24,7 @@ pub fn localize_tag_info(lang: Lang, tag_info: &mut TagInfo) {
     }
 }
 
-/// Coverage: 67/372 tags (18.0%)
+/// Coverage: 67/377 tags (17.8%)
 fn localize_tag_de(short_tag: &str) -> Option<(&'static str, &'static str)> {
     match short_tag {
         "arch" => Some(("veraltet", "veraltet")),
@@ -98,7 +98,7 @@ fn localize_tag_de(short_tag: &str) -> Option<(&'static str, &'static str)> {
     }
 }
 
-/// Coverage: 26/372 tags (7.0%)
+/// Coverage: 26/377 tags (6.9%)
 fn localize_tag_el(short_tag: &str) -> Option<(&'static str, &'static str)> {
     match short_tag {
         "arch" => Some(("απαρχ", "απαρχαιωμένο")),
@@ -131,7 +131,7 @@ fn localize_tag_el(short_tag: &str) -> Option<(&'static str, &'static str)> {
     }
 }
 
-/// Coverage: 67/372 tags (18.0%)
+/// Coverage: 67/377 tags (17.8%)
 fn localize_tag_ja(short_tag: &str) -> Option<(&'static str, &'static str)> {
     match short_tag {
         "arch" => Some(("古語", "古語")),
