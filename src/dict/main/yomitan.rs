@@ -1,4 +1,4 @@
-//! How to convert the intermediate representation into a Vec<[`YomitanEntry`]>.
+//! How to convert the intermediate representation into a [`YomitanDict`].
 
 use crate::{
     Set,
@@ -26,29 +26,30 @@ use crate::{
 
 pub fn to_yomitan_impl(langs: LangSpecs, irs: &Tidy) -> YomitanDict {
     YomitanDict::new(
-        to_yomitan_lemmas(langs.target, &irs.lemma_map),
-        to_yomitan_forms(langs.source, langs.target, &irs.form_map),
+        to_yomitan_lemmas(langs.source, langs.target, &irs.lemma_map),
+        to_yomitan_forms(langs.source, &irs.form_map),
         vec![],
     )
 }
 
 #[tracing::instrument(skip_all, level = "trace")]
-fn to_yomitan_lemmas(target: Lang, lemma_map: &LemmaMap) -> Vec<TermBankEntry> {
+fn to_yomitan_lemmas(source: Lang, target: Lang, lemma_map: &LemmaMap) -> Vec<TermBankEntry> {
     lemma_map
         .flat_iter()
-        .map(move |(lemma, reading, pos, info)| to_yomitan_lemma(target, lemma, reading, pos, info))
+        .map(move |(lemma, reading, pos, info)| {
+            to_yomitan_lemma(source, target, lemma, reading, pos, info)
+        })
         .collect()
 }
 
 fn to_yomitan_lemma(
+    source: Lang,
     target: Lang,
     lemma: &str,
     reading: &str,
     pos: Pos,
     info: &LemmaInfo,
 ) -> TermBankEntry {
-    let short_pos = pos.short();
-
     let common_tag_infos_found = get_found_tags(pos, info);
     let common_short_tags_found: Vec<_> = common_tag_infos_found
         .iter()
@@ -91,7 +92,7 @@ fn to_yomitan_lemma(
         lemma.to_string(),
         reading.to_string(),
         definition_tags,
-        get_rule_identifier(target, short_pos),
+        get_rule_identifiers(source, &common_short_tags_found),
         vec![DetailedDefinition::structured(detailed_definition_content)],
     )
 }
@@ -114,28 +115,60 @@ fn get_found_tags(pos: Pos, info: &LemmaInfo) -> Vec<TagInfo> {
         .unwrap() // a non-empty gloss_tree has at least one gloss
         .into_iter();
 
+    // There can be duplicates. For instance, adjective is both a pos and a tag
+    // in the English edition for many Latin entries.
+    let mut seen = Set::default();
+
     std::iter::once(pos.long())
         .chain(info.tags.iter().map(String::as_str)) // top level tags (the non-En preferred way)
         .chain(common_tags_iter)
+        .filter(|s| seen.insert(*s))
         .filter_map(find_tag_in_bank)
         .collect()
 }
 
 // TODO: move to rules.rs?
-//
-// There could be multiple identifiers, but let's start with one.
-//
-// This function is trivial at the moment, but could be worked on to validate identifiers,
-// add multiple identifiers, merge tags into more useful identifiers (verb: v, transitive: t > vt),
-// remove unused identifiers etc.
-fn get_rule_identifier(target: Lang, short_pos: &str) -> String {
-    let ident = short_pos.to_string();
-    if !rules::is_valid_rule(target, &ident) {
-        tracing::warn!("invalid rule identifier for lang {target}: {ident}");
-        String::new()
-    } else {
-        ident
+fn get_rule_identifiers(source: Lang, short_tags: &[String]) -> String {
+    tags_to_rules(source, short_tags).join(" ")
+}
+
+// TODO: move to rules.rs?
+fn tags_to_rules<'a>(source: Lang, tags: &'a [String]) -> Vec<&'a str> {
+    let mut rules: Vec<_> = tags
+        .iter()
+        .filter_map(|tag| rules::is_valid_rule(source, tag).then_some(tag.as_str()))
+        .collect();
+
+    match source {
+        Lang::Es => {
+            if rules.contains(&"n") {
+                if tags.iter().any(|t| t == "sg") {
+                    rules.push("ns");
+                }
+                if tags.iter().any(|t| t == "pl") {
+                    rules.push("np");
+                }
+            }
+        }
+        Lang::Ja => {
+            for tag in tags {
+                match tag.as_str() {
+                    "ichidan" => rules.push("v1"),
+                    "godan" => rules.push("v5"),
+                    // "adj" => rules.push("adj-i"), // we don't know
+                    "sa-row" => rules.push("vs"),
+                    _ => {}
+                }
+            }
+        }
+        _ => {}
     }
+
+    if let Some(invalid) = rules.iter().find(|r| !rules::is_valid_rule(source, r)) {
+        panic!("Found invalid rule for {source}: {invalid}")
+    };
+
+    rules
 }
 
 fn build_details_entry(ty: &str, ty_loc: &str, content: String) -> Node {
@@ -472,7 +505,7 @@ fn sanitize_offsets(offsets: &[Offset], upto: usize) -> Vec<Offset> {
 }
 
 #[tracing::instrument(skip_all, level = "trace")]
-fn to_yomitan_forms(source: Lang, target: Lang, form_map: &FormMap) -> Vec<TermBankEntryForm> {
+fn to_yomitan_forms(source: Lang, form_map: &FormMap) -> Vec<TermBankEntryForm> {
     form_map
         .flat_iter()
         .map(move |(uninflected, inflected, pos, _, tags)| {
@@ -492,12 +525,19 @@ fn to_yomitan_forms(source: Lang, target: Lang, form_map: &FormMap) -> Vec<TermB
                 inflected.to_string()
             };
 
-            let short_pos = pos.short();
+            // It is unclear if we just want to pass the pos here since tags
+            // may only be relevant for some deinflected words and not others.
+            // The changes are minimal, at any rate.
+            let short_tags: Vec<_> = std::iter::once(pos.long())
+                .chain(tags.iter().map(String::as_str))
+                .filter_map(find_tag_in_bank)
+                .map(|tag| tag.short_tag)
+                .collect();
 
             TermBankEntryForm::new(
                 normalized_inflected,
                 reading,
-                get_rule_identifier(target, short_pos),
+                get_rule_identifiers(source, &short_tags),
                 deinflection_definitions,
             )
         })
