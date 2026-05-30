@@ -528,6 +528,28 @@
       ]
     }
   },
+  "行法": {
+    "ぎょうほう": {
+      "noun": [
+        {
+          "gloss_tree": {
+            "法律を執行すること。": {
+              "topics": [
+                "legal"
+              ]
+            },
+            "仏道修行すること。": {
+              "topics": [
+                "Buddhism"
+              ]
+            }
+          },
+          "wlink": "https://ja.wiktionary.org/wiki/行法#Japanese",
+          "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/行/行法/行法.html"
+        }
+      ]
+    }
+  },
   "植え替える": {
     "うえかえる": {
       "verb": [
