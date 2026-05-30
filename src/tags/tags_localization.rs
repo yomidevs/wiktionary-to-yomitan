@@ -24,7 +24,7 @@ pub fn localize_tag_info(lang: Lang, tag_info: &mut TagInfo) {
     }
 }
 
-/// Coverage: 67/377 tags (17.8%)
+/// Coverage: 67/386 tags (17.4%)
 fn localize_tag_de(short_tag: &str) -> Option<(&'static str, &'static str)> {
     match short_tag {
         "arch" => Some(("veraltet", "veraltet")),
@@ -98,7 +98,7 @@ fn localize_tag_de(short_tag: &str) -> Option<(&'static str, &'static str)> {
     }
 }
 
-/// Coverage: 26/377 tags (6.9%)
+/// Coverage: 26/386 tags (6.7%)
 fn localize_tag_el(short_tag: &str) -> Option<(&'static str, &'static str)> {
     match short_tag {
         "arch" => Some(("απαρχ", "απαρχαιωμένο")),
@@ -131,7 +131,7 @@ fn localize_tag_el(short_tag: &str) -> Option<(&'static str, &'static str)> {
     }
 }
 
-/// Coverage: 67/377 tags (17.8%)
+/// Coverage: 73/386 tags (18.9%)
 fn localize_tag_ja(short_tag: &str) -> Option<(&'static str, &'static str)> {
     match short_tag {
         "arch" => Some(("古語", "古語")),
@@ -150,6 +150,7 @@ fn localize_tag_ja(short_tag: &str) -> Option<(&'static str, &'static str)> {
         "intj" => Some(("感動詞", "感動詞")),
         "n" => Some(("名", "名詞")),
         "num" => Some(("数詞", "数詞")),
+        "phrase" => Some(("成句", "成句")),
         "pref" => Some(("接頭辞", "接頭辞")),
         "prep" => Some(("前", "前置詞")),
         "pron" => Some(("代", "代名詞")),
@@ -170,23 +171,28 @@ fn localize_tag_ja(short_tag: &str) -> Option<(&'static str, &'static str)> {
         "vulg" => Some(("卑語", "卑語")),
         "anat" => Some(("解剖学", "解剖学")),
         "archit" => Some(("建築", "建築")),
+        "biol" => Some(("生物学", "生物学")),
         "cook" => Some(("調理", "調理")),
         "econ" => Some(("経済", "経済")),
         "edu" => Some(("教育", "教育")),
         "electr" => Some(("電子工学", "電子工学")),
         "geo" => Some(("地理", "地理")),
+        "geom" => Some(("幾何学", "幾何学")),
         "gramm" => Some(("文法", "文法")),
         "hist" => Some(("歴史", "歴史")),
         "ling" => Some(("言語学", "言語学")),
         "log" => Some(("論理学", "論理学")),
         "math" => Some(("数学", "数学")),
         "mil" => Some(("軍事", "軍事")),
+        "net" => Some(("ネット", "インターネット")),
         "philos" => Some(("哲学", "哲学")),
         "phonet" => Some(("音声学", "音声学")),
         "physics" => Some(("物理学", "物理学")),
+        "physio" => Some(("生理学", "生理学")),
         "polit" => Some(("政治", "政治")),
         "program" => Some(("プログラミング", "プログラミング")),
         "psych" => Some(("心理学", "心理学")),
+        "rhet" => Some(("修辞学", "修辞学")),
         "sumo" => Some(("相撲", "相撲")),
         "aux-v" => Some(("助動", "助動詞")),
         "dialect" => Some(("方言", "方言")),

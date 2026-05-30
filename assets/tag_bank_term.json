@@ -865,27 +865,6 @@
         0
     ],
     [
-        "Cath",
-        "topic",
-        0,
-        "Roman Catholicism",
-        0
-    ],
-    [
-        "Cath✝️",
-        "topic",
-        0,
-        "Catholicism",
-        0
-    ],
-    [
-        "Hind🛕",
-        "topic",
-        0,
-        "Hinduism",
-        0
-    ],
-    [
         "LGBT",
         "topic",
         0,
@@ -897,16 +876,6 @@
         "topic",
         0,
         "object-oriented programming",
-        0
-    ],
-    [
-        "Prot✝️",
-        "topic",
-        0,
-        [
-            "Protestantism",
-            "Protestant"
-        ],
         0
     ],
     [
@@ -1295,13 +1264,6 @@
         0
     ],
     [
-        "music",
-        "topic",
-        0,
-        "music",
-        0
-    ],
-    [
         "myco",
         "topic",
         0,
@@ -1582,10 +1544,24 @@
         0
     ],
     [
+        "⚖️",
+        "topic",
+        0,
+        "legal",
+        0
+    ],
+    [
         "⚽",
         "topic",
         0,
         "soccer",
+        0
+    ],
+    [
+        "⚾",
+        "topic",
+        0,
+        "baseball",
         0
     ],
     [
@@ -1620,10 +1596,37 @@
         0
     ],
     [
+        "✝️Cath",
+        "topic",
+        0,
+        [
+            "Catholicism",
+            "Roman Catholicism"
+        ],
+        0
+    ],
+    [
+        "✝️Prot",
+        "topic",
+        0,
+        [
+            "Protestantism",
+            "Protestant"
+        ],
+        0
+    ],
+    [
         "✡️",
         "topic",
         0,
         "Judaism",
+        0
+    ],
+    [
+        "🌦️",
+        "topic",
+        0,
+        "weather",
         0
     ],
     [
@@ -1634,10 +1637,45 @@
         0
     ],
     [
+        "🍺",
+        "topic",
+        0,
+        "beer",
+        0
+    ],
+    [
+        "🍽️",
+        "topic",
+        0,
+        "cuisine",
+        0
+    ],
+    [
+        "🎨",
+        "topic",
+        0,
+        "color",
+        0
+    ],
+    [
+        "🎵",
+        "topic",
+        0,
+        "music",
+        0
+    ],
+    [
         "🎾",
         "topic",
         0,
         "tennis",
+        0
+    ],
+    [
+        "👗",
+        "topic",
+        0,
+        "clothing",
         0
     ],
     [
@@ -1652,6 +1690,13 @@
         "topic",
         0,
         "business",
+        0
+    ],
+    [
+        "📏",
+        "topic",
+        0,
+        "units-of-measure",
         0
     ],
     [
@@ -1683,6 +1728,20 @@
         0
     ],
     [
+        "🕐",
+        "topic",
+        0,
+        "time",
+        0
+    ],
+    [
+        "🚗",
+        "topic",
+        0,
+        "automobile",
+        0
+    ],
+    [
         "🚢",
         "topic",
         0,
@@ -1694,6 +1753,13 @@
         "topic",
         0,
         "religion",
+        0
+    ],
+    [
+        "🛕",
+        "topic",
+        0,
+        "Hinduism",
         0
     ],
     [

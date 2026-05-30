@@ -26,10 +26,40 @@ use crate::{
 };
 
 /// Any tag with this count or less are not serialized. They are too rare to care.
-const MIN_COUNT_TO_SHOW: usize = 10;
+const MIN_COUNT_TO_SHOW: usize = 200;
 const N_LINKS_TO_SHOW: usize = 1;
 
-const TAGS_TO_IGNORE: [&str; 3] = ["unknown", "form-of", "alt-of"];
+#[rustfmt::skip]
+const TAGS_TO_IGNORE: &[&str] = &[
+    // wiktextract mumbo jumbo
+    "unknown", "form-of", "alt-of", "no-gloss",
+    // affix seems to always accompany more precise tags: prefix/suffix
+    // idiomatic seems to always accompany the pos phrase
+    "affix", "idiomatic",
+    // not sure and don't care
+    "broadly",
+    // https://github.com/tatuylonen/wiktextract/pull/1661
+    "uppercase",
+    // WARN: these are noise now but may be useful in the future
+    "wago-kanji", "irregular", "character", "morpheme"
+];
+
+fn is_language_agnostic(s: &str) -> bool {
+    s == "ૐ" || is_emoji(s)
+}
+
+fn is_emoji(s: &str) -> bool {
+    s.chars().all(|c| {
+        matches!(c,
+            '\u{1F000}'..='\u{1FFFF}'
+            | '\u{2600}'..='\u{27BF}'
+            | '\u{2300}'..='\u{23FF}'
+            | '\u{FE00}'..='\u{FE0F}'
+            | '\u{1F900}'..='\u{1F9FF}'
+            | '\u{E0000}'..='\u{E01FF}'
+        )
+    })
+}
 
 #[derive(Default, Serialize)]
 struct TagDiagnostics {
@@ -39,8 +69,19 @@ struct TagDiagnostics {
 }
 
 impl TagDiagnostics {
+    fn ignore_tag(edition: Edition, tag: &str) -> bool {
+        if TAGS_TO_IGNORE.contains(&tag) {
+            return true;
+        }
+        // ignore sa-row, ra-row etc.
+        if edition == Edition::Ja && tag.ends_with("row") {
+            return true;
+        }
+        false
+    }
+
     fn process(&mut self, edition: Edition, source: Lang, target: Lang, tag: String, word: &str) {
-        if TAGS_TO_IGNORE.contains(&tag.as_str()) {
+        if Self::ignore_tag(edition, tag.as_str()) {
             return;
         }
 
@@ -51,8 +92,9 @@ impl TagDiagnostics {
             Some(_) if edition == Edition::En => (),
             Some(tag_info) => match localize_tag(target, &tag_info.short_tag) {
                 Some(_) => (),
-                // TODO: maybe don't log not localized tags if the short form was an emoji,
+                // Don't log not_localized tags if the short form was an emoji,
                 // since those are supposed to be language-agnostic
+                None if is_language_agnostic(&tag_info.short_tag) => (),
                 None => self.not_localized.increment(tag, edition, source, word),
             },
             None => self.not_found.increment(tag, edition, source, word),
@@ -165,12 +207,14 @@ impl Diagnostics {
 
         self.pos.process(edition, source, target, entry.pos, word);
 
-        for tag in entry.tags {
+        // for tag in entry.tags {
+        for tag in entry.tags.into_iter().chain(entry.topics) {
             self.tags_top.process(edition, source, target, tag, word);
         }
 
         for sense in entry.senses {
-            for tag in sense.tags {
+            // for tag in sense.tags {
+            for tag in sense.tags.into_iter().chain(sense.topics) {
                 self.tags_inner.process(edition, source, target, tag, word);
             }
         }
