@@ -530,6 +530,15 @@
                         "content": [
                           {
                             "tag": "span",
+                            "title": "baseball",
+                            "data": {
+                              "content": "tag",
+                              "category": "topic"
+                            },
+                            "content": "⚾"
+                          },
+                          {
+                            "tag": "span",
                             "title": "sports",
                             "data": {
                               "content": "tag",

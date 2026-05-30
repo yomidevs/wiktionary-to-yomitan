@@ -1184,6 +1184,23 @@
                   {
                     "tag": "div",
                     "content": [
+                      {
+                        "tag": "div",
+                        "data": {
+                          "content": "tags"
+                        },
+                        "content": [
+                          {
+                            "tag": "span",
+                            "title": "cuisine",
+                            "data": {
+                              "content": "tag",
+                              "category": "topic"
+                            },
+                            "content": "🍽️"
+                          }
+                        ]
+                      },
                       "外出先で食べるために容器に詰めた食べ物。"
                     ]
                   }
@@ -1195,6 +1212,23 @@
                   {
                     "tag": "div",
                     "content": [
+                      {
+                        "tag": "div",
+                        "data": {
+                          "content": "tags"
+                        },
+                        "content": [
+                          {
+                            "tag": "span",
+                            "title": "cuisine",
+                            "data": {
+                              "content": "tag",
+                              "category": "topic"
+                            },
+                            "content": "🍽️"
+                          }
+                        ]
+                      },
                       "料理店などで出す、箱に詰めた料理。"
                     ]
                   }
@@ -1976,7 +2010,7 @@
   [
     "天罰覿面",
     "てんばつてきめん",
-    "phrase idio",
+    "成句 idio",
     "",
     0,
     [
