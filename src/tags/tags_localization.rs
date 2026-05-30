@@ -131,7 +131,7 @@ fn localize_tag_el(short_tag: &str) -> Option<(&'static str, &'static str)> {
     }
 }
 
-/// Coverage: 73/386 tags (18.9%)
+/// Coverage: 74/386 tags (19.2%)
 fn localize_tag_ja(short_tag: &str) -> Option<(&'static str, &'static str)> {
     match short_tag {
         "arch" => Some(("古語", "古語")),
@@ -180,6 +180,7 @@ fn localize_tag_ja(short_tag: &str) -> Option<(&'static str, &'static str)> {
         "geom" => Some(("幾何学", "幾何学")),
         "gramm" => Some(("文法", "文法")),
         "hist" => Some(("歴史", "歴史")),
+        "legal" => Some(("法律", "法律")),
         "ling" => Some(("言語学", "言語学")),
         "log" => Some(("論理学", "論理学")),
         "math" => Some(("数学", "数学")),
