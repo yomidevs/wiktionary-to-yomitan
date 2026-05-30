@@ -512,6 +512,22 @@
       ]
     }
   },
+  "天罰覿面": {
+    "てんばつてきめん": {
+      "phrase": [
+        {
+          "gloss_tree": {
+            "悪事を働けば即座に天罰が下ることの例え。": {}
+          },
+          "tags": [
+            "idiomatic"
+          ],
+          "wlink": "https://ja.wiktionary.org/wiki/天罰覿面#Japanese",
+          "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/天/天罰/天罰覿面.html"
+        }
+      ]
+    }
+  },
   "植え替える": {
     "うえかえる": {
       "verb": [
