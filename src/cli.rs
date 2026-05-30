@@ -125,6 +125,10 @@ pub struct ReleaseArgs {
     /// Change the root directory
     #[arg(long, default_value = "data")]
     pub root_dir: PathBuf,
+
+    /// Writer format for all dictionaries
+    #[arg(long, default_value_t = WriterFormat::Yomitan)]
+    pub format: WriterFormat,
 }
 
 #[derive(Parser, Debug, Default)]

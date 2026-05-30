@@ -126,6 +126,7 @@ fn download_and_create_db(rargs: &ReleaseArgs, editions: &[Edition], stats: &Tim
             options: Options {
                 quiet: false,
                 root_dir: rargs.root_dir.clone(),
+                format: rargs.format,
                 ..Default::default()
             },
         };
@@ -197,6 +198,7 @@ fn release_main(rargs: &ReleaseArgs, edition: Edition, stats: &TimingStats) {
                 options: Options {
                     quiet: true,
                     root_dir: rargs.root_dir.clone(),
+                    format: rargs.format,
                     ..Default::default()
                 },
             };
@@ -231,6 +233,7 @@ fn release_ipa(rargs: &ReleaseArgs, edition: Edition, stats: &TimingStats) {
             options: Options {
                 quiet: true,
                 root_dir: rargs.root_dir.clone(),
+                format: rargs.format,
                 ..Default::default()
             },
         };
@@ -256,6 +259,7 @@ fn release_ipa_merged(rargs: &ReleaseArgs, target: Lang, stats: &TimingStats) {
         options: Options {
             quiet: true,
             root_dir: rargs.root_dir.clone(),
+            format: rargs.format,
             ..Default::default()
         },
     };
@@ -285,6 +289,7 @@ fn release_glossary(rargs: &ReleaseArgs, edition: Edition, stats: &TimingStats) 
             options: Options {
                 quiet: true,
                 root_dir: rargs.root_dir.clone(),
+                format: rargs.format,
                 ..Default::default()
             },
         };
