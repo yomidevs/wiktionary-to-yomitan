@@ -83,11 +83,27 @@
     }
   },
   "přít": {
+    "přící": {
+      "verb": [
+        "extracted",
+        [
+          "active participle adjectival"
+        ]
+      ]
+    },
+    "proucí": {
+      "verb": [
+        "extracted",
+        [
+          "active participle adjectival"
+        ]
+      ]
+    },
     "přu": {
       "verb": [
         "extracted",
         [
-          "first-person singular indicative"
+          "first-person singular present indicative"
         ]
       ]
     },
@@ -95,7 +111,7 @@
       "verb": [
         "extracted",
         [
-          "first-person plural imperative/indicative"
+          "first-person plural present imperative/indicative"
         ]
       ]
     },
@@ -103,7 +119,7 @@
       "verb": [
         "extracted",
         [
-          "second-person singular indicative"
+          "second-person singular present indicative"
         ]
       ]
     },
@@ -111,7 +127,7 @@
       "verb": [
         "extracted",
         [
-          "second-person plural imperative/indicative"
+          "second-person plural present imperative/indicative"
         ]
       ]
     },
@@ -119,7 +135,7 @@
       "verb": [
         "extracted",
         [
-          "second-person singular imperative"
+          "second-person singular present imperative"
         ]
       ]
     },
@@ -127,8 +143,8 @@
       "verb": [
         "extracted",
         [
-          "singular masculine present",
-          "third-person singular indicative"
+          "singular masculine present transgressive",
+          "third-person singular present indicative"
         ]
       ]
     },
@@ -136,7 +152,50 @@
       "verb": [
         "extracted",
         [
-          "third-person plural indicative"
+          "third-person plural present indicative"
+        ]
+      ]
+    },
+    "přel": {
+      "verb": [
+        "extracted",
+        [
+          "singular masculine animate past participle",
+          "singular masculine inanimate past participle"
+        ]
+      ]
+    },
+    "přeli": {
+      "verb": [
+        "extracted",
+        [
+          "plural masculine animate past participle"
+        ]
+      ]
+    },
+    "přely": {
+      "verb": [
+        "extracted",
+        [
+          "plural feminine past participle",
+          "plural masculine inanimate past participle"
+        ]
+      ]
+    },
+    "přela": {
+      "verb": [
+        "extracted",
+        [
+          "plural neuter past active participle",
+          "singular feminine past active participle"
+        ]
+      ]
+    },
+    "přelo": {
+      "verb": [
+        "extracted",
+        [
+          "singular neuter past participle"
         ]
       ]
     },
@@ -144,7 +203,7 @@
       "verb": [
         "extracted",
         [
-          "singular masculine present"
+          "singular masculine present transgressive"
         ]
       ]
     },
@@ -152,7 +211,7 @@
       "verb": [
         "extracted",
         [
-          "singular feminine neuter present"
+          "singular feminine neuter present transgressive"
         ]
       ]
     },
@@ -160,7 +219,7 @@
       "verb": [
         "extracted",
         [
-          "singular feminine neuter present"
+          "singular feminine neuter present transgressive"
         ]
       ]
     },
@@ -168,7 +227,7 @@
       "verb": [
         "extracted",
         [
-          "plural present"
+          "plural present transgressive"
         ]
       ]
     },
@@ -176,21 +235,28 @@
       "verb": [
         "extracted",
         [
-          "plural present"
-        ]
-      ]
-    },
-    "přela": {
-      "verb": [
-        "inflection",
-        [
-          "plural neuter past active participle",
-          "singular feminine past active participle"
+          "plural present transgressive"
         ]
       ]
     }
   },
   "být": {
+    "jsoucí": {
+      "verb": [
+        "extracted",
+        [
+          "active participle adjectival"
+        ]
+      ]
+    },
+    "byvší": {
+      "verb": [
+        "extracted",
+        [
+          "active participle adjectival"
+        ]
+      ]
+    },
     "bytí": {
       "verb": [
         "extracted",
@@ -203,7 +269,7 @@
       "verb": [
         "extracted",
         [
-          "first-person singular indicative"
+          "first-person singular present indicative"
         ]
       ]
     },
@@ -211,7 +277,7 @@
       "verb": [
         "extracted",
         [
-          "first-person plural indicative"
+          "first-person plural present indicative"
         ]
       ]
     },
@@ -219,7 +285,7 @@
       "verb": [
         "extracted",
         [
-          "first-person plural imperative"
+          "first-person plural present imperative"
         ]
       ]
     },
@@ -227,7 +293,7 @@
       "verb": [
         "extracted",
         [
-          "second-person singular indicative"
+          "second-person singular present indicative"
         ]
       ]
     },
@@ -235,7 +301,7 @@
       "verb": [
         "extracted",
         [
-          "second-person plural indicative"
+          "second-person plural present indicative"
         ]
       ]
     },
@@ -243,7 +309,7 @@
       "verb": [
         "extracted",
         [
-          "second-person singular imperative"
+          "second-person singular present imperative"
         ]
       ]
     },
@@ -251,7 +317,7 @@
       "verb": [
         "extracted",
         [
-          "second-person plural imperative"
+          "second-person plural present imperative"
         ]
       ]
     },
@@ -259,7 +325,7 @@
       "verb": [
         "extracted",
         [
-          "third-person singular indicative"
+          "third-person singular present indicative"
         ]
       ]
     },
@@ -267,7 +333,7 @@
       "verb": [
         "extracted",
         [
-          "third-person singular indicative"
+          "third-person singular present indicative"
         ]
       ]
     },
@@ -275,7 +341,50 @@
       "verb": [
         "extracted",
         [
-          "third-person plural indicative"
+          "third-person plural present indicative"
+        ]
+      ]
+    },
+    "byl": {
+      "verb": [
+        "extracted",
+        [
+          "singular masculine animate past participle",
+          "singular masculine inanimate past participle"
+        ]
+      ]
+    },
+    "byli": {
+      "verb": [
+        "extracted",
+        [
+          "plural masculine animate past participle"
+        ]
+      ]
+    },
+    "byly": {
+      "verb": [
+        "extracted",
+        [
+          "plural feminine past participle",
+          "plural masculine inanimate past participle"
+        ]
+      ]
+    },
+    "byla": {
+      "verb": [
+        "extracted",
+        [
+          "plural neuter past participle",
+          "singular feminine past participle"
+        ]
+      ]
+    },
+    "bylo": {
+      "verb": [
+        "extracted",
+        [
+          "singular neuter past participle"
         ]
       ]
     },
@@ -283,7 +392,7 @@
       "verb": [
         "extracted",
         [
-          "singular masculine present"
+          "singular masculine present transgressive"
         ]
       ]
     },
@@ -291,7 +400,7 @@
       "verb": [
         "extracted",
         [
-          "singular masculine past"
+          "singular masculine past transgressive"
         ]
       ]
     },
@@ -299,7 +408,7 @@
       "verb": [
         "extracted",
         [
-          "singular feminine neuter present"
+          "singular feminine neuter present transgressive"
         ]
       ]
     },
@@ -307,7 +416,7 @@
       "verb": [
         "extracted",
         [
-          "singular feminine neuter past"
+          "singular feminine neuter past transgressive"
         ]
       ]
     },
@@ -315,7 +424,7 @@
       "verb": [
         "extracted",
         [
-          "plural present"
+          "plural present transgressive"
         ]
       ]
     },
@@ -323,7 +432,7 @@
       "verb": [
         "extracted",
         [
-          "plural past"
+          "plural past transgressive"
         ]
       ]
     },
@@ -345,11 +454,27 @@
     }
   },
   "nebýt": {
+    "nejsoucí": {
+      "verb": [
+        "extracted",
+        [
+          "active participle adjectival"
+        ]
+      ]
+    },
+    "nebyvší": {
+      "verb": [
+        "extracted",
+        [
+          "active participle adjectival"
+        ]
+      ]
+    },
     "nejsem": {
       "verb": [
         "extracted",
         [
-          "first-person singular indicative"
+          "first-person singular present indicative"
         ]
       ]
     },
@@ -357,7 +482,7 @@
       "verb": [
         "extracted",
         [
-          "first-person plural indicative"
+          "first-person plural present indicative"
         ]
       ]
     },
@@ -365,7 +490,7 @@
       "verb": [
         "extracted",
         [
-          "first-person plural imperative"
+          "first-person plural present imperative"
         ]
       ]
     },
@@ -373,7 +498,7 @@
       "verb": [
         "extracted",
         [
-          "second-person singular indicative"
+          "second-person singular present indicative"
         ]
       ]
     },
@@ -381,7 +506,7 @@
       "verb": [
         "extracted",
         [
-          "second-person plural indicative"
+          "second-person plural present indicative"
         ]
       ]
     },
@@ -389,7 +514,7 @@
       "verb": [
         "extracted",
         [
-          "second-person singular imperative"
+          "second-person singular present imperative"
         ]
       ]
     },
@@ -397,7 +522,7 @@
       "verb": [
         "extracted",
         [
-          "second-person plural imperative"
+          "second-person plural present imperative"
         ]
       ]
     },
@@ -405,7 +530,7 @@
       "verb": [
         "extracted",
         [
-          "third-person singular indicative"
+          "third-person singular present indicative"
         ]
       ]
     },
@@ -413,7 +538,7 @@
       "verb": [
         "extracted",
         [
-          "third-person plural indicative"
+          "third-person plural present indicative"
         ]
       ]
     },
@@ -465,11 +590,54 @@
         ]
       ]
     },
+    "nebyl": {
+      "verb": [
+        "extracted",
+        [
+          "singular masculine animate past participle",
+          "singular masculine inanimate past participle"
+        ]
+      ]
+    },
+    "nebyli": {
+      "verb": [
+        "extracted",
+        [
+          "plural masculine animate past participle"
+        ]
+      ]
+    },
+    "nebyly": {
+      "verb": [
+        "extracted",
+        [
+          "plural feminine past participle",
+          "plural masculine inanimate past participle"
+        ]
+      ]
+    },
+    "nebyla": {
+      "verb": [
+        "extracted",
+        [
+          "plural neuter past participle",
+          "singular feminine past participle"
+        ]
+      ]
+    },
+    "nebylo": {
+      "verb": [
+        "extracted",
+        [
+          "singular neuter past active participle"
+        ]
+      ]
+    },
     "nejsa": {
       "verb": [
         "extracted",
         [
-          "singular masculine present"
+          "singular masculine present transgressive"
         ]
       ]
     },
@@ -477,7 +645,7 @@
       "verb": [
         "extracted",
         [
-          "singular masculine past"
+          "singular masculine past transgressive"
         ]
       ]
     },
@@ -485,7 +653,7 @@
       "verb": [
         "extracted",
         [
-          "singular feminine neuter present"
+          "singular feminine neuter present transgressive"
         ]
       ]
     },
@@ -493,7 +661,7 @@
       "verb": [
         "extracted",
         [
-          "singular feminine neuter past"
+          "singular feminine neuter past transgressive"
         ]
       ]
     },
@@ -501,7 +669,7 @@
       "verb": [
         "extracted",
         [
-          "plural present"
+          "plural present transgressive"
         ]
       ]
     },
@@ -509,15 +677,7 @@
       "verb": [
         "extracted",
         [
-          "plural past"
-        ]
-      ]
-    },
-    "nebylo": {
-      "verb": [
-        "inflection",
-        [
-          "singular neuter past active participle"
+          "plural past transgressive"
         ]
       ]
     }

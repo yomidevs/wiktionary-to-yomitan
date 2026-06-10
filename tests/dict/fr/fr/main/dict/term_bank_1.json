@@ -430,14 +430,15 @@
                                     "content": "example-sentence-a"
                                   },
                                   "content": [
+                                    "Il ",
                                     {
                                       "tag": "span",
                                       "data": {
                                         "content": "bold-text"
                                       },
-                                      "content": "Mangez"
+                                      "content": "mange"
                                     },
-                                    " légèrement."
+                                    " lentement, handicapé par une mastication pénible, ne dit pas un mot, rit niaisement de loin en loin."
                                   ]
                                 },
                                 {
@@ -445,7 +446,7 @@
                                   "data": {
                                     "content": "example-sentence-c"
                                   },
-                                  "content": "journal Sud-Ouest, édition Charente-Maritime / Charente, 20 août 2022, page 36"
+                                  "content": "Victor Méric, Les Compagnons de l’Escopette, Éditions de l’Épi, Paris, 1930, page 213"
                                 }
                               ]
                             }
@@ -467,15 +468,15 @@
                                     "content": "example-sentence-a"
                                   },
                                   "content": [
-                                    "Il ",
+                                    "J’avais neuf ans et j’attrapais avec mon frère des sauterelles que nous faisions griller dans le jardin pour les ",
                                     {
                                       "tag": "span",
                                       "data": {
                                         "content": "bold-text"
                                       },
-                                      "content": "mange"
+                                      "content": "manger"
                                     },
-                                    " lentement, handicapé par une mastication pénible, ne dit pas un mot, rit niaisement de loin en loin."
+                                    "."
                                   ]
                                 },
                                 {
@@ -483,7 +484,7 @@
                                   "data": {
                                     "content": "example-sentence-c"
                                   },
-                                  "content": "Victor Méric, Les Compagnons de l’Escopette, Éditions de l’Épi, Paris, 1930, page 213"
+                                  "content": "Francis Carco, Maman Petitdoigt, La Revue de Paris, 1920"
                                 }
                               ]
                             }

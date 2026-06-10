@@ -1344,7 +1344,7 @@
                           }
                         ]
                       },
-                      "a red-haired person or horse",
+                      "redhead (a red-haired person)",
                       {
                         "tag": "details",
                         "data": {
@@ -1408,6 +1408,34 @@
                           }
                         ]
                       }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      {
+                        "tag": "div",
+                        "data": {
+                          "content": "tags"
+                        },
+                        "content": [
+                          {
+                            "tag": "span",
+                            "title": "sports",
+                            "data": {
+                              "content": "tag",
+                              "category": "topic"
+                            },
+                            "content": "sports"
+                          }
+                        ]
+                      },
+                      "chestnut, sorrel horse (horse with a reddish-brown coat, mane and tail)"
                     ]
                   }
                 ]
@@ -1770,7 +1798,7 @@
                         "data": {
                           "content": "Etymology-content"
                         },
-                        "content": "From Middle High German hërze, from Old High German hërza, from Proto-West Germanic *hertā, from Proto-Germanic *hertô (“heart”), from Proto-Indo-European *ḱḗr (“heart”).\nCognate with Dutch hart, English heart, Danish hjerte, Gothic 𐌷𐌰𐌹𐍂𐍄𐍉 (hairtō)."
+                        "content": "PIE word\n *ḱḗr\nEtymology tree\nProto-Indo-European *ḱerd-\nProto-Indo-European *ḱérd\nProto-Germanic *hertô\nProto-West Germanic *hertā\nOld High German hërza\nMiddle High German hërze\nGerman Herz\nFrom Middle High German hërze, from Old High German hërza, from Proto-West Germanic *hertā, from Proto-Germanic *hertô (“heart”), from Proto-Indo-European *ḱḗr (“heart”).\nCognate with Dutch hart, English heart, Danish hjerte, Gothic 𐌷𐌰𐌹𐍂𐍄𐍉 (hairtō)."
                       }
                     ]
                   }

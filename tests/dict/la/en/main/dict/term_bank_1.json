@@ -545,7 +545,7 @@
                                   "data": {
                                     "content": "example-sentence-c"
                                   },
-                                  "content": "27 BCE – 25 BCE, Titus Livius, Ab Urbe Condita 26.1"
+                                  "content": "27 BCE – 25 BCE, Titus Livius, Ab urbe condita 26.1"
                                 }
                               ]
                             }
@@ -854,7 +854,7 @@
                         "data": {
                           "content": "Etymology-content"
                         },
-                        "content": "Borrowed from Ancient Greek λείριον (leírion). See there for more."
+                        "content": "Etymology tree\nAncient Greek λείριον (leírion)bor.\nLatin līlium\nBorrowed from Ancient Greek λείριον (leírion). See there for more."
                       }
                     ]
                   }
@@ -1040,7 +1040,7 @@
                                   "data": {
                                     "content": "example-sentence-c"
                                   },
-                                  "content": "63 BCE, Cicero, Catiline Orations Oratio in Catilinam Prima in Senatu Habita.21"
+                                  "content": "63 BCE, Cicero, In Catilinam orationes 1.21"
                                 }
                               ]
                             }
@@ -1264,7 +1264,7 @@
                                   "data": {
                                     "content": "example-sentence-c"
                                   },
-                                  "content": "c. 52 BCE, Julius Caesar, Commentarii de Bello Gallico VII.23"
+                                  "content": "c. 52 BCE, Julius Caesar, Commentarii de bello Gallico VII.23"
                                 }
                               ]
                             }
@@ -2009,7 +2009,7 @@
                                   "data": {
                                     "content": "example-sentence-c"
                                   },
-                                  "content": "27 BCE – 25 BCE, Titus Livius, Ab Urbe Condita 1.38"
+                                  "content": "27 BCE – 25 BCE, Titus Livius, Ab urbe condita 1.38"
                                 }
                               ]
                             }
@@ -2106,7 +2106,7 @@
                         "data": {
                           "content": "Etymology-content"
                         },
-                        "content": "From con- + agitō."
+                        "content": "Etymology tree\nProto-Indo-European *ḱe?\nProto-Indo-European *ḱóm\nProto-Italic *kom\nProto-Italic *kom-\nLatin con-\nProto-Indo-European *h₂eǵ-\nProto-Indo-European *-eti\nProto-Indo-European *h₂éǵeti\nProto-Italic *agō\nLatin agō\nProto-Indo-European *-tós\nProto-Italic *-tos\nLatin -tus\nProto-Indo-European *-h₂\nProto-Indo-European *-éh₂\nProto-Indo-European *-yéti\nProto-Indo-European *-eh₂yéti\nProto-Italic *-āō\nLatin -ō\nLatin -tō\nLatin -itō\nLatin agitō\nLatin cōgitō\nFrom con- + agitō."
                       }
                     ]
                   }
@@ -2843,7 +2843,7 @@
                                   "data": {
                                     "content": "example-sentence-c"
                                   },
-                                  "content": "27 BCE – 25 BCE, Titus Livius, Ab Urbe Condita I.6"
+                                  "content": "27 BCE – 25 BCE, Titus Livius, Ab urbe condita I.6"
                                 }
                               ]
                             }
@@ -2878,7 +2878,7 @@
                                   "data": {
                                     "content": "example-sentence-c"
                                   },
-                                  "content": "27 BCE – 25 BCE, Titus Livius, Ab Urbe Condita I.12"
+                                  "content": "27 BCE – 25 BCE, Titus Livius, Ab urbe condita I.12"
                                 }
                               ]
                             }
@@ -3012,7 +3012,7 @@
                                   "data": {
                                     "content": "example-sentence-c"
                                   },
-                                  "content": "c. 52 BCE, Julius Caesar, Commentarii de Bello Gallico VII.19"
+                                  "content": "c. 52 BCE, Julius Caesar, Commentarii de bello Gallico VII.19"
                                 }
                               ]
                             }
@@ -3109,7 +3109,7 @@
                         "data": {
                           "content": "Etymology-content"
                         },
-                        "content": "From lentus (“slow”) + -ē."
+                        "content": "Etymology tree\nProto-Indo-European *lent-\nProto-Indo-European *-os\nProto-Italic *lentos\nLatin lentus\nLatin -ē\nLatin lentē\nFrom lentus (“slow”) + -ē."
                       }
                     ]
                   }

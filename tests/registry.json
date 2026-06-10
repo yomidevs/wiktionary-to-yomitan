@@ -2730,7 +2730,7 @@
               }
             }
           ],
-          "etymology_number": 1,
+          "etymology_number": "1",
           "etymology_text": "From Proto-Semitic *q-d-m (“to precede, come before”). Compare Hebrew קדם and Classical Syriac ܩܕܡ.",
           "etymology_templates": [
             {
@@ -3788,7 +3788,7 @@
               ]
             }
           ],
-          "etymology_number": 5,
+          "etymology_number": "5",
           "sounds": [
             {
               "ipa": "/qa.dam/"
@@ -4233,7 +4233,7 @@
             "Pages with 26 entries",
             "Pages with entries"
           ],
-          "etymology_number": 1,
+          "etymology_number": "1",
           "etymology_text": "Inherited from Old Czech pro, from Proto-Slavic *pro.",
           "etymology_templates": [
             {
@@ -4397,14 +4397,18 @@
             {
               "form": "přící",
               "tags": [
-                "error-unrecognized-form"
+                "active",
+                "adjectival",
+                "participle"
               ],
               "source": "conjugation"
             },
             {
               "form": "proucí",
               "tags": [
-                "error-unrecognized-form"
+                "active",
+                "adjectival",
+                "participle"
               ],
               "source": "conjugation"
             },
@@ -4418,7 +4422,9 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form"
+                "adjectival",
+                "participle",
+                "passive"
               ],
               "source": "conjugation"
             },
@@ -4441,6 +4447,7 @@
               "tags": [
                 "first-person",
                 "indicative",
+                "present",
                 "singular"
               ],
               "source": "conjugation"
@@ -4450,7 +4457,8 @@
               "tags": [
                 "first-person",
                 "indicative",
-                "plural"
+                "plural",
+                "present"
               ],
               "source": "conjugation"
             },
@@ -4459,6 +4467,7 @@
               "tags": [
                 "first-person",
                 "imperative",
+                "present",
                 "singular"
               ],
               "source": "conjugation"
@@ -4468,7 +4477,8 @@
               "tags": [
                 "first-person",
                 "imperative",
-                "plural"
+                "plural",
+                "present"
               ],
               "source": "conjugation"
             },
@@ -4476,6 +4486,7 @@
               "form": "přeš",
               "tags": [
                 "indicative",
+                "present",
                 "second-person",
                 "singular"
               ],
@@ -4486,6 +4497,7 @@
               "tags": [
                 "indicative",
                 "plural",
+                "present",
                 "second-person"
               ],
               "source": "conjugation"
@@ -4494,6 +4506,7 @@
               "form": "při",
               "tags": [
                 "imperative",
+                "present",
                 "second-person",
                 "singular"
               ],
@@ -4504,6 +4517,7 @@
               "tags": [
                 "imperative",
                 "plural",
+                "present",
                 "second-person"
               ],
               "source": "conjugation"
@@ -4512,6 +4526,7 @@
               "form": "pře",
               "tags": [
                 "indicative",
+                "present",
                 "singular",
                 "third-person"
               ],
@@ -4522,6 +4537,7 @@
               "tags": [
                 "indicative",
                 "plural",
+                "present",
                 "third-person"
               ],
               "source": "conjugation"
@@ -4530,6 +4546,7 @@
               "form": "-",
               "tags": [
                 "imperative",
+                "present",
                 "singular",
                 "third-person"
               ],
@@ -4540,6 +4557,7 @@
               "tags": [
                 "imperative",
                 "plural",
+                "present",
                 "third-person"
               ],
               "source": "conjugation"
@@ -4562,8 +4580,9 @@
               "form": "přel",
               "tags": [
                 "animate",
-                "error-unrecognized-form",
                 "masculine",
+                "participle",
+                "past",
                 "singular"
               ],
               "source": "conjugation"
@@ -4572,8 +4591,9 @@
               "form": "přeli",
               "tags": [
                 "animate",
-                "error-unrecognized-form",
                 "masculine",
+                "participle",
+                "past",
                 "plural"
               ],
               "source": "conjugation"
@@ -4582,8 +4602,9 @@
               "form": "-",
               "tags": [
                 "animate",
-                "error-unrecognized-form",
                 "masculine",
+                "participle",
+                "passive",
                 "singular"
               ],
               "source": "conjugation"
@@ -4592,8 +4613,9 @@
               "form": "-",
               "tags": [
                 "animate",
-                "error-unrecognized-form",
                 "masculine",
+                "participle",
+                "passive",
                 "plural"
               ],
               "source": "conjugation"
@@ -4601,9 +4623,10 @@
             {
               "form": "přel",
               "tags": [
-                "error-unrecognized-form",
                 "inanimate",
                 "masculine",
+                "participle",
+                "past",
                 "singular"
               ],
               "source": "conjugation"
@@ -4611,9 +4634,10 @@
             {
               "form": "přely",
               "tags": [
-                "error-unrecognized-form",
                 "inanimate",
                 "masculine",
+                "participle",
+                "past",
                 "plural"
               ],
               "source": "conjugation"
@@ -4621,9 +4645,10 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "inanimate",
                 "masculine",
+                "participle",
+                "passive",
                 "singular"
               ],
               "source": "conjugation"
@@ -4631,9 +4656,10 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "inanimate",
                 "masculine",
+                "participle",
+                "passive",
                 "plural"
               ],
               "source": "conjugation"
@@ -4641,8 +4667,9 @@
             {
               "form": "přela",
               "tags": [
-                "error-unrecognized-form",
                 "feminine",
+                "participle",
+                "past",
                 "singular"
               ],
               "source": "conjugation"
@@ -4650,8 +4677,9 @@
             {
               "form": "přely",
               "tags": [
-                "error-unrecognized-form",
                 "feminine",
+                "participle",
+                "past",
                 "plural"
               ],
               "source": "conjugation"
@@ -4659,8 +4687,9 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "feminine",
+                "participle",
+                "passive",
                 "singular"
               ],
               "source": "conjugation"
@@ -4668,8 +4697,9 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "feminine",
+                "participle",
+                "passive",
                 "plural"
               ],
               "source": "conjugation"
@@ -4677,8 +4707,9 @@
             {
               "form": "přelo",
               "tags": [
-                "error-unrecognized-form",
                 "neuter",
+                "participle",
+                "past",
                 "singular"
               ],
               "source": "conjugation"
@@ -4686,8 +4717,9 @@
             {
               "form": "přela",
               "tags": [
-                "error-unrecognized-form",
                 "neuter",
+                "participle",
+                "past",
                 "plural"
               ],
               "source": "conjugation"
@@ -4695,8 +4727,9 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "neuter",
+                "participle",
+                "passive",
                 "singular"
               ],
               "source": "conjugation"
@@ -4704,8 +4737,9 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "neuter",
+                "participle",
+                "passive",
                 "plural"
               ],
               "source": "conjugation"
@@ -4729,7 +4763,8 @@
               "tags": [
                 "masculine",
                 "present",
-                "singular"
+                "singular",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -4738,7 +4773,8 @@
               "tags": [
                 "masculine",
                 "present",
-                "singular"
+                "singular",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -4747,7 +4783,8 @@
               "tags": [
                 "masculine",
                 "past",
-                "singular"
+                "singular",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -4757,7 +4794,8 @@
                 "feminine",
                 "neuter",
                 "present",
-                "singular"
+                "singular",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -4767,7 +4805,8 @@
                 "feminine",
                 "neuter",
                 "present",
-                "singular"
+                "singular",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -4777,7 +4816,8 @@
                 "feminine",
                 "neuter",
                 "past",
-                "singular"
+                "singular",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -4785,7 +4825,8 @@
               "form": "příce",
               "tags": [
                 "plural",
-                "present"
+                "present",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -4793,7 +4834,8 @@
               "form": "prouce",
               "tags": [
                 "plural",
-                "present"
+                "present",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -4801,7 +4843,8 @@
               "form": "-",
               "tags": [
                 "past",
-                "plural"
+                "plural",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -5570,14 +5613,18 @@
             {
               "form": "jsoucí",
               "tags": [
-                "error-unrecognized-form"
+                "active",
+                "adjectival",
+                "participle"
               ],
               "source": "conjugation"
             },
             {
               "form": "byvší",
               "tags": [
-                "error-unrecognized-form"
+                "active",
+                "adjectival",
+                "participle"
               ],
               "source": "conjugation"
             },
@@ -5591,7 +5638,9 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form"
+                "adjectival",
+                "participle",
+                "passive"
               ],
               "source": "conjugation"
             },
@@ -5614,6 +5663,7 @@
               "tags": [
                 "first-person",
                 "indicative",
+                "present",
                 "singular"
               ],
               "source": "conjugation"
@@ -5623,7 +5673,8 @@
               "tags": [
                 "first-person",
                 "indicative",
-                "plural"
+                "plural",
+                "present"
               ],
               "source": "conjugation"
             },
@@ -5632,6 +5683,7 @@
               "tags": [
                 "first-person",
                 "imperative",
+                "present",
                 "singular"
               ],
               "source": "conjugation"
@@ -5641,7 +5693,8 @@
               "tags": [
                 "first-person",
                 "imperative",
-                "plural"
+                "plural",
+                "present"
               ],
               "source": "conjugation"
             },
@@ -5649,6 +5702,7 @@
               "form": "jsi",
               "tags": [
                 "indicative",
+                "present",
                 "second-person",
                 "singular"
               ],
@@ -5658,6 +5712,7 @@
               "form": "-s",
               "tags": [
                 "indicative",
+                "present",
                 "second-person",
                 "singular"
               ],
@@ -5668,6 +5723,7 @@
               "tags": [
                 "indicative",
                 "plural",
+                "present",
                 "second-person"
               ],
               "source": "conjugation"
@@ -5676,6 +5732,7 @@
               "form": "buď",
               "tags": [
                 "imperative",
+                "present",
                 "second-person",
                 "singular"
               ],
@@ -5686,6 +5743,7 @@
               "tags": [
                 "imperative",
                 "plural",
+                "present",
                 "second-person"
               ],
               "source": "conjugation"
@@ -5694,6 +5752,7 @@
               "form": "je",
               "tags": [
                 "indicative",
+                "present",
                 "singular",
                 "third-person"
               ],
@@ -5703,6 +5762,7 @@
               "form": "jest",
               "tags": [
                 "indicative",
+                "present",
                 "singular",
                 "third-person"
               ],
@@ -5713,6 +5773,7 @@
               "tags": [
                 "indicative",
                 "plural",
+                "present",
                 "third-person"
               ],
               "source": "conjugation"
@@ -5721,6 +5782,7 @@
               "form": "-",
               "tags": [
                 "imperative",
+                "present",
                 "singular",
                 "third-person"
               ],
@@ -5731,6 +5793,7 @@
               "tags": [
                 "imperative",
                 "plural",
+                "present",
                 "third-person"
               ],
               "source": "conjugation"
@@ -5875,8 +5938,9 @@
               "form": "byl",
               "tags": [
                 "animate",
-                "error-unrecognized-form",
                 "masculine",
+                "participle",
+                "past",
                 "singular"
               ],
               "source": "conjugation"
@@ -5885,8 +5949,9 @@
               "form": "byli",
               "tags": [
                 "animate",
-                "error-unrecognized-form",
                 "masculine",
+                "participle",
+                "past",
                 "plural"
               ],
               "source": "conjugation"
@@ -5895,8 +5960,9 @@
               "form": "-",
               "tags": [
                 "animate",
-                "error-unrecognized-form",
                 "masculine",
+                "participle",
+                "passive",
                 "singular"
               ],
               "source": "conjugation"
@@ -5905,8 +5971,9 @@
               "form": "-",
               "tags": [
                 "animate",
-                "error-unrecognized-form",
                 "masculine",
+                "participle",
+                "passive",
                 "plural"
               ],
               "source": "conjugation"
@@ -5914,9 +5981,10 @@
             {
               "form": "byl",
               "tags": [
-                "error-unrecognized-form",
                 "inanimate",
                 "masculine",
+                "participle",
+                "past",
                 "singular"
               ],
               "source": "conjugation"
@@ -5924,9 +5992,10 @@
             {
               "form": "byly",
               "tags": [
-                "error-unrecognized-form",
                 "inanimate",
                 "masculine",
+                "participle",
+                "past",
                 "plural"
               ],
               "source": "conjugation"
@@ -5934,9 +6003,10 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "inanimate",
                 "masculine",
+                "participle",
+                "passive",
                 "singular"
               ],
               "source": "conjugation"
@@ -5944,9 +6014,10 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "inanimate",
                 "masculine",
+                "participle",
+                "passive",
                 "plural"
               ],
               "source": "conjugation"
@@ -5954,8 +6025,9 @@
             {
               "form": "byla",
               "tags": [
-                "error-unrecognized-form",
                 "feminine",
+                "participle",
+                "past",
                 "singular"
               ],
               "source": "conjugation"
@@ -5963,8 +6035,9 @@
             {
               "form": "byly",
               "tags": [
-                "error-unrecognized-form",
                 "feminine",
+                "participle",
+                "past",
                 "plural"
               ],
               "source": "conjugation"
@@ -5972,8 +6045,9 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "feminine",
+                "participle",
+                "passive",
                 "singular"
               ],
               "source": "conjugation"
@@ -5981,8 +6055,9 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "feminine",
+                "participle",
+                "passive",
                 "plural"
               ],
               "source": "conjugation"
@@ -5990,8 +6065,9 @@
             {
               "form": "bylo",
               "tags": [
-                "error-unrecognized-form",
                 "neuter",
+                "participle",
+                "past",
                 "singular"
               ],
               "source": "conjugation"
@@ -5999,8 +6075,9 @@
             {
               "form": "byla",
               "tags": [
-                "error-unrecognized-form",
                 "neuter",
+                "participle",
+                "past",
                 "plural"
               ],
               "source": "conjugation"
@@ -6008,8 +6085,9 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "neuter",
+                "participle",
+                "passive",
                 "singular"
               ],
               "source": "conjugation"
@@ -6017,8 +6095,9 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "neuter",
+                "participle",
+                "passive",
                 "plural"
               ],
               "source": "conjugation"
@@ -6042,7 +6121,8 @@
               "tags": [
                 "masculine",
                 "present",
-                "singular"
+                "singular",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -6051,7 +6131,8 @@
               "tags": [
                 "masculine",
                 "past",
-                "singular"
+                "singular",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -6061,7 +6142,8 @@
                 "feminine",
                 "neuter",
                 "present",
-                "singular"
+                "singular",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -6071,7 +6153,8 @@
                 "feminine",
                 "neuter",
                 "past",
-                "singular"
+                "singular",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -6079,7 +6162,8 @@
               "form": "jsouce",
               "tags": [
                 "plural",
-                "present"
+                "present",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -6087,7 +6171,8 @@
               "form": "byvše",
               "tags": [
                 "past",
-                "plural"
+                "plural",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -7012,14 +7097,18 @@
             {
               "form": "nejsoucí",
               "tags": [
-                "error-unrecognized-form"
+                "active",
+                "adjectival",
+                "participle"
               ],
               "source": "conjugation"
             },
             {
               "form": "nebyvší",
               "tags": [
-                "error-unrecognized-form"
+                "active",
+                "adjectival",
+                "participle"
               ],
               "source": "conjugation"
             },
@@ -7033,7 +7122,9 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form"
+                "adjectival",
+                "participle",
+                "passive"
               ],
               "source": "conjugation"
             },
@@ -7056,6 +7147,7 @@
               "tags": [
                 "first-person",
                 "indicative",
+                "present",
                 "singular"
               ],
               "source": "conjugation"
@@ -7065,7 +7157,8 @@
               "tags": [
                 "first-person",
                 "indicative",
-                "plural"
+                "plural",
+                "present"
               ],
               "source": "conjugation"
             },
@@ -7074,6 +7167,7 @@
               "tags": [
                 "first-person",
                 "imperative",
+                "present",
                 "singular"
               ],
               "source": "conjugation"
@@ -7083,7 +7177,8 @@
               "tags": [
                 "first-person",
                 "imperative",
-                "plural"
+                "plural",
+                "present"
               ],
               "source": "conjugation"
             },
@@ -7091,6 +7186,7 @@
               "form": "nejsi",
               "tags": [
                 "indicative",
+                "present",
                 "second-person",
                 "singular"
               ],
@@ -7101,6 +7197,7 @@
               "tags": [
                 "indicative",
                 "plural",
+                "present",
                 "second-person"
               ],
               "source": "conjugation"
@@ -7109,6 +7206,7 @@
               "form": "nebuď",
               "tags": [
                 "imperative",
+                "present",
                 "second-person",
                 "singular"
               ],
@@ -7119,6 +7217,7 @@
               "tags": [
                 "imperative",
                 "plural",
+                "present",
                 "second-person"
               ],
               "source": "conjugation"
@@ -7127,6 +7226,7 @@
               "form": "není",
               "tags": [
                 "indicative",
+                "present",
                 "singular",
                 "third-person"
               ],
@@ -7137,6 +7237,7 @@
               "tags": [
                 "indicative",
                 "plural",
+                "present",
                 "third-person"
               ],
               "source": "conjugation"
@@ -7145,6 +7246,7 @@
               "form": "-",
               "tags": [
                 "imperative",
+                "present",
                 "singular",
                 "third-person"
               ],
@@ -7155,6 +7257,7 @@
               "tags": [
                 "imperative",
                 "plural",
+                "present",
                 "third-person"
               ],
               "source": "conjugation"
@@ -7239,8 +7342,9 @@
               "form": "nebyl",
               "tags": [
                 "animate",
-                "error-unrecognized-form",
                 "masculine",
+                "participle",
+                "past",
                 "singular"
               ],
               "source": "conjugation"
@@ -7249,8 +7353,9 @@
               "form": "nebyli",
               "tags": [
                 "animate",
-                "error-unrecognized-form",
                 "masculine",
+                "participle",
+                "past",
                 "plural"
               ],
               "source": "conjugation"
@@ -7259,8 +7364,9 @@
               "form": "-",
               "tags": [
                 "animate",
-                "error-unrecognized-form",
                 "masculine",
+                "participle",
+                "passive",
                 "singular"
               ],
               "source": "conjugation"
@@ -7269,8 +7375,9 @@
               "form": "-",
               "tags": [
                 "animate",
-                "error-unrecognized-form",
                 "masculine",
+                "participle",
+                "passive",
                 "plural"
               ],
               "source": "conjugation"
@@ -7278,9 +7385,10 @@
             {
               "form": "nebyl",
               "tags": [
-                "error-unrecognized-form",
                 "inanimate",
                 "masculine",
+                "participle",
+                "past",
                 "singular"
               ],
               "source": "conjugation"
@@ -7288,9 +7396,10 @@
             {
               "form": "nebyly",
               "tags": [
-                "error-unrecognized-form",
                 "inanimate",
                 "masculine",
+                "participle",
+                "past",
                 "plural"
               ],
               "source": "conjugation"
@@ -7298,9 +7407,10 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "inanimate",
                 "masculine",
+                "participle",
+                "passive",
                 "singular"
               ],
               "source": "conjugation"
@@ -7308,9 +7418,10 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "inanimate",
                 "masculine",
+                "participle",
+                "passive",
                 "plural"
               ],
               "source": "conjugation"
@@ -7318,8 +7429,9 @@
             {
               "form": "nebyla",
               "tags": [
-                "error-unrecognized-form",
                 "feminine",
+                "participle",
+                "past",
                 "singular"
               ],
               "source": "conjugation"
@@ -7327,8 +7439,9 @@
             {
               "form": "nebyly",
               "tags": [
-                "error-unrecognized-form",
                 "feminine",
+                "participle",
+                "past",
                 "plural"
               ],
               "source": "conjugation"
@@ -7336,8 +7449,9 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "feminine",
+                "participle",
+                "passive",
                 "singular"
               ],
               "source": "conjugation"
@@ -7345,8 +7459,9 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "feminine",
+                "participle",
+                "passive",
                 "plural"
               ],
               "source": "conjugation"
@@ -7354,8 +7469,9 @@
             {
               "form": "nebylo",
               "tags": [
-                "error-unrecognized-form",
                 "neuter",
+                "participle",
+                "past",
                 "singular"
               ],
               "source": "conjugation"
@@ -7363,8 +7479,9 @@
             {
               "form": "nebyla",
               "tags": [
-                "error-unrecognized-form",
                 "neuter",
+                "participle",
+                "past",
                 "plural"
               ],
               "source": "conjugation"
@@ -7372,8 +7489,9 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "neuter",
+                "participle",
+                "passive",
                 "singular"
               ],
               "source": "conjugation"
@@ -7381,8 +7499,9 @@
             {
               "form": "-",
               "tags": [
-                "error-unrecognized-form",
                 "neuter",
+                "participle",
+                "passive",
                 "plural"
               ],
               "source": "conjugation"
@@ -7406,7 +7525,8 @@
               "tags": [
                 "masculine",
                 "present",
-                "singular"
+                "singular",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -7415,7 +7535,8 @@
               "tags": [
                 "masculine",
                 "past",
-                "singular"
+                "singular",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -7425,7 +7546,8 @@
                 "feminine",
                 "neuter",
                 "present",
-                "singular"
+                "singular",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -7435,7 +7557,8 @@
                 "feminine",
                 "neuter",
                 "past",
-                "singular"
+                "singular",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -7443,7 +7566,8 @@
               "form": "nejsouce",
               "tags": [
                 "plural",
-                "present"
+                "present",
+                "transgressive"
               ],
               "source": "conjugation"
             },
@@ -7451,7 +7575,8 @@
               "form": "nebyvše",
               "tags": [
                 "past",
-                "plural"
+                "plural",
+                "transgressive"
               ],
               "source": "conjugation"
             }
@@ -8547,19 +8672,61 @@
               "word": "Rocker"
             },
             {
+              "word": "Rockerin"
+            },
+            {
+              "word": "Rockballade"
+            },
+            {
+              "word": "Rock-DJ"
+            },
+            {
+              "word": "Rockgöre"
+            },
+            {
               "word": "Rockgruppe"
+            },
+            {
+              "word": "Rockhit"
             },
             {
               "word": "Rockkonzert"
             },
             {
+              "word": "Rocklied"
+            },
+            {
               "word": "Rockmusik"
+            },
+            {
+              "word": "Rockmusiker"
+            },
+            {
+              "word": "Rockmusikerin"
             },
             {
               "word": "Rockoper"
             },
             {
+              "word": "Rockproduzent"
+            },
+            {
+              "word": "Rockproduzentin"
+            },
+            {
+              "word": "Rockradio"
+            },
+            {
               "word": "Rocksänger"
+            },
+            {
+              "word": "Rocksängerin"
+            },
+            {
+              "word": "Rockshow"
+            },
+            {
+              "word": "Rocksong"
             }
           ],
           "hyponyms": [
@@ -8572,6 +8739,10 @@
               "sense_index": "1"
             },
             {
+              "word": "Krautrock",
+              "sense_index": "1"
+            },
+            {
               "word": "Metal",
               "sense_index": "1"
             },
@@ -8581,6 +8752,10 @@
             },
             {
               "word": "Punkrock",
+              "sense_index": "1"
+            },
+            {
+              "word": "Schwabenrock",
               "sense_index": "1"
             },
             {
@@ -29233,8 +29408,10 @@
             "German verbs",
             "German verbs using haben as auxiliary",
             "German weak verbs",
+            "Pages using etymon with no ID",
             "Pages with 1 entry",
-            "Pages with entries"
+            "Pages with entries",
+            "Pages with inline etymon for redlinks"
           ],
           "forms": [
             {
@@ -31557,6 +31734,15 @@
           "etymology_text": "From Middle High German phlëgen, from Old High German plëgan, from Proto-West Germanic *plehan.",
           "etymology_templates": [
             {
+              "name": "ety",
+              "args": {
+                "1": "de",
+                "2": ":inh",
+                "3": "gmh:phlëgen<ety:inh<goh:plëgan<ety:inh<gmw-pro:*plehan>>>>"
+              },
+              "expansion": "[Appendix:Glossary#inherited|Inherited]] from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Old High German\", \"term\" : \"plëgan\", \"status\" : \"inline\", \"lang\" : \"goh\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Middle High German\", \"term\" : \"phlëgen\", \"status\" : \"inline\", \"lang\" : \"gmh\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"German\", \"term\" : \"pflegen\", \"status\" : \"ok\", \"lang\" : \"de\" }\" data-lang=\"de\" data-title=\"pflegen\">"
+            },
+            {
               "name": "inh",
               "args": {
                 "1": "de",
@@ -31739,10 +31925,39 @@
                     ]
                   ],
                   "type": "example"
-                },
+                }
+              ],
+              "categories": [
+                "German informal terms",
+                "German terms with usage examples"
+              ],
+              "links": [
+                [
+                  "redhead",
+                  "redhead"
+                ],
+                [
+                  "red-haired",
+                  "red-haired#English"
+                ]
+              ],
+              "raw_glosses": [
+                "(informal) redhead (a red-haired person)"
+              ],
+              "glosses": [
+                "redhead (a red-haired person)"
+              ],
+              "tags": [
+                "informal",
+                "masculine",
+                "strong"
+              ]
+            },
+            {
+              "examples": [
                 {
-                  "text": "Aber während er den Gang entlang schritt, öffnete der Stallknecht die Tür zu der zweiten Box links, und Wronski erblickte einen kräftig gebauten Fuchs mit weißen Füßen",
-                  "ref": "1913 [1878], chapter 21, in Hermann Röhl, transl., Anna Karenina, translation of Анна Каренина by Leo Tolstoy, part 2:",
+                  "text": "Aber während er den Gang entlang schritt, öffnete der Stallknecht die Tür zu der zweiten Box links, und Wronski erblickte einen kräftig gebauten Fuchs mit weißen Füßen.",
+                  "ref": "1913 [1878], chapter 21, in Hermann Röhl, transl., Anna Karenina, translation of Анна Каренина (Anna Karenina) by Leo Tolstoy, part 2:",
                   "type": "quotation",
                   "bold_text_offsets": [
                     [
@@ -31752,30 +31967,40 @@
                   ]
                 }
               ],
+              "topics": [
+                "equestrianism",
+                "hobbies",
+                "horses",
+                "lifestyle",
+                "pets",
+                "sports"
+              ],
               "categories": [
-                "German informal terms",
                 "German terms with quotations",
-                "German terms with usage examples",
-                "Requests for translations of German quotations"
+                "Requests for translations of German quotations",
+                "de:Equestrianism"
               ],
               "links": [
                 [
-                  "red-haired",
-                  "red-haired"
+                  "equestrianism",
+                  "equestrianism"
                 ],
                 [
-                  "horse",
-                  "horse"
+                  "chestnut",
+                  "chestnut"
+                ],
+                [
+                  "sorrel horse",
+                  "sorrel horse"
                 ]
               ],
               "raw_glosses": [
-                "(informal) a red-haired person or horse"
+                "(equestrianism) chestnut, sorrel horse (horse with a reddish-brown coat, mane and tail)"
               ],
               "glosses": [
-                "a red-haired person or horse"
+                "chestnut, sorrel horse (horse with a reddish-brown coat, mane and tail)"
               ],
               "tags": [
-                "informal",
                 "masculine",
                 "strong"
               ]
@@ -32447,7 +32672,7 @@
               "word": "Kleiner Fuchs"
             }
           ],
-          "etymology_number": 1,
+          "etymology_number": "1",
           "etymology_text": "From Middle High German vuhs, from Old High German fuhs, from Proto-West Germanic *fuhs, from Proto-Germanic *fuhsaz, from Proto-Indo-European *púḱsos (“the tailed one”), from *puḱ- (“tail”). Cognate with English fox, Sanskrit पुच्छ (púccha).",
           "etymology_templates": [
             {
@@ -32626,6 +32851,7 @@
             }
           ],
           "categories": [
+            "German entries with etymology trees",
             "German entries with incorrect language header",
             "German lemmas",
             "German neuter nouns",
@@ -32635,14 +32861,19 @@
             "German terms derived from Proto-Germanic",
             "German terms derived from Proto-Indo-European",
             "German terms derived from Proto-West Germanic",
+            "German terms derived from the Proto-Indo-European root *ḱerd-",
+            "German terms derived from the Proto-Indo-European word *ḱḗr",
             "German terms inherited from Middle High German",
             "German terms inherited from Old High German",
             "German terms inherited from Proto-Germanic",
+            "German terms inherited from Proto-Indo-European",
             "German terms inherited from Proto-West Germanic",
             "German terms with homophones",
             "German weak nouns",
+            "Pages using etymon with no ID",
             "Pages with 4 entries",
             "Pages with entries",
+            "Pages with etymology trees",
             "de:Card games",
             "de:Organs"
           ],
@@ -32914,8 +33145,35 @@
               "word": "Kardia"
             }
           ],
-          "etymology_text": "From Middle High German hërze, from Old High German hërza, from Proto-West Germanic *hertā, from Proto-Germanic *hertô (“heart”), from Proto-Indo-European *ḱḗr (“heart”).\nCognate with Dutch hart, English heart, Danish hjerte, Gothic 𐌷𐌰𐌹𐍂𐍄𐍉 (hairtō).",
+          "etymology_text": "PIE word\n *ḱḗr\nEtymology tree\nProto-Indo-European *ḱerd-\nProto-Indo-European *ḱérd\nProto-Germanic *hertô\nProto-West Germanic *hertā\nOld High German hërza\nMiddle High German hërze\nGerman Herz\nFrom Middle High German hërze, from Old High German hërza, from Proto-West Germanic *hertā, from Proto-Germanic *hertô (“heart”), from Proto-Indo-European *ḱḗr (“heart”).\nCognate with Dutch hart, English heart, Danish hjerte, Gothic 𐌷𐌰𐌹𐍂𐍄𐍉 (hairtō).",
           "etymology_templates": [
+            {
+              "name": "root",
+              "args": {
+                "1": "de",
+                "2": "ine-pro",
+                "3": "*ḱerd-"
+              },
+              "expansion": ""
+            },
+            {
+              "name": "PIE word",
+              "args": {
+                "1": "de",
+                "2": "ḱḗr"
+              },
+              "expansion": "PIE word\n *ḱḗr"
+            },
+            {
+              "name": "ety",
+              "args": {
+                "1": "de",
+                "2": ":inh",
+                "3": "gmh:hërze",
+                "tree": "1"
+              },
+              "expansion": "Etymology tree\nProto-Indo-European *ḱerd-\nProto-Indo-European *ḱérd\nProto-Germanic *hertô\nProto-West Germanic *hertā\nOld High German hërza\nMiddle High German hërze\nGerman Herz\n[Appendix:Glossary#inherited|Inherited]] from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Proto-Germanic\", \"term\" : \"*hertô\", \"status\" : \"ok\", \"lang\" : \"gem-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Proto-West Germanic\", \"term\" : \"*hertā\", \"status\" : \"ok\", \"lang\" : \"gmw-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Old High German\", \"term\" : \"hërza\", \"status\" : \"ok\", \"lang\" : \"goh\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Middle High German\", \"term\" : \"hërze\", \"status\" : \"ok\", \"lang\" : \"gmh\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"German\", \"term\" : \"Herz\", \"status\" : \"ok\", \"lang\" : \"de\" }\" data-lang=\"de\" data-title=\"Herz\">"
+            },
             {
               "name": "inh",
               "args": {
@@ -33051,11 +33309,14 @@
             {
               "categories": [
                 "German agent nouns",
+                "German entries referencing ambiguous etymons",
+                "German entries referencing missing etymons",
                 "German entries with incorrect language header",
                 "German lemmas",
                 "German masculine nouns",
                 "German nouns",
                 "German terms suffixed with -er",
+                "Pages using etymon with no ID",
                 "Pages with 1 entry",
                 "Pages with entries",
                 "Rhymes:German/aːʁɐ",
@@ -33238,6 +33499,16 @@
           ],
           "etymology_text": "fahren (“to drive”) + -er",
           "etymology_templates": [
+            {
+              "name": "ety",
+              "args": {
+                "1": "de",
+                "2": ":af",
+                "3": "fahren<t:to drive>",
+                "4": "-er"
+              },
+              "expansion": ""
+            },
             {
               "name": "suffix",
               "args": {
@@ -34018,7 +34289,7 @@
               "word": "Klatschbase"
             }
           ],
-          "etymology_number": 1,
+          "etymology_number": "1",
           "etymology_text": "From Middle High German base, from Old High German basa, from Proto-West Germanic *baswā, from Proto-Germanic *baswǭ (“father's sister; paternal aunt”). Compare Saterland Frisian Bääsje (“grandmother”), Dutch baas (“master; boss”). More at boss.",
           "etymology_templates": [
             {
@@ -34261,7 +34532,7 @@
               }
             }
           ],
-          "etymology_number": 2,
+          "etymology_number": "2",
           "etymology_text": "19th c., backformation from Basen, plural of Basis, from Latin basis, from Ancient Greek βάσις (básis).",
           "etymology_templates": [
             {
@@ -34420,15 +34691,28 @@
           "categories": [
             "German adverbs",
             "German compound terms",
+            "German entries referencing missing etymons",
             "German entries with incorrect language header",
             "German lemmas",
             "German postpositions",
             "German prepositions",
+            "German terms derived from the Proto-Indo-European word *upér",
+            "Pages using etymon with no ID",
             "Pages with 1 entry",
             "Pages with entries"
           ],
           "etymology_text": "gegen + über",
           "etymology_templates": [
+            {
+              "name": "ety",
+              "args": {
+                "1": "de",
+                "2": ":af",
+                "3": "gegen",
+                "4": "über"
+              },
+              "expansion": "[Appendix:Glossary#inherited|Inherited]] from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"German\", \"term\" : \"über\", \"status\" : \"ok\", \"lang\" : \"de\" } ], \"keyword_label\" : \"From\", \"is_group\" : true, \"keyword\" : \"affix\" } ], \"lang_name\" : \"German\", \"term\" : \"gegenüber\", \"status\" : \"ok\", \"lang\" : \"de\" }\" data-lang=\"de\" data-title=\"gegenüber\">"
+            },
             {
               "name": "compound",
               "args": {
@@ -40336,6 +40620,7 @@
             "Terms with Esperanto translations",
             "Terms with Estonian translations",
             "Terms with Extremaduran translations",
+            "Terms with Faroese translations",
             "Terms with Finnish translations",
             "Terms with Franco-Provençal translations",
             "Terms with French translations",
@@ -41243,6 +41528,16 @@
               "word": "upbring"
             }
           ],
+          "descendants": [
+            {
+              "lang": "Tok Pisin",
+              "lang_code": "tpi",
+              "word": "bringim",
+              "raw_tags": [
+                "reshaped by analogy or addition of morphemes"
+              ]
+            }
+          ],
           "translations": [
             {
               "lang": "Afrikaans",
@@ -41740,6 +42035,13 @@
               "word": "trel"
             },
             {
+              "lang": "Faroese",
+              "code": "fo",
+              "lang_code": "fo",
+              "sense": "to transport toward somebody/somewhere",
+              "word": "koma við"
+            },
+            {
               "lang": "Finnish",
               "code": "fi",
               "lang_code": "fi",
@@ -41999,6 +42301,13 @@
               "lang_code": "is",
               "sense": "to transport toward somebody/somewhere",
               "word": "færa"
+            },
+            {
+              "lang": "Icelandic",
+              "code": "is",
+              "lang_code": "is",
+              "sense": "to transport toward somebody/somewhere",
+              "word": "koma með"
             },
             {
               "lang": "Ido",
@@ -43553,7 +43862,7 @@
               "word": "syöttää"
             }
           ],
-          "etymology_number": 1,
+          "etymology_number": "1",
           "etymology_text": "From Middle English bryngen, from Old English bringan, from Proto-West Germanic *bringan, from Proto-Germanic *bringaną (“to bring”), from Proto-Indo-European *bʰrenk-, possibly based on *bʰer-.\nCompare Scots bring, West Frisian bringe, Low German brengen, Dutch brengen, Afrikaans bring, German bringen; also Welsh hebrwng (“to bring, lead”), Tocharian B pränk- (“to take away; restrain oneself, hold back”), Latvian brankti (“lying close”), Lithuanian branktas (“whiffletree”).",
           "etymology_templates": [
             {
@@ -44067,7 +44376,7 @@
               "word": "men"
             }
           ],
-          "etymology_number": 1,
+          "etymology_number": "1",
           "etymology_text": "From Middle English wayn, from Old English wæġn, from Proto-West Germanic *wagn, from Proto-Germanic *wagnaz, from Proto-Indo-European *woǵʰnos, from *weǵʰ- (“to bring, transport”). Doublet of wagon, borrowed from Middle Dutch.\nCognates\nCognate with West Frisian wein, Dutch wagen, German Wagen, Danish vogn, Norwegian vogn, Swedish vagn.",
           "etymology_templates": [
             {
@@ -48345,10 +48654,6 @@
                 "New-Zealand"
               ],
               "ipa": "/pɐːˈtəs.ə.pæɪt/"
-            },
-            {
-              "note": "Indic",
-              "ipa": "/ˈpɑ(r).ʈɪsɪˌpeʈ/"
             }
           ],
           "lang": "English",
@@ -49248,14 +49553,18 @@
           ],
           "categories": [
             "English adjectives",
+            "English entries with etymology texts",
+            "English entries with etymology trees",
             "English entries with incorrect language header",
             "English lemmas",
-            "English terms derived from Proto-Indo-European",
+            "English terms derived from the Proto-Indo-European root *h₂el- (grow)",
             "English terms derived from the Proto-Indo-European root *megʰ-",
             "English terms suffixed with -al",
             "Entries with translation boxes",
+            "Pages using etymon with no ID",
             "Pages with 1 entry",
             "Pages with entries",
+            "Pages with etymology trees",
             "Terms with Ancient Greek translations",
             "Terms with Arabic translations",
             "Terms with Belarusian translations",
@@ -49894,25 +50203,19 @@
               "word": "büyüleyici"
             }
           ],
-          "etymology_text": "From magic + -al.",
+          "etymology_text": "Etymology tree\nProto-Indo-European *megʰ-der.\nProto-Indo-European *megʰ-ú-s\nProto-Indo-Iranian *magʰúš\nProto-Iranian *magúš\nOld Persian 𐎶𐎦𐏁 (m-gu-š /⁠maguš⁠/)bor.\nAncient Greek μάγος (mágos)\nProto-Indo-European *-kos\nAncient Greek -κός (-kós)\nAncient Greek -ικός (-ikós)\nAncient Greek μαγικός (magikós)bor.\nLatin magicus\nOld French magiquebor.\nMiddle English magik\nEnglish magic\nProto-Indo-European *h₂el-der.?\nProto-Italic *-ālis\nLatin -ālisbor.\nOld French -albor.\n▲\nLatin -ālis\nOld French -elbor.\n▲\nLatin -ālisbor.\nMiddle English -al\nEnglish -al\nEnglish magical\nFrom magic + -al.",
           "etymology_templates": [
             {
-              "name": "root",
+              "name": "ety",
               "args": {
                 "1": "en",
-                "2": "ine-pro",
-                "3": "*megʰ-"
+                "2": ":af",
+                "3": "magic",
+                "4": "-al",
+                "text": "+",
+                "tree": "1"
               },
-              "expansion": ""
-            },
-            {
-              "name": "suffix",
-              "args": {
-                "1": "en",
-                "2": "magic",
-                "3": "al"
-              },
-              "expansion": "magic + -al"
+              "expansion": "Etymology tree\nProto-Indo-European *megʰ-der.\nProto-Indo-European *megʰ-ú-s\nProto-Indo-Iranian *magʰúš\nProto-Iranian *magúš\nOld Persian 𐎶𐎦𐏁 (m-gu-š /⁠maguš⁠/)bor.\nAncient Greek μάγος (mágos)\nProto-Indo-European *-kos\nAncient Greek -κός (-kós)\nAncient Greek -ικός (-ikós)\nAncient Greek μαγικός (magikós)bor.\nLatin magicus\nOld French magiquebor.\nMiddle English magik\nEnglish magic\nProto-Indo-European *h₂el-der.?\nProto-Italic *-ālis\nLatin -ālisbor.\nOld French -albor.\n▲\nLatin -ālis\nOld French -elbor.\n▲\nLatin -ālisbor.\nMiddle English -al\nEnglish -al\nEnglish magical\n[Appendix:Glossary#loanword|Borrowed]] from\", \"terms\" : [ { \"children\" : [ { \"terms\" : [ { \"children\" : [ { \"keyword_abbrev\" : \"bor.\", \"keyword_label\" : \"Borrowed from\", \"terms\" : [ { \"gloss\" : \"magical\", \"children\" : [ { \"terms\" : [ { \"children\" : [ { \"keyword_abbrev\" : \"bor.\", \"keyword_label\" : \"Borrowed from\", \"terms\" : [ { \"gloss\" : \"Mazdean priest\", \"transcription\" : \"maguš\", \"children\" : [ { \"terms\" : [ { \"children\" : [ { \"terms\" : [ { \"children\" : [ { \"terms\" : [ { \"alt\" : \"*megʰ-ú-s\", \"lang_name\" : \"Proto-Indo-European\", \"status\" : \"inline\", \"children\" : [ { \"keyword_abbrev\" : \"der.\", \"keyword_label\" : \"Derived from\", \"terms\" : [ { \"id\" : \"able\", \"children\" : [ ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*megʰ-\", \"lang\" : \"ine-pro\" } ], \"keyword\" : \"derived\" } ], \"lang\" : \"ine-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Proto-Indo-Iranian\", \"term\" : \"*magʰúš\", \"status\" : \"inline\", \"lang\" : \"iir-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Proto-Iranian\", \"term\" : \"*magúš\", \"status\" : \"inline\", \"lang\" : \"ira-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Old Persian\", \"term\" : \"𐎶𐎦𐏁\", \"status\" : \"ok\", \"lang\" : \"peo\" } ], \"keyword\" : \"bor\" } ], \"lang_name\" : \"Ancient Greek\", \"term\" : \"μάγος\", \"status\" : \"ok\", \"lang\" : \"grc\" }, { \"children\" : [ { \"terms\" : [ { \"children\" : [ { \"terms\" : [ { \"id\" : \"adjectives\", \"children\" : [ ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*-kos\", \"lang\" : \"ine-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Ancient Greek\", \"term\" : \"-κός\", \"status\" : \"ok\", \"lang\" : \"grc\" } ], \"keyword_label\" : \"From\", \"keyword\" : \"from\" } ], \"lang_name\" : \"Ancient Greek\", \"term\" : \"-ικός\", \"status\" : \"ok\", \"lang\" : \"grc\" } ], \"keyword_label\" : \"From\", \"is_group\" : true, \"keyword\" : \"affix\" } ], \"lang_name\" : \"Ancient Greek\", \"term\" : \"μαγικός\", \"status\" : \"ok\", \"lang\" : \"grc\" } ], \"keyword\" : \"bor\" } ], \"lang_name\" : \"Latin\", \"term\" : \"magicus\", \"status\" : \"ok\", \"lang\" : \"la\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Old French\", \"term\" : \"magique\", \"status\" : \"inline\", \"lang\" : \"fro\" } ], \"keyword\" : \"bor\" } ], \"lang_name\" : \"Middle English\", \"term\" : \"magik\", \"status\" : \"ok\", \"lang\" : \"enm\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"English\", \"term\" : \"magic\", \"status\" : \"ok\", \"lang\" : \"en\" }, { \"children\" : [ { \"terms\" : [ { \"id\" : \"adjectival suffix\", \"children\" : [ { \"keyword_abbrev\" : \"bor.\", \"keyword_label\" : \"Borrowed from\", \"terms\" : [ { \"id\" : \"forming adjectives\", \"children\" : [ { \"keyword_abbrev\" : \"bor.\", \"keyword_label\" : \"Borrowed from\", \"terms\" : [ { \"id\" : \"adjectivizing suffix\", \"children\" : [ { \"terms\" : [ { \"children\" : [ { \"keyword_abbrev\" : \"der.\", \"is_uncertain\" : true, \"keyword_label\" : \"Derived from\", \"terms\" : [ { \"id\" : \"grow\", \"children\" : [ ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*h₂el-\", \"lang\" : \"ine-pro\" } ], \"keyword\" : \"derived\" } ], \"lang_name\" : \"Proto-Italic\", \"term\" : \"*-ālis\", \"status\" : \"ok\", \"lang\" : \"itc-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"status\" : \"ok\", \"lang_name\" : \"Latin\", \"term\" : \"-ālis\", \"lang\" : \"la\" } ], \"keyword\" : \"bor\" } ], \"status\" : \"ok\", \"lang_name\" : \"Old French\", \"term\" : \"-al\", \"lang\" : \"fro\" }, { \"id\" : \"adjective\", \"children\" : [ { \"terms\" : [ { \"is_duplicate\" : true, \"id\" : \"adjectivizing suffix\", \"children\" : [ ], \"status\" : { \"1\" : \"la\", \"2\" : \":inh\", \"3\" : \"itc-pro:*-ālis\", \"id\" : \"adjectivizing suffix\", \"title\" : \"-ālis\", \"pos\" : \"suffix\" }, \"lang_name\" : \"Latin\", \"term\" : \"-ālis\", \"lang\" : \"la\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"status\" : \"ok\", \"lang_name\" : \"Old French\", \"term\" : \"-el\", \"lang\" : \"fro\" }, { \"is_duplicate\" : true, \"id\" : \"adjectivizing suffix\", \"children\" : [ ], \"status\" : { \"1\" : \"la\", \"2\" : \":inh\", \"3\" : \"itc-pro:*-ālis\", \"id\" : \"adjectivizing suffix\", \"title\" : \"-ālis\", \"pos\" : \"suffix\" }, \"lang_name\" : \"Latin\", \"term\" : \"-ālis\", \"lang\" : \"la\" } ], \"keyword\" : \"bor\" } ], \"status\" : \"ok\", \"lang_name\" : \"Middle English\", \"term\" : \"-al\", \"lang\" : \"enm\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"English\", \"term\" : \"-al\", \"status\" : \"ok\", \"lang\" : \"en\" } ], \"keyword_label\" : \"From\", \"is_group\" : true, \"keyword\" : \"affix\" } ], \"lang_name\" : \"English\", \"term\" : \"magical\", \"status\" : \"ok\", \"lang\" : \"en\" }\" data-lang=\"en\" data-title=\"magical\">\nFrom magic + -al."
             }
           ],
           "sounds": [
@@ -50206,6 +50509,25 @@
             {
               "glosses": [
                 "читать"
+              ],
+              "examples": [
+                {
+                  "text": "And he said unto them, Have ye never read what David did, when he had need, and was an hungred, he, and they that were with him?",
+                  "bold_text_offsets": [
+                    [
+                      37,
+                      41
+                    ]
+                  ],
+                  "translation": "Он сказал им: неужели вы не читали никогда, что́ сделал Давид, когда имел нужду и взалкал сам и бывшие с ним?",
+                  "bold_translation_offsets": [
+                    [
+                      28,
+                      34
+                    ]
+                  ],
+                  "ref": "«Евангелие от Марк», 2:25 // «Библия короля Якова»"
+                }
               ]
             },
             {
@@ -56886,6 +57208,10 @@
             "Persian terms derived from Hindustani languages",
             "Persian terms derived from the Arabic root م ل ك",
             "Persian terms with IPA pronunciation",
+            "Rhymes:Persian/ak",
+            "Rhymes:Persian/ak/2 syllables",
+            "Rhymes:Persian/ulk",
+            "Rhymes:Persian/ulk/1 syllable",
             "fa:Heads of state",
             "fa:Monarchy"
           ],
@@ -56917,7 +57243,7 @@
               "word": "ملکالموت"
             }
           ],
-          "etymology_number": 1,
+          "etymology_number": "1",
           "etymology_text": "Borrowed from Arabic مَلَك (malak, “angel”).",
           "etymology_templates": [
             {
@@ -56984,6 +57310,9 @@
                 "formal"
               ],
               "ipa": "[mä.lák]"
+            },
+            {
+              "rhymes": "-ak"
             }
           ],
           "lang": "Persian",
@@ -57103,6 +57432,8 @@
             "Persian terms inherited from Middle Persian",
             "Persian terms suffixed with ـی (adjective)",
             "Persian terms with IPA pronunciation",
+            "Rhymes:Persian/iː",
+            "Rhymes:Persian/iː/2 syllables",
             "fa:Languages",
             "ur:Languages"
           ],
@@ -57316,6 +57647,9 @@
                 "formal"
               ],
               "ipa": "[fɔɾ.sí]"
+            },
+            {
+              "rhymes": "-iː"
             },
             {
               "audio": "LL-Q9168 (fas)-Darafsh-فارسی.wav",
@@ -59753,6 +60087,60 @@
                 "in expressions",
                 "in external locative cases"
               ]
+            },
+            {
+              "examples": [
+                {
+                  "tags": [
+                    "collocation"
+                  ],
+                  "text": "päätä pidempi",
+                  "bold_text_offsets": [
+                    [
+                      0,
+                      5
+                    ]
+                  ],
+                  "translation": "one head taller",
+                  "english": "one head taller",
+                  "bold_translation_offsets": [
+                    [
+                      4,
+                      8
+                    ]
+                  ],
+                  "type": "example"
+                }
+              ],
+              "links": [
+                [
+                  "head",
+                  "head"
+                ]
+              ],
+              "categories": [
+                "Finnish terms with collocations"
+              ],
+              "glosses": [
+                "head (as a unit of length, especially of people)"
+              ]
+            },
+            {
+              "links": [
+                [
+                  "head",
+                  "head"
+                ]
+              ],
+              "raw_glosses": [
+                "(figuratively) head (of mind, memory, thinking, intelligence)"
+              ],
+              "glosses": [
+                "head (of mind, memory, thinking, intelligence)"
+              ],
+              "tags": [
+                "figuratively"
+              ]
             }
           ],
           "head_templates": [
@@ -59785,6 +60173,7 @@
             "Finnish terms inherited from Proto-Finnic",
             "Finnish terms inherited from Proto-Finno-Ugric",
             "Finnish terms with IPA pronunciation",
+            "Finnish terms with collocations",
             "Pages with 4 entries",
             "Pages with entries",
             "Rhymes:Finnish/æː",
@@ -63508,6 +63897,26 @@
             {
               "sense": "idioms",
               "word": "käydä päinsä"
+            },
+            {
+              "sense": "idioms",
+              "word": "nostaa päätään"
+            },
+            {
+              "sense": "idioms",
+              "word": "nousta päähän"
+            },
+            {
+              "sense": "idioms",
+              "word": "panna päänsä pantiksi"
+            },
+            {
+              "sense": "idioms",
+              "word": "puhua läpiä päähänsä"
+            },
+            {
+              "sense": "idioms",
+              "word": "vaatia päitä vadille"
             }
           ],
           "etymology_text": "From Proto-Finnic *pää (compare Estonian pea, Veps pä), from Proto-Finno-Ugric *päŋe (compare Erzya пе (pe), Komi-Zyrian пом (pom), Northern Mansi пуӈк (puňk), Hungarian fej, fő).",
@@ -66703,21 +67112,36 @@
           "categories": [
             "French 2-syllable words",
             "French countable nouns",
+            "French entries referencing missing etymons",
             "French entries with incorrect language header",
             "French feminine nouns",
             "French lemmas",
             "French non-lemma forms",
             "French nouns",
+            "French terms derived from the Proto-Indo-European word *de",
+            "French terms derived from the Proto-Indo-European word *dwóh₁",
+            "French terms derived from the Proto-Indo-European word *déh₁",
             "French terms prefixed with dé-",
             "French terms with IPA pronunciation",
             "French terms with homophones",
             "French verb forms",
+            "Pages using etymon with no ID",
             "Pages with 2 entries",
             "Pages with entries",
             "fr:Gaits"
           ],
           "etymology_text": "From dé- + marche.",
           "etymology_templates": [
+            {
+              "name": "ety",
+              "args": {
+                "1": "fr",
+                "2": ":af",
+                "3": "dé-",
+                "4": "marche"
+              },
+              "expansion": "[Appendix:Glossary#inherited|Inherited]] from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Proto-Italic\", \"term\" : \"*dis-\", \"status\" : \"inline\", \"lang\" : \"itc-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"status\" : \"ok\", \"lang_name\" : \"Latin\", \"term\" : \"dis-\", \"lang\" : \"la\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"status\" : \"ok\", \"lang_name\" : \"Old French\", \"term\" : \"des-\", \"lang\" : \"fro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Middle French\", \"term\" : \"des-\", \"status\" : \"ok\", \"lang\" : \"frm\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" }, { \"keyword_abbrev\" : \"lbor.\", \"keyword_label\" : \"Learned borrowing from\", \"terms\" : [ { \"children\" : [ { \"terms\" : [ { \"id\" : \"of\", \"children\" : [ { \"terms\" : [ { \"children\" : [ { \"terms\" : [ { \"children\" : [ { \"terms\" : [ { \"children\" : [ ], \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*de\", \"status\" : \"ok\", \"lang\" : \"ine-pro\" }, { \"children\" : [ ], \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*-h₁\", \"status\" : \"ok\", \"lang\" : \"ine-pro\" } ], \"keyword_label\" : \"From\", \"is_group\" : true, \"keyword\" : \"affix\" } ], \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*déh₁\", \"status\" : \"ok\", \"lang\" : \"ine-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Proto-Italic\", \"term\" : \"*dē\", \"status\" : \"inline\", \"lang\" : \"itc-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"status\" : \"ok\", \"lang_name\" : \"Latin\", \"term\" : \"dē\", \"lang\" : \"la\" } ], \"keyword_label\" : \"From\", \"keyword\" : \"from\" } ], \"lang_name\" : \"Latin\", \"term\" : \"dē-\", \"status\" : \"ok\", \"lang\" : \"la\" } ], \"keyword\" : \"lbor\" } ], \"lang_name\" : \"French\", \"term\" : \"dé-\", \"status\" : \"ok\", \"lang\" : \"fr\" }, { \"children\" : [ ], \"lang_name\" : \"French\", \"term\" : \"marche\", \"status\" : \"missing\", \"lang\" : \"fr\" } ], \"keyword_label\" : \"From\", \"is_group\" : true, \"keyword\" : \"affix\" } ], \"lang_name\" : \"French\", \"term\" : \"démarche\", \"status\" : \"ok\", \"lang\" : \"fr\" }\" data-lang=\"fr\" data-title=\"démarche\">"
+            },
             {
               "name": "af",
               "args": {
@@ -68215,6 +68639,16 @@
                   "ref": "Le Chiendent - Triticum repens, dans la Revue de thérapeutique médico-chirurgicale, Paris : Dr Martin-Lauzer, 1865, page 17"
                 },
                 {
+                  "text": "Deux domestiques de restaurant, à Palavas-les-Flots (Hérault), […], ont été intoxiquées après avoir mangé un croissant au chocolat offert par une employée du même établissement.",
+                  "bold_text_offsets": [
+                    [
+                      94,
+                      105
+                    ]
+                  ],
+                  "ref": "« Faits & Méfaits », dans Le Petit Champenois, 55ᵉ année, mardi 9 août 1939, p. 1"
+                },
+                {
                   "text": "On dit que savoir bien manger est la marque d’une grande civilisation, mais on a toujours très mal mangé en Angleterre et en Allemagne.",
                   "bold_text_offsets": [
                     [
@@ -68271,16 +68705,6 @@
                     ]
                   ],
                   "ref": "Julien Green, Journal 1946-1950 - Le Revenant, Plon, 1951 ; réédition Le Livre de Poche, 1975, page 52"
-                },
-                {
-                  "text": "Mangez légèrement.",
-                  "bold_text_offsets": [
-                    [
-                      0,
-                      6
-                    ]
-                  ],
-                  "ref": "journal Sud-Ouest, édition Charente-Maritime / Charente, 20 août 2022, page 36"
                 },
                 {
                   "text": "Il mange lentement, handicapé par une mastication pénible, ne dit pas un mot, rit niaisement de loin en loin.",
@@ -73046,7 +73470,14 @@
               ]
             },
             {
-              "form": "no-table-tags",
+              "form": "declension-1 no-plural",
+              "source": "declension",
+              "tags": [
+                "table-tags"
+              ]
+            },
+            {
+              "form": "declension-1 no-plural",
               "source": "declension",
               "tags": [
                 "table-tags"
@@ -73055,7 +73486,6 @@
             {
               "form": "buneolas",
               "tags": [
-                "indefinite",
                 "nominative",
                 "singular"
               ],
@@ -73064,7 +73494,6 @@
             {
               "form": "a bhuneolais",
               "tags": [
-                "indefinite",
                 "singular",
                 "vocative"
               ],
@@ -73074,7 +73503,6 @@
               "form": "buneolais",
               "tags": [
                 "genitive",
-                "indefinite",
                 "singular"
               ],
               "source": "declension"
@@ -73083,7 +73511,6 @@
               "form": "buneolas",
               "tags": [
                 "dative",
-                "indefinite",
                 "singular"
               ],
               "source": "declension"
@@ -73315,7 +73742,14 @@
               ]
             },
             {
-              "form": "no-table-tags",
+              "form": "declension-1",
+              "source": "declension",
+              "tags": [
+                "table-tags"
+              ]
+            },
+            {
+              "form": "declension-1",
               "source": "declension",
               "tags": [
                 "table-tags"
@@ -73324,7 +73758,6 @@
             {
               "form": "crodh",
               "tags": [
-                "indefinite",
                 "nominative",
                 "singular"
               ],
@@ -73333,7 +73766,6 @@
             {
               "form": "croidh",
               "tags": [
-                "indefinite",
                 "nominative",
                 "plural"
               ],
@@ -73342,7 +73774,6 @@
             {
               "form": "a chroidh",
               "tags": [
-                "indefinite",
                 "singular",
                 "vocative"
               ],
@@ -73351,7 +73782,6 @@
             {
               "form": "a chrodha",
               "tags": [
-                "indefinite",
                 "plural",
                 "vocative"
               ],
@@ -73361,7 +73791,6 @@
               "form": "croidh",
               "tags": [
                 "genitive",
-                "indefinite",
                 "singular"
               ],
               "source": "declension"
@@ -73370,7 +73799,6 @@
               "form": "crodh",
               "tags": [
                 "genitive",
-                "indefinite",
                 "plural"
               ],
               "source": "declension"
@@ -73379,7 +73807,6 @@
               "form": "crodh",
               "tags": [
                 "dative",
-                "indefinite",
                 "singular"
               ],
               "source": "declension"
@@ -73388,7 +73815,6 @@
               "form": "croidh",
               "tags": [
                 "dative",
-                "indefinite",
                 "plural"
               ],
               "source": "declension"
@@ -73549,6 +73975,21 @@
           "pos": "noun",
           "senses": [
             {
+              "examples": [
+                {
+                  "text": "εἴ οἱ καὶ μάλα πολλὸν ἀπόπροθι πίονες ἀγροί […]\neí hoi kaì mála pollòn apóprothi píones agroí[…]",
+                  "ref": "c. 800 BCE – 600 BCE, Homer, Iliad 23.832",
+                  "english": "Even though his rich fields lie very far away […]",
+                  "translation": "Even though his rich fields lie very far away […]",
+                  "type": "quotation"
+                }
+              ],
+              "attestations": [
+                {
+                  "date": "Homer",
+                  "references": []
+                }
+              ],
               "links": [
                 [
                   "field",
@@ -73562,17 +74003,6 @@
                   "countryside",
                   "countryside"
                 ]
-              ],
-              "glosses": [
-                "field, land, countryside"
-              ],
-              "tags": [
-                "Attic",
-                "Doric",
-                "Epic",
-                "Ionic",
-                "Koine",
-                "declension-2"
               ],
               "categories": [
                 "Ancient Greek 2-syllable words",
@@ -73591,6 +74021,7 @@
                 "Ancient Greek terms inherited from Proto-Hellenic",
                 "Ancient Greek terms inherited from Proto-Indo-European",
                 "Ancient Greek terms with IPA pronunciation",
+                "Ancient Greek terms with quotations",
                 "Attic Greek",
                 "Doric Greek",
                 "Epic Greek",
@@ -73601,6 +74032,17 @@
                 "Sanskrit terms with non-redundant manual transliterations",
                 "grc:Agriculture",
                 "grc:Landforms"
+              ],
+              "glosses": [
+                "field, land, countryside"
+              ],
+              "tags": [
+                "Attic",
+                "Doric",
+                "Epic",
+                "Ionic",
+                "Koine",
+                "declension-2"
               ]
             }
           ],
@@ -78496,11 +78938,11 @@
                       "もの"
                     ]
                   ],
-                  "roman": "What's your favorite food? - It's ice cream.",
+                  "roman": "Suki na tabemono wa? Aisu kurīmu desu.",
                   "bold_roman_offsets": [
                     [
-                      12,
-                      20
+                      0,
+                      4
                     ]
                   ],
                   "translation": "What's your favorite food? - It's ice cream.",
@@ -78539,11 +78981,11 @@
                       "ば"
                     ]
                   ],
-                  "roman": "It's precisely because I like you [because of my fondness for you] that I'm working this hard.",
+                  "roman": "Kimi ga suki da kara koso kore hodo ganbatte iru n da yo.",
                   "bold_roman_offsets": [
                     [
-                      49,
-                      57
+                      8,
+                      12
                     ]
                   ],
                   "translation": "It's precisely because I like you [because of my fondness for you] that I'm working this hard.",
@@ -78570,7 +79012,7 @@
                       "す"
                     ]
                   ],
-                  "roman": "“I like you.” → idiomatically used to express: “I love you.”",
+                  "roman": "Suki desu.",
                   "bold_roman_offsets": [
                     [
                       0,
@@ -78595,11 +79037,11 @@
                       "す"
                     ]
                   ],
-                  "roman": "Feel free to do as you like.",
+                  "roman": "Dō to mo suki ni shinasai.",
                   "bold_roman_offsets": [
                     [
-                      23,
-                      27
+                      9,
+                      13
                     ]
                   ],
                   "translation": "Feel free to do as you like.",
@@ -79294,7 +79736,7 @@
               ]
             }
           ],
-          "etymology_number": 1,
+          "etymology_number": "1",
           "wikipedia": [
             "Utsubo Monogatari",
             "ja:宇津保物語"
@@ -79413,11 +79855,11 @@
                       "み"
                     ]
                   ],
-                  "roman": "If you're a raccoon, you'd have stripes on your tail. No matter how you look at it, you're a raccoon dog.",
+                  "roman": "Araiguma nara shippo ni shima ga aru. Dō mi demo tanuki da.",
                   "bold_roman_offsets": [
                     [
-                      93,
-                      104
+                      49,
+                      55
                     ]
                   ],
                   "bold_translation_offsets": [
@@ -79671,10 +80113,9 @@
             {
               "name": "ja-noun",
               "args": {
-                "1": "たぬき",
-                "2": "タヌキ"
+                "1": "たぬき"
               },
-              "expansion": "狸(たぬき) or 狸(タヌキ) • (tanuki)"
+              "expansion": "狸(たぬき) • (tanuki)"
             }
           ],
           "categories": [
@@ -79709,18 +80150,6 @@
                 [
                   "狸",
                   "たぬき"
-                ]
-              ],
-              "tags": [
-                "canonical"
-              ]
-            },
-            {
-              "form": "狸",
-              "ruby": [
-                [
-                  "狸",
-                  "タヌキ"
                 ]
               ],
               "tags": [
@@ -80500,7 +80929,7 @@
               ]
             }
           ],
-          "etymology_number": 1,
+          "etymology_number": "1",
           "etymology_text": "According to one theory, derived from 手貫 (tanuki, “arm glove, gauntlet”), which raccoon dog hide was sometimes used for.",
           "etymology_templates": [
             {
@@ -80559,11 +80988,11 @@
                       "だ"
                     ]
                   ],
-                  "roman": "Marathon athlete(s) started running.",
+                  "roman": "Marason senshu ga hashiridashita.",
                   "bold_roman_offsets": [
                     [
-                      28,
-                      31
+                      18,
+                      25
                     ]
                   ],
                   "translation": "Marathon athlete(s) started running.",
@@ -80623,15 +81052,11 @@
                       "はし"
                     ]
                   ],
-                  "roman": "A car is running. / Cars are running.",
+                  "roman": "Kuruma ga hashitteiru.",
                   "bold_roman_offsets": [
                     [
-                      9,
-                      12
-                    ],
-                    [
-                      29,
-                      32
+                      10,
+                      18
                     ]
                   ],
                   "translation": "A car is running. / Cars are running.",
@@ -80739,11 +81164,11 @@
                       "はし"
                     ]
                   ],
-                  "roman": "The water runs over the stones.",
+                  "roman": "Ishi no ue o mizu ga hashiru.",
                   "bold_roman_offsets": [
                     [
-                      10,
-                      14
+                      21,
+                      28
                     ]
                   ],
                   "translation": "The water runs over the stones.",
@@ -80820,11 +81245,11 @@
                       "はし"
                     ]
                   ],
-                  "roman": "He often runs down this street.",
+                  "roman": "Kare wa kono michi o yoku hashiru.",
                   "bold_roman_offsets": [
                     [
-                      9,
-                      13
+                      26,
+                      33
                     ]
                   ],
                   "translation": "He often runs down this street.",
@@ -80876,11 +81301,11 @@
                       "はし"
                     ]
                   ],
-                  "roman": "The sword slides out of its sheath.",
+                  "roman": "Katana ga saya kara hashiru.",
                   "bold_roman_offsets": [
                     [
-                      10,
-                      16
+                      20,
+                      27
                     ]
                   ],
                   "translation": "The sword slides out of its sheath.",
@@ -80982,11 +81407,11 @@
                       "はし"
                     ]
                   ],
-                  "roman": "He defected to the enemy.",
+                  "roman": "Kare wa teki ni hashitta.",
                   "bold_roman_offsets": [
                     [
-                      3,
-                      11
+                      16,
+                      24
                     ]
                   ],
                   "translation": "He defected to the enemy.",
@@ -81033,10 +81458,10 @@
                       "はし"
                     ]
                   ],
-                  "roman": "Don't forget your stance and give in to emotions.",
+                  "roman": "Tachiba o wasurete kanjō ni hashitte wa ikenai.",
                   "bold_roman_offsets": [
                     [
-                      29,
+                      28,
                       36
                     ]
                   ],
@@ -81131,11 +81556,11 @@
                       "はし"
                     ]
                   ],
-                  "roman": "The mountain range runs north–south.",
+                  "roman": "Sanmyaku ga nanboku ni hashiru.",
                   "bold_roman_offsets": [
                     [
-                      19,
-                      23
+                      23,
+                      30
                     ]
                   ],
                   "translation": "The mountain range runs north–south.",
@@ -81170,11 +81595,11 @@
                       "はし"
                     ]
                   ],
-                  "roman": "a crack (division) spreads in society",
+                  "roman": "shakai ni kiretsu ga hashiru",
                   "bold_roman_offsets": [
                     [
-                      19,
-                      26
+                      21,
+                      28
                     ]
                   ],
                   "translation": "a crack (division) spreads in society",
@@ -81233,11 +81658,11 @@
                       "はし"
                     ]
                   ],
-                  "roman": "lightning flashes by",
+                  "roman": "inazuma ga hashiru",
                   "bold_roman_offsets": [
                     [
-                      10,
-                      20
+                      11,
+                      18
                     ]
                   ],
                   "translation": "lightning flashes by",
@@ -81276,7 +81701,7 @@
                       "はし"
                     ]
                   ],
-                  "roman": "I felt a brief pain in my back.",
+                  "roman": "Senaka ni itami ga hashitta.",
                   "bold_roman_offsets": [
                     [
                       19,
@@ -83808,11 +84233,11 @@
                       "な"
                     ]
                   ],
-                  "roman": "Today fell spring rain, recalling catalpa bows that one bends to string. If it but falls tomorrow, we will be picking young greens.",
+                  "roman": "Azusayumi oshite harusame kefu furinu asu sae furaba wakana tsumiten",
                   "bold_roman_offsets": [
                     [
-                      0,
-                      5
+                      26,
+                      30
                     ]
                   ],
                   "translation": "Today fell spring rain, recalling catalpa bows that one bends to string. If it but falls tomorrow, we will be picking young greens.",
@@ -83854,11 +84279,11 @@
                       "び"
                     ]
                   ],
-                  "roman": "Isn't today the supermarket’s special sale day?!",
+                  "roman": "Kyō ga sūpā no tokubai-bi ja nē ka",
                   "bold_roman_offsets": [
                     [
-                      6,
-                      11
+                      0,
+                      3
                     ]
                   ],
                   "bold_translation_offsets": [
@@ -84330,7 +84755,7 @@
               "word": "昨日の花は今日の夢"
             }
           ],
-          "etymology_number": 1,
+          "etymology_number": "1",
           "etymology_text": "⟨ke₁ pu⟩ → */kʲepu/ → /keɸu/ → */kewu/ → /keu/ → /kjoː/\nFrom Old Japanese けふ (ke₁pu), from Proto-Japonic *kepu.\nOriginally a compound of 此 (ke, apophonic form of ko, \"this\") + 日 (fu, apophonic form of hi, “day”). The final /eu/ → /joː/ sound shift is a separate but regular phonological change.",
           "etymology_templates": [
             {
@@ -85162,7 +85587,7 @@
               "tags": [
                 "sa-row",
                 "irregular",
-                "terminal"
+                "conclusive"
               ],
               "raw_tags": [
                 "立命-する 動詞活用表（日本語の活用）"
@@ -85276,7 +85701,7 @@
               "form": "立命する",
               "tags": [
                 "definitive",
-                "terminal"
+                "conclusive"
               ],
               "raw_tags": [
                 "各活用形の基礎的な結合例",
@@ -85705,7 +86130,7 @@
               "tags": [
                 "sa-row",
                 "irregular",
-                "terminal"
+                "conclusive"
               ],
               "raw_tags": [
                 "命令-する 動詞活用表（日本語の活用）"
@@ -85819,7 +86244,7 @@
               "form": "命令する",
               "tags": [
                 "definitive",
-                "terminal"
+                "conclusive"
               ],
               "raw_tags": [
                 "各活用形の基礎的な結合例",
@@ -86724,7 +87149,7 @@
                 "a-row",
                 "shimoichidan",
                 "ichidan",
-                "terminal"
+                "conclusive"
               ],
               "raw_tags": [
                 "うえか-える 動詞活用表（日本語の活用）"
@@ -86827,7 +87252,7 @@
               "form": "うえかえる",
               "tags": [
                 "definitive",
-                "terminal"
+                "conclusive"
               ],
               "raw_tags": [
                 "各活用形の基礎的な結合例",
@@ -87155,6 +87580,1596 @@
             }
           ]
         }
+      },
+      {
+        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/つ/つけ/つけくわえる.html",
+        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/つ/つけ/つけくわえる.jsonl",
+        "json": {
+          "word": "つけくわえる",
+          "pos": "verb",
+          "lang_code": "ja",
+          "lang": "日本語",
+          "pos_title": "動詞",
+          "senses": [
+            {
+              "glosses": [
+                "既にある物の上に、更に別の物を添える。"
+              ],
+              "tags": [
+                "transitive"
+              ],
+              "categories": [
+                "日本語 他動詞"
+              ]
+            }
+          ],
+          "categories": [
+            "日本語",
+            "日本語 動詞",
+            "日本語 動詞 ア下一",
+            "日本語 国際音声記号あり"
+          ],
+          "tags": [
+            "a-row",
+            "ichidan",
+            "shimoichidan"
+          ],
+          "forms": [
+            {
+              "form": "つけくわえ",
+              "tags": [
+                "a-row",
+                "shimoichidan",
+                "ichidan",
+                "imperfective"
+              ],
+              "raw_tags": [
+                "つけくわ-える 動詞活用表（日本語の活用）"
+              ]
+            },
+            {
+              "form": "つけくわえ",
+              "tags": [
+                "a-row",
+                "shimoichidan",
+                "ichidan",
+                "continuative"
+              ],
+              "raw_tags": [
+                "つけくわ-える 動詞活用表（日本語の活用）"
+              ]
+            },
+            {
+              "form": "つけくわえる",
+              "tags": [
+                "a-row",
+                "shimoichidan",
+                "ichidan",
+                "conclusive"
+              ],
+              "raw_tags": [
+                "つけくわ-える 動詞活用表（日本語の活用）"
+              ]
+            },
+            {
+              "form": "つけくわえる",
+              "tags": [
+                "a-row",
+                "shimoichidan",
+                "ichidan",
+                "attributive"
+              ],
+              "raw_tags": [
+                "つけくわ-える 動詞活用表（日本語の活用）"
+              ]
+            },
+            {
+              "form": "つけくわえれ",
+              "tags": [
+                "a-row",
+                "shimoichidan",
+                "ichidan",
+                "hypothetical"
+              ],
+              "raw_tags": [
+                "つけくわ-える 動詞活用表（日本語の活用）"
+              ]
+            },
+            {
+              "form": "つけくわえろ",
+              "tags": [
+                "a-row",
+                "shimoichidan",
+                "ichidan",
+                "imperative"
+              ],
+              "raw_tags": [
+                "つけくわ-える 動詞活用表（日本語の活用）"
+              ]
+            },
+            {
+              "form": "つけくわえよ",
+              "tags": [
+                "a-row",
+                "shimoichidan",
+                "ichidan",
+                "imperative"
+              ],
+              "raw_tags": [
+                "つけくわ-える 動詞活用表（日本語の活用）"
+              ]
+            },
+            {
+              "form": "つけくわえない",
+              "tags": [
+                "negative",
+                "imperfective"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "未然形 + ない"
+              ]
+            },
+            {
+              "form": "つけくわえよう",
+              "tags": [
+                "volitional",
+                "imperfective"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "未然形 + よう"
+              ]
+            },
+            {
+              "form": "つけくわえます",
+              "tags": [
+                "polite",
+                "continuative"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "連用形 + ます"
+              ]
+            },
+            {
+              "form": "つけくわえた",
+              "tags": [
+                "past",
+                "completive",
+                "continuative"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "連用形 + た"
+              ]
+            },
+            {
+              "form": "つけくわえる",
+              "tags": [
+                "definitive",
+                "conclusive"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "終止形のみ"
+              ]
+            },
+            {
+              "form": "つけくわえること",
+              "tags": [
+                "noun-from-verb",
+                "attributive"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "連体形 + こと"
+              ]
+            },
+            {
+              "form": "つけくわえれば",
+              "tags": [
+                "conditional",
+                "hypothetical"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "仮定形 + ば"
+              ]
+            },
+            {
+              "form": "つけくわえろ",
+              "tags": [
+                "imperative"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "命令形のみ"
+              ]
+            },
+            {
+              "form": "つけくわえよ",
+              "tags": [
+                "imperative"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "命令形のみ"
+              ]
+            }
+          ],
+          "sounds": [
+            {
+              "tags": [
+                "Nakadaka",
+                "Tokyo"
+              ],
+              "other": "つけくわえる",
+              "roman": "[tsùkékúwáéꜜrù]"
+            },
+            {
+              "tags": [
+                "Heiban",
+                "Tokyo"
+              ],
+              "other": "つけくわえる",
+              "roman": "[tsùkékúwáérú]"
+            },
+            {
+              "ipa": "[t͡sɨᵝke̞kɯ̟ᵝɰᵝa̠e̞ɾɯ̟ᵝ]"
+            },
+            {
+              "tags": [
+                "Heiban",
+                "Kyoto",
+                "Osaka"
+              ],
+              "other": "("
+            }
+          ]
+        }
+      },
+      {
+        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/付/付け/付け加える.html",
+        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/付/付け/付け加える.jsonl",
+        "json": {
+          "word": "付け加える",
+          "pos": "character",
+          "lang_code": "ja",
+          "lang": "日本語",
+          "pos_title": "和語の漢字表記",
+          "senses": [
+            {
+              "glosses": [
+                "つけくわえるの漢字表記。"
+              ],
+              "form_of": [
+                {
+                  "word": "つけくわえる"
+                }
+              ]
+            }
+          ],
+          "categories": [
+            "日本語",
+            "日本語 和語の漢字表記"
+          ],
+          "tags": [
+            "form-of",
+            "wago-kanji"
+          ],
+          "forms": [
+            {
+              "form": "つけくわえる",
+              "tags": [
+                "transliteration"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/端/端役/端役.html",
+        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/端/端役/端役.jsonl",
+        "json": {
+          "word": "端役",
+          "pos": "noun",
+          "lang_code": "ja",
+          "lang": "日本語",
+          "pos_title": "名詞",
+          "senses": [
+            {
+              "glosses": [
+                "演劇、ドラマ、映画などで主要、重要でない役。"
+              ],
+              "raw_tags": [
+                "映画",
+                "演劇",
+                "ドラマ"
+              ],
+              "categories": [
+                "日本語 ドラマ",
+                "日本語 映画",
+                "日本語 演劇"
+              ]
+            },
+            {
+              "glosses": [
+                "物事で主要、重要でない役目。"
+              ]
+            }
+          ],
+          "categories": [
+            "日本語",
+            "日本語 名詞"
+          ],
+          "forms": [
+            {
+              "form": "はやく",
+              "tags": [
+                "transliteration"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/速/速く/速く.html",
+        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/速/速く/速く.jsonl",
+        "json": {
+          "word": "速く",
+          "pos": "character",
+          "lang_code": "ja",
+          "lang": "日本語",
+          "pos_title": "和語の漢字表記",
+          "senses": [
+            {
+              "glosses": [
+                "はやくの漢字表記。"
+              ],
+              "form_of": [
+                {
+                  "word": "はやく"
+                }
+              ]
+            }
+          ],
+          "categories": [
+            "日本語",
+            "日本語 和語の漢字表記"
+          ],
+          "tags": [
+            "form-of",
+            "wago-kanji"
+          ],
+          "forms": [
+            {
+              "form": "はやく",
+              "tags": [
+                "transliteration"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/き/きれ/きれい.html",
+        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/き/きれ/きれい.jsonl",
+        "json": {
+          "word": "きれい",
+          "pos": "adj_noun",
+          "lang_code": "ja",
+          "lang": "日本語",
+          "pos_title": "形容動詞",
+          "senses": [
+            {
+              "glosses": [
+                "色などが華やかさを持っているさま"
+              ]
+            },
+            {
+              "glosses": [
+                "姿・顔が整っていて美しいさま"
+              ]
+            },
+            {
+              "glosses": [
+                "声などが快いさま"
+              ]
+            },
+            {
+              "glosses": [
+                "清潔なさま"
+              ]
+            },
+            {
+              "glosses": [
+                "男女間に肉体的な交渉がなく、清純であるさま。"
+              ]
+            },
+            {
+              "glosses": [
+                "整然としているさま。"
+              ]
+            },
+            {
+              "glosses": [
+                "残りなくすっかりしているさま。"
+              ]
+            }
+          ],
+          "categories": [
+            "日本語",
+            "日本語 形容動詞",
+            "日本語 形容動詞 ダ活用"
+          ],
+          "forms": [
+            {
+              "form": "綺麗",
+              "tags": [
+                "kanji"
+              ]
+            },
+            {
+              "form": "奇麗",
+              "tags": [
+                "kanji"
+              ]
+            },
+            {
+              "form": "だ",
+              "tags": [
+                "canonical"
+              ]
+            },
+            {
+              "form": "きれいだろ",
+              "tags": [
+                "imperfective"
+              ],
+              "raw_tags": [
+                "きれい-だ 形容動詞活用表（日本語の活用）",
+                "ダ活用"
+              ]
+            },
+            {
+              "form": "きれいだっ",
+              "tags": [
+                "continuative"
+              ],
+              "raw_tags": [
+                "きれい-だ 形容動詞活用表（日本語の活用）",
+                "ダ活用"
+              ]
+            },
+            {
+              "form": "きれいで",
+              "tags": [
+                "continuative"
+              ],
+              "raw_tags": [
+                "きれい-だ 形容動詞活用表（日本語の活用）",
+                "ダ活用"
+              ]
+            },
+            {
+              "form": "きれいに",
+              "tags": [
+                "continuative"
+              ],
+              "raw_tags": [
+                "きれい-だ 形容動詞活用表（日本語の活用）",
+                "ダ活用"
+              ]
+            },
+            {
+              "form": "きれいだ",
+              "tags": [
+                "conclusive"
+              ],
+              "raw_tags": [
+                "きれい-だ 形容動詞活用表（日本語の活用）",
+                "ダ活用"
+              ]
+            },
+            {
+              "form": "きれいな",
+              "tags": [
+                "attributive"
+              ],
+              "raw_tags": [
+                "きれい-だ 形容動詞活用表（日本語の活用）",
+                "ダ活用"
+              ]
+            },
+            {
+              "form": "きれいなら",
+              "tags": [
+                "hypothetical"
+              ],
+              "raw_tags": [
+                "きれい-だ 形容動詞活用表（日本語の活用）",
+                "ダ活用"
+              ]
+            },
+            {
+              "form": "きれいだろう",
+              "tags": [
+                "volitional",
+                "imperfective"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "未然形 + う"
+              ]
+            },
+            {
+              "form": "きれいだった",
+              "tags": [
+                "past",
+                "completive",
+                "continuative"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "連用形 + た"
+              ]
+            },
+            {
+              "form": "きれいでない",
+              "tags": [
+                "negative",
+                "continuative"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "連用形 + ない"
+              ]
+            },
+            {
+              "form": "きれいになる",
+              "tags": [
+                "intransitive",
+                "continuative"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "連用形 + なる"
+              ]
+            },
+            {
+              "form": "きれいだ",
+              "tags": [
+                "definitive",
+                "conclusive"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "終止形のみ"
+              ]
+            },
+            {
+              "form": "きれいなこと",
+              "tags": [
+                "noun-from-verb",
+                "attributive"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "連体形 + こと"
+              ]
+            },
+            {
+              "form": "きれいならば",
+              "tags": [
+                "conditional",
+                "hypothetical"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "仮定形 + ば"
+              ]
+            },
+            {
+              "form": "きれいそうだ",
+              "tags": [
+                "evidential",
+                "stem"
+              ],
+              "raw_tags": [
+                "各活用形の基礎的な結合例",
+                "語幹 + そうだ"
+              ]
+            }
+          ],
+          "sounds": [
+            {
+              "homophones": [
+                "暉麗"
+              ]
+            },
+            {
+              "homophones": [
+                "輝麗"
+              ]
+            },
+            {
+              "homophones": [
+                "煇麗"
+              ]
+            },
+            {
+              "homophones": [
+                "稀齢"
+              ]
+            },
+            {
+              "homophones": [
+                "稀年"
+              ]
+            },
+            {
+              "homophones": [
+                "亀齢"
+              ]
+            },
+            {
+              "homophones": [
+                "奇齢"
+              ]
+            },
+            {
+              "homophones": [
+                "長寿"
+              ]
+            },
+            {
+              "homophones": [
+                "奇零"
+              ]
+            },
+            {
+              "homophones": [
+                "畸零"
+              ]
+            },
+            {
+              "homophones": [
+                "単位"
+              ]
+            },
+            {
+              "homophones": [
+                "小数点"
+              ]
+            },
+            {
+              "homophones": [
+                "はした"
+              ]
+            },
+            {
+              "homophones": [
+                "奇嶺"
+              ]
+            },
+            {
+              "homophones": [
+                "奇峰"
+              ]
+            },
+            {
+              "homophones": [
+                "碕嶺"
+              ]
+            },
+            {
+              "homophones": [
+                "連山"
+              ]
+            },
+            {
+              "homophones": [
+                "饋礼"
+              ]
+            },
+            {
+              "homophones": [
+                "進物"
+              ]
+            },
+            {
+              "homophones": [
+                "跪礼"
+              ]
+            },
+            {
+              "homophones": [
+                "身分"
+              ]
+            },
+            {
+              "homophones": [
+                "通行"
+              ]
+            },
+            {
+              "homophones": [
+                "土下座"
+              ]
+            },
+            {
+              "homophones": [
+                "跪霊"
+              ]
+            },
+            {
+              "homophones": [
+                "霊前"
+              ]
+            },
+            {
+              "homophones": [
+                "機霊"
+              ]
+            },
+            {
+              "homophones": [
+                "機警"
+              ]
+            },
+            {
+              "homophones": [
+                "機棙"
+              ]
+            },
+            {
+              "homophones": [
+                "ぜんまい"
+              ]
+            },
+            {
+              "homophones": [
+                "詭戻"
+              ]
+            },
+            {
+              "homophones": [
+                "饑癘"
+              ]
+            },
+            {
+              "homophones": [
+                "疫病"
+              ]
+            },
+            {
+              "homophones": [
+                "豨苓"
+              ]
+            },
+            {
+              "homophones": [
+                "いのこぐさ"
+              ]
+            },
+            {
+              "homophones": [
+                "卉醴"
+              ]
+            },
+            {
+              "homophones": [
+                "蜜"
+              ]
+            }
+          ],
+          "translations": [
+            {
+              "lang_code": "en",
+              "lang": "英語",
+              "word": "beautiful"
+            },
+            {
+              "lang_code": "en",
+              "lang": "英語",
+              "word": "lovely"
+            },
+            {
+              "lang_code": "en",
+              "lang": "英語",
+              "word": "pretty"
+            },
+            {
+              "lang_code": "en",
+              "lang": "英語",
+              "word": "clear"
+            },
+            {
+              "lang_code": "fr",
+              "lang": "フランス語",
+              "word": "joli"
+            },
+            {
+              "lang_code": "nb",
+              "lang": "ブークモール",
+              "word": "pen"
+            }
+          ],
+          "related": [
+            {
+              "word": "美しい"
+            },
+            {
+              "word": "綺麗事"
+            }
+          ]
+        }
+      },
+      {
+        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/天/天罰/天罰覿面.html",
+        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/天/天罰/天罰覿面.jsonl",
+        "json": {
+          "word": "天罰覿面",
+          "pos": "phrase",
+          "lang_code": "ja",
+          "lang": "日本語",
+          "pos_title": "成句",
+          "senses": [
+            {
+              "glosses": [
+                "悪事を働けば即座に天罰が下ることの例え。"
+              ]
+            }
+          ],
+          "categories": [
+            "日本語",
+            "日本語 名詞"
+          ],
+          "tags": [
+            "idiomatic"
+          ],
+          "forms": [
+            {
+              "form": "てんばつてきめん",
+              "tags": [
+                "transliteration"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/行/行法/行法.html",
+        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/行/行法/行法.jsonl",
+        "json": {
+          "word": "行法",
+          "pos": "noun",
+          "lang_code": "ja",
+          "lang": "日本語",
+          "pos_title": "名詞",
+          "senses": [
+            {
+              "glosses": [
+                "法律を執行すること。"
+              ],
+              "topics": [
+                "law"
+              ],
+              "categories": [
+                "日本語 法律"
+              ]
+            },
+            {
+              "glosses": [
+                "仏道修行すること。"
+              ],
+              "topics": [
+                "Buddhism"
+              ],
+              "categories": [
+                "日本語 仏教"
+              ]
+            }
+          ],
+          "categories": [
+            "日本語",
+            "日本語 名詞"
+          ],
+          "forms": [
+            {
+              "form": "ぎょうほう",
+              "tags": [
+                "transliteration"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/き/きい/きいろ.html",
+        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/き/きい/きいろ.jsonl",
+        "json": {
+          "word": "きいろ",
+          "pos": "noun",
+          "lang_code": "ja",
+          "lang": "日本語",
+          "pos_title": "名詞",
+          "senses": [
+            {
+              "glosses": [
+                "色の一つ。卵の黄身のような色。色料の三原色の一つ。"
+              ],
+              "topics": [
+                "color"
+              ],
+              "categories": [
+                "日本語 色"
+              ]
+            }
+          ],
+          "categories": [
+            "日本語",
+            "日本語 名詞"
+          ],
+          "translations": [
+            {
+              "lang_code": "is",
+              "lang": "アイスランド語",
+              "word": "gulur",
+              "tags": [
+                "masculine"
+              ]
+            },
+            {
+              "lang_code": "ga",
+              "lang": "アイルランド語",
+              "word": "buí",
+              "tags": [
+                "masculine"
+              ]
+            },
+            {
+              "lang_code": "af",
+              "lang": "アフリカーンス語",
+              "word": "geel"
+            },
+            {
+              "lang_code": "ar",
+              "lang": "アラビア語",
+              "word": "صُفْرَاء",
+              "tags": [
+                "feminine"
+              ]
+            },
+            {
+              "lang_code": "ar",
+              "lang": "アラビア語",
+              "word": "صُفْر",
+              "tags": [
+                "plural"
+              ]
+            },
+            {
+              "lang_code": "hy",
+              "lang": "アルメニア語",
+              "word": "դեղին"
+            },
+            {
+              "lang_code": "it",
+              "lang": "イタリア語",
+              "word": "giallo",
+              "tags": [
+                "masculine"
+              ]
+            },
+            {
+              "lang_code": "io",
+              "lang": "イド語",
+              "word": "flava"
+            },
+            {
+              "lang_code": "ia",
+              "lang": "インターリングア",
+              "word": "jalne"
+            },
+            {
+              "lang_code": "id",
+              "lang": "インドネシア語",
+              "word": "kuning"
+            },
+            {
+              "lang_code": "cy",
+              "lang": "ウェールズ語",
+              "word": "melyn"
+            },
+            {
+              "lang_code": "en",
+              "lang": "英語",
+              "word": "yellow"
+            },
+            {
+              "lang_code": "ang",
+              "lang": "古英語",
+              "word": "ġeolo"
+            },
+            {
+              "lang_code": "et",
+              "lang": "エストニア語",
+              "word": "kollane"
+            },
+            {
+              "lang_code": "eo",
+              "lang": "エスペラント",
+              "word": "flava"
+            },
+            {
+              "lang_code": "nl",
+              "lang": "オランダ語",
+              "word": "geel"
+            },
+            {
+              "lang_code": "ca",
+              "lang": "カタルーニャ語",
+              "word": "groc",
+              "tags": [
+                "masculine"
+              ]
+            },
+            {
+              "lang_code": "ca",
+              "lang": "カタルーニャ語",
+              "word": "groga",
+              "tags": [
+                "feminine"
+              ]
+            },
+            {
+              "lang_code": "el",
+              "lang": "ギリシア語",
+              "word": "κίτρινο",
+              "tags": [
+                "neuter"
+              ]
+            },
+            {
+              "lang_code": "el",
+              "lang": "ギリシア語",
+              "word": "ώχρα",
+              "tags": [
+                "feminine"
+              ]
+            },
+            {
+              "lang_code": "ku",
+              "lang": "クルド語",
+              "word": "zer"
+            },
+            {
+              "lang_code": "sc",
+              "lang": "サルデーニャ語",
+              "word": "grogu"
+            },
+            {
+              "lang_code": "jv",
+              "lang": "ジャワ語",
+              "word": "kuning"
+            },
+            {
+              "lang_code": "jv",
+              "lang": "ジャワ語",
+              "word": "jene"
+            },
+            {
+              "lang_code": "sv",
+              "lang": "スウェーデン語",
+              "word": "gul"
+            },
+            {
+              "lang_code": "es",
+              "lang": "スペイン語",
+              "word": "amarillo",
+              "tags": [
+                "masculine"
+              ]
+            },
+            {
+              "lang_code": "sk",
+              "lang": "スロヴァキア語",
+              "word": "žltý",
+              "tags": [
+                "masculine"
+              ]
+            },
+            {
+              "lang_code": "sk",
+              "lang": "スロヴァキア語",
+              "word": "žltá",
+              "tags": [
+                "feminine"
+              ]
+            },
+            {
+              "lang_code": "sk",
+              "lang": "スロヴァキア語",
+              "word": "žlté",
+              "tags": [
+                "neuter"
+              ]
+            },
+            {
+              "lang_code": "sl",
+              "lang": "スロヴェニア語",
+              "word": "rumena",
+              "tags": [
+                "feminine"
+              ]
+            },
+            {
+              "lang_code": "sh",
+              "lang": "セルビア・クロアチア語",
+              "word": "жута",
+              "tags": [
+                "feminine"
+              ]
+            },
+            {
+              "lang_code": "sh",
+              "lang": "セルビア・クロアチア語",
+              "word": "žut"
+            },
+            {
+              "lang_code": "sh",
+              "lang": "セルビア・クロアチア語",
+              "word": "žuta",
+              "tags": [
+                "feminine"
+              ]
+            },
+            {
+              "lang_code": "th",
+              "lang": "タイ語",
+              "word": "สีเหลือง"
+            },
+            {
+              "lang_code": "cs",
+              "lang": "チェコ語",
+              "word": "žlutá",
+              "tags": [
+                "feminine"
+              ]
+            },
+            {
+              "lang_code": "chr",
+              "lang": "チェロキー語",
+              "word": "ᏓᎶᏁᎦ"
+            },
+            {
+              "lang_code": "zh",
+              "lang": "中国語",
+              "word": "黄"
+            },
+            {
+              "lang_code": "ko",
+              "lang": "朝鮮語",
+              "word": "황색"
+            },
+            {
+              "lang_code": "ko",
+              "lang": "朝鮮語",
+              "word": "노랑"
+            },
+            {
+              "lang_code": "te",
+              "lang": "テルグ語",
+              "word": "పసుపు"
+            },
+            {
+              "lang_code": "da",
+              "lang": "デンマーク語",
+              "word": "gul"
+            },
+            {
+              "lang_code": "de",
+              "lang": "ドイツ語",
+              "word": "Gelb",
+              "tags": [
+                "neuter"
+              ]
+            },
+            {
+              "lang_code": "tr",
+              "lang": "トルコ語",
+              "word": "sarı"
+            },
+            {
+              "lang_code": "nah",
+              "lang": "ナワトル語",
+              "word": "coztic"
+            },
+            {
+              "lang_code": "fy",
+              "lang": "西フリジア語",
+              "word": "giel"
+            },
+            {
+              "lang_code": "no",
+              "lang": "ノルウェー語",
+              "word": "gul"
+            },
+            {
+              "lang_code": "eu",
+              "lang": "バスク語",
+              "word": "hori"
+            },
+            {
+              "lang_code": "pap",
+              "lang": "パピアメント語",
+              "word": "hel"
+            },
+            {
+              "lang_code": "hu",
+              "lang": "ハンガリー語",
+              "word": "sárga"
+            },
+            {
+              "lang_code": "hi",
+              "lang": "ヒンディー語",
+              "word": "पीला"
+            },
+            {
+              "lang_code": "fi",
+              "lang": "フィンランド語",
+              "word": "keltainen"
+            },
+            {
+              "lang_code": "fi",
+              "lang": "フィンランド語",
+              "word": "kelta"
+            },
+            {
+              "lang_code": "fr",
+              "lang": "フランス語",
+              "word": "jaune",
+              "tags": [
+                "masculine"
+              ]
+            },
+            {
+              "lang_code": "bg",
+              "lang": "ブルガリア語",
+              "word": "жълт",
+              "tags": [
+                "masculine",
+                "feminine",
+                "neuter",
+                "plural"
+              ]
+            },
+            {
+              "lang_code": "br",
+              "lang": "ブルトン語",
+              "word": "melen"
+            },
+            {
+              "lang_code": "vi",
+              "lang": "ベトナム語",
+              "word": "hòang"
+            },
+            {
+              "lang_code": "he",
+              "lang": "ヘブライ語",
+              "word": "צהוב",
+              "tags": [
+                "masculine"
+              ]
+            },
+            {
+              "lang_code": "he",
+              "lang": "ヘブライ語",
+              "word": "צהובה",
+              "tags": [
+                "feminine"
+              ]
+            },
+            {
+              "lang_code": "pl",
+              "lang": "ポーランド語",
+              "word": "żółć",
+              "tags": [
+                "masculine"
+              ]
+            },
+            {
+              "lang_code": "pl",
+              "lang": "ポーランド語",
+              "word": "barwa żółta"
+            },
+            {
+              "lang_code": "pt",
+              "lang": "ポルトガル語",
+              "word": "amarelo",
+              "tags": [
+                "masculine"
+              ]
+            },
+            {
+              "lang_code": "ml",
+              "lang": "マラヤーラム語",
+              "word": "മഞ്ഞ"
+            },
+            {
+              "lang_code": "mt",
+              "lang": "マルタ語",
+              "word": "isfar"
+            },
+            {
+              "lang_code": "ms",
+              "lang": "マレー語",
+              "word": "kuning"
+            },
+            {
+              "lang_code": "la",
+              "lang": "ラテン語",
+              "word": "flāvus"
+            },
+            {
+              "lang_code": "lv",
+              "lang": "ラトヴィア語",
+              "word": "dzeltens"
+            },
+            {
+              "lang_code": "lt",
+              "lang": "リトアニア語",
+              "word": "geltonas"
+            },
+            {
+              "lang_code": "ro",
+              "lang": "ルーマニア語",
+              "word": "galben",
+              "tags": [
+                "masculine"
+              ]
+            },
+            {
+              "lang_code": "ro",
+              "lang": "ルーマニア語",
+              "word": "galbenă",
+              "tags": [
+                "feminine"
+              ]
+            },
+            {
+              "lang_code": "ru",
+              "lang": "ロシア語",
+              "word": "жёлтый",
+              "roman": "žóltyj"
+            },
+            {
+              "lang_code": "ru",
+              "lang": "ロシア語",
+              "word": "жёлтый цвет"
+            },
+            {
+              "lang_code": "rm",
+              "lang": "ロマンシュ語",
+              "word": "mellen"
+            }
+          ],
+          "synonyms": [
+            {
+              "word": "黄色"
+            },
+            {
+              "word": "イエロー"
+            }
+          ],
+          "derived": [
+            {
+              "word": "きいろい"
+            }
+          ],
+          "related": [
+            {
+              "word": "きみどり"
+            }
+          ]
+        }
+      },
+      {
+        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/黄/黄色/黄色.html",
+        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/黄/黄色/黄色.jsonl",
+        "json": {
+          "word": "黄色",
+          "pos": "noun",
+          "lang_code": "ja",
+          "lang": "日本語",
+          "pos_title": "名詞",
+          "senses": [
+            {
+              "glosses": [
+                "きいろ。"
+              ]
+            }
+          ],
+          "categories": [
+            "日本語",
+            "日本語 名詞",
+            "日本語 国際音声記号あり",
+            "日本語_色"
+          ],
+          "forms": [
+            {
+              "form": "おうしょく",
+              "tags": [
+                "transliteration"
+              ]
+            },
+            {
+              "form": "こうしょく",
+              "tags": [
+                "transliteration"
+              ]
+            }
+          ],
+          "sounds": [
+            {
+              "tags": [
+                "Heiban",
+                "Tokyo"
+              ],
+              "other": "おーしょく",
+              "roman": "[òóshókú]"
+            },
+            {
+              "ipa": "[o̞ːɕo̞kɯ̟ᵝ]"
+            },
+            {
+              "tags": [
+                "Heiban",
+                "Tokyo"
+              ],
+              "other": "こーしょく",
+              "roman": "[kòóshókú]"
+            },
+            {
+              "ipa": "[ko̞ːɕo̞kɯ̟ᵝ]"
+            }
+          ],
+          "derived": [
+            {
+              "word": "黄色人種"
+            }
+          ]
+        }
+      },
+      {
+        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/黄/黄色/黄色.html",
+        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/黄/黄色/黄色.jsonl",
+        "json": {
+          "word": "黄色",
+          "pos": "character",
+          "lang_code": "ja",
+          "lang": "日本語",
+          "pos_title": "和語の漢字表記",
+          "senses": [
+            {
+              "glosses": [
+                "きいろの漢字表記。"
+              ],
+              "form_of": [
+                {
+                  "word": "きいろ"
+                }
+              ]
+            }
+          ],
+          "categories": [
+            "日本語",
+            "日本語 和語の漢字表記"
+          ],
+          "tags": [
+            "form-of",
+            "wago-kanji"
+          ],
+          "forms": [
+            {
+              "form": "きいろ",
+              "tags": [
+                "transliteration"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/黄/黄色/黄色.html",
+        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/黄/黄色/黄色.jsonl",
+        "json": {
+          "word": "黄色",
+          "pos": "noun",
+          "lang_code": "zh",
+          "lang": "中国語",
+          "pos_title": "名詞",
+          "senses": [
+            {
+              "glosses": [
+                "黄色。"
+              ]
+            }
+          ],
+          "categories": [
+            "HSKレベル丙",
+            "中国語",
+            "中国語_名詞",
+            "中国語_色"
+          ],
+          "forms": [
+            {
+              "form": "黃色",
+              "tags": [
+                "canonical"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/黄/黄色/黄色.html",
+        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/黄/黄色/黄色.jsonl",
+        "json": {
+          "word": "黄色",
+          "pos": "adj",
+          "lang_code": "zh",
+          "lang": "中国語",
+          "pos_title": "形容詞",
+          "senses": [
+            {
+              "glosses": [
+                "黄色の。"
+              ]
+            },
+            {
+              "glosses": [
+                "（比喩的。紙が黄ばむことから）腐敗した。堕落した。庸俗の。色情の。"
+              ],
+              "examples": [
+                {
+                  "text": "黄色工会",
+                  "bold_text_offsets": [
+                    [
+                      0,
+                      2
+                    ]
+                  ],
+                  "translation": "御用組合"
+                },
+                {
+                  "text": "黄色电影",
+                  "bold_text_offsets": [
+                    [
+                      0,
+                      2
+                    ]
+                  ],
+                  "translation": "ピンク映画"
+                }
+              ]
+            }
+          ],
+          "categories": [
+            "中国語",
+            "中国語_形容詞"
+          ],
+          "forms": [
+            {
+              "form": "黃色",
+              "tags": [
+                "canonical"
+              ]
+            }
+          ]
+        }
       }
     ]
   },
@@ -87169,6 +89184,8 @@
           "senses": [
             {
               "categories": [
+                "Chinese Korean",
+                "Japanese Korean",
                 "Korean entries with incorrect language header",
                 "Korean lemmas",
                 "Korean orthographic borrowings from Japanese",
@@ -87179,18 +89196,18 @@
                 "Korean terms with IPA pronunciation",
                 "Korean terms with non-redundant manual transliterations",
                 "Korean terms with redundant script codes",
+                "Koryo-mar",
                 "Pages with 1 entry",
                 "Pages with entries",
                 "Sino-Korean words",
                 "South Korean",
-                "Yanbian Korean",
                 "ko:Countries in Europe",
                 "ko:Germany"
               ],
               "links": [
                 [
                   "Germany",
-                  "Germany#English:_Q183"
+                  "Germany#English"
                 ],
                 [
                   "country",
@@ -87199,34 +89216,6 @@
                 [
                   "Central Europe",
                   "Central Europe#English"
-                ],
-                [
-                  "West Germany",
-                  "West Germany"
-                ],
-                [
-                  "provisional",
-                  "provisional"
-                ],
-                [
-                  "capital",
-                  "capital"
-                ],
-                [
-                  "Bonn",
-                  "Bonn"
-                ],
-                [
-                  "when",
-                  "when"
-                ],
-                [
-                  "incorporated",
-                  "incorporated"
-                ],
-                [
-                  "East Germany",
-                  "East Germany"
                 ]
               ],
               "synonyms": [
@@ -87239,14 +89228,16 @@
                 }
               ],
               "raw_glosses": [
-                "(South Korea, Yanbian) Germany (a country in Central Europe, formed in 1949 as West Germany, with its provisional capital Bonn until 1990, when it incorporated East Germany)"
+                "(South Korea, China, Japan, Russia) Germany (a country in Central Europe)"
               ],
               "glosses": [
-                "Germany (a country in Central Europe, formed in 1949 as West Germany, with its provisional capital Bonn until 1990, when it incorporated East Germany)"
+                "Germany (a country in Central Europe)"
               ],
               "tags": [
-                "South-Korea",
-                "Yanbian"
+                "China",
+                "Japan",
+                "Russia",
+                "South-Korea"
               ]
             }
           ],
@@ -88252,7 +90243,7 @@
                   "bold_roman_offsets": [
                     [
                       28,
-                      31
+                      32
                     ]
                   ],
                   "translation": "Would it be okay if I said something?",
@@ -88375,7 +90366,7 @@
               "word": "-을"
             }
           ],
-          "etymology_number": 1,
+          "etymology_number": "1",
           "etymology_text": "Contraction of older and synonymous 게 하였 (-ge ha-yeot-), 게 ᄒᆞ엿 (Yale: -key hoy-es-) in historical spelling. 게 ᄒᆞ엿 (Yale: -key hoy-es-) has been used with future meaning since the late sixteenth century.\nIn Modern Korean, 게 하였 (-ge ha-yeot-) most literally means \"caused [one] to [VERB]\", e.g. 먹게 하였다 (meok-ge ha-yeot--da, “[I] made [him] eat”). Hence, there are multiple theories with regards to the semantics. Some believe that the verb 하다 (hada) in this context was synonymous to 되다 (doeda), and hence that the construction originally had the same meaning as modern 게 되었 (-ge doe-eot-), e.g. 먹게 되었다 (meok-ge doe-eot--da, “[he] ended up eating”). Others believe that the suffix developed from a more reflexive use of the causative, equivalent to modern 도록 하였 (-dorok ha-yeot-), e.g. 먹도록 하였다 (meok-dorok ha-yeot--da, “[he] decided to eat”).\nIncreasingly displaced older future-like -으리- (-euri-).",
           "etymology_templates": [
             {
@@ -88419,11 +90410,11 @@
                       13
                     ]
                   ],
-                  "roman": "Yeoreobun, jong'i sinmun-eul il-geusi-na-yo?",
+                  "roman": "Yeoreobun, jong'i sinmun-eul ilg-eusi-na-yo?",
                   "bold_roman_offsets": [
                     [
                       29,
-                      31
+                      32
                     ]
                   ],
                   "translation": "Ladies and gentlemen (or everybody, you guys), do you read paper newspapers?",
@@ -90164,7 +92155,7 @@
               "examples": [
                 {
                   "text": "[…] dum ne quem militem legeret ex eo numero quibus senatus missionem reditumque in patriam negasset ante belli finem.",
-                  "ref": "27 BCE – 25 BCE, Titus Livius, Ab Urbe Condita 26.1",
+                  "ref": "27 BCE – 25 BCE, Titus Livius, Ab urbe condita 26.1",
                   "english": "[…] provided he did not choose any soldier from those to whom the Senate had refused discharge and a return home before the end of the war",
                   "translation": "[…] provided he did not choose any soldier from those to whom the Senate had refused discharge and a return home before the end of the war",
                   "type": "quotation"
@@ -92842,7 +94833,7 @@
               "word": "sublegō"
             }
           ],
-          "etymology_number": 1,
+          "etymology_number": "1",
           "etymology_text": "Etymology tree\nProto-Indo-European *leǵ-\nProto-Indo-European *-eti\nProto-Indo-European *léǵeti\nProto-Italic *legō\nLatin legō\nFrom Proto-Italic *legō, from Proto-Indo-European *léǵeti, from the root *leǵ- (“to gather”). Cognates include Ancient Greek λέγω (légō, “to speak, to choose, to mean”) and Albanian mbledh. May be related to lēx.\nFor sense 6 (“to read”), compare typologically разбира́ть (razbirátʹ), разбира́ться (razbirátʹsja) (< брать (bratʹ)), разбо́рчивый (razbórčivyj) (по́черк (póčerk)).",
           "etymology_templates": [
             {
@@ -92950,6 +94941,8 @@
               ],
               "categories": [
                 "Latin 3-syllable words",
+                "Latin entries with etymology texts",
+                "Latin entries with etymology trees",
                 "Latin entries with incorrect language header",
                 "Latin lemmas",
                 "Latin neuter nouns",
@@ -92958,9 +94951,12 @@
                 "Latin second declension nouns",
                 "Latin terms borrowed from Ancient Greek",
                 "Latin terms derived from Ancient Greek",
+                "Latin terms derived from substrate languages",
                 "Latin terms with IPA pronunciation",
+                "Pages using etymon with no ID",
                 "Pages with 1 entry",
-                "Pages with entries"
+                "Pages with entries",
+                "Pages with etymology trees"
               ]
             }
           ],
@@ -93548,16 +95544,19 @@
               ]
             }
           ],
-          "etymology_text": "Borrowed from Ancient Greek λείριον (leírion). See there for more.",
+          "etymology_text": "Etymology tree\nAncient Greek λείριον (leírion)bor.\nLatin līlium\nBorrowed from Ancient Greek λείριον (leírion). See there for more.",
           "etymology_templates": [
             {
-              "name": "bor+",
+              "name": "ety",
               "args": {
                 "1": "la",
-                "2": "grc",
-                "3": "λείριον"
+                "title": "līlium",
+                "2": ":bor",
+                "3": "grc:λείριον",
+                "tree": "1",
+                "text": "+"
               },
-              "expansion": "Borrowed from Ancient Greek λείριον (leírion)"
+              "expansion": "Etymology tree\nAncient Greek λείριον (leírion)bor.\nLatin līlium\n[Appendix:Glossary#loanword|Borrowed]] from\", \"terms\" : [ { \"children\" : [ ], \"lang_name\" : \"Ancient Greek\", \"term\" : \"λείριον\", \"status\" : \"missing\", \"lang\" : \"grc\" } ], \"keyword\" : \"bor\" } ], \"lang_name\" : \"Latin\", \"term\" : \"līlium\", \"status\" : \"ok\", \"lang\" : \"la\" }\" data-lang=\"la\" data-title=\"līlium\">\nBorrowed from Ancient Greek λείριον (leírion)."
             }
           ],
           "sounds": [
@@ -93614,7 +95613,7 @@
               "examples": [
                 {
                   "text": "Eōsdem facile addūcam, ut tē haec quae vastāre iam prīdem studēs relinquentem, usque ad portās prōsequantur.",
-                  "ref": "63 BCE, Cicero, Catiline Orations Oratio in Catilinam Prima in Senatu Habita.21",
+                  "ref": "63 BCE, Cicero, In Catilinam orationes 1.21",
                   "english": "I shall easily persuade the same [men], that as you are leaving these [things] which you have long been eager to destroy, they may escort [you] all the way to the [city] gates.",
                   "translation": "I shall easily persuade the same [men], that as you are leaving these [things] which you have long been eager to destroy, they may escort [you] all the way to the [city] gates.",
                   "type": "quotation"
@@ -93842,7 +95841,7 @@
               "examples": [
                 {
                   "text": "Quae rectis lineis suos ordines servant",
-                  "ref": "c. 52 BCE, Julius Caesar, Commentarii de Bello Gallico VII.23",
+                  "ref": "c. 52 BCE, Julius Caesar, Commentarii de bello Gallico VII.23",
                   "english": "Which preserve their order in straight lines",
                   "translation": "Which preserve their order in straight lines",
                   "type": "quotation"
@@ -95083,7 +97082,7 @@
                 },
                 {
                   "text": "id nunc experior domō",
-                  "ref": "c. 190 BCE – 185 BCE, Plautus, Amphitryon 637",
+                  "ref": "c. 190 BCE – 185 BCE, Plautus, Amphitruo 637",
                   "english": "Now I'm learning this first-hand.",
                   "translation": "Now I'm learning this first-hand.",
                   "type": "quotation"
@@ -95155,7 +97154,7 @@
                 },
                 {
                   "text": "ut non quietior populus domi esset quam militiae",
-                  "ref": "27 BCE – 25 BCE, Titus Livius, Ab Urbe Condita 1.38",
+                  "ref": "27 BCE – 25 BCE, Titus Livius, Ab urbe condita 1.38",
                   "english": "so that the people should not become lazier in the time of peace than that of war",
                   "translation": "so that the people should not become lazier in the time of peace than that of war",
                   "type": "quotation"
@@ -96022,6 +98021,8 @@
           ],
           "categories": [
             "Latin 3-syllable words",
+            "Latin entries with etymology texts",
+            "Latin entries with etymology trees",
             "Latin entries with incorrect language header",
             "Latin first conjugation verbs",
             "Latin first conjugation verbs with perfect in -āv-",
@@ -96034,6 +98035,7 @@
             "Pages using etymon with no ID",
             "Pages with 7 entries",
             "Pages with entries",
+            "Pages with etymology trees",
             "la:Thinking"
           ],
           "forms": [
@@ -99451,26 +101453,20 @@
               ]
             }
           ],
-          "etymology_text": "From con- + agitō.",
+          "etymology_text": "Etymology tree\nProto-Indo-European *ḱe?\nProto-Indo-European *ḱóm\nProto-Italic *kom\nProto-Italic *kom-\nLatin con-\nProto-Indo-European *h₂eǵ-\nProto-Indo-European *-eti\nProto-Indo-European *h₂éǵeti\nProto-Italic *agō\nLatin agō\nProto-Indo-European *-tós\nProto-Italic *-tos\nLatin -tus\nProto-Indo-European *-h₂\nProto-Indo-European *-éh₂\nProto-Indo-European *-yéti\nProto-Indo-European *-eh₂yéti\nProto-Italic *-āō\nLatin -ō\nLatin -tō\nLatin -itō\nLatin agitō\nLatin cōgitō\nFrom con- + agitō.",
           "etymology_templates": [
             {
-              "name": "etymon",
+              "name": "ety",
               "args": {
                 "1": "la",
+                "title": "cōgitō",
                 "2": ":af",
                 "3": "con-",
-                "4": "agitō"
+                "4": "agitō",
+                "text": "+",
+                "tree": "1"
               },
-              "expansion": "[Appendix:Glossary#inherited|Inherited]] from\", \"keyword\" : \"inherited\" } ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Italic\", \"term\" : \"*kom\", \"lang\" : \"itc-pro\" } ], \"keyword_label\" : \"From\", \"keyword\" : \"from\" } ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Italic\", \"term\" : \"*kom-\", \"lang\" : \"itc-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Latin\", \"term\" : \"con-\", \"status\" : \"ok\", \"lang\" : \"la\" }, { \"children\" : [ { \"terms\" : [ { \"children\" : [ { \"terms\" : [ { \"id\" : \"drive\", \"children\" : [ { \"terms\" : [ { \"id\" : \"be driving\", \"children\" : [ { \"terms\" : [ { \"id\" : \"drive\", \"children\" : [ ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*h₂eǵ-\", \"lang\" : \"ine-pro\" }, { \"children\" : [ ], \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*-eti\", \"status\" : \"ok\", \"lang\" : \"ine-pro\" } ], \"keyword_label\" : \"From\", \"is_group\" : true, \"keyword\" : \"affix\" } ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*h₂éǵeti\", \"lang\" : \"ine-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Italic\", \"term\" : \"*agō\", \"lang\" : \"itc-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Latin\", \"term\" : \"agō\", \"status\" : \"ok\", \"lang\" : \"la\" }, { \"children\" : [ { \"terms\" : [ { \"children\" : [ { \"terms\" : [ { \"id\" : \"denominative\", \"children\" : [ { \"terms\" : [ { \"id\" : \"suf\", \"children\" : [ { \"terms\" : [ { \"id\" : \"suf\", \"children\" : [ { \"terms\" : [ { \"id\" : \"collective nouns\", \"children\" : [ { \"terms\" : [ { \"id\" : \"collective nouns\", \"children\" : [ ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*-h₂\", \"lang\" : \"ine-pro\" } ], \"keyword_label\" : \"From\", \"keyword\" : \"from\" } ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*-éh₂\", \"lang\" : \"ine-pro\" }, { \"id\" : \"intransitive verbs\", \"children\" : [ ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*-yéti\", \"lang\" : \"ine-pro\" } ], \"keyword_label\" : \"From\", \"is_group\" : true, \"keyword\" : \"affix\" } ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*-eh₂yéti\", \"lang\" : \"ine-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Italic\", \"term\" : \"*-āō\", \"lang\" : \"itc-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"status\" : \"ok\", \"lang_name\" : \"Latin\", \"term\" : \"-ō\", \"lang\" : \"la\" } ], \"keyword_label\" : \"From\", \"keyword\" : \"from\" } ], \"lang_name\" : \"Latin\", \"term\" : \"-tō\", \"status\" : \"ok\", \"lang\" : \"la\" } ], \"keyword_label\" : \"From\", \"keyword\" : \"from\" } ], \"lang_name\" : \"Latin\", \"term\" : \"-itō\", \"status\" : \"ok\", \"lang\" : \"la\" } ], \"keyword_label\" : \"From\", \"is_group\" : true, \"keyword\" : \"affix\" } ], \"lang_name\" : \"Latin\", \"term\" : \"agitō\", \"status\" : \"ok\", \"lang\" : \"la\" } ], \"keyword_label\" : \"From\", \"is_group\" : true, \"keyword\" : \"affix\" } ], \"lang_name\" : \"Latin\", \"term\" : \"cogito\", \"status\" : \"ok\", \"lang\" : \"la\" }\" data-lang=\"la\" data-title=\"cogito\">"
-            },
-            {
-              "name": "af",
-              "args": {
-                "1": "la",
-                "2": "con-",
-                "3": "agitō"
-              },
-              "expansion": "con- + agitō"
+              "expansion": "Etymology tree\nProto-Indo-European *ḱe?\nProto-Indo-European *ḱóm\nProto-Italic *kom\nProto-Italic *kom-\nLatin con-\nProto-Indo-European *h₂eǵ-\nProto-Indo-European *-eti\nProto-Indo-European *h₂éǵeti\nProto-Italic *agō\nLatin agō\nProto-Indo-European *-tós\nProto-Italic *-tos\nLatin -tus\nProto-Indo-European *-h₂\nProto-Indo-European *-éh₂\nProto-Indo-European *-yéti\nProto-Indo-European *-eh₂yéti\nProto-Italic *-āō\nLatin -ō\nLatin -tō\nLatin -itō\nLatin agitō\nLatin cōgitō\n[Appendix:Glossary#inherited|Inherited]] from\", \"keyword\" : \"inherited\" } ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Italic\", \"term\" : \"*kom\", \"lang\" : \"itc-pro\" } ], \"keyword_label\" : \"From\", \"keyword\" : \"from\" } ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Italic\", \"term\" : \"*kom-\", \"lang\" : \"itc-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Latin\", \"term\" : \"con-\", \"status\" : \"ok\", \"lang\" : \"la\" }, { \"children\" : [ { \"terms\" : [ { \"children\" : [ { \"terms\" : [ { \"id\" : \"drive\", \"children\" : [ { \"terms\" : [ { \"id\" : \"be driving\", \"children\" : [ { \"terms\" : [ { \"id\" : \"drive\", \"children\" : [ ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*h₂eǵ-\", \"lang\" : \"ine-pro\" }, { \"children\" : [ ], \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*-eti\", \"status\" : \"ok\", \"lang\" : \"ine-pro\" } ], \"keyword_label\" : \"From\", \"is_group\" : true, \"keyword\" : \"affix\" } ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*h₂éǵeti\", \"lang\" : \"ine-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Italic\", \"term\" : \"*agō\", \"lang\" : \"itc-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Latin\", \"term\" : \"agō\", \"status\" : \"ok\", \"lang\" : \"la\" }, { \"children\" : [ { \"terms\" : [ { \"children\" : [ { \"terms\" : [ { \"id\" : \"past participle\", \"children\" : [ { \"terms\" : [ { \"id\" : \"verbal adjectives\", \"children\" : [ { \"terms\" : [ { \"id\" : \"verbal adjectives\", \"children\" : [ ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*-tós\", \"lang\" : \"ine-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Italic\", \"term\" : \"*-tos\", \"lang\" : \"itc-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"status\" : \"ok\", \"lang_name\" : \"Latin\", \"term\" : \"-tus\", \"lang\" : \"la\" }, { \"id\" : \"denominative\", \"children\" : [ { \"terms\" : [ { \"id\" : \"suf\", \"children\" : [ { \"terms\" : [ { \"id\" : \"suf\", \"children\" : [ { \"terms\" : [ { \"id\" : \"collective nouns\", \"children\" : [ { \"terms\" : [ { \"id\" : \"collective nouns\", \"children\" : [ ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*-h₂\", \"lang\" : \"ine-pro\" } ], \"keyword_label\" : \"From\", \"keyword\" : \"from\" } ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*-éh₂\", \"lang\" : \"ine-pro\" }, { \"id\" : \"intransitive verbs\", \"children\" : [ ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*-yéti\", \"lang\" : \"ine-pro\" } ], \"keyword_label\" : \"From\", \"is_group\" : true, \"keyword\" : \"affix\" } ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*-eh₂yéti\", \"lang\" : \"ine-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Italic\", \"term\" : \"*-āō\", \"lang\" : \"itc-pro\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"status\" : \"ok\", \"lang_name\" : \"Latin\", \"term\" : \"-ō\", \"lang\" : \"la\" } ], \"keyword_label\" : \"From\", \"keyword\" : \"from\" } ], \"lang_name\" : \"Latin\", \"term\" : \"-tō\", \"status\" : \"ok\", \"lang\" : \"la\" } ], \"keyword_label\" : \"From\", \"keyword\" : \"from\" } ], \"lang_name\" : \"Latin\", \"term\" : \"-itō\", \"status\" : \"ok\", \"lang\" : \"la\" } ], \"keyword_label\" : \"From\", \"is_group\" : true, \"keyword\" : \"affix\" } ], \"lang_name\" : \"Latin\", \"term\" : \"agitō\", \"status\" : \"ok\", \"lang\" : \"la\" } ], \"keyword_label\" : \"From\", \"is_group\" : true, \"keyword\" : \"affix\" } ], \"lang_name\" : \"Latin\", \"term\" : \"cōgitō\", \"status\" : \"ok\", \"lang\" : \"la\" }\" data-lang=\"la\" data-title=\"cōgitō\">\nFrom con- + agitō."
             }
           ],
           "sounds": [
@@ -99825,14 +101821,14 @@
                 },
                 {
                   "text": "Scelera in se fratris",
-                  "ref": "27 BCE – 25 BCE, Titus Livius, Ab Urbe Condita I.6",
+                  "ref": "27 BCE – 25 BCE, Titus Livius, Ab urbe condita I.6",
                   "english": "The brother’s crimes against himself",
                   "translation": "The brother’s crimes against himself",
                   "type": "quotation"
                 },
                 {
                   "text": "in adversum Romani subiere",
-                  "ref": "27 BCE – 25 BCE, Titus Livius, Ab Urbe Condita I.12",
+                  "ref": "27 BCE – 25 BCE, Titus Livius, Ab urbe condita I.12",
                   "english": "The Romans marched against their enemy",
                   "translation": "The Romans marched against their enemy",
                   "type": "quotation"
@@ -99960,7 +101956,7 @@
               "examples": [
                 {
                   "text": "generatimque distributi in civitates",
-                  "ref": "c. 52 BCE, Julius Caesar, Commentarii de Bello Gallico VII.19",
+                  "ref": "c. 52 BCE, Julius Caesar, Commentarii de bello Gallico VII.19",
                   "english": "and being distributed in tribes according to their respective nations",
                   "translation": "and being distributed in tribes according to their respective nations",
                   "type": "quotation"
@@ -100214,13 +102210,18 @@
               "categories": [
                 "Latin 2-syllable words",
                 "Latin adverbs",
+                "Latin entries referencing missing etymons",
+                "Latin entries with etymology texts",
+                "Latin entries with etymology trees",
                 "Latin entries with incorrect language header",
                 "Latin lemmas",
                 "Latin terms suffixed with -e",
                 "Latin terms with IPA pronunciation",
                 "Latin terms with usage examples",
+                "Pages using etymon with no ID",
                 "Pages with 17 entries",
-                "Pages with entries"
+                "Pages with entries",
+                "Pages with etymology trees"
               ]
             }
           ],
@@ -100276,17 +102277,20 @@
               "word": "festīnā lentē"
             }
           ],
-          "etymology_text": "From lentus (“slow”) + -ē.",
+          "etymology_text": "Etymology tree\nProto-Indo-European *lent-\nProto-Indo-European *-os\nProto-Italic *lentos\nLatin lentus\nLatin -ē\nLatin lentē\nFrom lentus (“slow”) + -ē.",
           "etymology_templates": [
             {
-              "name": "suf",
+              "name": "ety",
               "args": {
                 "1": "la",
-                "2": "lentus",
-                "3": "ē",
-                "gloss1": "slow"
+                "title": "lentē",
+                "2": ":af",
+                "3": "lentus<t:slow>",
+                "4": "-ē",
+                "text": "+",
+                "tree": "1"
               },
-              "expansion": "lentus (“slow”) + -ē"
+              "expansion": "Etymology tree\nProto-Indo-European *lent-\nProto-Indo-European *-os\nProto-Italic *lentos\nLatin lentus\nLatin -ē\nLatin lentē\n[Appendix:Glossary#inherited|Inherited]] from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Latin\", \"term\" : \"lentus\", \"status\" : \"ok\", \"lang\" : \"la\" }, { \"children\" : [ ], \"lang_name\" : \"Latin\", \"term\" : \"-ē\", \"status\" : \"missing\", \"lang\" : \"la\" } ], \"keyword_label\" : \"From\", \"is_group\" : true, \"keyword\" : \"affix\" } ], \"lang_name\" : \"Latin\", \"term\" : \"lentē\", \"status\" : \"ok\", \"lang\" : \"la\" }\" data-lang=\"la\" data-title=\"lentē\">\nFrom lentus (“slow”) + -ē."
             }
           ],
           "sounds": [
@@ -100307,6 +102311,771 @@
             "Pages with 17 entries",
             "Pages with entries"
           ]
+        }
+      },
+      {
+        "url": "https://kaikki.org/dictionary/All%20languages%20combined/meaning/p/pu/pulcher.html",
+        "download_url": "https://kaikki.org/dictionary/All%20languages%20combined/meaning/p/pu/pulcher.jsonl",
+        "json": {
+          "word": "pulcher",
+          "pos": "adj",
+          "senses": [
+            {
+              "links": [
+                [
+                  "beautiful",
+                  "beautiful"
+                ],
+                [
+                  "fair",
+                  "fair"
+                ],
+                [
+                  "pretty",
+                  "pretty"
+                ]
+              ],
+              "synonyms": [
+                {
+                  "word": "bellus"
+                },
+                {
+                  "word": "speciōsus"
+                },
+                {
+                  "word": "fōrmōsus"
+                }
+              ],
+              "glosses": [
+                "beautiful, fair, pretty"
+              ],
+              "tags": [
+                "adjective",
+                "declension-1",
+                "declension-2"
+              ]
+            },
+            {
+              "links": [
+                [
+                  "noble",
+                  "noble"
+                ],
+                [
+                  "honorable",
+                  "honorable"
+                ],
+                [
+                  "excellent",
+                  "excellent"
+                ]
+              ],
+              "synonyms": [
+                {
+                  "word": "nōbilis"
+                },
+                {
+                  "word": "honōrābilis"
+                },
+                {
+                  "word": "excellēns"
+                }
+              ],
+              "raw_glosses": [
+                "(figuratively) noble, honorable, excellent"
+              ],
+              "glosses": [
+                "noble, honorable, excellent"
+              ],
+              "tags": [
+                "adjective",
+                "declension-1",
+                "declension-2",
+                "figuratively"
+              ]
+            }
+          ],
+          "head_templates": [
+            {
+              "name": "la-adj",
+              "args": {
+                "1": "pulcher/pulchr",
+                "comp": "pulchrior",
+                "sup": "pulcherrimus",
+                "adv": "pulchrē"
+              },
+              "expansion": "pulcher (feminine pulchra, neuter pulchrum, comparative pulchrior, superlative pulcherrimus, adverb pulchrē); first/second-declension adjective (nominative masculine singular in -er)"
+            }
+          ],
+          "categories": [
+            "Latin 2-syllable words",
+            "Latin adjectives",
+            "Latin entries with incorrect language header",
+            "Latin first and second declension adjectives",
+            "Latin first and second declension adjectives with nominative masculine singular in -er",
+            "Latin lemmas",
+            "Latin terms borrowed from Etruscan",
+            "Latin terms derived from Etruscan",
+            "Latin terms derived from Proto-Indo-European",
+            "Latin terms derived from Proto-Italic",
+            "Latin terms derived from the Proto-Indo-European root *perḱ- (colored)",
+            "Latin terms inherited from Proto-Indo-European",
+            "Latin terms inherited from Proto-Italic",
+            "Latin terms with IPA pronunciation",
+            "Latin terms with unknown etymologies",
+            "Pages with 1 entry",
+            "Pages with entries",
+            "la:Appearance"
+          ],
+          "forms": [
+            {
+              "form": "pulchra",
+              "tags": [
+                "feminine"
+              ]
+            },
+            {
+              "form": "pulchrum",
+              "tags": [
+                "neuter"
+              ]
+            },
+            {
+              "form": "pulchrior",
+              "tags": [
+                "comparative"
+              ]
+            },
+            {
+              "form": "pulcherrimus",
+              "tags": [
+                "superlative"
+              ]
+            },
+            {
+              "form": "pulchrē",
+              "links": [
+                [
+                  "pulchrē",
+                  "pulchre"
+                ]
+              ],
+              "tags": [
+                "adverb"
+              ]
+            },
+            {
+              "form": "in -er",
+              "tags": [
+                "masculine",
+                "nominative",
+                "singular"
+              ]
+            },
+            {
+              "form": "no-table-tags",
+              "source": "declension",
+              "tags": [
+                "table-tags"
+              ]
+            },
+            {
+              "form": "la-adecl",
+              "source": "declension",
+              "tags": [
+                "inflection-template"
+              ]
+            },
+            {
+              "form": "pulcher",
+              "tags": [
+                "masculine",
+                "nominative",
+                "singular"
+              ],
+              "source": "declension"
+            },
+            {
+              "form": "pulchra",
+              "tags": [
+                "feminine",
+                "nominative",
+                "singular"
+              ],
+              "source": "declension"
+            },
+            {
+              "form": "pulchrum",
+              "tags": [
+                "neuter",
+                "nominative",
+                "singular"
+              ],
+              "source": "declension"
+            },
+            {
+              "form": "pulchrī",
+              "tags": [
+                "masculine",
+                "nominative",
+                "plural"
+              ],
+              "source": "declension",
+              "links": [
+                [
+                  "pulchrī",
+                  "pulchri#Latin"
+                ]
+              ]
+            },
+            {
+              "form": "pulchrae",
+              "tags": [
+                "feminine",
+                "nominative",
+                "plural"
+              ],
+              "source": "declension"
+            },
+            {
+              "form": "pulchra",
+              "tags": [
+                "neuter",
+                "nominative",
+                "plural"
+              ],
+              "source": "declension"
+            },
+            {
+              "form": "pulchrī",
+              "tags": [
+                "genitive",
+                "masculine",
+                "singular"
+              ],
+              "source": "declension",
+              "links": [
+                [
+                  "pulchrī",
+                  "pulchri#Latin"
+                ]
+              ]
+            },
+            {
+              "form": "pulchrae",
+              "tags": [
+                "feminine",
+                "genitive",
+                "singular"
+              ],
+              "source": "declension"
+            },
+            {
+              "form": "pulchrī",
+              "tags": [
+                "genitive",
+                "neuter",
+                "singular"
+              ],
+              "source": "declension",
+              "links": [
+                [
+                  "pulchrī",
+                  "pulchri#Latin"
+                ]
+              ]
+            },
+            {
+              "form": "pulchrōrum",
+              "tags": [
+                "genitive",
+                "masculine",
+                "plural"
+              ],
+              "source": "declension",
+              "links": [
+                [
+                  "pulchrōrum",
+                  "pulchrorum#Latin"
+                ]
+              ]
+            },
+            {
+              "form": "pulchrārum",
+              "tags": [
+                "feminine",
+                "genitive",
+                "plural"
+              ],
+              "source": "declension",
+              "links": [
+                [
+                  "pulchrārum",
+                  "pulchrarum#Latin"
+                ]
+              ]
+            },
+            {
+              "form": "pulchrōrum",
+              "tags": [
+                "genitive",
+                "neuter",
+                "plural"
+              ],
+              "source": "declension",
+              "links": [
+                [
+                  "pulchrōrum",
+                  "pulchrorum#Latin"
+                ]
+              ]
+            },
+            {
+              "form": "pulchrō",
+              "tags": [
+                "dative",
+                "masculine",
+                "singular"
+              ],
+              "source": "declension",
+              "links": [
+                [
+                  "pulchrō",
+                  "pulchro#Latin"
+                ]
+              ]
+            },
+            {
+              "form": "pulchrae",
+              "tags": [
+                "dative",
+                "feminine",
+                "singular"
+              ],
+              "source": "declension"
+            },
+            {
+              "form": "pulchrō",
+              "tags": [
+                "dative",
+                "neuter",
+                "singular"
+              ],
+              "source": "declension",
+              "links": [
+                [
+                  "pulchrō",
+                  "pulchro#Latin"
+                ]
+              ]
+            },
+            {
+              "form": "pulchrīs",
+              "tags": [
+                "dative",
+                "feminine",
+                "masculine",
+                "neuter",
+                "plural"
+              ],
+              "source": "declension",
+              "links": [
+                [
+                  "pulchrīs",
+                  "pulchris#Latin"
+                ]
+              ]
+            },
+            {
+              "form": "pulchrum",
+              "tags": [
+                "accusative",
+                "masculine",
+                "singular"
+              ],
+              "source": "declension"
+            },
+            {
+              "form": "pulchram",
+              "tags": [
+                "accusative",
+                "feminine",
+                "singular"
+              ],
+              "source": "declension"
+            },
+            {
+              "form": "pulchrum",
+              "tags": [
+                "accusative",
+                "neuter",
+                "singular"
+              ],
+              "source": "declension"
+            },
+            {
+              "form": "pulchrōs",
+              "tags": [
+                "accusative",
+                "masculine",
+                "plural"
+              ],
+              "source": "declension",
+              "links": [
+                [
+                  "pulchrōs",
+                  "pulchros#Latin"
+                ]
+              ]
+            },
+            {
+              "form": "pulchrās",
+              "tags": [
+                "accusative",
+                "feminine",
+                "plural"
+              ],
+              "source": "declension",
+              "links": [
+                [
+                  "pulchrās",
+                  "pulchras#Latin"
+                ]
+              ]
+            },
+            {
+              "form": "pulchra",
+              "tags": [
+                "accusative",
+                "neuter",
+                "plural"
+              ],
+              "source": "declension"
+            },
+            {
+              "form": "pulchrō",
+              "tags": [
+                "ablative",
+                "masculine",
+                "singular"
+              ],
+              "source": "declension",
+              "links": [
+                [
+                  "pulchrō",
+                  "pulchro#Latin"
+                ]
+              ]
+            },
+            {
+              "form": "pulchrā",
+              "tags": [
+                "ablative",
+                "feminine",
+                "singular"
+              ],
+              "source": "declension",
+              "links": [
+                [
+                  "pulchrā",
+                  "pulchra#Latin"
+                ]
+              ]
+            },
+            {
+              "form": "pulchrō",
+              "tags": [
+                "ablative",
+                "neuter",
+                "singular"
+              ],
+              "source": "declension",
+              "links": [
+                [
+                  "pulchrō",
+                  "pulchro#Latin"
+                ]
+              ]
+            },
+            {
+              "form": "pulchrīs",
+              "tags": [
+                "ablative",
+                "feminine",
+                "masculine",
+                "neuter",
+                "plural"
+              ],
+              "source": "declension",
+              "links": [
+                [
+                  "pulchrīs",
+                  "pulchris#Latin"
+                ]
+              ]
+            },
+            {
+              "form": "pulcher",
+              "tags": [
+                "masculine",
+                "singular",
+                "vocative"
+              ],
+              "source": "declension"
+            },
+            {
+              "form": "pulchra",
+              "tags": [
+                "feminine",
+                "singular",
+                "vocative"
+              ],
+              "source": "declension"
+            },
+            {
+              "form": "pulchrum",
+              "tags": [
+                "neuter",
+                "singular",
+                "vocative"
+              ],
+              "source": "declension"
+            },
+            {
+              "form": "pulchrī",
+              "tags": [
+                "masculine",
+                "plural",
+                "vocative"
+              ],
+              "source": "declension",
+              "links": [
+                [
+                  "pulchrī",
+                  "pulchri#Latin"
+                ]
+              ]
+            },
+            {
+              "form": "pulchrae",
+              "tags": [
+                "feminine",
+                "plural",
+                "vocative"
+              ],
+              "source": "declension"
+            },
+            {
+              "form": "pulchra",
+              "tags": [
+                "neuter",
+                "plural",
+                "vocative"
+              ],
+              "source": "declension"
+            },
+            {
+              "form": "pulcer",
+              "tags": [
+                "alternative"
+              ]
+            },
+            {
+              "form": "polcher",
+              "tags": [
+                "alternative"
+              ]
+            },
+            {
+              "form": "polcer",
+              "tags": [
+                "alternative"
+              ]
+            }
+          ],
+          "inflection_templates": [
+            {
+              "name": "la-adecl",
+              "args": {
+                "1": "pulcher/pulchr"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "word": "pulchellus"
+            },
+            {
+              "word": "pulchrālia"
+            },
+            {
+              "word": "pulchrē"
+            },
+            {
+              "word": "pulchritās"
+            },
+            {
+              "word": "pulchritūdō"
+            }
+          ],
+          "descendants": [
+            {
+              "lang": "Catalan",
+              "lang_code": "ca",
+              "word": "pulcre",
+              "raw_tags": [
+                "borrowed"
+              ]
+            },
+            {
+              "lang": "Italian",
+              "lang_code": "it",
+              "word": "pulcro",
+              "raw_tags": [
+                "borrowed"
+              ]
+            },
+            {
+              "lang": "Middle French",
+              "lang_code": "frm",
+              "word": "pulcre",
+              "raw_tags": [
+                "borrowed"
+              ]
+            },
+            {
+              "lang": "Portuguese",
+              "lang_code": "pt",
+              "word": "pulcro",
+              "raw_tags": [
+                "borrowed"
+              ]
+            },
+            {
+              "lang": "Spanish",
+              "lang_code": "es",
+              "word": "pulcro",
+              "raw_tags": [
+                "borrowed"
+              ]
+            },
+            {
+              "lang": "Tashelhit",
+              "lang_code": "shi",
+              "word": "fulki",
+              "raw_tags": [
+                "borrowed"
+              ]
+            }
+          ],
+          "wikipedia": [
+            "fr:Jacques André"
+          ],
+          "etymology_text": "Uncertain. The earlier form polcer is traditionally derived from Proto-Italic *porkros, from Proto-Indo-European *pr̥ḱ-ró-s or Proto-Indo-European *perḱ-ro-, from the root *perḱ- (“motley, variegated”), with dissimilation of the first *-r- into *-l-. De Vaan has questioned this change, thinking that the second *r should have disappeared instead, and thus leaves this term without an etymology. Connection with poliō (“to polish, smooth”) or polleō (“to be strong”) is to be excluded.\nThe aspiration is often considered secondary when the word would have been made to derive from Ancient Greek πολύχροος (polúkhroos, “multicolor”) by folk etymology, while an Etruscan borrowing is usually discarded.",
+          "etymology_templates": [
+            {
+              "name": "root",
+              "args": {
+                "1": "la",
+                "2": "ine-pro",
+                "3": "*perḱ-",
+                "id": "colored"
+              },
+              "expansion": ""
+            },
+            {
+              "name": "unc",
+              "args": {
+                "1": "la"
+              },
+              "expansion": "Uncertain"
+            },
+            {
+              "name": "inh",
+              "args": {
+                "1": "la",
+                "2": "itc-pro",
+                "3": "*porkros"
+              },
+              "expansion": "Proto-Italic *porkros"
+            },
+            {
+              "name": "inh",
+              "args": {
+                "1": "la",
+                "2": "ine-pro",
+                "3": "",
+                "4": "*pr̥ḱ-ró-s"
+              },
+              "expansion": "Proto-Indo-European *pr̥ḱ-ró-s"
+            },
+            {
+              "name": "inh",
+              "args": {
+                "1": "la",
+                "2": "ine-pro",
+                "3": "",
+                "4": "*perḱ-ro-"
+              },
+              "expansion": "Proto-Indo-European *perḱ-ro-"
+            },
+            {
+              "name": "ncog",
+              "args": {
+                "1": "grc",
+                "2": "πολύχροος",
+                "3": "",
+                "4": "multicolor"
+              },
+              "expansion": "Ancient Greek πολύχροος (polúkhroos, “multicolor”)"
+            },
+            {
+              "name": "glossary",
+              "args": {
+                "1": "folk etymology"
+              },
+              "expansion": "folk etymology"
+            },
+            {
+              "name": "m+",
+              "args": {
+                "1": "en",
+                "2": "anthem"
+              },
+              "expansion": "English anthem"
+            },
+            {
+              "name": "ref",
+              "args": {
+                "group": "n",
+                "1": "For this compare <i class=\"Latn mention\" lang=\"la\">triumphus</i>, <i class=\"Latn mention\" lang=\"la\">Carthāgō</i>, and also English <i class=\"Latn mention\" lang=\"en\">anthem</i>, <i class=\"Latn mention\" lang=\"en\">author</i>, <i class=\"Latn mention\" lang=\"en\">Anthony</i>, etc."
+              },
+              "expansion": ""
+            },
+            {
+              "name": "bor",
+              "args": {
+                "1": "la",
+                "2": "ett",
+                "3": "-"
+              },
+              "expansion": "Etruscan"
+            }
+          ],
+          "sounds": [
+            {
+              "tags": [
+                "Classical-Latin"
+              ],
+              "ipa": "[ˈpʊɫ.kʰɛr]"
+            },
+            {
+              "note": "modern Italianate Ecclesiastical",
+              "ipa": "[ˈpul.ker]"
+            }
+          ],
+          "lang": "Latin",
+          "lang_code": "la"
         }
       }
     ],
@@ -111792,7 +114561,7 @@
               "word": "akullthyes"
             }
           ],
-          "etymology_number": 1,
+          "etymology_number": "1",
           "etymology_text": "Uncertain. Possibly:\n# A derivation from Proto-Indo-European *keHl- whence also Proto-Celtic *kaletos (“hard”), Proto-Slavic *kaliti (“to temper, harden”), Latin callum (“hardened skin”).\n# Borrowed from Germanic, ultimately from Proto-Germanic *jekulaz (“icicle”).\n# Akin Old Armenian ոյծ (oyc, “cold, frost”), suffixed with -ull, though the two terms are phonologically incompatible.",
           "etymology_templates": [
             {
@@ -112950,7 +115719,7 @@
               "word": "gjuhustër"
             }
           ],
-          "etymology_text": "Unclear. From Old Albanian gluhë, most likely from Proto-Albanian *glu.a, with sporadic intervocalic loss of b (see pi, det, and dra) and insertion of a hiatus-like h (see bahe, kohë, and pah), from Pre-Proto-Albanian *glubā- (\"tip\"), from Proto-Indo-European *ǵlubʰah₂- (“point”).\nA loan from Ancient Greek γλῶσσα (glôssa) is improbable from a linguistic and cultural standpoint, as Ancient Greek loans involved terms of trade and agriculture, not body parts, and a Proto-Albanian derivation would have been *gluśa, phonetically improbable.",
+          "etymology_text": "Unclear. From Old Albanian gluhë, most likely from earlier *glu.a, with sporadic intervocalic loss of b (see pi, det, and dra) and insertion of a hiatus-filling h (see bahe, kohë, and pah), from Proto-Albanian *glubā (“tip”), from Proto-Indo-European *ǵlubʰeh₂- (“point”), albeit with no adduced cognates. Alternatively, from a Proto-Albanian *glusā, from Proto-Indo-European *gl̥H-so-s, a zero-grade variant of *golH-so-s, from *gelH- (“to call”); compare Proto-Balto-Slavic *galsás (“voice”).\nA loan from Ancient Greek γλῶσσα (glôssa) is improbable from a semantic and phonetic standpoint, as Ancient Greek loans involved terms of trade and agriculture, not body parts, and would have given **gluśa in Proto-Albanian.",
           "etymology_templates": [
             {
               "name": "unk",
@@ -112965,20 +115734,50 @@
               "args": {
                 "1": "sq",
                 "2": "sqj-pro",
-                "3": "*glu.a"
+                "3": "*glubā",
+                "4": "",
+                "5": "tip"
               },
-              "expansion": "Proto-Albanian *glu.a"
+              "expansion": "Proto-Albanian *glubā (“tip”)"
             },
             {
               "name": "inh",
               "args": {
                 "1": "sq",
                 "2": "ine-pro",
-                "3": "*ǵlubʰah₂-",
+                "3": "*ǵlubʰeh₂-",
                 "4": "",
                 "t": "point"
               },
-              "expansion": "Proto-Indo-European *ǵlubʰah₂- (“point”)"
+              "expansion": "Proto-Indo-European *ǵlubʰeh₂- (“point”)"
+            },
+            {
+              "name": "inh",
+              "args": {
+                "1": "sq",
+                "2": "sqj-pro",
+                "3": "*glusā"
+              },
+              "expansion": "Proto-Albanian *glusā"
+            },
+            {
+              "name": "inh",
+              "args": {
+                "1": "sq",
+                "2": "ine-pro",
+                "3": "",
+                "4": "*gl̥H-so-s"
+              },
+              "expansion": "Proto-Indo-European *gl̥H-so-s"
+            },
+            {
+              "name": "cog",
+              "args": {
+                "1": "ine-bsl-pro",
+                "2": "*galsás",
+                "t": "voice"
+              },
+              "expansion": "Proto-Balto-Slavic *galsás (“voice”)"
             },
             {
               "name": "cog",
@@ -116226,7 +119025,7 @@
               ]
             }
           ],
-          "etymology_number": 2,
+          "etymology_number": "2",
           "wikipedia": [
             "Jerry Norman (sinologist)"
           ],

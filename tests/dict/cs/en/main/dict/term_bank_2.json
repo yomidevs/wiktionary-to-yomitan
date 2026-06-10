@@ -176,6 +176,40 @@
     ""
   ],
   [
+    "přící",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "přít",
+        [
+          "active participle adjectival"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "proucí",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "přít",
+        [
+          "active participle adjectival"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
     "přu",
     "",
     "non-lemma",
@@ -185,7 +219,7 @@
       [
         "přít",
         [
-          "first-person singular indicative"
+          "first-person singular present indicative"
         ]
       ]
     ],
@@ -202,7 +236,7 @@
       [
         "přít",
         [
-          "first-person plural imperative/indicative"
+          "first-person plural present imperative/indicative"
         ]
       ]
     ],
@@ -219,7 +253,7 @@
       [
         "přít",
         [
-          "second-person singular indicative"
+          "second-person singular present indicative"
         ]
       ]
     ],
@@ -236,7 +270,7 @@
       [
         "přít",
         [
-          "second-person plural imperative/indicative"
+          "second-person plural present imperative/indicative"
         ]
       ]
     ],
@@ -253,7 +287,7 @@
       [
         "přít",
         [
-          "second-person singular imperative"
+          "second-person singular present imperative"
         ]
       ]
     ],
@@ -270,13 +304,13 @@
       [
         "přít",
         [
-          "singular masculine present"
+          "singular masculine present transgressive"
         ]
       ],
       [
         "přít",
         [
-          "third-person singular indicative"
+          "third-person singular present indicative"
         ]
       ]
     ],
@@ -293,7 +327,7 @@
       [
         "přít",
         [
-          "third-person plural indicative"
+          "third-person plural present indicative"
         ]
       ]
     ],
@@ -301,7 +335,7 @@
     ""
   ],
   [
-    "pra",
+    "přel",
     "",
     "non-lemma",
     "",
@@ -310,7 +344,13 @@
       [
         "přít",
         [
-          "singular masculine present"
+          "singular masculine animate past participle"
+        ]
+      ],
+      [
+        "přít",
+        [
+          "singular masculine inanimate past participle"
         ]
       ]
     ],
@@ -318,7 +358,7 @@
     ""
   ],
   [
-    "příc",
+    "přeli",
     "",
     "non-lemma",
     "",
@@ -327,7 +367,7 @@
       [
         "přít",
         [
-          "singular feminine neuter present"
+          "plural masculine animate past participle"
         ]
       ]
     ],
@@ -335,7 +375,7 @@
     ""
   ],
   [
-    "prouc",
+    "přely",
     "",
     "non-lemma",
     "",
@@ -344,41 +384,13 @@
       [
         "přít",
         [
-          "singular feminine neuter present"
+          "plural feminine past participle"
         ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "příce",
-    "",
-    "non-lemma",
-    "",
-    0,
-    [
+      ],
       [
         "přít",
         [
-          "plural present"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "prouce",
-    "",
-    "non-lemma",
-    "",
-    0,
-    [
-      [
-        "přít",
-        [
-          "plural present"
+          "plural masculine inanimate past participle"
         ]
       ]
     ],
@@ -402,6 +414,142 @@
         "přít",
         [
           "singular feminine past active participle"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "přelo",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "přít",
+        [
+          "singular neuter past participle"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "pra",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "přít",
+        [
+          "singular masculine present transgressive"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "příc",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "přít",
+        [
+          "singular feminine neuter present transgressive"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "prouc",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "přít",
+        [
+          "singular feminine neuter present transgressive"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "příce",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "přít",
+        [
+          "plural present transgressive"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "prouce",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "přít",
+        [
+          "plural present transgressive"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "jsoucí",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "být",
+        [
+          "active participle adjectival"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "byvší",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "být",
+        [
+          "active participle adjectival"
         ]
       ]
     ],
@@ -435,7 +583,7 @@
       [
         "být",
         [
-          "first-person singular indicative"
+          "first-person singular present indicative"
         ]
       ]
     ],
@@ -452,7 +600,7 @@
       [
         "být",
         [
-          "first-person plural indicative"
+          "first-person plural present indicative"
         ]
       ]
     ],
@@ -469,7 +617,7 @@
       [
         "být",
         [
-          "first-person plural imperative"
+          "first-person plural present imperative"
         ]
       ]
     ],
@@ -486,7 +634,7 @@
       [
         "být",
         [
-          "second-person singular indicative"
+          "second-person singular present indicative"
         ]
       ]
     ],
@@ -503,7 +651,7 @@
       [
         "být",
         [
-          "second-person plural indicative"
+          "second-person plural present indicative"
         ]
       ]
     ],
@@ -520,7 +668,7 @@
       [
         "být",
         [
-          "second-person singular imperative"
+          "second-person singular present imperative"
         ]
       ]
     ],
@@ -537,7 +685,7 @@
       [
         "být",
         [
-          "second-person plural imperative"
+          "second-person plural present imperative"
         ]
       ]
     ],
@@ -554,7 +702,7 @@
       [
         "být",
         [
-          "third-person singular indicative"
+          "third-person singular present indicative"
         ]
       ]
     ],
@@ -571,7 +719,7 @@
       [
         "být",
         [
-          "third-person singular indicative"
+          "third-person singular present indicative"
         ]
       ]
     ],
@@ -588,7 +736,110 @@
       [
         "být",
         [
-          "third-person plural indicative"
+          "third-person plural present indicative"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "byl",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "být",
+        [
+          "singular masculine animate past participle"
+        ]
+      ],
+      [
+        "být",
+        [
+          "singular masculine inanimate past participle"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "byli",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "být",
+        [
+          "plural masculine animate past participle"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "byly",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "být",
+        [
+          "plural feminine past participle"
+        ]
+      ],
+      [
+        "být",
+        [
+          "plural masculine inanimate past participle"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "byla",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "být",
+        [
+          "plural neuter past participle"
+        ]
+      ],
+      [
+        "být",
+        [
+          "singular feminine past participle"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "bylo",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "být",
+        [
+          "singular neuter past participle"
         ]
       ]
     ],
@@ -605,7 +856,7 @@
       [
         "být",
         [
-          "singular masculine present"
+          "singular masculine present transgressive"
         ]
       ]
     ],
@@ -622,7 +873,7 @@
       [
         "být",
         [
-          "singular masculine past"
+          "singular masculine past transgressive"
         ]
       ]
     ],
@@ -639,7 +890,7 @@
       [
         "být",
         [
-          "singular feminine neuter present"
+          "singular feminine neuter present transgressive"
         ]
       ]
     ],
@@ -656,7 +907,7 @@
       [
         "být",
         [
-          "singular feminine neuter past"
+          "singular feminine neuter past transgressive"
         ]
       ]
     ],
@@ -673,7 +924,7 @@
       [
         "být",
         [
-          "plural present"
+          "plural present transgressive"
         ]
       ]
     ],
@@ -690,7 +941,7 @@
       [
         "být",
         [
-          "plural past"
+          "plural past transgressive"
         ]
       ]
     ],
@@ -732,6 +983,40 @@
     ""
   ],
   [
+    "nejsoucí",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "nebýt",
+        [
+          "active participle adjectival"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "nebyvší",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "nebýt",
+        [
+          "active participle adjectival"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
     "nejsem",
     "",
     "non-lemma",
@@ -741,7 +1026,7 @@
       [
         "nebýt",
         [
-          "first-person singular indicative"
+          "first-person singular present indicative"
         ]
       ]
     ],
@@ -758,7 +1043,7 @@
       [
         "nebýt",
         [
-          "first-person plural indicative"
+          "first-person plural present indicative"
         ]
       ]
     ],
@@ -775,7 +1060,7 @@
       [
         "nebýt",
         [
-          "first-person plural imperative"
+          "first-person plural present imperative"
         ]
       ]
     ],
@@ -792,7 +1077,7 @@
       [
         "nebýt",
         [
-          "second-person singular indicative"
+          "second-person singular present indicative"
         ]
       ]
     ],
@@ -809,7 +1094,7 @@
       [
         "nebýt",
         [
-          "second-person plural indicative"
+          "second-person plural present indicative"
         ]
       ]
     ],
@@ -826,7 +1111,7 @@
       [
         "nebýt",
         [
-          "second-person singular imperative"
+          "second-person singular present imperative"
         ]
       ]
     ],
@@ -843,7 +1128,7 @@
       [
         "nebýt",
         [
-          "second-person plural imperative"
+          "second-person plural present imperative"
         ]
       ]
     ],
@@ -860,7 +1145,7 @@
       [
         "nebýt",
         [
-          "third-person singular indicative"
+          "third-person singular present indicative"
         ]
       ]
     ],
@@ -877,7 +1162,7 @@
       [
         "nebýt",
         [
-          "third-person plural indicative"
+          "third-person plural present indicative"
         ]
       ]
     ],
@@ -987,7 +1272,7 @@
     ""
   ],
   [
-    "nejsa",
+    "nebyl",
     "",
     "non-lemma",
     "",
@@ -996,7 +1281,13 @@
       [
         "nebýt",
         [
-          "singular masculine present"
+          "singular masculine animate past participle"
+        ]
+      ],
+      [
+        "nebýt",
+        [
+          "singular masculine inanimate past participle"
         ]
       ]
     ],
@@ -1004,7 +1295,7 @@
     ""
   ],
   [
-    "nebyv",
+    "nebyli",
     "",
     "non-lemma",
     "",
@@ -1013,7 +1304,7 @@
       [
         "nebýt",
         [
-          "singular masculine past"
+          "plural masculine animate past participle"
         ]
       ]
     ],
@@ -1021,7 +1312,7 @@
     ""
   ],
   [
-    "nejsouc",
+    "nebyly",
     "",
     "non-lemma",
     "",
@@ -1030,7 +1321,13 @@
       [
         "nebýt",
         [
-          "singular feminine neuter present"
+          "plural feminine past participle"
+        ]
+      ],
+      [
+        "nebýt",
+        [
+          "plural masculine inanimate past participle"
         ]
       ]
     ],
@@ -1038,7 +1335,7 @@
     ""
   ],
   [
-    "nebyvši",
+    "nebyla",
     "",
     "non-lemma",
     "",
@@ -1047,41 +1344,13 @@
       [
         "nebýt",
         [
-          "singular feminine neuter past"
+          "plural neuter past participle"
         ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "nejsouce",
-    "",
-    "non-lemma",
-    "",
-    0,
-    [
+      ],
       [
         "nebýt",
         [
-          "plural present"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "nebyvše",
-    "",
-    "non-lemma",
-    "",
-    0,
-    [
-      [
-        "nebýt",
-        [
-          "plural past"
+          "singular feminine past participle"
         ]
       ]
     ],
@@ -1099,6 +1368,108 @@
         "nebýt",
         [
           "singular neuter past active participle"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "nejsa",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "nebýt",
+        [
+          "singular masculine present transgressive"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "nebyv",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "nebýt",
+        [
+          "singular masculine past transgressive"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "nejsouc",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "nebýt",
+        [
+          "singular feminine neuter present transgressive"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "nebyvši",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "nebýt",
+        [
+          "singular feminine neuter past transgressive"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "nejsouce",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "nebýt",
+        [
+          "plural present transgressive"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "nebyvše",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "nebýt",
+        [
+          "plural past transgressive"
         ]
       ]
     ],

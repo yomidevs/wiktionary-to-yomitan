@@ -13,6 +13,13 @@
                 "Koine",
                 "declension-2",
                 "masculine"
+              ],
+              "examples": [
+                {
+                  "text": "εἴ οἱ καὶ μάλα πολλὸν ἀπόπροθι πίονες ἀγροί […]\neí hoi kaì mála pollòn apóprothi píones agroí[…]",
+                  "translation": "Even though his rich fields lie very far away […]",
+                  "ref": "c. 800 BCE – 600 BCE, Homer, Iliad 23.832"
+                }
               ]
             }
           },

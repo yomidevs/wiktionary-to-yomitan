@@ -198,6 +198,31 @@
                   ]
                 }
               ]
+            },
+            "head (as a unit of length, especially of people)": {
+              "examples": [
+                {
+                  "text": "päätä pidempi",
+                  "translation": "one head taller",
+                  "bold_text_offsets": [
+                    [
+                      0,
+                      5
+                    ]
+                  ],
+                  "bold_translation_offsets": [
+                    [
+                      4,
+                      8
+                    ]
+                  ]
+                }
+              ]
+            },
+            "head (of mind, memory, thinking, intelligence)": {
+              "tags": [
+                "figuratively"
+              ]
             }
           },
           "etymology_text": "From Proto-Finnic *pää (compare Estonian pea, Veps pä), from Proto-Finno-Ugric *päŋe (compare Erzya пе (pe), Komi-Zyrian пом (pom), Northern Mansi пуӈк (puňk), Hungarian fej, fő).",

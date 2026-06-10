@@ -89,22 +89,22 @@
                   ]
                 },
                 {
-                  "text": "Mangez légèrement.",
-                  "ref": "journal Sud-Ouest, édition Charente-Maritime / Charente, 20 août 2022, page 36",
-                  "bold_text_offsets": [
-                    [
-                      0,
-                      6
-                    ]
-                  ]
-                },
-                {
                   "text": "Il mange lentement, handicapé par une mastication pénible, ne dit pas un mot, rit niaisement de loin en loin.",
                   "ref": "Victor Méric, Les Compagnons de l’Escopette, Éditions de l’Épi, Paris, 1930, page 213",
                   "bold_text_offsets": [
                     [
                       3,
                       8
+                    ]
+                  ]
+                },
+                {
+                  "text": "J’avais neuf ans et j’attrapais avec mon frère des sauterelles que nous faisions griller dans le jardin pour les manger.",
+                  "ref": "Francis Carco, Maman Petitdoigt, La Revue de Paris, 1920",
+                  "bold_text_offsets": [
+                    [
+                      113,
+                      119
                     ]
                   ]
                 }

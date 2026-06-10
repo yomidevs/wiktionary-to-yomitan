@@ -410,7 +410,7 @@
                 }
               ]
             },
-            "a red-haired person or horse": {
+            "redhead (a red-haired person)": {
               "tags": [
                 "informal",
                 "masculine",
@@ -433,6 +433,20 @@
                     ]
                   ]
                 }
+              ]
+            },
+            "chestnut, sorrel horse (horse with a reddish-brown coat, mane and tail)": {
+              "tags": [
+                "masculine",
+                "strong"
+              ],
+              "topics": [
+                "equestrianism",
+                "hobbies",
+                "horses",
+                "lifestyle",
+                "pets",
+                "sports"
               ]
             },
             "pledge (prospective member of a fraternity)": {
@@ -565,7 +579,7 @@
               ]
             }
           },
-          "etymology_text": "From Middle High German hërze, from Old High German hërza, from Proto-West Germanic *hertā, from Proto-Germanic *hertô (“heart”), from Proto-Indo-European *ḱḗr (“heart”).\nCognate with Dutch hart, English heart, Danish hjerte, Gothic 𐌷𐌰𐌹𐍂𐍄𐍉 (hairtō).",
+          "etymology_text": "PIE word\n *ḱḗr\nEtymology tree\nProto-Indo-European *ḱerd-\nProto-Indo-European *ḱérd\nProto-Germanic *hertô\nProto-West Germanic *hertā\nOld High German hërza\nMiddle High German hërze\nGerman Herz\nFrom Middle High German hërze, from Old High German hërza, from Proto-West Germanic *hertā, from Proto-Germanic *hertô (“heart”), from Proto-Indo-European *ḱḗr (“heart”).\nCognate with Dutch hart, English heart, Danish hjerte, Gothic 𐌷𐌰𐌹𐍂𐍄𐍉 (hairtō).",
           "head_info_text": "Herz n (weak, genitive Herzens or (very rare) Herzes, plural Herzen, diminutive Herzchen n or Herzlein n or ((also) Ruhrpöttisch) Herzken n)",
           "wlink": "https://en.wiktionary.org/wiki/Herz#German",
           "klink": "https://kaikki.org/dictionary/German/meaning/H/He/Herz.html"

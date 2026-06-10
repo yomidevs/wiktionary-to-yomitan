@@ -2091,12 +2091,12 @@
                         "content": [
                           {
                             "tag": "span",
-                            "title": "法律",
+                            "title": "law",
                             "data": {
                               "content": "tag",
                               "category": "topic"
                             },
-                            "content": "法律"
+                            "content": "law"
                           }
                         ]
                       },
