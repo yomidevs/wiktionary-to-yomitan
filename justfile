@@ -31,7 +31,7 @@ docs-publish:
 add fr to word:
   @cargo run --release -- download {{fr}} {{to}}
   rg "\"word\": \"{{word}}\"" "data/kaikki/{{to}}-extract.jsonl" -N | \
-  jq -c "select(.word == \"{{word}}\")" \
+  jq -c "select(.word == \"{{word}}\" and .lang_code == \"{{fr}}\")" \
   >> "tests/kaikki/{{fr}}-{{to}}-extract.jsonl"; \
 
 flamegraph:
