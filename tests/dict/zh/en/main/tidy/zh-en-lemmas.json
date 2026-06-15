@@ -22,5 +22,80 @@
         }
       ]
     }
+  },
+  "便宜": {
+    "piányi": {
+      "adjective": [
+        {
+          "gloss_tree": {
+            "cheap; inexpensive": {
+              "examples": [
+                {
+                  "text": "這是鎮上最便宜的商店。",
+                  "translation": "This is the cheapest store in town.",
+                  "bold_text_offsets": [
+                    [
+                      5,
+                      7
+                    ]
+                  ],
+                  "bold_translation_offsets": [
+                    [
+                      12,
+                      17
+                    ]
+                  ]
+                },
+                {
+                  "text": "这是镇上最便宜的商店。",
+                  "translation": "This is the cheapest store in town.",
+                  "bold_text_offsets": [
+                    [
+                      5,
+                      7
+                    ]
+                  ],
+                  "bold_translation_offsets": [
+                    [
+                      12,
+                      17
+                    ]
+                  ]
+                },
+                {
+                  "text": "用便宜的肉就做不出好湯。",
+                  "translation": "Cheap meat doesn't make good soup.",
+                  "bold_text_offsets": [
+                    [
+                      1,
+                      3
+                    ]
+                  ],
+                  "bold_translation_offsets": [
+                    [
+                      0,
+                      5
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "synonyms": [
+            {
+              "word": "低廉"
+            },
+            {
+              "word": "低賤"
+            },
+            {
+              "word": "賤"
+            }
+          ],
+          "wlink": "https://en.wiktionary.org/wiki/便宜#Chinese",
+          "klink": "https://kaikki.org/dictionary/Chinese/meaning/便/便宜/便宜.html"
+        }
+      ]
+    }
   }
 }

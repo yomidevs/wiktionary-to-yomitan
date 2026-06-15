@@ -457,5 +457,315 @@
         }
       ]
     }
+  ],
+  [
+    "便宜",
+    "ipa",
+    {
+      "reading": "piányi",
+      "transcriptions": [
+        {
+          "ipa": "/pʰi̯ɛn³⁵ i³/",
+          "tags": [
+            "Mandarin",
+            "Standard-Chinese",
+            "Mainland-China",
+            "std",
+            "Taiwan",
+            "variant",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/pʰi̯ɛn³⁵ i³⁵/",
+          "tags": [
+            "Mandarin",
+            "Standard-Chinese",
+            "Taiwan",
+            "std",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/pʰiɛn²¹ nʲi²¹³/",
+          "tags": [
+            "Mandarin",
+            "Chengdu",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/piɛn²¹³ nʲi²¹/",
+          "tags": [
+            "Mandarin",
+            "Chengdu",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/pʰiæ̃²⁴ i⁵¹/",
+          "tags": [
+            "Mandarin",
+            "Dungan",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/pʰiːn²¹ jiː²¹/",
+          "tags": [
+            "Cantonese",
+            "Guangzhou",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/pʰiɛn²⁴ i²/",
+          "tags": [
+            "Gan",
+            "Nanchang",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/pʰi̯en¹¹ ŋi¹¹/",
+          "tags": [
+            "Hakka",
+            "Sixian",
+            "Miaoli",
+            "Neipu",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/pʰien⁵⁵ ŋi⁵⁵/",
+          "tags": [
+            "Hakka",
+            "Hailu",
+            "Zhudong",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/pʰiɛn¹¹ ŋin¹¹/",
+          "tags": [
+            "Hakka",
+            "Meixian",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/pʰie¹¹ i⁴⁵/",
+          "tags": [
+            "Jin",
+            "Taiyuan",
+            "Sinological-IPA",
+            "dated"
+          ]
+        },
+        {
+          "ipa": "/pɛiŋ⁵³⁻³³ ŋie⁵³/",
+          "tags": [
+            "Min-Dong",
+            "Fuzhou",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/pɛŋ¹³⁻¹¹ ⁽ᵏ⁻⁾ŋi¹³/",
+          "tags": [
+            "Puxian-Min",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/pɛŋ²⁴⁻²¹ ⁽ᵏ⁻⁾ŋi²⁴/",
+          "tags": [
+            "Puxian-Min",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/pan²⁴⁻¹¹ ɡi²⁴/",
+          "tags": [
+            "Min-Nan",
+            "Hokkien",
+            "Xiamen",
+            "Quanzhou",
+            "Zhangzhou",
+            "Penang",
+            "Sinological-IPA",
+            "Taipei"
+          ]
+        },
+        {
+          "ipa": "/pan²³⁻²¹ ɡi²³/",
+          "tags": [
+            "Min-Nan",
+            "Hokkien",
+            "Xiamen",
+            "Quanzhou",
+            "Zhangzhou",
+            "Penang",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/pan¹³⁻²² ɡi¹³/",
+          "tags": [
+            "Min-Nan",
+            "Hokkien",
+            "Xiamen",
+            "Quanzhou",
+            "Zhangzhou",
+            "Penang",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/pan²³⁻³³ ɡi²³/",
+          "tags": [
+            "Min-Nan",
+            "Hokkien",
+            "Xiamen",
+            "Quanzhou",
+            "Zhangzhou",
+            "Penang",
+            "Sinological-IPA",
+            "Kaohsiung"
+          ]
+        },
+        {
+          "ipa": "/pan²⁴⁻²² ɡi²⁴/",
+          "tags": [
+            "Min-Nan",
+            "Hokkien",
+            "Xiamen",
+            "Quanzhou",
+            "Zhangzhou",
+            "Penang",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/piɛn²⁴⁻²² ɡi²⁴/",
+          "tags": [
+            "Min-Nan",
+            "Hokkien",
+            "Xiamen",
+            "Quanzhou",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/pan³³⁻²¹ ɡi²³/",
+          "tags": [
+            "Min-Nan",
+            "Hokkien",
+            "Taiwan",
+            "variant",
+            "Sinological-IPA",
+            "Kaohsiung"
+          ]
+        },
+        {
+          "ipa": "/pan³³⁻¹¹ ɡi²⁴/",
+          "tags": [
+            "Min-Nan",
+            "Hokkien",
+            "Taiwan",
+            "variant",
+            "Sinological-IPA",
+            "Taipei"
+          ]
+        },
+        {
+          "ipa": "/pan⁴⁴⁻³³ ɡi²³/",
+          "tags": [
+            "Min-Nan",
+            "Hokkien",
+            "Taiwan",
+            "variant",
+            "Sinological-IPA",
+            "Kaohsiung"
+          ]
+        },
+        {
+          "ipa": "/pan⁴⁴⁻³³ ɡi²⁴/",
+          "tags": [
+            "Min-Nan",
+            "Hokkien",
+            "Taiwan",
+            "variant",
+            "Sinological-IPA",
+            "Taipei"
+          ]
+        },
+        {
+          "ipa": "/piɛn³³⁻²¹ ɡi²³/",
+          "tags": [
+            "Min-Nan",
+            "Hokkien",
+            "Taiwan",
+            "variant",
+            "Sinological-IPA",
+            "Kaohsiung"
+          ]
+        },
+        {
+          "ipa": "/piɛn³³⁻¹¹ ɡi²⁴/",
+          "tags": [
+            "Min-Nan",
+            "Hokkien",
+            "Taiwan",
+            "variant",
+            "Sinological-IPA",
+            "Taipei"
+          ]
+        },
+        {
+          "ipa": "/piaŋ³⁵⁻¹¹ ŋi⁵⁵/",
+          "tags": [
+            "Min-Nan",
+            "Teochew",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/bi²² n̠ʲi⁴⁴/",
+          "tags": [
+            "Wu",
+            "Northern",
+            "Shanghai",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/bi²² n̠ʲiɪʔ⁴⁴/",
+          "tags": [
+            "Wu",
+            "Northern",
+            "Shanghai",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/bɪ²² n̠ʲiɪʔ³³/",
+          "tags": [
+            "Wu",
+            "Northern",
+            "Suzhou",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "/pi̯ẽ¹³ i³/",
+          "tags": [
+            "Xiang",
+            "Changsha",
+            "Sinological-IPA"
+          ]
+        }
+      ]
+    }
   ]
 ]
