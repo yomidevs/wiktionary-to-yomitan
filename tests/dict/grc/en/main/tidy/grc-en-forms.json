@@ -80,5 +80,186 @@
         ]
       ]
     }
+  },
+  "Ἀθηναῖος": {
+    "Ἀθηναίᾱ": {
+      "adjective": [
+        "extracted",
+        [
+          "feminine"
+        ]
+      ]
+    },
+    "Ἀθηναῖον": {
+      "adjective": [
+        "extracted",
+        [
+          "neuter"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναῖος": {
+      "adjective": [
+        "extracted",
+        [
+          "nominative singular masculine"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναίᾱ": {
+      "adjective": [
+        "extracted",
+        [
+          "nominative/accusative/vocative feminine dual",
+          "nominative/vocative singular feminine"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναῖον": {
+      "adjective": [
+        "extracted",
+        [
+          "accusative singular masculine",
+          "nominative/accusative/vocative singular neuter"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναίω": {
+      "adjective": [
+        "extracted",
+        [
+          "nominative/accusative/vocative masculine/neuter dual"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναῖοι": {
+      "adjective": [
+        "extracted",
+        [
+          "nominative/vocative plural masculine"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναῖαι": {
+      "adjective": [
+        "extracted",
+        [
+          "nominative/vocative plural feminine"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναῖᾰ": {
+      "adjective": [
+        "extracted",
+        [
+          "nominative/accusative/vocative plural neuter"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναίου": {
+      "adjective": [
+        "extracted",
+        [
+          "genitive singular masculine/neuter"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναίᾱς": {
+      "adjective": [
+        "extracted",
+        [
+          "accusative plural feminine",
+          "genitive singular feminine"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναίοιν": {
+      "adjective": [
+        "extracted",
+        [
+          "genitive/dative masculine/neuter dual"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναίαιν": {
+      "adjective": [
+        "extracted",
+        [
+          "genitive/dative feminine dual"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναίων": {
+      "adjective": [
+        "extracted",
+        [
+          "genitive plural masculine/feminine/neuter"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναίῳ": {
+      "adjective": [
+        "extracted",
+        [
+          "dative singular masculine/neuter"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναίᾳ": {
+      "adjective": [
+        "extracted",
+        [
+          "dative singular feminine"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναίοις": {
+      "adjective": [
+        "extracted",
+        [
+          "dative plural masculine/neuter"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναίαις": {
+      "adjective": [
+        "extracted",
+        [
+          "dative plural feminine"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναίᾱν": {
+      "adjective": [
+        "extracted",
+        [
+          "accusative singular feminine"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναίους": {
+      "adjective": [
+        "extracted",
+        [
+          "accusative plural masculine"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναῖε": {
+      "adjective": [
+        "extracted",
+        [
+          "vocative singular masculine"
+        ]
+      ]
+    },
+    "Ᾰ̓θηναίως": {
+      "adjective": [
+        "extracted",
+        [
+          "adverbial"
+        ]
+      ]
+    }
   }
 }

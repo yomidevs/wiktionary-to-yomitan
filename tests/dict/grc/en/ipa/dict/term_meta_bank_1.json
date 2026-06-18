@@ -27,5 +27,39 @@
         }
       ]
     }
+  ],
+  [
+    "Ἀθηναῖος",
+    "ipa",
+    {
+      "reading": "Ἀθηναῖος",
+      "transcriptions": [
+        {
+          "ipa": "/a.tʰɛː.nâi̯.os/",
+          "tags": [
+            "5ᵗʰ BCE Attic"
+          ]
+        },
+        {
+          "ipa": "/a.θiˈnɛ.os/",
+          "tags": [
+            "4ᵗʰ CE Koine"
+          ]
+        },
+        {
+          "ipa": "/a.θiˈne.os/",
+          "tags": [
+            "10ᵗʰ CE Byzantine",
+            "15ᵗʰ CE Constantinopolitan"
+          ]
+        },
+        {
+          "ipa": "/a.tʰe̝ˈnɛ.os/",
+          "tags": [
+            "1ˢᵗ CE Egyptian"
+          ]
+        }
+      ]
+    }
   ]
 ]

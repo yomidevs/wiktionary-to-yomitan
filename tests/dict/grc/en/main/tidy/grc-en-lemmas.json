@@ -30,5 +30,34 @@
         }
       ]
     }
+  },
+  "Ἀθηναῖος": {
+    "": {
+      "adjective": [
+        {
+          "gloss_tree": {
+            "of or relating to Athens; Athenian": {
+              "tags": [
+                "declension-1",
+                "declension-2",
+                "masculine"
+              ]
+            },
+            "an Athenian": {
+              "tags": [
+                "declension-1",
+                "declension-2",
+                "masculine",
+                "substantive"
+              ]
+            }
+          },
+          "etymology_text": "From Ἀθῆναι (Athênai, “Athens”) + -ιος (-ios, adjective suffix).",
+          "head_info_text": "Ἀθηναῖος • (Athēnaîos) m (feminine Ἀθηναίᾱ, neuter Ἀθηναῖον); first/second declension",
+          "wlink": "https://en.wiktionary.org/wiki/Ἀθηναῖος#Ancient Greek",
+          "klink": "https://kaikki.org/dictionary/Ancient%20Greek/meaning/Ἀ/Ἀθ/Ἀθηναῖος.html"
+        }
+      ]
+    }
   }
 }
