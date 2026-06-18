@@ -1273,6 +1273,15 @@ fn handle_see_sense(edition: Edition, entry: &WordEntry, sense: &Sense, irs: &mu
     true
 }
 
+/// Normalize a word to fit Yomitan behaviour.
+///
+/// See [diacritics], and the [descriptor registry].
+///
+/// [diacritics]: https://github.com/yomidevs/yomitan/blob/master/docs/development/language-features.md#removing-diacritics
+/// [descriptor registry]: https://github.com/yomidevs/yomitan/blob/master/ext/js/language/language-descriptors.js
+//
+// Note to myself: monospace font may completely mess the displaying of Ancient Greek accents,
+// making them look like they are over the wrong letter.
 pub fn normalize_orthography(source: Lang, word: &str) -> String {
     const ARABIC_DIACRITICS: [char; 16] = [
         '\u{0618}', '\u{0619}', '\u{061A}', '\u{064B}', '\u{064C}', '\u{064D}', '\u{064E}',
@@ -1284,6 +1293,8 @@ pub fn normalize_orthography(source: Lang, word: &str) -> String {
             .chars()
             .filter(|c| !ARABIC_DIACRITICS.contains(c))
             .collect(),
+        // Remove the combining diacritical marks range
+        // Ex. Ἀθηναῖος > Αθηναιος, μικρὰ > μικρα
         Lang::La | Lang::Ang | Lang::Sga | Lang::Grc | Lang::Ro | Lang::Id => word
             .nfd()
             .filter(|c| !('\u{0300}'..='\u{036F}').contains(c))
