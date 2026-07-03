@@ -751,7 +751,7 @@ fn process_no_gloss(edition: Edition, entry: &WordEntry, irs: &mut Tidy) {
 // It is relatively rare (since extra readings are rare), and as such, it has low priority.
 pub fn get_reading(edition: Edition, source: Lang, entry: &WordEntry) -> Option<String> {
     match (edition, source) {
-        (Edition::En, Lang::Ja) => get_japanese_reading(entry),
+        (Edition::En | Edition::Zh, Lang::Ja) => get_japanese_reading(entry),
         (Edition::En, Lang::Fa) => entry.romanization_form().map(|f| f.form.clone()),
         (Edition::Ja, _) => entry.transliteration_form().map(|f| f.form.clone()),
         (Edition::En | Edition::Zh, Lang::Zh) => entry.pinyin().map(String::from),

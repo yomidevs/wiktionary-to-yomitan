@@ -1,0 +1,26 @@
+{
+  "辞典": {
+    "じてん": {
+      "noun": [
+        {
+          "gloss_tree": {
+            "詞典": {}
+          },
+          "synonyms": [
+            {
+              "word": "辞(じ)書(しょ)"
+            },
+            {
+              "word": "辞(じ)林(りん)"
+            },
+            {
+              "word": "字(じ)引(びき)"
+            }
+          ],
+          "wlink": "https://zh.wiktionary.org/wiki/辞典#Japanese",
+          "klink": "https://kaikki.org/zhwiktionary/All%20languages%20combined/meaning/辞/辞典/辞典.html"
+        }
+      ]
+    }
+  }
+}
