@@ -1,0 +1,100 @@
+[
+  [
+    "辞典",
+    "",
+    "n",
+    "",
+    0,
+    [
+      {
+        "type": "structured-content",
+        "content": [
+          {
+            "tag": "ol",
+            "data": {
+              "content": "glosses"
+            },
+            "content": [
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "詞典"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "data": {
+              "content": "synonyms"
+            },
+            "content": [
+              {
+                "tag": "div",
+                "data": {
+                  "content": "synonyms-label"
+                },
+                "content": "同义词"
+              },
+              {
+                "tag": "ul",
+                "data": {
+                  "content": "synonyms-list"
+                },
+                "content": [
+                  {
+                    "tag": "li",
+                    "data": {
+                      "content": "synonym-item"
+                    },
+                    "content": "辞(じ)書(しょ)"
+                  },
+                  {
+                    "tag": "li",
+                    "data": {
+                      "content": "synonym-item"
+                    },
+                    "content": "辞(じ)林(りん)"
+                  },
+                  {
+                    "tag": "li",
+                    "data": {
+                      "content": "synonym-item"
+                    },
+                    "content": "字(じ)引(びき)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "data": {
+              "content": "backlink"
+            },
+            "content": [
+              {
+                "tag": "a",
+                "href": "https://zh.wiktionary.org/wiki/辞典#Japanese",
+                "content": "Wiktionary"
+              },
+              " | ",
+              {
+                "tag": "a",
+                "href": "https://kaikki.org/zhwiktionary/All%20languages%20combined/meaning/辞/辞典/辞典.html",
+                "content": "Kaikki"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    0,
+    ""
+  ]
+]
