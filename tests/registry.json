@@ -3551,7 +3551,7 @@
             },
             {
               "lang": "Classical Persian",
-              "lang_code": "fa",
+              "lang_code": "fa-cls",
               "word": "قَدَم",
               "raw_tags": [
                 "borrowed"
@@ -3587,6 +3587,13 @@
                       "lang_code": "uz",
                       "word": "qadam"
                     }
+                  ]
+                },
+                {
+                  "lang_code": "unknown",
+                  "lang": "Hindustani",
+                  "raw_tags": [
+                    "borrowed"
                   ]
                 },
                 {
@@ -33138,6 +33145,31 @@
                 "m"
               ],
               "roman": "herc"
+            },
+            {
+              "lang_code": "sh",
+              "lang": "Serbo-Croatian",
+              "raw_tags": [
+                "borrowed"
+              ],
+              "descendants": [
+                {
+                  "lang": "Cyrillic script",
+                  "lang_code": "sh",
+                  "word": "хе̏рц",
+                  "raw_tags": [
+                    "m"
+                  ]
+                },
+                {
+                  "lang": "Latin script",
+                  "lang_code": "sh",
+                  "word": "hȅrc",
+                  "raw_tags": [
+                    "m"
+                  ]
+                }
+              ]
             }
           ],
           "related": [
@@ -57536,6 +57568,48 @@
               ]
             },
             {
+              "lang_code": "inc-hnd",
+              "lang": "Hindustani",
+              "raw_tags": [
+                "borrowed"
+              ],
+              "descendants": [
+                {
+                  "lang": "Hindi",
+                  "lang_code": "hi",
+                  "word": "फ़ारसी",
+                  "roman": "fārsī"
+                },
+                {
+                  "lang": "Urdu",
+                  "lang_code": "ur",
+                  "word": "فَارْسی",
+                  "roman": "fārsī"
+                }
+              ]
+            },
+            {
+              "lang_code": "pa",
+              "lang": "Punjabi",
+              "raw_tags": [
+                "borrowed"
+              ],
+              "descendants": [
+                {
+                  "lang": "Gurmukhi script",
+                  "lang_code": "pa",
+                  "word": "ਫ਼ਾਰਸੀ",
+                  "roman": "fārsī"
+                },
+                {
+                  "lang": "Shahmukhi script",
+                  "lang_code": "pa",
+                  "word": "فارْسِی",
+                  "roman": "fārsī"
+                }
+              ]
+            },
+            {
               "lang": "Turkish",
               "lang_code": "tr",
               "word": "Farsça",
@@ -74903,6 +74977,943 @@
           "lang": "Ancient Greek",
           "lang_code": "grc"
         }
+      },
+      {
+        "url": "https://kaikki.org/dictionary/All%20languages%20combined/meaning/Ἀ/Ἀθ/Ἀθηναῖος.html",
+        "download_url": "https://kaikki.org/dictionary/All%20languages%20combined/meaning/Ἀ/Ἀθ/Ἀθηναῖος.jsonl",
+        "json": {
+          "word": "Ἀθηναῖος",
+          "pos": "adj",
+          "senses": [
+            {
+              "links": [
+                [
+                  "relating",
+                  "relating"
+                ],
+                [
+                  "Athens",
+                  "Athens"
+                ]
+              ],
+              "glosses": [
+                "of or relating to Athens; Athenian"
+              ],
+              "tags": [
+                "declension-1",
+                "declension-2",
+                "masculine"
+              ]
+            },
+            {
+              "links": [
+                [
+                  "Athenian",
+                  "Athenian"
+                ]
+              ],
+              "raw_glosses": [
+                "(substantive) an Athenian"
+              ],
+              "glosses": [
+                "an Athenian"
+              ],
+              "tags": [
+                "declension-1",
+                "declension-2",
+                "masculine",
+                "substantive"
+              ]
+            }
+          ],
+          "head_templates": [
+            {
+              "name": "grc-adj-1&2",
+              "args": {
+                "1": "Ἀθηναίᾱ",
+                "2": "Ἀθηναῖον"
+              },
+              "expansion": "Ἀθηναῖος • (Athēnaîos) m (feminine Ἀθηναίᾱ, neuter Ἀθηναῖον); first/second declension"
+            }
+          ],
+          "categories": [
+            "Ancient Greek 4-syllable words",
+            "Ancient Greek adjectives",
+            "Ancient Greek entries referencing missing etymons",
+            "Ancient Greek entries with incorrect language header",
+            "Ancient Greek lemmas",
+            "Ancient Greek properispomenon terms",
+            "Ancient Greek terms suffixed with -ιος",
+            "Ancient Greek terms with IPA pronunciation",
+            "Pages using etymon with no ID",
+            "Pages with 1 entry",
+            "Pages with entries",
+            "grc:Demonyms"
+          ],
+          "forms": [
+            {
+              "form": "Athēnaîos",
+              "tags": [
+                "romanization"
+              ]
+            },
+            {
+              "form": "Ἀθηναίᾱ",
+              "links": [
+                [
+                  "Ἀθηναίᾱ",
+                  "Ἀθηναία"
+                ]
+              ],
+              "tags": [
+                "feminine"
+              ]
+            },
+            {
+              "form": "Ἀθηναῖον",
+              "tags": [
+                "neuter"
+              ]
+            },
+            {
+              "form": "Attic declension-2",
+              "source": "inflection",
+              "tags": [
+                "table-tags"
+              ]
+            },
+            {
+              "form": "grc-adecl",
+              "source": "inflection",
+              "tags": [
+                "inflection-template"
+              ]
+            },
+            {
+              "form": "First and second declension",
+              "source": "inflection",
+              "tags": [
+                "class"
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναῖος",
+              "tags": [
+                "masculine",
+                "nominative",
+                "singular"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaîos",
+              "links": [
+                [
+                  "Ᾰ̓θηναῖος",
+                  "Ἀθηναῖος#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίᾱ",
+              "tags": [
+                "feminine",
+                "nominative",
+                "singular"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíā",
+              "links": [
+                [
+                  "Ᾰ̓θηναίᾱ",
+                  "Ἀθηναία#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναῖον",
+              "tags": [
+                "neuter",
+                "nominative",
+                "singular"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaîon",
+              "links": [
+                [
+                  "Ᾰ̓θηναῖον",
+                  "Ἀθηναῖον#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίω",
+              "tags": [
+                "dual",
+                "masculine",
+                "nominative"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíō",
+              "links": [
+                [
+                  "Ᾰ̓θηναίω",
+                  "Ἀθηναίω#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίᾱ",
+              "tags": [
+                "dual",
+                "feminine",
+                "nominative"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíā",
+              "links": [
+                [
+                  "Ᾰ̓θηναίᾱ",
+                  "Ἀθηναία#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίω",
+              "tags": [
+                "dual",
+                "neuter",
+                "nominative"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíō",
+              "links": [
+                [
+                  "Ᾰ̓θηναίω",
+                  "Ἀθηναίω#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναῖοι",
+              "tags": [
+                "masculine",
+                "nominative",
+                "plural"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaîoi",
+              "links": [
+                [
+                  "Ᾰ̓θηναῖοι",
+                  "Ἀθηναῖοι#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναῖαι",
+              "tags": [
+                "feminine",
+                "nominative",
+                "plural"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaîai",
+              "links": [
+                [
+                  "Ᾰ̓θηναῖαι",
+                  "Ἀθηναῖαι#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναῖᾰ",
+              "tags": [
+                "neuter",
+                "nominative",
+                "plural"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaîă",
+              "links": [
+                [
+                  "Ᾰ̓θηναῖᾰ",
+                  "Ἀθηναῖα#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίου",
+              "tags": [
+                "genitive",
+                "masculine",
+                "singular"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíou",
+              "links": [
+                [
+                  "Ᾰ̓θηναίου",
+                  "Ἀθηναίου#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίᾱς",
+              "tags": [
+                "feminine",
+                "genitive",
+                "singular"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíās",
+              "links": [
+                [
+                  "Ᾰ̓θηναίᾱς",
+                  "Ἀθηναίας#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίου",
+              "tags": [
+                "genitive",
+                "neuter",
+                "singular"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíou",
+              "links": [
+                [
+                  "Ᾰ̓θηναίου",
+                  "Ἀθηναίου#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίοιν",
+              "tags": [
+                "dual",
+                "genitive",
+                "masculine"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíoin",
+              "links": [
+                [
+                  "Ᾰ̓θηναίοιν",
+                  "Ἀθηναίοιν#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίαιν",
+              "tags": [
+                "dual",
+                "feminine",
+                "genitive"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíain",
+              "links": [
+                [
+                  "Ᾰ̓θηναίαιν",
+                  "Ἀθηναίαιν#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίοιν",
+              "tags": [
+                "dual",
+                "genitive",
+                "neuter"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíoin",
+              "links": [
+                [
+                  "Ᾰ̓θηναίοιν",
+                  "Ἀθηναίοιν#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίων",
+              "tags": [
+                "genitive",
+                "masculine",
+                "plural"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíōn",
+              "links": [
+                [
+                  "Ᾰ̓θηναίων",
+                  "Ἀθηναίων#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίων",
+              "tags": [
+                "feminine",
+                "genitive",
+                "plural"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíōn",
+              "links": [
+                [
+                  "Ᾰ̓θηναίων",
+                  "Ἀθηναίων#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίων",
+              "tags": [
+                "genitive",
+                "neuter",
+                "plural"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíōn",
+              "links": [
+                [
+                  "Ᾰ̓θηναίων",
+                  "Ἀθηναίων#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίῳ",
+              "tags": [
+                "dative",
+                "masculine",
+                "singular"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíōi",
+              "links": [
+                [
+                  "Ᾰ̓θηναίῳ",
+                  "Ἀθηναίῳ#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίᾳ",
+              "tags": [
+                "dative",
+                "feminine",
+                "singular"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíāi",
+              "links": [
+                [
+                  "Ᾰ̓θηναίᾳ",
+                  "Ἀθηναίᾳ#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίῳ",
+              "tags": [
+                "dative",
+                "neuter",
+                "singular"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíōi",
+              "links": [
+                [
+                  "Ᾰ̓θηναίῳ",
+                  "Ἀθηναίῳ#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίοιν",
+              "tags": [
+                "dative",
+                "dual",
+                "masculine"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíoin",
+              "links": [
+                [
+                  "Ᾰ̓θηναίοιν",
+                  "Ἀθηναίοιν#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίαιν",
+              "tags": [
+                "dative",
+                "dual",
+                "feminine"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíain",
+              "links": [
+                [
+                  "Ᾰ̓θηναίαιν",
+                  "Ἀθηναίαιν#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίοιν",
+              "tags": [
+                "dative",
+                "dual",
+                "neuter"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíoin",
+              "links": [
+                [
+                  "Ᾰ̓θηναίοιν",
+                  "Ἀθηναίοιν#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίοις",
+              "tags": [
+                "dative",
+                "masculine",
+                "plural"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíois",
+              "links": [
+                [
+                  "Ᾰ̓θηναίοις",
+                  "Ἀθηναίοις#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίαις",
+              "tags": [
+                "dative",
+                "feminine",
+                "plural"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíais",
+              "links": [
+                [
+                  "Ᾰ̓θηναίαις",
+                  "Ἀθηναίαις#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίοις",
+              "tags": [
+                "dative",
+                "neuter",
+                "plural"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíois",
+              "links": [
+                [
+                  "Ᾰ̓θηναίοις",
+                  "Ἀθηναίοις#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναῖον",
+              "tags": [
+                "accusative",
+                "masculine",
+                "singular"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaîon",
+              "links": [
+                [
+                  "Ᾰ̓θηναῖον",
+                  "Ἀθηναῖον#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίᾱν",
+              "tags": [
+                "accusative",
+                "feminine",
+                "singular"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíān",
+              "links": [
+                [
+                  "Ᾰ̓θηναίᾱν",
+                  "Ἀθηναίαν#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναῖον",
+              "tags": [
+                "accusative",
+                "neuter",
+                "singular"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaîon",
+              "links": [
+                [
+                  "Ᾰ̓θηναῖον",
+                  "Ἀθηναῖον#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίω",
+              "tags": [
+                "accusative",
+                "dual",
+                "masculine"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíō",
+              "links": [
+                [
+                  "Ᾰ̓θηναίω",
+                  "Ἀθηναίω#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίᾱ",
+              "tags": [
+                "accusative",
+                "dual",
+                "feminine"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíā",
+              "links": [
+                [
+                  "Ᾰ̓θηναίᾱ",
+                  "Ἀθηναία#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίω",
+              "tags": [
+                "accusative",
+                "dual",
+                "neuter"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíō",
+              "links": [
+                [
+                  "Ᾰ̓θηναίω",
+                  "Ἀθηναίω#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίους",
+              "tags": [
+                "accusative",
+                "masculine",
+                "plural"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíous",
+              "links": [
+                [
+                  "Ᾰ̓θηναίους",
+                  "Ἀθηναίους#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίᾱς",
+              "tags": [
+                "accusative",
+                "feminine",
+                "plural"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíās",
+              "links": [
+                [
+                  "Ᾰ̓θηναίᾱς",
+                  "Ἀθηναίας#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναῖᾰ",
+              "tags": [
+                "accusative",
+                "neuter",
+                "plural"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaîă",
+              "links": [
+                [
+                  "Ᾰ̓θηναῖᾰ",
+                  "Ἀθηναῖα#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναῖε",
+              "tags": [
+                "masculine",
+                "singular",
+                "vocative"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaîe",
+              "links": [
+                [
+                  "Ᾰ̓θηναῖε",
+                  "Ἀθηναῖε#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίᾱ",
+              "tags": [
+                "feminine",
+                "singular",
+                "vocative"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíā",
+              "links": [
+                [
+                  "Ᾰ̓θηναίᾱ",
+                  "Ἀθηναία#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναῖον",
+              "tags": [
+                "neuter",
+                "singular",
+                "vocative"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaîon",
+              "links": [
+                [
+                  "Ᾰ̓θηναῖον",
+                  "Ἀθηναῖον#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίω",
+              "tags": [
+                "dual",
+                "masculine",
+                "vocative"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíō",
+              "links": [
+                [
+                  "Ᾰ̓θηναίω",
+                  "Ἀθηναίω#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίᾱ",
+              "tags": [
+                "dual",
+                "feminine",
+                "vocative"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíā",
+              "links": [
+                [
+                  "Ᾰ̓θηναίᾱ",
+                  "Ἀθηναία#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίω",
+              "tags": [
+                "dual",
+                "neuter",
+                "vocative"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíō",
+              "links": [
+                [
+                  "Ᾰ̓θηναίω",
+                  "Ἀθηναίω#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναῖοι",
+              "tags": [
+                "masculine",
+                "plural",
+                "vocative"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaîoi",
+              "links": [
+                [
+                  "Ᾰ̓θηναῖοι",
+                  "Ἀθηναῖοι#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναῖαι",
+              "tags": [
+                "feminine",
+                "plural",
+                "vocative"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaîai",
+              "links": [
+                [
+                  "Ᾰ̓θηναῖαι",
+                  "Ἀθηναῖαι#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναῖᾰ",
+              "tags": [
+                "neuter",
+                "plural",
+                "vocative"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaîă",
+              "links": [
+                [
+                  "Ᾰ̓θηναῖᾰ",
+                  "Ἀθηναῖα#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "Ᾰ̓θηναίως",
+              "tags": [
+                "adverbial"
+              ],
+              "source": "inflection",
+              "roman": "Ăthēnaíōs",
+              "links": [
+                [
+                  "Ᾰ̓θηναίως",
+                  "Ἀθηναίως#Ancient_Greek"
+                ]
+              ]
+            },
+            {
+              "form": "-",
+              "tags": [
+                "comparative"
+              ],
+              "source": "inflection"
+            },
+            {
+              "form": "-",
+              "tags": [
+                "superlative"
+              ],
+              "source": "inflection"
+            }
+          ],
+          "inflection_templates": [
+            {
+              "name": "grc-adecl",
+              "args": {
+                "1": "Ᾰ̓θηναῖος",
+                "2": "ᾱ",
+                "comp": "-",
+                "super": "-"
+              }
+            }
+          ],
+          "etymology_text": "From Ἀθῆναι (Athênai, “Athens”) + -ιος (-ios, adjective suffix).",
+          "etymology_templates": [
+            {
+              "name": "ety",
+              "args": {
+                "1": "grc",
+                "2": ":af",
+                "3": "Ἀθῆναι<t:Athens>",
+                "4": "-ιος<pos:adjective suffix>"
+              },
+              "expansion": "[Appendix:Glossary#derived_terms|Derived]] from\", \"terms\" : [ { \"children\" : [ ], \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*-yós\", \"status\" : \"ok\", \"lang\" : \"ine-pro\" } ], \"keyword\" : \"derived\" } ], \"lang_name\" : \"Ancient Greek\", \"term\" : \"-ιος\", \"status\" : \"ok\", \"lang\" : \"grc\", \"pos\" : \"adjective suffix\" } ], \"keyword_label\" : \"From\", \"is_group\" : true, \"keyword\" : \"affix\" } ], \"lang_name\" : \"Ancient Greek\", \"term\" : \"Ἀθηναῖος\", \"status\" : \"ok\", \"lang\" : \"grc\" }\" data-lang=\"grc\" data-title=\"Ἀθηναῖος\">"
+            },
+            {
+              "name": "suffix",
+              "args": {
+                "1": "grc",
+                "2": "Ἀθῆναι",
+                "t1": "Athens",
+                "3": "ιος",
+                "pos2": "adjective suffix"
+              },
+              "expansion": "Ἀθῆναι (Athênai, “Athens”) + -ιος (-ios, adjective suffix)"
+            }
+          ],
+          "sounds": [
+            {
+              "ipa": "/a.tʰɛː.nâi̯.os/"
+            },
+            {
+              "ipa": "/a.θiˈnɛ.os/"
+            },
+            {
+              "ipa": "/a.θiˈne.os/"
+            },
+            {
+              "note": "5ᵗʰ BCE Attic",
+              "ipa": "/a.tʰɛː.nâi̯.os/"
+            },
+            {
+              "note": "1ˢᵗ CE Egyptian",
+              "ipa": "/a.tʰe̝ˈnɛ.os/"
+            },
+            {
+              "note": "4ᵗʰ CE Koine",
+              "ipa": "/a.θiˈnɛ.os/"
+            },
+            {
+              "note": "10ᵗʰ CE Byzantine",
+              "ipa": "/a.θiˈne.os/"
+            },
+            {
+              "note": "15ᵗʰ CE Constantinopolitan",
+              "ipa": "/a.θiˈne.os/"
+            }
+          ],
+          "lang": "Ancient Greek",
+          "lang_code": "grc"
+        }
       }
     ]
   },
@@ -88485,691 +89496,6 @@
             }
           ]
         }
-      },
-      {
-        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/き/きい/きいろ.html",
-        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/き/きい/きいろ.jsonl",
-        "json": {
-          "word": "きいろ",
-          "pos": "noun",
-          "lang_code": "ja",
-          "lang": "日本語",
-          "pos_title": "名詞",
-          "senses": [
-            {
-              "glosses": [
-                "色の一つ。卵の黄身のような色。色料の三原色の一つ。"
-              ],
-              "topics": [
-                "color"
-              ],
-              "categories": [
-                "日本語 色"
-              ]
-            }
-          ],
-          "categories": [
-            "日本語",
-            "日本語 名詞"
-          ],
-          "translations": [
-            {
-              "lang_code": "is",
-              "lang": "アイスランド語",
-              "word": "gulur",
-              "tags": [
-                "masculine"
-              ]
-            },
-            {
-              "lang_code": "ga",
-              "lang": "アイルランド語",
-              "word": "buí",
-              "tags": [
-                "masculine"
-              ]
-            },
-            {
-              "lang_code": "af",
-              "lang": "アフリカーンス語",
-              "word": "geel"
-            },
-            {
-              "lang_code": "ar",
-              "lang": "アラビア語",
-              "word": "صُفْرَاء",
-              "tags": [
-                "feminine"
-              ]
-            },
-            {
-              "lang_code": "ar",
-              "lang": "アラビア語",
-              "word": "صُفْر",
-              "tags": [
-                "plural"
-              ]
-            },
-            {
-              "lang_code": "hy",
-              "lang": "アルメニア語",
-              "word": "դեղին"
-            },
-            {
-              "lang_code": "it",
-              "lang": "イタリア語",
-              "word": "giallo",
-              "tags": [
-                "masculine"
-              ]
-            },
-            {
-              "lang_code": "io",
-              "lang": "イド語",
-              "word": "flava"
-            },
-            {
-              "lang_code": "ia",
-              "lang": "インターリングア",
-              "word": "jalne"
-            },
-            {
-              "lang_code": "id",
-              "lang": "インドネシア語",
-              "word": "kuning"
-            },
-            {
-              "lang_code": "cy",
-              "lang": "ウェールズ語",
-              "word": "melyn"
-            },
-            {
-              "lang_code": "en",
-              "lang": "英語",
-              "word": "yellow"
-            },
-            {
-              "lang_code": "ang",
-              "lang": "古英語",
-              "word": "ġeolo"
-            },
-            {
-              "lang_code": "et",
-              "lang": "エストニア語",
-              "word": "kollane"
-            },
-            {
-              "lang_code": "eo",
-              "lang": "エスペラント",
-              "word": "flava"
-            },
-            {
-              "lang_code": "nl",
-              "lang": "オランダ語",
-              "word": "geel"
-            },
-            {
-              "lang_code": "ca",
-              "lang": "カタルーニャ語",
-              "word": "groc",
-              "tags": [
-                "masculine"
-              ]
-            },
-            {
-              "lang_code": "ca",
-              "lang": "カタルーニャ語",
-              "word": "groga",
-              "tags": [
-                "feminine"
-              ]
-            },
-            {
-              "lang_code": "el",
-              "lang": "ギリシア語",
-              "word": "κίτρινο",
-              "tags": [
-                "neuter"
-              ]
-            },
-            {
-              "lang_code": "el",
-              "lang": "ギリシア語",
-              "word": "ώχρα",
-              "tags": [
-                "feminine"
-              ]
-            },
-            {
-              "lang_code": "ku",
-              "lang": "クルド語",
-              "word": "zer"
-            },
-            {
-              "lang_code": "sc",
-              "lang": "サルデーニャ語",
-              "word": "grogu"
-            },
-            {
-              "lang_code": "jv",
-              "lang": "ジャワ語",
-              "word": "kuning"
-            },
-            {
-              "lang_code": "jv",
-              "lang": "ジャワ語",
-              "word": "jene"
-            },
-            {
-              "lang_code": "sv",
-              "lang": "スウェーデン語",
-              "word": "gul"
-            },
-            {
-              "lang_code": "es",
-              "lang": "スペイン語",
-              "word": "amarillo",
-              "tags": [
-                "masculine"
-              ]
-            },
-            {
-              "lang_code": "sk",
-              "lang": "スロヴァキア語",
-              "word": "žltý",
-              "tags": [
-                "masculine"
-              ]
-            },
-            {
-              "lang_code": "sk",
-              "lang": "スロヴァキア語",
-              "word": "žltá",
-              "tags": [
-                "feminine"
-              ]
-            },
-            {
-              "lang_code": "sk",
-              "lang": "スロヴァキア語",
-              "word": "žlté",
-              "tags": [
-                "neuter"
-              ]
-            },
-            {
-              "lang_code": "sl",
-              "lang": "スロヴェニア語",
-              "word": "rumena",
-              "tags": [
-                "feminine"
-              ]
-            },
-            {
-              "lang_code": "sh",
-              "lang": "セルビア・クロアチア語",
-              "word": "жута",
-              "tags": [
-                "feminine"
-              ]
-            },
-            {
-              "lang_code": "sh",
-              "lang": "セルビア・クロアチア語",
-              "word": "žut"
-            },
-            {
-              "lang_code": "sh",
-              "lang": "セルビア・クロアチア語",
-              "word": "žuta",
-              "tags": [
-                "feminine"
-              ]
-            },
-            {
-              "lang_code": "th",
-              "lang": "タイ語",
-              "word": "สีเหลือง"
-            },
-            {
-              "lang_code": "cs",
-              "lang": "チェコ語",
-              "word": "žlutá",
-              "tags": [
-                "feminine"
-              ]
-            },
-            {
-              "lang_code": "chr",
-              "lang": "チェロキー語",
-              "word": "ᏓᎶᏁᎦ"
-            },
-            {
-              "lang_code": "zh",
-              "lang": "中国語",
-              "word": "黄"
-            },
-            {
-              "lang_code": "ko",
-              "lang": "朝鮮語",
-              "word": "황색"
-            },
-            {
-              "lang_code": "ko",
-              "lang": "朝鮮語",
-              "word": "노랑"
-            },
-            {
-              "lang_code": "te",
-              "lang": "テルグ語",
-              "word": "పసుపు"
-            },
-            {
-              "lang_code": "da",
-              "lang": "デンマーク語",
-              "word": "gul"
-            },
-            {
-              "lang_code": "de",
-              "lang": "ドイツ語",
-              "word": "Gelb",
-              "tags": [
-                "neuter"
-              ]
-            },
-            {
-              "lang_code": "tr",
-              "lang": "トルコ語",
-              "word": "sarı"
-            },
-            {
-              "lang_code": "nah",
-              "lang": "ナワトル語",
-              "word": "coztic"
-            },
-            {
-              "lang_code": "fy",
-              "lang": "西フリジア語",
-              "word": "giel"
-            },
-            {
-              "lang_code": "no",
-              "lang": "ノルウェー語",
-              "word": "gul"
-            },
-            {
-              "lang_code": "eu",
-              "lang": "バスク語",
-              "word": "hori"
-            },
-            {
-              "lang_code": "pap",
-              "lang": "パピアメント語",
-              "word": "hel"
-            },
-            {
-              "lang_code": "hu",
-              "lang": "ハンガリー語",
-              "word": "sárga"
-            },
-            {
-              "lang_code": "hi",
-              "lang": "ヒンディー語",
-              "word": "पीला"
-            },
-            {
-              "lang_code": "fi",
-              "lang": "フィンランド語",
-              "word": "keltainen"
-            },
-            {
-              "lang_code": "fi",
-              "lang": "フィンランド語",
-              "word": "kelta"
-            },
-            {
-              "lang_code": "fr",
-              "lang": "フランス語",
-              "word": "jaune",
-              "tags": [
-                "masculine"
-              ]
-            },
-            {
-              "lang_code": "bg",
-              "lang": "ブルガリア語",
-              "word": "жълт",
-              "tags": [
-                "masculine",
-                "feminine",
-                "neuter",
-                "plural"
-              ]
-            },
-            {
-              "lang_code": "br",
-              "lang": "ブルトン語",
-              "word": "melen"
-            },
-            {
-              "lang_code": "vi",
-              "lang": "ベトナム語",
-              "word": "hòang"
-            },
-            {
-              "lang_code": "he",
-              "lang": "ヘブライ語",
-              "word": "צהוב",
-              "tags": [
-                "masculine"
-              ]
-            },
-            {
-              "lang_code": "he",
-              "lang": "ヘブライ語",
-              "word": "צהובה",
-              "tags": [
-                "feminine"
-              ]
-            },
-            {
-              "lang_code": "pl",
-              "lang": "ポーランド語",
-              "word": "żółć",
-              "tags": [
-                "masculine"
-              ]
-            },
-            {
-              "lang_code": "pl",
-              "lang": "ポーランド語",
-              "word": "barwa żółta"
-            },
-            {
-              "lang_code": "pt",
-              "lang": "ポルトガル語",
-              "word": "amarelo",
-              "tags": [
-                "masculine"
-              ]
-            },
-            {
-              "lang_code": "ml",
-              "lang": "マラヤーラム語",
-              "word": "മഞ്ഞ"
-            },
-            {
-              "lang_code": "mt",
-              "lang": "マルタ語",
-              "word": "isfar"
-            },
-            {
-              "lang_code": "ms",
-              "lang": "マレー語",
-              "word": "kuning"
-            },
-            {
-              "lang_code": "la",
-              "lang": "ラテン語",
-              "word": "flāvus"
-            },
-            {
-              "lang_code": "lv",
-              "lang": "ラトヴィア語",
-              "word": "dzeltens"
-            },
-            {
-              "lang_code": "lt",
-              "lang": "リトアニア語",
-              "word": "geltonas"
-            },
-            {
-              "lang_code": "ro",
-              "lang": "ルーマニア語",
-              "word": "galben",
-              "tags": [
-                "masculine"
-              ]
-            },
-            {
-              "lang_code": "ro",
-              "lang": "ルーマニア語",
-              "word": "galbenă",
-              "tags": [
-                "feminine"
-              ]
-            },
-            {
-              "lang_code": "ru",
-              "lang": "ロシア語",
-              "word": "жёлтый",
-              "roman": "žóltyj"
-            },
-            {
-              "lang_code": "ru",
-              "lang": "ロシア語",
-              "word": "жёлтый цвет"
-            },
-            {
-              "lang_code": "rm",
-              "lang": "ロマンシュ語",
-              "word": "mellen"
-            }
-          ],
-          "synonyms": [
-            {
-              "word": "黄色"
-            },
-            {
-              "word": "イエロー"
-            }
-          ],
-          "derived": [
-            {
-              "word": "きいろい"
-            }
-          ],
-          "related": [
-            {
-              "word": "きみどり"
-            }
-          ]
-        }
-      },
-      {
-        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/黄/黄色/黄色.html",
-        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/黄/黄色/黄色.jsonl",
-        "json": {
-          "word": "黄色",
-          "pos": "noun",
-          "lang_code": "ja",
-          "lang": "日本語",
-          "pos_title": "名詞",
-          "senses": [
-            {
-              "glosses": [
-                "きいろ。"
-              ]
-            }
-          ],
-          "categories": [
-            "日本語",
-            "日本語 名詞",
-            "日本語 国際音声記号あり",
-            "日本語_色"
-          ],
-          "forms": [
-            {
-              "form": "おうしょく",
-              "tags": [
-                "transliteration"
-              ]
-            },
-            {
-              "form": "こうしょく",
-              "tags": [
-                "transliteration"
-              ]
-            }
-          ],
-          "sounds": [
-            {
-              "tags": [
-                "Heiban",
-                "Tokyo"
-              ],
-              "other": "おーしょく",
-              "roman": "[òóshókú]"
-            },
-            {
-              "ipa": "[o̞ːɕo̞kɯ̟ᵝ]"
-            },
-            {
-              "tags": [
-                "Heiban",
-                "Tokyo"
-              ],
-              "other": "こーしょく",
-              "roman": "[kòóshókú]"
-            },
-            {
-              "ipa": "[ko̞ːɕo̞kɯ̟ᵝ]"
-            }
-          ],
-          "derived": [
-            {
-              "word": "黄色人種"
-            }
-          ]
-        }
-      },
-      {
-        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/黄/黄色/黄色.html",
-        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/黄/黄色/黄色.jsonl",
-        "json": {
-          "word": "黄色",
-          "pos": "character",
-          "lang_code": "ja",
-          "lang": "日本語",
-          "pos_title": "和語の漢字表記",
-          "senses": [
-            {
-              "glosses": [
-                "きいろの漢字表記。"
-              ],
-              "form_of": [
-                {
-                  "word": "きいろ"
-                }
-              ]
-            }
-          ],
-          "categories": [
-            "日本語",
-            "日本語 和語の漢字表記"
-          ],
-          "tags": [
-            "form-of",
-            "wago-kanji"
-          ],
-          "forms": [
-            {
-              "form": "きいろ",
-              "tags": [
-                "transliteration"
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/黄/黄色/黄色.html",
-        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/黄/黄色/黄色.jsonl",
-        "json": {
-          "word": "黄色",
-          "pos": "noun",
-          "lang_code": "zh",
-          "lang": "中国語",
-          "pos_title": "名詞",
-          "senses": [
-            {
-              "glosses": [
-                "黄色。"
-              ]
-            }
-          ],
-          "categories": [
-            "HSKレベル丙",
-            "中国語",
-            "中国語_名詞",
-            "中国語_色"
-          ],
-          "forms": [
-            {
-              "form": "黃色",
-              "tags": [
-                "canonical"
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/黄/黄色/黄色.html",
-        "download_url": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/黄/黄色/黄色.jsonl",
-        "json": {
-          "word": "黄色",
-          "pos": "adj",
-          "lang_code": "zh",
-          "lang": "中国語",
-          "pos_title": "形容詞",
-          "senses": [
-            {
-              "glosses": [
-                "黄色の。"
-              ]
-            },
-            {
-              "glosses": [
-                "（比喩的。紙が黄ばむことから）腐敗した。堕落した。庸俗の。色情の。"
-              ],
-              "examples": [
-                {
-                  "text": "黄色工会",
-                  "bold_text_offsets": [
-                    [
-                      0,
-                      2
-                    ]
-                  ],
-                  "translation": "御用組合"
-                },
-                {
-                  "text": "黄色电影",
-                  "bold_text_offsets": [
-                    [
-                      0,
-                      2
-                    ]
-                  ],
-                  "translation": "ピンク映画"
-                }
-              ]
-            }
-          ],
-          "categories": [
-            "中国語",
-            "中国語_形容詞"
-          ],
-          "forms": [
-            {
-              "form": "黃色",
-              "tags": [
-                "canonical"
-              ]
-            }
-          ]
-        }
       }
     ]
   },
@@ -94833,6 +95159,484 @@
               "word": "sublegō"
             }
           ],
+          "descendants": [
+            {
+              "lang_code": "unknown",
+              "lang": "Balkan Romance",
+              "descendants": [
+                {
+                  "lang": "Aromanian",
+                  "lang_code": "rup",
+                  "word": "aleg"
+                }
+              ]
+            },
+            {
+              "lang_code": "dlm",
+              "lang": "Dalmatian",
+              "descendants": [
+                {
+                  "lang": "unknown",
+                  "lang_code": "dlm",
+                  "word": "laro"
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Italo-Romance",
+              "descendants": [
+                {
+                  "lang": "Corsican",
+                  "lang_code": "co",
+                  "word": "leghja"
+                },
+                {
+                  "lang": "Italian",
+                  "lang_code": "it",
+                  "word": "leggere",
+                  "descendants": [
+                    {
+                      "lang": "Neapolitan",
+                      "lang_code": "nap",
+                      "word": "leggere",
+                      "raw_tags": [
+                        "borrowed"
+                      ]
+                    },
+                    {
+                      "lang": "Sicilian",
+                      "lang_code": "scn",
+                      "word": "lèggiri",
+                      "raw_tags": [
+                        "borrowed"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "lang": "Neapolitan",
+                  "lang_code": "nap",
+                  "word": "lejere"
+                },
+                {
+                  "lang": "Sicilian",
+                  "lang_code": "scn",
+                  "word": "lèjiri",
+                  "descendants": [
+                    {
+                      "lang": "Sicilian",
+                      "lang_code": "scn",
+                      "word": "lègghiri"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Padanian",
+              "descendants": [
+                {
+                  "lang": "Emilian",
+                  "lang_code": "egl",
+                  "word": "lèżer"
+                },
+                {
+                  "lang": "Friulian",
+                  "lang_code": "fur",
+                  "word": "lei"
+                },
+                {
+                  "lang": "Istriot",
+                  "lang_code": "ist",
+                  "word": "lezi"
+                },
+                {
+                  "lang": "Ligurian",
+                  "lang_code": "lij",
+                  "word": "lêze"
+                },
+                {
+                  "lang": "Lombard",
+                  "lang_code": "lmo",
+                  "word": "lèzer"
+                },
+                {
+                  "lang": "Lombard",
+                  "lang_code": "lmo",
+                  "word": "les"
+                },
+                {
+                  "lang": "Lombard",
+                  "lang_code": "lmo",
+                  "word": "lecc"
+                },
+                {
+                  "lang": "Lombard",
+                  "lang_code": "lmo",
+                  "word": "léger"
+                },
+                {
+                  "lang": "Piedmontese",
+                  "lang_code": "pms",
+                  "word": "lese"
+                },
+                {
+                  "lang": "Romansh",
+                  "lang_code": "rm",
+                  "word": "leger"
+                },
+                {
+                  "lang": "Romansh",
+                  "lang_code": "rm",
+                  "word": "liger"
+                },
+                {
+                  "lang": "Romansh",
+                  "lang_code": "rm",
+                  "word": "ler"
+                },
+                {
+                  "lang": "Venetan",
+                  "lang_code": "vec",
+                  "word": "lèzar"
+                },
+                {
+                  "lang": "Venetan",
+                  "lang_code": "vec",
+                  "word": "lèzer"
+                },
+                {
+                  "lang": "Venetan",
+                  "lang_code": "vec",
+                  "word": "lèxer"
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Gallo-Romance",
+              "descendants": [
+                {
+                  "lang": "Catalan",
+                  "lang_code": "ca",
+                  "word": "llegir"
+                },
+                {
+                  "lang": "Franco-Provençal",
+                  "lang_code": "frp",
+                  "word": "liére"
+                },
+                {
+                  "lang": "Franco-Provençal",
+                  "lang_code": "frp",
+                  "word": "leire"
+                },
+                {
+                  "lang": "French",
+                  "lang_code": "fr",
+                  "word": "lire"
+                },
+                {
+                  "lang": "Norman",
+                  "lang_code": "nrm",
+                  "word": "liéthe"
+                },
+                {
+                  "lang": "Occitan",
+                  "lang_code": "oc",
+                  "word": "legir",
+                  "descendants": [
+                    {
+                      "lang": "Gascon",
+                      "lang_code": "oc-gas",
+                      "word": "léger"
+                    },
+                    {
+                      "lang": "Gascon",
+                      "lang_code": "oc-gas",
+                      "word": "leguir"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Ibero-Romance",
+              "descendants": [
+                {
+                  "lang": "Aragonese",
+                  "lang_code": "an",
+                  "word": "leyer"
+                },
+                {
+                  "lang": "Aragonese",
+                  "lang_code": "an",
+                  "word": "lier"
+                },
+                {
+                  "lang": "Aragonese",
+                  "lang_code": "an",
+                  "word": "leir"
+                },
+                {
+                  "lang": "Aragonese",
+                  "lang_code": "an",
+                  "word": "liyer"
+                },
+                {
+                  "lang": "Aragonese",
+                  "lang_code": "an",
+                  "word": "leyir"
+                },
+                {
+                  "lang": "Old Leonese",
+                  "lang_code": "roa-ole",
+                  "word": "leer",
+                  "descendants": [
+                    {
+                      "lang": "Asturian",
+                      "lang_code": "ast",
+                      "word": "llier"
+                    },
+                    {
+                      "lang": "Asturian",
+                      "lang_code": "ast",
+                      "word": "ller"
+                    },
+                    {
+                      "lang": "Asturian",
+                      "lang_code": "ast",
+                      "word": "lleer",
+                      "raw_tags": [
+                        "learned borrowing",
+                        "learned"
+                      ]
+                    },
+                    {
+                      "lang": "Leonese",
+                      "lang_code": "roa-leo",
+                      "word": "lliere"
+                    },
+                    {
+                      "lang": "Leonese",
+                      "lang_code": "roa-leo",
+                      "word": "lleere",
+                      "raw_tags": [
+                        "learned borrowing",
+                        "learned"
+                      ]
+                    },
+                    {
+                      "lang": "Mirandese",
+                      "lang_code": "mwl",
+                      "word": "lher"
+                    }
+                  ]
+                },
+                {
+                  "lang": "Old Leonese",
+                  "lang_code": "roa-ole",
+                  "word": "lleer",
+                  "descendants": [
+                    {
+                      "lang": "Asturian",
+                      "lang_code": "ast",
+                      "word": "llier"
+                    },
+                    {
+                      "lang": "Asturian",
+                      "lang_code": "ast",
+                      "word": "ller"
+                    },
+                    {
+                      "lang": "Asturian",
+                      "lang_code": "ast",
+                      "word": "lleer",
+                      "raw_tags": [
+                        "learned borrowing",
+                        "learned"
+                      ]
+                    },
+                    {
+                      "lang": "Leonese",
+                      "lang_code": "roa-leo",
+                      "word": "lliere"
+                    },
+                    {
+                      "lang": "Leonese",
+                      "lang_code": "roa-leo",
+                      "word": "lleere",
+                      "raw_tags": [
+                        "learned borrowing",
+                        "learned"
+                      ]
+                    },
+                    {
+                      "lang": "Mirandese",
+                      "lang_code": "mwl",
+                      "word": "lher"
+                    }
+                  ]
+                },
+                {
+                  "lang": "Old Galician-Portuguese",
+                  "lang_code": "roa-opt",
+                  "word": "leer",
+                  "descendants": [
+                    {
+                      "lang": "Galician",
+                      "lang_code": "gl",
+                      "word": "ler"
+                    },
+                    {
+                      "lang": "Portuguese",
+                      "lang_code": "pt",
+                      "word": "ler"
+                    }
+                  ]
+                },
+                {
+                  "lang": "Spanish",
+                  "lang_code": "es",
+                  "word": "leer"
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Insular Romance",
+              "descendants": [
+                {
+                  "lang": "Sardinian",
+                  "lang_code": "sc",
+                  "word": "lègere"
+                },
+                {
+                  "lang": "Sardinian",
+                  "lang_code": "sc",
+                  "word": "lèghere"
+                },
+                {
+                  "lang": "Sardinian",
+                  "lang_code": "sc",
+                  "word": "lèzere"
+                },
+                {
+                  "lang": "Sardinian",
+                  "lang_code": "sc",
+                  "word": "leghere"
+                },
+                {
+                  "lang": "Sardinian",
+                  "lang_code": "sc",
+                  "word": "lezere"
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Borrowings",
+              "descendants": [
+                {
+                  "lang": "Albanian",
+                  "lang_code": "sq",
+                  "word": "lexoj",
+                  "raw_tags": [
+                    "borrowed"
+                  ]
+                },
+                {
+                  "lang": "Esperanto",
+                  "lang_code": "eo",
+                  "word": "legi",
+                  "raw_tags": [
+                    "borrowed"
+                  ]
+                },
+                {
+                  "lang": "Old Irish",
+                  "lang_code": "sga",
+                  "word": "légaid",
+                  "raw_tags": [
+                    "borrowed"
+                  ],
+                  "descendants": [
+                    {
+                      "lang": "Irish",
+                      "lang_code": "ga",
+                      "word": "léigh"
+                    },
+                    {
+                      "lang": "Manx",
+                      "lang_code": "gv",
+                      "word": "lhaih"
+                    },
+                    {
+                      "lang": "Scottish Gaelic",
+                      "lang_code": "gd",
+                      "word": "leugh"
+                    }
+                  ]
+                },
+                {
+                  "lang": "Proto-Brythonic",
+                  "lang_code": "cel-bry-pro",
+                  "word": "*lleɣɨd",
+                  "raw_tags": [
+                    "borrowed"
+                  ],
+                  "descendants": [
+                    {
+                      "lang": "Welsh",
+                      "lang_code": "cy",
+                      "word": "lleu",
+                      "raw_tags": [
+                        "borrowed"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "lang": "Yiddish",
+                  "lang_code": "yi",
+                  "word": "לייענען",
+                  "raw_tags": [
+                    "borrowed"
+                  ],
+                  "roman": "leyenen",
+                  "descendants": [
+                    {
+                      "lang": "Dutch",
+                      "lang_code": "nl",
+                      "word": "lajenen",
+                      "raw_tags": [
+                        "borrowed"
+                      ]
+                    },
+                    {
+                      "lang": "English",
+                      "lang_code": "en",
+                      "word": "leyn",
+                      "raw_tags": [
+                        "borrowed"
+                      ]
+                    },
+                    {
+                      "lang": "Hungarian",
+                      "lang_code": "hu",
+                      "word": "lejnol",
+                      "raw_tags": [
+                        "borrowed"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
           "etymology_number": "1",
           "etymology_text": "Etymology tree\nProto-Indo-European *leǵ-\nProto-Indo-European *-eti\nProto-Indo-European *léǵeti\nProto-Italic *legō\nLatin legō\nFrom Proto-Italic *legō, from Proto-Indo-European *léǵeti, from the root *leǵ- (“to gather”). Cognates include Ancient Greek λέγω (légō, “to speak, to choose, to mean”) and Albanian mbledh. May be related to lēx.\nFor sense 6 (“to read”), compare typologically разбира́ть (razbirátʹ), разбира́ться (razbirátʹsja) (< брать (bratʹ)), разбо́рчивый (razbórčivyj) (по́черк (póčerk)).",
           "etymology_templates": [
@@ -95218,6 +96022,447 @@
             }
           ],
           "descendants": [
+            {
+              "lang_code": "unknown",
+              "lang": "Insular Romance",
+              "descendants": [
+                {
+                  "lang": "Sardinian",
+                  "lang_code": "sc",
+                  "word": "lizu"
+                },
+                {
+                  "lang": "Sardinian",
+                  "lang_code": "sc",
+                  "word": "lilliu"
+                },
+                {
+                  "lang": "Sardinian",
+                  "lang_code": "sc",
+                  "word": "lillu"
+                },
+                {
+                  "lang": "Sardinian",
+                  "lang_code": "sc",
+                  "word": "lixu"
+                },
+                {
+                  "lang": "Sardinian",
+                  "lang_code": "sc",
+                  "word": "lìgiu"
+                },
+                {
+                  "lang": "Sardinian",
+                  "lang_code": "sc",
+                  "word": "gixu"
+                },
+                {
+                  "lang": "Sardinian",
+                  "lang_code": "sc",
+                  "word": "gìgliu"
+                },
+                {
+                  "lang": "Sardinian",
+                  "lang_code": "sc",
+                  "word": "gìsgiu"
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Italo-Dalmatian",
+              "descendants": [
+                {
+                  "lang": "Corsican",
+                  "lang_code": "co",
+                  "word": "gigliu",
+                  "descendants": [
+                    {
+                      "lang": "Gallurese",
+                      "lang_code": "sdn",
+                      "word": "lillu"
+                    },
+                    {
+                      "lang": "Gallurese",
+                      "lang_code": "sdn",
+                      "word": "lìciu"
+                    },
+                    {
+                      "lang": "Sassarese",
+                      "lang_code": "sdc",
+                      "word": "lizu"
+                    },
+                    {
+                      "lang": "Sassarese",
+                      "lang_code": "sdc",
+                      "word": "gìgliu"
+                    }
+                  ]
+                },
+                {
+                  "lang": "Italian",
+                  "lang_code": "it",
+                  "word": "giglio",
+                  "descendants": [
+                    {
+                      "lang": "Maltese",
+                      "lang_code": "mt",
+                      "word": "ġilju",
+                      "raw_tags": [
+                        "borrowed"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "lang": "Neapolitan",
+                  "lang_code": "nap",
+                  "word": "giglio"
+                },
+                {
+                  "lang": "Sicilian",
+                  "lang_code": "scn",
+                  "word": "gigghiu"
+                },
+                {
+                  "lang": "Venetan",
+                  "lang_code": "vec",
+                  "word": "gìłio"
+                },
+                {
+                  "lang": "Venetan",
+                  "lang_code": "vec",
+                  "word": "xégio"
+                },
+                {
+                  "lang": "Venetan",
+                  "lang_code": "vec",
+                  "word": "xio"
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Rhaeto-Romance",
+              "descendants": [
+                {
+                  "lang": "Friulian",
+                  "lang_code": "fur",
+                  "word": "gi"
+                },
+                {
+                  "lang": "Romansh",
+                  "lang_code": "rm",
+                  "word": "gilgia"
+                },
+                {
+                  "lang": "Romansh",
+                  "lang_code": "rm",
+                  "word": "gelgia"
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Gallo-Italic",
+              "descendants": [
+                {
+                  "lang": "Ligurian",
+                  "lang_code": "lij",
+                  "word": "lilìn"
+                },
+                {
+                  "lang": "Piedmontese",
+                  "lang_code": "pms",
+                  "word": "liri"
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Gallo-Romance",
+              "descendants": [
+                {
+                  "lang_code": "unknown",
+                  "lang": "Northern",
+                  "descendants": [
+                    {
+                      "lang": "Franco-Provençal",
+                      "lang_code": "frp",
+                      "word": "lis"
+                    },
+                    {
+                      "lang": "Old French",
+                      "lang_code": "fro",
+                      "word": "lis",
+                      "descendants": [
+                        {
+                          "lang": "Middle French",
+                          "lang_code": "frm",
+                          "word": "lis",
+                          "descendants": [
+                            {
+                              "lang": "French",
+                              "lang_code": "fr",
+                              "word": "lis"
+                            }
+                          ]
+                        },
+                        {
+                          "lang": "Norman",
+                          "lang_code": "nrm",
+                          "word": "lis",
+                          "tags": [
+                            "Jersey"
+                          ]
+                        },
+                        {
+                          "lang": "Walloon",
+                          "lang_code": "wa",
+                          "word": "li"
+                        },
+                        {
+                          "lang": "Walloon",
+                          "lang_code": "wa",
+                          "word": "ri"
+                        },
+                        {
+                          "lang": "Walloon",
+                          "lang_code": "wa",
+                          "word": "lis"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "lang_code": "sdh",
+                  "lang": "Southern",
+                  "descendants": [
+                    {
+                      "lang": "Catalan",
+                      "lang_code": "ca",
+                      "word": "lliri"
+                    },
+                    {
+                      "lang": "Occitan",
+                      "lang_code": "oc",
+                      "word": "liri"
+                    },
+                    {
+                      "lang": "Occitan",
+                      "lang_code": "oc",
+                      "word": "leri"
+                    },
+                    {
+                      "lang": "Occitan",
+                      "lang_code": "oc",
+                      "word": "lys"
+                    },
+                    {
+                      "lang": "Occitan",
+                      "lang_code": "oc",
+                      "word": "ile"
+                    },
+                    {
+                      "lang": "Occitan",
+                      "lang_code": "oc",
+                      "word": "ieli"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Ibero-Romance",
+              "descendants": [
+                {
+                  "lang": "Old Galician-Portuguese",
+                  "lang_code": "roa-opt",
+                  "word": "lílio",
+                  "descendants": [
+                    {
+                      "lang": "Galician",
+                      "lang_code": "gl",
+                      "word": "lirio"
+                    },
+                    {
+                      "lang": "Portuguese",
+                      "lang_code": "pt",
+                      "word": "lírio"
+                    }
+                  ]
+                },
+                {
+                  "lang": "Old Galician-Portuguese",
+                  "lang_code": "roa-opt",
+                  "word": "lileo",
+                  "descendants": [
+                    {
+                      "lang": "Galician",
+                      "lang_code": "gl",
+                      "word": "lirio"
+                    },
+                    {
+                      "lang": "Portuguese",
+                      "lang_code": "pt",
+                      "word": "lírio"
+                    }
+                  ]
+                },
+                {
+                  "lang": "Old Galician-Portuguese",
+                  "lang_code": "roa-opt",
+                  "word": "lilyo",
+                  "descendants": [
+                    {
+                      "lang": "Galician",
+                      "lang_code": "gl",
+                      "word": "lirio"
+                    },
+                    {
+                      "lang": "Portuguese",
+                      "lang_code": "pt",
+                      "word": "lírio"
+                    }
+                  ]
+                },
+                {
+                  "lang": "Old Galician-Portuguese",
+                  "lang_code": "roa-opt",
+                  "word": "lírio",
+                  "descendants": [
+                    {
+                      "lang": "Galician",
+                      "lang_code": "gl",
+                      "word": "lirio"
+                    },
+                    {
+                      "lang": "Portuguese",
+                      "lang_code": "pt",
+                      "word": "lírio"
+                    }
+                  ]
+                },
+                {
+                  "lang": "Old Galician-Portuguese",
+                  "lang_code": "roa-opt",
+                  "word": "liro",
+                  "descendants": [
+                    {
+                      "lang": "Galician",
+                      "lang_code": "gl",
+                      "word": "lirio"
+                    },
+                    {
+                      "lang": "Portuguese",
+                      "lang_code": "pt",
+                      "word": "lírio"
+                    }
+                  ]
+                },
+                {
+                  "lang": "Old Galician-Portuguese",
+                  "lang_code": "roa-opt",
+                  "word": "lylio",
+                  "descendants": [
+                    {
+                      "lang": "Galician",
+                      "lang_code": "gl",
+                      "word": "lirio"
+                    },
+                    {
+                      "lang": "Portuguese",
+                      "lang_code": "pt",
+                      "word": "lírio"
+                    }
+                  ]
+                },
+                {
+                  "lang_code": "roa-ole",
+                  "lang": "Old Leonese",
+                  "descendants": [
+                    {
+                      "lang": "Asturian",
+                      "lang_code": "ast",
+                      "word": "liriu"
+                    },
+                    {
+                      "lang": "Extremaduran",
+                      "lang_code": "ext",
+                      "word": "liriu"
+                    }
+                  ]
+                },
+                {
+                  "lang": "Old Navarro-Aragonese",
+                  "lang_code": "roa-ona",
+                  "word": "lirio",
+                  "descendants": [
+                    {
+                      "lang": "Aragonese",
+                      "lang_code": "an",
+                      "word": "lidio"
+                    }
+                  ]
+                },
+                {
+                  "lang": "Old Spanish",
+                  "lang_code": "osp",
+                  "word": "lilio",
+                  "descendants": [
+                    {
+                      "lang": "Ladino",
+                      "lang_code": "lad",
+                      "word": "lirio"
+                    },
+                    {
+                      "lang": "Spanish",
+                      "lang_code": "es",
+                      "word": "lirio",
+                      "descendants": [
+                        {
+                          "lang": "Tagalog",
+                          "lang_code": "tl",
+                          "word": "liryo",
+                          "raw_tags": [
+                            "borrowed"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "lang": "Old Spanish",
+                  "lang_code": "osp",
+                  "word": "lirio",
+                  "descendants": [
+                    {
+                      "lang": "Ladino",
+                      "lang_code": "lad",
+                      "word": "lirio"
+                    },
+                    {
+                      "lang": "Spanish",
+                      "lang_code": "es",
+                      "word": "lirio",
+                      "descendants": [
+                        {
+                          "lang": "Tagalog",
+                          "lang_code": "tl",
+                          "word": "liryo",
+                          "raw_tags": [
+                            "borrowed"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
             {
               "lang": "Basque",
               "lang_code": "eu",
@@ -96623,6 +97868,122 @@
               "args": {
                 "1": "rēctus"
               }
+            }
+          ],
+          "descendants": [
+            {
+              "lang_code": "unknown",
+              "lang": "Inherited",
+              "descendants": [
+                {
+                  "lang": "Asturian",
+                  "lang_code": "ast",
+                  "word": "arrechu"
+                },
+                {
+                  "lang": "Friulian",
+                  "lang_code": "fur",
+                  "word": "ret"
+                },
+                {
+                  "lang": "Italian",
+                  "lang_code": "it",
+                  "word": "retto"
+                },
+                {
+                  "lang": "Italian",
+                  "lang_code": "it",
+                  "word": "ritto"
+                },
+                {
+                  "lang": "Old Galician-Portuguese",
+                  "lang_code": "roa-opt",
+                  "word": "reyto"
+                },
+                {
+                  "lang": "Sicilian",
+                  "lang_code": "scn",
+                  "word": "rittu"
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Borrowed",
+              "descendants": [
+                {
+                  "lang": "Asturian",
+                  "lang_code": "ast",
+                  "word": "reutu",
+                  "raw_tags": [
+                    "borrowed"
+                  ]
+                },
+                {
+                  "lang": "Catalan",
+                  "lang_code": "ca",
+                  "word": "recte",
+                  "raw_tags": [
+                    "borrowed"
+                  ]
+                },
+                {
+                  "lang": "English",
+                  "lang_code": "en",
+                  "word": "recta",
+                  "raw_tags": [
+                    "borrowed"
+                  ]
+                },
+                {
+                  "lang": "English",
+                  "lang_code": "en",
+                  "word": "rectus",
+                  "raw_tags": [
+                    "borrowed"
+                  ]
+                },
+                {
+                  "lang": "English",
+                  "lang_code": "en",
+                  "word": "recto",
+                  "raw_tags": [
+                    "borrowed"
+                  ]
+                },
+                {
+                  "lang": "Galician",
+                  "lang_code": "gl",
+                  "word": "recto",
+                  "raw_tags": [
+                    "borrowed"
+                  ]
+                },
+                {
+                  "lang": "Italian",
+                  "lang_code": "it",
+                  "word": "recto",
+                  "raw_tags": [
+                    "borrowed"
+                  ]
+                },
+                {
+                  "lang": "Portuguese",
+                  "lang_code": "pt",
+                  "word": "reto",
+                  "raw_tags": [
+                    "borrowed"
+                  ]
+                },
+                {
+                  "lang": "Spanish",
+                  "lang_code": "es",
+                  "word": "recto",
+                  "raw_tags": [
+                    "borrowed"
+                  ]
+                }
+              ]
             }
           ],
           "etymology_text": "Perfect passive participle of regō (“to keep or lead straight, to guide”). Inherited from Proto-Italic *rektos, corresponding to Proto-Indo-European *h₃reǵtós (“having moved in a straight line”), from Proto-Indo-European *h₃reǵ- (“to straighten, direct”).",
@@ -101079,6 +102440,22 @@
               "word": "coitare"
             },
             {
+              "lang_code": "unknown",
+              "lang": "Old Franco-Provençal",
+              "descendants": [
+                {
+                  "lang": "Franco-Provençal",
+                  "lang_code": "frp",
+                  "word": "cuidier"
+                },
+                {
+                  "lang": "Franco-Provençal",
+                  "lang_code": "frp",
+                  "word": "cuidar"
+                }
+              ]
+            },
+            {
               "lang": "Old French",
               "lang_code": "fro",
               "word": "cuidier",
@@ -101185,6 +102562,22 @@
                   "lang": "French",
                   "lang_code": "fr",
                   "word": "cuider"
+                }
+              ]
+            },
+            {
+              "lang_code": "roa-ole",
+              "lang": "Old Leonese",
+              "descendants": [
+                {
+                  "lang": "Asturian",
+                  "lang_code": "ast",
+                  "word": "cuidar"
+                },
+                {
+                  "lang": "Mirandese",
+                  "lang_code": "mwl",
+                  "word": "cuidar"
                 }
               ]
             },
@@ -102069,6 +103462,152 @@
             },
             {
               "word": "lupus in sermone"
+            }
+          ],
+          "descendants": [
+            {
+              "lang_code": "unknown",
+              "lang": "Eastern Romance",
+              "descendants": [
+                {
+                  "lang": "Aromanian",
+                  "lang_code": "rup",
+                  "word": "ãn"
+                },
+                {
+                  "lang": "Istro-Romanian",
+                  "lang_code": "ruo",
+                  "word": "ăn"
+                },
+                {
+                  "lang": "Megleno-Romanian",
+                  "lang_code": "ruq",
+                  "word": "ăn"
+                },
+                {
+                  "lang": "Romanian",
+                  "lang_code": "ro",
+                  "word": "în"
+                }
+              ]
+            },
+            {
+              "lang_code": "dlm",
+              "lang": "Dalmatian",
+              "descendants": [
+                {
+                  "lang": "unknown",
+                  "lang_code": "dlm",
+                  "word": "en"
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Italo-Romance",
+              "descendants": [
+                {
+                  "lang": "Italian",
+                  "lang_code": "it",
+                  "word": "in"
+                },
+                {
+                  "lang": "Judeo-Italian",
+                  "lang_code": "itk",
+                  "word": "אִין",
+                  "roman": "ʔin"
+                },
+                {
+                  "lang": "Sicilian",
+                  "lang_code": "scn",
+                  "word": "'n"
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Padanian",
+              "descendants": [
+                {
+                  "lang": "Friulian",
+                  "lang_code": "fur",
+                  "word": "in"
+                },
+                {
+                  "lang": "Ligurian",
+                  "lang_code": "lij",
+                  "word": "in"
+                },
+                {
+                  "lang": "Piedmontese",
+                  "lang_code": "pms",
+                  "word": "ën"
+                },
+                {
+                  "lang": "Romansh",
+                  "lang_code": "rm",
+                  "word": "en"
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Gallo-Romance",
+              "descendants": [
+                {
+                  "lang": "Catalan",
+                  "lang_code": "ca",
+                  "word": "en"
+                },
+                {
+                  "lang": "Franco-Provençal",
+                  "lang_code": "frp",
+                  "word": "en"
+                },
+                {
+                  "lang": "French",
+                  "lang_code": "fr",
+                  "word": "en"
+                },
+                {
+                  "lang": "Occitan",
+                  "lang_code": "oc",
+                  "word": "en"
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Ibero-Romance",
+              "descendants": [
+                {
+                  "lang": "Mozarabic",
+                  "lang_code": "mxi",
+                  "word": "אן",
+                  "roman": "ʔn"
+                },
+                {
+                  "lang": "Portuguese",
+                  "lang_code": "pt",
+                  "word": "em"
+                },
+                {
+                  "lang": "Spanish",
+                  "lang_code": "es",
+                  "word": "en"
+                }
+              ]
+            },
+            {
+              "lang_code": "unknown",
+              "lang": "Insular Romance",
+              "descendants": [
+                {
+                  "lang": "Sardinian",
+                  "lang_code": "sc",
+                  "word": "in"
+                }
+              ]
             }
           ],
           "etymology_text": "From earlier en, from Proto-Italic *en, from Proto-Indo-European *h₁én (“in”). Cognates include English in, Ancient Greek ἐν (en).\nThe ablative is from the locative, and the accusative is from the directional.",
@@ -103231,7 +104770,7 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zullen afnokken\naf zullen nokken",
+              "form": "zullen afnokken",
               "tags": [
                 "active",
                 "infinitive",
@@ -103242,7 +104781,29 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "te zullen afnokken\naf te zullen nokken",
+              "form": "af zullen nokken",
+              "tags": [
+                "active",
+                "infinitive",
+                "imperfect",
+                "future",
+                "short-form"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "te zullen afnokken",
+              "tags": [
+                "active",
+                "infinitive",
+                "imperfect",
+                "future",
+                "long-form"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "af te zullen nokken",
               "tags": [
                 "active",
                 "infinitive",
@@ -103313,7 +104874,14 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "ev.\n nok af",
+              "form": "ev.",
+              "tags": [
+                "imperative"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "nok af",
               "tags": [
                 "imperative"
               ],
@@ -103740,7 +105308,22 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zou(dt) afnokken",
+              "form": "zou afnokken",
+              "tags": [
+                "indicative",
+                "imperfect",
+                "main-clause",
+                "conditional",
+                "singular",
+                "second-person"
+              ],
+              "raw_tags": [
+                "u"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "zoudt afnokken",
               "tags": [
                 "indicative",
                 "imperfect",
@@ -103973,7 +105556,7 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zal afnokken\naf zal nokken",
+              "form": "zal afnokken",
               "tags": [
                 "subordinate-clause",
                 "future"
@@ -103984,7 +105567,18 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zult afnokken\naf zult/zal nokken",
+              "form": "af zal nokken",
+              "tags": [
+                "subordinate-clause",
+                "future"
+              ],
+              "raw_tags": [
+                ".. dat ik"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "zult/zal afnokken\naf zult/zal nokken",
               "tags": [
                 "subordinate-clause",
                 "future"
@@ -103995,18 +105589,7 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zal afnokken\naf zult/zal nokken",
-              "tags": [
-                "subordinate-clause",
-                "future"
-              ],
-              "raw_tags": [
-                ".. dat jij, je"
-              ],
-              "source": "afnokken/vervoeging"
-            },
-            {
-              "form": "zult afnokken\naf zult/zal nokken",
+              "form": "zult/zal afnokken\naf zult/zal nokken",
               "tags": [
                 "subordinate-clause",
                 "future"
@@ -104017,18 +105600,7 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zal afnokken\naf zult/zal nokken",
-              "tags": [
-                "subordinate-clause",
-                "future"
-              ],
-              "raw_tags": [
-                ".. dat u"
-              ],
-              "source": "afnokken/vervoeging"
-            },
-            {
-              "form": "zult afnokken\naf zult nokken",
+              "form": "zult afnokken",
               "tags": [
                 "subordinate-clause",
                 "future"
@@ -104039,7 +105611,18 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zal afnokken\naf zal nokken",
+              "form": "af zult nokken",
+              "tags": [
+                "subordinate-clause",
+                "future"
+              ],
+              "raw_tags": [
+                ".. dat gij"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "zal afnokken",
               "tags": [
                 "subordinate-clause",
                 "future"
@@ -104050,7 +105633,18 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zullen afnokken\naf zullen nokken",
+              "form": "af zal nokken",
+              "tags": [
+                "subordinate-clause",
+                "future"
+              ],
+              "raw_tags": [
+                ".. dat hij, zij, het"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "zullen afnokken",
               "tags": [
                 "subordinate-clause",
                 "future"
@@ -104061,7 +105655,18 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zullen afnokken\naf zullen nokken",
+              "form": "af zullen nokken",
+              "tags": [
+                "subordinate-clause",
+                "future"
+              ],
+              "raw_tags": [
+                ".. dat wij"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "zullen afnokken",
               "tags": [
                 "subordinate-clause",
                 "future"
@@ -104072,7 +105677,18 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zullen afnokken\naf zullen nokken",
+              "form": "af zullen nokken",
+              "tags": [
+                "subordinate-clause",
+                "future"
+              ],
+              "raw_tags": [
+                ".. dat jullie"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "zullen afnokken",
               "tags": [
                 "subordinate-clause",
                 "future"
@@ -104083,7 +105699,18 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zou afnokken\naf zou nokken",
+              "form": "af zullen nokken",
+              "tags": [
+                "subordinate-clause",
+                "future"
+              ],
+              "raw_tags": [
+                ".. dat zij"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "zou afnokken",
               "tags": [
                 "subordinate-clause",
                 "conditional"
@@ -104094,7 +105721,29 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zou afnokken\naf zou nokken",
+              "form": "af zou nokken",
+              "tags": [
+                "subordinate-clause",
+                "conditional"
+              ],
+              "raw_tags": [
+                ".. dat ik"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "zou afnokken",
+              "tags": [
+                "subordinate-clause",
+                "conditional"
+              ],
+              "raw_tags": [
+                ".. dat jij, je"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "af zou nokken",
               "tags": [
                 "subordinate-clause",
                 "conditional"
@@ -104116,7 +105765,7 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zoudt afnokken\naf zoudt nokken",
+              "form": "zoudt afnokken",
               "tags": [
                 "subordinate-clause",
                 "conditional"
@@ -104127,7 +105776,18 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zou afnokken\naf zou nokken",
+              "form": "af zoudt nokken",
+              "tags": [
+                "subordinate-clause",
+                "conditional"
+              ],
+              "raw_tags": [
+                ".. dat gij"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "zou afnokken",
               "tags": [
                 "subordinate-clause",
                 "conditional"
@@ -104138,7 +105798,18 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zouden afnokken\naf zouden nokken",
+              "form": "af zou nokken",
+              "tags": [
+                "subordinate-clause",
+                "conditional"
+              ],
+              "raw_tags": [
+                ".. dat hij, zij, het"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "zouden afnokken",
               "tags": [
                 "subordinate-clause",
                 "conditional"
@@ -104149,7 +105820,18 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zouden afnokken\naf zouden nokken",
+              "form": "af zouden nokken",
+              "tags": [
+                "subordinate-clause",
+                "conditional"
+              ],
+              "raw_tags": [
+                ".. dat wij"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "zouden afnokken",
               "tags": [
                 "subordinate-clause",
                 "conditional"
@@ -104160,7 +105842,29 @@
               "source": "afnokken/vervoeging"
             },
             {
-              "form": "zouden afnokken\naf zouden nokken",
+              "form": "af zouden nokken",
+              "tags": [
+                "subordinate-clause",
+                "conditional"
+              ],
+              "raw_tags": [
+                ".. dat jullie"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "zouden afnokken",
+              "tags": [
+                "subordinate-clause",
+                "conditional"
+              ],
+              "raw_tags": [
+                ".. dat zij"
+              ],
+              "source": "afnokken/vervoeging"
+            },
+            {
+              "form": "af zouden nokken",
               "tags": [
                 "subordinate-clause",
                 "conditional"
@@ -119082,6 +120786,2490 @@
               "form": "堘",
               "tags": [
                 "alternative"
+              ]
+            }
+          ],
+          "lang": "Chinese",
+          "lang_code": "zh"
+        }
+      },
+      {
+        "url": "https://kaikki.org/dictionary/All%20languages%20combined/meaning/便/便宜/便宜.html",
+        "download_url": "https://kaikki.org/dictionary/All%20languages%20combined/meaning/便/便宜/便宜.jsonl",
+        "json": {
+          "word": "便宜",
+          "pos": "adj",
+          "senses": [
+            {
+              "examples": [
+                {
+                  "tags": [
+                    "Traditional-Chinese",
+                    "Pinyin"
+                  ],
+                  "translation": "This is the cheapest store in town.",
+                  "english": "This is the cheapest store in town.",
+                  "bold_translation_offsets": [
+                    [
+                      12,
+                      17
+                    ]
+                  ],
+                  "roman": "Zhè shì zhèn shàng zuì piányi de shāngdiàn.",
+                  "bold_roman_offsets": [
+                    [
+                      23,
+                      29
+                    ]
+                  ],
+                  "text": "這是鎮上最便宜的商店。",
+                  "bold_text_offsets": [
+                    [
+                      5,
+                      7
+                    ]
+                  ],
+                  "type": "example"
+                },
+                {
+                  "tags": [
+                    "Simplified-Chinese",
+                    "Pinyin"
+                  ],
+                  "translation": "This is the cheapest store in town.",
+                  "english": "This is the cheapest store in town.",
+                  "bold_translation_offsets": [
+                    [
+                      12,
+                      17
+                    ]
+                  ],
+                  "roman": "Zhè shì zhèn shàng zuì piányi de shāngdiàn.",
+                  "bold_roman_offsets": [
+                    [
+                      23,
+                      29
+                    ]
+                  ],
+                  "text": "这是镇上最便宜的商店。",
+                  "bold_text_offsets": [
+                    [
+                      5,
+                      7
+                    ]
+                  ],
+                  "type": "example"
+                },
+                {
+                  "tags": [
+                    "Traditional-Chinese",
+                    "Pinyin"
+                  ],
+                  "translation": "Cheap meat doesn't make good soup.",
+                  "english": "Cheap meat doesn't make good soup.",
+                  "bold_translation_offsets": [
+                    [
+                      0,
+                      5
+                    ]
+                  ],
+                  "roman": "Yòng piányi de ròu jiù zuò bùchū hǎo tāng.",
+                  "bold_roman_offsets": [
+                    [
+                      5,
+                      11
+                    ]
+                  ],
+                  "text": "用便宜的肉就做不出好湯。",
+                  "bold_text_offsets": [
+                    [
+                      1,
+                      3
+                    ]
+                  ],
+                  "type": "example"
+                },
+                {
+                  "tags": [
+                    "Simplified-Chinese",
+                    "Pinyin"
+                  ],
+                  "translation": "Cheap meat doesn't make good soup.",
+                  "english": "Cheap meat doesn't make good soup.",
+                  "bold_translation_offsets": [
+                    [
+                      0,
+                      5
+                    ]
+                  ],
+                  "roman": "Yòng piányi de ròu jiù zuò bùchū hǎo tāng.",
+                  "bold_roman_offsets": [
+                    [
+                      5,
+                      11
+                    ]
+                  ],
+                  "text": "用便宜的肉就做不出好汤。",
+                  "bold_text_offsets": [
+                    [
+                      1,
+                      3
+                    ]
+                  ],
+                  "type": "example"
+                }
+              ],
+              "links": [
+                [
+                  "cheap",
+                  "cheap"
+                ],
+                [
+                  "inexpensive",
+                  "inexpensive"
+                ]
+              ],
+              "categories": [
+                "Mandarin terms with usage examples"
+              ],
+              "glosses": [
+                "cheap; inexpensive"
+              ]
+            }
+          ],
+          "head_templates": [
+            {
+              "name": "head",
+              "args": {
+                "1": "zh",
+                "2": "adjective"
+              },
+              "expansion": "便宜"
+            }
+          ],
+          "categories": [
+            "Beginning Mandarin",
+            "Chinese adjectives",
+            "Chinese entries with incorrect language header",
+            "Chinese lemmas",
+            "Chinese nouns",
+            "Chinese terms spelled with 便",
+            "Chinese terms spelled with 宜",
+            "Chinese terms with IPA pronunciation",
+            "Chinese verbs",
+            "Eastern Min adjectives",
+            "Eastern Min lemmas",
+            "Eastern Min verbs",
+            "Pages with 3 entries",
+            "Pages with entries"
+          ],
+          "synonyms": [
+            {
+              "word": "低廉",
+              "tags": [
+                "formal",
+                "Written-vernacular-Chinese"
+              ]
+            },
+            {
+              "word": "低賤",
+              "tags": [
+                "formal",
+                "Written-vernacular-Chinese"
+              ]
+            },
+            {
+              "word": "賤",
+              "tags": [
+                "Northeastern-Mandarin",
+                "Beijing"
+              ]
+            },
+            {
+              "word": "賤",
+              "tags": [
+                "Northeastern-Mandarin",
+                "Harbin"
+              ]
+            },
+            {
+              "word": "賤",
+              "tags": [
+                "Jilu-Mandarin",
+                "Jinan"
+              ]
+            },
+            {
+              "word": "賤",
+              "tags": [
+                "Jiaoliao-Mandarin",
+                "Yantai",
+                "Muping"
+              ]
+            },
+            {
+              "word": "賤",
+              "tags": [
+                "Central-Plains-Mandarin",
+                "Luoyang"
+              ]
+            },
+            {
+              "word": "賤",
+              "tags": [
+                "Central-Plains-Mandarin",
+                "Wanrong"
+              ]
+            },
+            {
+              "word": "賤",
+              "tags": [
+                "Central-Plains-Mandarin",
+                "Xi'an"
+              ]
+            },
+            {
+              "word": "賤",
+              "tags": [
+                "Central-Plains-Mandarin",
+                "Xuzhou"
+              ]
+            },
+            {
+              "word": "相因",
+              "tags": [
+                "Southwestern-Mandarin",
+                "Chengdu"
+              ]
+            },
+            {
+              "word": "相因",
+              "tags": [
+                "Southwestern-Mandarin",
+                "Wuhan"
+              ]
+            },
+            {
+              "word": "相因",
+              "tags": [
+                "Southwestern-Mandarin",
+                "Guiyang"
+              ]
+            },
+            {
+              "word": "划廉",
+              "tags": [
+                "Jianghuai-Mandarin",
+                "Yangzhou"
+              ]
+            },
+            {
+              "word": "巧",
+              "tags": [
+                "Jianghuai-Mandarin",
+                "Hefei"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Guangzhou"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Hong Kong"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Hong Kong",
+                "San Tin",
+                "Weitou"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Hong Kong",
+                "Kam Tin",
+                "Weitou"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Hong Kong",
+                "Ting Kok"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Hong Kong",
+                "Tung Ping Chau"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Macau"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Guangzhou",
+                "Panyu"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Guangzhou",
+                "Huashan",
+                "Huadu"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Guangzhou",
+                "Conghua"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Guangzhou",
+                "Zengcheng"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Foshan"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Foshan",
+                "Shatou",
+                "Nanhai"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Foshan",
+                "Shunde"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Foshan",
+                "Sanshui"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Foshan",
+                "Mingcheng",
+                "Gaoming"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Zhongshan",
+                "Shiqi"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Xiangzhou"
+              ],
+              "tags": [
+                "Cantonese",
+                "Zhuhai",
+                "Qianshan"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Shangheng",
+                "Tanka"
+              ],
+              "tags": [
+                "Cantonese",
+                "Zhuhai",
+                "Doumen"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Zhuhai",
+                "Doumen"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Jiangmen",
+                "Baisha"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Jiangmen",
+                "Xinhui"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Taishan"
+              ]
+            },
+            {
+              "word": "平貨",
+              "tags": [
+                "Cantonese",
+                "Taishan"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Kaiping",
+                "Chikan"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Enping",
+                "Niujiang"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Heshan",
+                "Yayao"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Dongguan"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Shenzhen",
+                "Shajing",
+                "Bao'an"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Qingyuan"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Fogang"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Yingde",
+                "Hanguang"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Yangshan"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Lianshan",
+                "Butian"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平宜",
+              "raw_tags": [
+                "Lianzhou",
+                "Qingshui",
+                "Sihui"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Shaoguan"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Shaoguan",
+                "Qujiang"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Renhua"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "抵得",
+              "raw_tags": [
+                "Renhua"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Lechang"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Zhaoqing",
+                "Gaoyao"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Sihui"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平枯",
+              "raw_tags": [
+                "Guangning"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Deqing"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Huaiji"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Nanfeng"
+              ],
+              "tags": [
+                "Cantonese",
+                "Fengkai"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Yunfu"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Xinxing"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Luoding"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Yunan",
+                "Pingtai"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Yangjiang"
+              ]
+            },
+            {
+              "word": "平宜",
+              "tags": [
+                "Cantonese",
+                "Yangjiang"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Nanning"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Yulin"
+              ],
+              "tags": [
+                "Cantonese"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Kuala Lumpur"
+              ],
+              "tags": [
+                "Cantonese",
+                "Guangfu"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Cantonese",
+                "Singapore",
+                "Guangfu"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Hakka",
+                "Meixian"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Huicheng",
+                "Bendihua"
+              ],
+              "tags": [
+                "Hakka",
+                "Huizhou"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Hakka",
+                "Dongguan",
+                "Qingxi"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Boluo",
+                "Bendihua"
+              ],
+              "tags": [
+                "Hakka"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Hakka",
+                "Shenzhen",
+                "Shatoujiao"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Wuguishan"
+              ],
+              "tags": [
+                "Hakka",
+                "Zhongshan"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Nanlang Heshui"
+              ],
+              "tags": [
+                "Hakka",
+                "Zhongshan"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Wuhua",
+                "Huacheng"
+              ],
+              "tags": [
+                "Hakka"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Wuhua",
+                "Changbu"
+              ],
+              "tags": [
+                "Hakka"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Heyuan",
+                "Bendihua"
+              ],
+              "tags": [
+                "Hakka"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Longchuan",
+                "Tuocheng",
+                "Bendihua"
+              ],
+              "tags": [
+                "Hakka"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Lianping",
+                "Longjie",
+                "Bendihua"
+              ],
+              "tags": [
+                "Hakka"
+              ]
+            },
+            {
+              "word": "俗",
+              "raw_tags": [
+                "Shanlin",
+                "S. Sixian"
+              ],
+              "tags": [
+                "Hakka",
+                "Kaohsiung"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Hong Kong"
+              ],
+              "tags": [
+                "Hakka"
+              ]
+            },
+            {
+              "word": "賤",
+              "tags": [
+                "Jin",
+                "Taiyuan"
+              ]
+            },
+            {
+              "word": "賤",
+              "tags": [
+                "Jin",
+                "Xinzhou"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Shunchang",
+                "Yangdun"
+              ],
+              "tags": [
+                "Min-Bei"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Jianyang"
+              ],
+              "tags": [
+                "Min-Bei"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Wuyishan"
+              ],
+              "tags": [
+                "Min-Bei"
+              ]
+            },
+            {
+              "word": "賤",
+              "tags": [
+                "Min-Dong",
+                "Fuzhou"
+              ]
+            },
+            {
+              "word": "俗",
+              "tags": [
+                "Min-Nan",
+                "Xiamen"
+              ]
+            },
+            {
+              "word": "俗",
+              "tags": [
+                "Min-Nan",
+                "Quanzhou"
+              ]
+            },
+            {
+              "word": "俗",
+              "tags": [
+                "Min-Nan",
+                "Zhangzhou"
+              ]
+            },
+            {
+              "word": "俗",
+              "tags": [
+                "Min-Nan",
+                "Taipei"
+              ]
+            },
+            {
+              "word": "俗",
+              "raw_tags": [
+                "New Taipei",
+                "Sanxia"
+              ],
+              "tags": [
+                "Min-Nan"
+              ]
+            },
+            {
+              "word": "俗",
+              "tags": [
+                "Min-Nan",
+                "Kaohsiung"
+              ]
+            },
+            {
+              "word": "俗",
+              "tags": [
+                "Min-Nan",
+                "Yilan"
+              ]
+            },
+            {
+              "word": "俗",
+              "raw_tags": [
+                "Changhua"
+              ],
+              "tags": [
+                "Min-Nan",
+                "Lukang"
+              ]
+            },
+            {
+              "word": "俗",
+              "tags": [
+                "Min-Nan",
+                "Taichung"
+              ]
+            },
+            {
+              "word": "俗",
+              "raw_tags": [
+                "Wuqi"
+              ],
+              "tags": [
+                "Min-Nan",
+                "Taichung"
+              ]
+            },
+            {
+              "word": "俗",
+              "tags": [
+                "Min-Nan",
+                "Tainan"
+              ]
+            },
+            {
+              "word": "俗",
+              "raw_tags": [
+                "Taitung"
+              ],
+              "tags": [
+                "Min-Nan"
+              ]
+            },
+            {
+              "word": "俗",
+              "raw_tags": [
+                "Hsinchu"
+              ],
+              "tags": [
+                "Min-Nan"
+              ]
+            },
+            {
+              "word": "俗",
+              "tags": [
+                "Min-Nan",
+                "Kinmen"
+              ]
+            },
+            {
+              "word": "俗",
+              "raw_tags": [
+                "Penghu",
+                "Magong"
+              ],
+              "tags": [
+                "Min-Nan"
+              ]
+            },
+            {
+              "word": "偏",
+              "tags": [
+                "Min-Nan",
+                "Singapore",
+                "Hokkien"
+              ]
+            },
+            {
+              "word": "俗",
+              "tags": [
+                "Min-Nan",
+                "Manila",
+                "Hokkien"
+              ]
+            },
+            {
+              "word": "便",
+              "tags": [
+                "Min-Nan",
+                "Chaozhou"
+              ]
+            },
+            {
+              "word": "便",
+              "raw_tags": [
+                "Shantou"
+              ],
+              "tags": [
+                "Min-Nan"
+              ]
+            },
+            {
+              "word": "便",
+              "tags": [
+                "Min-Nan",
+                "Jieyang"
+              ]
+            },
+            {
+              "word": "便",
+              "raw_tags": [
+                "Johor Bahru"
+              ],
+              "tags": [
+                "Min-Nan",
+                "Teochew"
+              ]
+            },
+            {
+              "word": "便",
+              "tags": [
+                "Min-Nan",
+                "Singapore",
+                "Teochew"
+              ]
+            },
+            {
+              "word": "相因",
+              "raw_tags": [
+                "Putian"
+              ],
+              "tags": [
+                "Puxian-Min"
+              ]
+            },
+            {
+              "word": "相因",
+              "raw_tags": [
+                "Xianyou"
+              ],
+              "tags": [
+                "Puxian-Min"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Longdu",
+                "Shaxi",
+                "Zhongshan-Min"
+              ],
+              "tags": [
+                "Zhongshan"
+              ]
+            },
+            {
+              "word": "平",
+              "raw_tags": [
+                "Sanxiang",
+                "Zhongshan-Min"
+              ],
+              "tags": [
+                "Zhongshan"
+              ]
+            },
+            {
+              "word": "平",
+              "tags": [
+                "Southern-Pinghua",
+                "Nanning",
+                "Tingzi"
+              ]
+            },
+            {
+              "word": "𠼢",
+              "tags": [
+                "Wu",
+                "Shanghai"
+              ]
+            },
+            {
+              "word": "𠼢",
+              "tags": [
+                "Wu",
+                "Shanghai",
+                "Chongming"
+              ]
+            },
+            {
+              "word": "𠼢",
+              "tags": [
+                "Wu",
+                "Suzhou"
+              ]
+            },
+            {
+              "word": "賤",
+              "tags": [
+                "Wu",
+                "Danyang"
+              ]
+            },
+            {
+              "word": "𠼢",
+              "tags": [
+                "Wu",
+                "Hangzhou"
+              ]
+            },
+            {
+              "word": "𠼢",
+              "tags": [
+                "Wu",
+                "Ningbo"
+              ]
+            },
+            {
+              "word": "鬆",
+              "tags": [
+                "Wu",
+                "Wenzhou"
+              ]
+            },
+            {
+              "word": "賤",
+              "tags": [
+                "Wu",
+                "Jinhua"
+              ]
+            },
+            {
+              "word": "賤",
+              "tags": [
+                "Xiang",
+                "Shuangfeng"
+              ]
+            }
+          ],
+          "antonyms": [
+            {
+              "roman": "ángguì",
+              "word": "昂貴"
+            },
+            {
+              "roman": "ángguì",
+              "word": "昂贵"
+            },
+            {
+              "roman": "gāo'áng",
+              "word": "高昂"
+            }
+          ],
+          "derived": [
+            {
+              "word": "便宜無好貨"
+            },
+            {
+              "word": "便宜无好货"
+            },
+            {
+              "word": "便宜話"
+            },
+            {
+              "word": "便宜话"
+            },
+            {
+              "roman": "piányihuò",
+              "word": "便宜貨"
+            },
+            {
+              "roman": "piányihuò",
+              "word": "便宜货"
+            }
+          ],
+          "related": [
+            {
+              "roman": "liánjià",
+              "word": "廉價"
+            },
+            {
+              "roman": "liánjià",
+              "word": "廉价"
+            }
+          ],
+          "sounds": [
+            {
+              "zh_pron": "piányi",
+              "tags": [
+                "Mandarin",
+                "Standard",
+                "Pinyin"
+              ]
+            },
+            {
+              "zh_pron": "piányí",
+              "tags": [
+                "Mandarin",
+                "Standard",
+                "Pinyin"
+              ]
+            },
+            {
+              "zh_pron": "ㄆㄧㄢˊ ˙ㄧ",
+              "tags": [
+                "Mandarin",
+                "Standard",
+                "Bopomofo"
+              ]
+            },
+            {
+              "zh_pron": "ㄆㄧㄢˊ ㄧˊ",
+              "tags": [
+                "Mandarin",
+                "Standard",
+                "Bopomofo"
+              ]
+            },
+            {
+              "audio": "zh-piányi.ogg",
+              "ogg_url": "https://commons.wikimedia.org/wiki/Special:FilePath/zh-piányi.ogg",
+              "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/0f/Zh-piányi.ogg/Zh-piányi.ogg.mp3",
+              "tags": [
+                "Mandarin",
+                "Standard"
+              ]
+            },
+            {
+              "zh_pron": "pian² ȵi⁴",
+              "tags": [
+                "Mandarin",
+                "Chengdu",
+                "Sichuanese",
+                "Pinyin"
+              ]
+            },
+            {
+              "zh_pron": "bian⁴ ȵi²",
+              "tags": [
+                "Mandarin",
+                "Chengdu",
+                "Sichuanese",
+                "Pinyin"
+              ]
+            },
+            {
+              "zh_pron": "пянйи (pi͡anyi, I-II)",
+              "tags": [
+                "Mandarin",
+                "Dungan",
+                "Cyrillic",
+                "Wiktionary-specific"
+              ]
+            },
+            {
+              "zh_pron": "pin⁴ ji⁴",
+              "tags": [
+                "Cantonese",
+                "Jyutping"
+              ]
+            },
+            {
+              "zh_pron": "pien² i",
+              "tags": [
+                "Gan",
+                "Wiktionary-specific"
+              ]
+            },
+            {
+              "zh_pron": "phièn-ngì",
+              "tags": [
+                "Hakka",
+                "Sixian",
+                "Phak-fa-su"
+              ]
+            },
+            {
+              "zh_pron": "pien ngi",
+              "tags": [
+                "Hakka",
+                "Hailu",
+                "Hakka-Romanization-System"
+              ]
+            },
+            {
+              "zh_pron": "piên² ngin²",
+              "tags": [
+                "Hakka",
+                "Meixian",
+                "Guangdong"
+              ]
+            },
+            {
+              "zh_pron": "pie¹ i³",
+              "tags": [
+                "Jin",
+                "Wiktionary-specific"
+              ]
+            },
+            {
+              "zh_pron": "bèng-ngiè",
+              "tags": [
+                "Min-Dong",
+                "Foochow-Romanized"
+              ]
+            },
+            {
+              "zh_pron": "beng² gi²",
+              "tags": [
+                "Puxian-Min"
+              ],
+              "raw_tags": [
+                "Pouseng-Ping'ing"
+              ]
+            },
+            {
+              "zh_pron": "pân-gî",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "POJ"
+              ]
+            },
+            {
+              "zh_pron": "piân-gî",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "POJ"
+              ]
+            },
+            {
+              "zh_pron": "pān-gî",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "POJ"
+              ]
+            },
+            {
+              "zh_pron": "pan-gî",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "POJ"
+              ]
+            },
+            {
+              "zh_pron": "piān-gî",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "POJ"
+              ]
+            },
+            {
+              "zh_pron": "biang⁶ ngi⁵",
+              "tags": [
+                "Min-Nan",
+                "Teochew",
+                "Peng'im"
+              ]
+            },
+            {
+              "zh_pron": "⁶bi-gni",
+              "tags": [
+                "Wu",
+                "Northern"
+              ],
+              "raw_tags": [
+                "Wugniu"
+              ]
+            },
+            {
+              "zh_pron": "⁶bi-gniq",
+              "tags": [
+                "Wu",
+                "Northern"
+              ],
+              "raw_tags": [
+                "Wugniu"
+              ]
+            },
+            {
+              "zh_pron": "²bie-gniq₈",
+              "tags": [
+                "Wu",
+                "Northern"
+              ],
+              "raw_tags": [
+                "Wugniu"
+              ]
+            },
+            {
+              "zh_pron": "bienn² i",
+              "tags": [
+                "Xiang",
+                "Changsha",
+                "Wiktionary-specific"
+              ]
+            },
+            {
+              "zh_pron": "piányi",
+              "tags": [
+                "Mandarin",
+                "Standard-Chinese",
+                "Mainland-China",
+                "standard",
+                "Taiwan",
+                "variant",
+                "Pinyin"
+              ]
+            },
+            {
+              "zh_pron": "ㄆㄧㄢˊ ˙ㄧ",
+              "tags": [
+                "Mandarin",
+                "Standard-Chinese",
+                "Mainland-China",
+                "standard",
+                "Taiwan",
+                "variant",
+                "Bopomofo"
+              ]
+            },
+            {
+              "zh_pron": "piányi̊",
+              "tags": [
+                "Mandarin",
+                "Standard-Chinese",
+                "Mainland-China",
+                "standard",
+                "Taiwan",
+                "variant",
+                "Tongyong-Pinyin"
+              ]
+            },
+            {
+              "zh_pron": "pʻien²-i⁵",
+              "tags": [
+                "Mandarin",
+                "Standard-Chinese",
+                "Mainland-China",
+                "standard",
+                "Taiwan",
+                "variant",
+                "Wade-Giles"
+              ]
+            },
+            {
+              "zh_pron": "pyán-yi",
+              "tags": [
+                "Mandarin",
+                "Standard-Chinese",
+                "Mainland-China",
+                "standard",
+                "Taiwan",
+                "variant",
+                "Yale"
+              ]
+            },
+            {
+              "zh_pron": "pyan.i",
+              "tags": [
+                "Mandarin",
+                "Standard-Chinese",
+                "Mainland-China",
+                "standard",
+                "Taiwan",
+                "variant",
+                "Gwoyeu-Romatsyh"
+              ]
+            },
+            {
+              "zh_pron": "пяньи",
+              "roman": "pjanʹi",
+              "tags": [
+                "Mandarin",
+                "Standard-Chinese",
+                "Mainland-China",
+                "standard",
+                "Taiwan",
+                "variant",
+                "Palladius"
+              ]
+            },
+            {
+              "ipa": "/pʰi̯ɛn³⁵ i³/",
+              "tags": [
+                "Mandarin",
+                "Standard-Chinese",
+                "Mainland-China",
+                "standard",
+                "Taiwan",
+                "variant",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "zh_pron": "piányí",
+              "tags": [
+                "Mandarin",
+                "Standard-Chinese",
+                "Taiwan",
+                "standard",
+                "Pinyin"
+              ]
+            },
+            {
+              "zh_pron": "ㄆㄧㄢˊ ㄧˊ",
+              "tags": [
+                "Mandarin",
+                "Standard-Chinese",
+                "Taiwan",
+                "standard",
+                "Bopomofo"
+              ]
+            },
+            {
+              "zh_pron": "piányí",
+              "tags": [
+                "Mandarin",
+                "Standard-Chinese",
+                "Taiwan",
+                "standard",
+                "Tongyong-Pinyin"
+              ]
+            },
+            {
+              "zh_pron": "pʻien²-i²",
+              "tags": [
+                "Mandarin",
+                "Standard-Chinese",
+                "Taiwan",
+                "standard",
+                "Wade-Giles"
+              ]
+            },
+            {
+              "zh_pron": "pyán-yí",
+              "tags": [
+                "Mandarin",
+                "Standard-Chinese",
+                "Taiwan",
+                "standard",
+                "Yale"
+              ]
+            },
+            {
+              "zh_pron": "pyanyi",
+              "tags": [
+                "Mandarin",
+                "Standard-Chinese",
+                "Taiwan",
+                "standard",
+                "Gwoyeu-Romatsyh"
+              ]
+            },
+            {
+              "zh_pron": "пяньи",
+              "roman": "pjanʹi",
+              "tags": [
+                "Mandarin",
+                "Standard-Chinese",
+                "Taiwan",
+                "standard",
+                "Palladius"
+              ]
+            },
+            {
+              "ipa": "/pʰi̯ɛn³⁵ i³⁵/",
+              "tags": [
+                "Mandarin",
+                "Standard-Chinese",
+                "Taiwan",
+                "standard",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "zh_pron": "pian² ȵi⁴",
+              "tags": [
+                "Mandarin",
+                "Chengdu",
+                "Sichuanese",
+                "Pinyin"
+              ]
+            },
+            {
+              "zh_pron": "bian⁴ ȵi²",
+              "tags": [
+                "Mandarin",
+                "Chengdu",
+                "Sichuanese",
+                "Pinyin"
+              ]
+            },
+            {
+              "zh_pron": "pianni",
+              "tags": [
+                "Mandarin",
+                "Chengdu",
+                "Latinxua-Sin-Wenz"
+              ]
+            },
+            {
+              "zh_pron": "bianni",
+              "tags": [
+                "Mandarin",
+                "Chengdu",
+                "Latinxua-Sin-Wenz"
+              ]
+            },
+            {
+              "ipa": "/pʰiɛn²¹ nʲi²¹³/",
+              "tags": [
+                "Mandarin",
+                "Chengdu",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "ipa": "/piɛn²¹³ nʲi²¹/",
+              "tags": [
+                "Mandarin",
+                "Chengdu",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "zh_pron": "пянйи (pi͡anyi, I-II)",
+              "tags": [
+                "Mandarin",
+                "Dungan",
+                "Cyrillic",
+                "Wiktionary-specific"
+              ]
+            },
+            {
+              "ipa": "/pʰiæ̃²⁴ i⁵¹/",
+              "tags": [
+                "Mandarin",
+                "Dungan",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "zh_pron": "pin⁴ ji⁴",
+              "tags": [
+                "Cantonese",
+                "Guangzhou",
+                "Jyutping"
+              ],
+              "raw_tags": [
+                "Standard-Cantonese",
+                "Hong Kong"
+              ]
+            },
+            {
+              "zh_pron": "pìhn yìh",
+              "tags": [
+                "Cantonese",
+                "Guangzhou",
+                "Yale"
+              ],
+              "raw_tags": [
+                "Standard-Cantonese",
+                "Hong Kong"
+              ]
+            },
+            {
+              "zh_pron": "pin⁴ ji⁴",
+              "tags": [
+                "Cantonese",
+                "Guangzhou",
+                "Cantonese",
+                "Pinyin"
+              ],
+              "raw_tags": [
+                "Standard-Cantonese",
+                "Hong Kong"
+              ]
+            },
+            {
+              "zh_pron": "pin⁴ yi⁴",
+              "tags": [
+                "Cantonese",
+                "Guangzhou",
+                "Guangdong-Romanization"
+              ],
+              "raw_tags": [
+                "Standard-Cantonese",
+                "Hong Kong"
+              ]
+            },
+            {
+              "ipa": "/pʰiːn²¹ jiː²¹/",
+              "tags": [
+                "Cantonese",
+                "Guangzhou",
+                "Sinological-IPA"
+              ],
+              "raw_tags": [
+                "Standard-Cantonese",
+                "Hong Kong"
+              ]
+            },
+            {
+              "zh_pron": "pien² i",
+              "tags": [
+                "Gan",
+                "Nanchang",
+                "Wiktionary-specific"
+              ]
+            },
+            {
+              "ipa": "/pʰiɛn²⁴ i²/",
+              "tags": [
+                "Gan",
+                "Nanchang",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "zh_pron": "phièn-ngì",
+              "tags": [
+                "Hakka",
+                "Sixian",
+                "Miaoli",
+                "Neipu",
+                "Phak-fa-su"
+              ]
+            },
+            {
+              "zh_pron": "pien^ˇ ngi^ˇ",
+              "tags": [
+                "Hakka",
+                "Sixian",
+                "Miaoli",
+                "Neipu",
+                "Hakka-Romanization-System"
+              ]
+            },
+            {
+              "zh_pron": "pian² ngi²",
+              "tags": [
+                "Hakka",
+                "Sixian",
+                "Miaoli",
+                "Neipu",
+                "Hagfa-Pinyim"
+              ]
+            },
+            {
+              "ipa": "/pʰi̯en¹¹ ŋi¹¹/",
+              "tags": [
+                "Hakka",
+                "Sixian",
+                "Miaoli",
+                "Neipu",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "zh_pron": "pien ngi",
+              "tags": [
+                "Hakka",
+                "Hailu",
+                "Zhudong",
+                "Hakka-Romanization-System"
+              ]
+            },
+            {
+              "ipa": "/pʰien⁵⁵ ŋi⁵⁵/",
+              "tags": [
+                "Hakka",
+                "Hailu",
+                "Zhudong",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "zh_pron": "piên² ngin²",
+              "tags": [
+                "Hakka",
+                "Meixian",
+                "Guangdong"
+              ]
+            },
+            {
+              "ipa": "/pʰiɛn¹¹ ŋin¹¹/",
+              "tags": [
+                "Hakka",
+                "Meixian",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "zh_pron": "pie¹ i³",
+              "tags": [
+                "Jin",
+                "Taiyuan",
+                "Wiktionary-specific"
+              ]
+            },
+            {
+              "ipa": "/pʰie¹¹ i⁴⁵/",
+              "tags": [
+                "Jin",
+                "Taiyuan",
+                "Sinological-IPA",
+                "dated"
+              ]
+            },
+            {
+              "zh_pron": "bèng-ngiè",
+              "tags": [
+                "Min-Dong",
+                "Fuzhou",
+                "Foochow-Romanized"
+              ]
+            },
+            {
+              "ipa": "/pɛiŋ⁵³⁻³³ ŋie⁵³/",
+              "tags": [
+                "Min-Dong",
+                "Fuzhou",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "zh_pron": "beng² gi²",
+              "tags": [
+                "Puxian-Min"
+              ],
+              "raw_tags": [
+                "Putian",
+                "Pouseng-Ping'ing"
+              ]
+            },
+            {
+              "zh_pron": "beng⁵ ngi²",
+              "tags": [
+                "Puxian-Min",
+                "phonetic"
+              ],
+              "raw_tags": [
+                "Putian",
+                "Pouseng-Ping'ing"
+              ]
+            },
+            {
+              "zh_pron": "béng-gí",
+              "tags": [
+                "Puxian-Min"
+              ],
+              "raw_tags": [
+                "Putian",
+                "Hinghwa-Romanized"
+              ]
+            },
+            {
+              "ipa": "/pɛŋ¹³⁻¹¹ ⁽ᵏ⁻⁾ŋi¹³/",
+              "tags": [
+                "Puxian-Min",
+                "Sinological-IPA"
+              ],
+              "raw_tags": [
+                "Putian"
+              ]
+            },
+            {
+              "zh_pron": "beng² gi²",
+              "tags": [
+                "Puxian-Min"
+              ],
+              "raw_tags": [
+                "Xianyou",
+                "Pouseng-Ping'ing"
+              ]
+            },
+            {
+              "zh_pron": "beng⁵ ngi²",
+              "tags": [
+                "Puxian-Min",
+                "phonetic"
+              ],
+              "raw_tags": [
+                "Xianyou",
+                "Pouseng-Ping'ing"
+              ]
+            },
+            {
+              "ipa": "/pɛŋ²⁴⁻²¹ ⁽ᵏ⁻⁾ŋi²⁴/",
+              "tags": [
+                "Puxian-Min",
+                "Sinological-IPA"
+              ],
+              "raw_tags": [
+                "Xianyou"
+              ]
+            },
+            {
+              "zh_pron": "pân-gî",
+              "raw_tags": [
+                "General Taiwanese"
+              ],
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Xiamen",
+                "Quanzhou",
+                "Zhangzhou",
+                "Penang",
+                "POJ"
+              ]
+            },
+            {
+              "zh_pron": "pân-gî",
+              "raw_tags": [
+                "General Taiwanese"
+              ],
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Xiamen",
+                "Quanzhou",
+                "Zhangzhou",
+                "Penang",
+                "Tai-lo"
+              ]
+            },
+            {
+              "zh_pron": "pan'gii",
+              "raw_tags": [
+                "General Taiwanese"
+              ],
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Xiamen",
+                "Quanzhou",
+                "Zhangzhou",
+                "Penang",
+                "Phofsit-Daibuun"
+              ]
+            },
+            {
+              "ipa": "/pan²⁴⁻¹¹ ɡi²⁴/",
+              "raw_tags": [
+                "General Taiwanese"
+              ],
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Xiamen",
+                "Quanzhou",
+                "Zhangzhou",
+                "Penang",
+                "Sinological-IPA",
+                "Taipei"
+              ]
+            },
+            {
+              "ipa": "/pan²³⁻²¹ ɡi²³/",
+              "raw_tags": [
+                "General Taiwanese"
+              ],
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Xiamen",
+                "Quanzhou",
+                "Zhangzhou",
+                "Penang",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "ipa": "/pan¹³⁻²² ɡi¹³/",
+              "raw_tags": [
+                "General Taiwanese"
+              ],
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Xiamen",
+                "Quanzhou",
+                "Zhangzhou",
+                "Penang",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "ipa": "/pan²³⁻³³ ɡi²³/",
+              "raw_tags": [
+                "General Taiwanese"
+              ],
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Xiamen",
+                "Quanzhou",
+                "Zhangzhou",
+                "Penang",
+                "Sinological-IPA",
+                "Kaohsiung"
+              ]
+            },
+            {
+              "ipa": "/pan²⁴⁻²² ɡi²⁴/",
+              "raw_tags": [
+                "General Taiwanese"
+              ],
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Xiamen",
+                "Quanzhou",
+                "Zhangzhou",
+                "Penang",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "zh_pron": "piân-gî",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Xiamen",
+                "Quanzhou",
+                "POJ"
+              ]
+            },
+            {
+              "zh_pron": "piân-gî",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Xiamen",
+                "Quanzhou",
+                "Tai-lo"
+              ]
+            },
+            {
+              "zh_pron": "pien'gii",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Xiamen",
+                "Quanzhou",
+                "Phofsit-Daibuun"
+              ]
+            },
+            {
+              "ipa": "/piɛn²⁴⁻²² ɡi²⁴/",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Xiamen",
+                "Quanzhou",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "zh_pron": "pān-gî",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Taiwan",
+                "variant",
+                "POJ"
+              ]
+            },
+            {
+              "zh_pron": "pān-gî",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Taiwan",
+                "variant",
+                "Tai-lo"
+              ]
+            },
+            {
+              "zh_pron": "paxn'gii",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Taiwan",
+                "variant",
+                "Phofsit-Daibuun"
+              ]
+            },
+            {
+              "ipa": "/pan³³⁻²¹ ɡi²³/",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Taiwan",
+                "variant",
+                "Sinological-IPA",
+                "Kaohsiung"
+              ]
+            },
+            {
+              "ipa": "/pan³³⁻¹¹ ɡi²⁴/",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Taiwan",
+                "variant",
+                "Sinological-IPA",
+                "Taipei"
+              ]
+            },
+            {
+              "zh_pron": "pan-gî",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Taiwan",
+                "variant",
+                "POJ"
+              ]
+            },
+            {
+              "zh_pron": "pan-gî",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Taiwan",
+                "variant",
+                "Tai-lo"
+              ]
+            },
+            {
+              "zh_pron": "pan'gii",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Taiwan",
+                "variant",
+                "Phofsit-Daibuun"
+              ]
+            },
+            {
+              "ipa": "/pan⁴⁴⁻³³ ɡi²³/",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Taiwan",
+                "variant",
+                "Sinological-IPA",
+                "Kaohsiung"
+              ]
+            },
+            {
+              "ipa": "/pan⁴⁴⁻³³ ɡi²⁴/",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Taiwan",
+                "variant",
+                "Sinological-IPA",
+                "Taipei"
+              ]
+            },
+            {
+              "zh_pron": "piān-gî",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Taiwan",
+                "variant",
+                "POJ"
+              ]
+            },
+            {
+              "zh_pron": "piān-gî",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Taiwan",
+                "variant",
+                "Tai-lo"
+              ]
+            },
+            {
+              "zh_pron": "piexn'gii",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Taiwan",
+                "variant",
+                "Phofsit-Daibuun"
+              ]
+            },
+            {
+              "ipa": "/piɛn³³⁻²¹ ɡi²³/",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Taiwan",
+                "variant",
+                "Sinological-IPA",
+                "Kaohsiung"
+              ]
+            },
+            {
+              "ipa": "/piɛn³³⁻¹¹ ɡi²⁴/",
+              "tags": [
+                "Min-Nan",
+                "Hokkien",
+                "Taiwan",
+                "variant",
+                "Sinological-IPA",
+                "Taipei"
+              ]
+            },
+            {
+              "zh_pron": "biang⁶ ngi⁵",
+              "tags": [
+                "Min-Nan",
+                "Teochew",
+                "Peng'im"
+              ]
+            },
+            {
+              "zh_pron": "piăng ngî",
+              "tags": [
+                "Min-Nan",
+                "Teochew",
+                "POJ"
+              ]
+            },
+            {
+              "ipa": "/piaŋ³⁵⁻¹¹ ŋi⁵⁵/",
+              "tags": [
+                "Min-Nan",
+                "Teochew",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "zh_pron": "⁶bi-gni",
+              "tags": [
+                "Wu",
+                "Northern",
+                "Shanghai"
+              ],
+              "raw_tags": [
+                "Wugniu"
+              ]
+            },
+            {
+              "zh_pron": "⁶bi-gniq",
+              "tags": [
+                "Wu",
+                "Northern",
+                "Shanghai"
+              ],
+              "raw_tags": [
+                "Wugniu"
+              ]
+            },
+            {
+              "zh_pron": "bi^去 nyi",
+              "tags": [
+                "Wu",
+                "Northern",
+                "Shanghai"
+              ],
+              "raw_tags": [
+                "MiniDict"
+              ]
+            },
+            {
+              "zh_pron": "bi^去 nyih",
+              "tags": [
+                "Wu",
+                "Northern",
+                "Shanghai"
+              ],
+              "raw_tags": [
+                "MiniDict"
+              ]
+            },
+            {
+              "zh_pron": "³bi-nyi",
+              "tags": [
+                "Wu",
+                "Northern",
+                "Shanghai",
+                "Wiktionary-specific",
+                "romanization"
+              ]
+            },
+            {
+              "zh_pron": "³bi-nyiq",
+              "tags": [
+                "Wu",
+                "Northern",
+                "Shanghai",
+                "Wiktionary-specific",
+                "romanization"
+              ]
+            },
+            {
+              "ipa": "/bi²² n̠ʲi⁴⁴/",
+              "tags": [
+                "Wu",
+                "Northern",
+                "Shanghai",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "ipa": "/bi²² n̠ʲiɪʔ⁴⁴/",
+              "tags": [
+                "Wu",
+                "Northern",
+                "Shanghai",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "zh_pron": "²bie-gniq₈",
+              "tags": [
+                "Wu",
+                "Northern",
+                "Suzhou"
+              ],
+              "raw_tags": [
+                "Wugniu"
+              ]
+            },
+            {
+              "zh_pron": "bie^平 nyih^入",
+              "tags": [
+                "Wu",
+                "Northern",
+                "Suzhou"
+              ],
+              "raw_tags": [
+                "MiniDict"
+              ]
+            },
+            {
+              "ipa": "/bɪ²² n̠ʲiɪʔ³³/",
+              "tags": [
+                "Wu",
+                "Northern",
+                "Suzhou",
+                "Sinological-IPA"
+              ]
+            },
+            {
+              "zh_pron": "bienn² i",
+              "tags": [
+                "Xiang",
+                "Changsha",
+                "Wiktionary-specific"
+              ]
+            },
+            {
+              "ipa": "/pi̯ẽ¹³ i³/",
+              "tags": [
+                "Xiang",
+                "Changsha",
+                "Sinological-IPA"
               ]
             }
           ],
