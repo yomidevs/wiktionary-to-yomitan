@@ -51,6 +51,92 @@
     ""
   ],
   [
+    "zullen afnokken",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "afnokken",
+        [
+          "first/second/third-person plural future imperfect indicative main-clause"
+        ]
+      ],
+      [
+        "afnokken",
+        [
+          "future imperfect active infinitive short-form"
+        ]
+      ],
+      [
+        "afnokken",
+        [
+          "future subordinate-clause"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "af zullen nokken",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "afnokken",
+        [
+          "future imperfect active infinitive short-form"
+        ]
+      ],
+      [
+        "afnokken",
+        [
+          "future subordinate-clause"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "te zullen afnokken",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "afnokken",
+        [
+          "future imperfect active infinitive long-form"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "af te zullen nokken",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "afnokken",
+        [
+          "future imperfect active infinitive long-form"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
     "afnokkend",
     "",
     "non-lemma",
@@ -68,6 +154,23 @@
     ""
   ],
   [
+    "ev.",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "afnokken",
+        [
+          "imperative"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
     "nok af",
     "",
     "non-lemma",
@@ -78,6 +181,12 @@
         "afnokken",
         [
           "first-person singular present imperfect indicative main-clause"
+        ]
+      ],
+      [
+        "afnokken",
+        [
+          "imperative"
         ]
       ]
     ],
@@ -147,6 +256,12 @@
         [
           "first/second/third-person singular future imperfect indicative main-clause"
         ]
+      ],
+      [
+        "afnokken",
+        [
+          "future subordinate-clause"
+        ]
       ]
     ],
     0,
@@ -162,24 +277,13 @@
       [
         "afnokken",
         [
-          "second-person singular future imperfect indicative main-clause"
+          "future subordinate-clause"
         ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
-    "zullen afnokken",
-    "",
-    "non-lemma",
-    "",
-    0,
-    [
+      ],
       [
         "afnokken",
         [
-          "first/second/third-person plural future imperfect indicative main-clause"
+          "second-person singular future imperfect indicative main-clause"
         ]
       ]
     ],
@@ -193,6 +297,12 @@
     "",
     0,
     [
+      [
+        "afnokken",
+        [
+          "conditional subordinate-clause"
+        ]
+      ],
       [
         "afnokken",
         [
@@ -213,6 +323,12 @@
       [
         "afnokken",
         [
+          "conditional subordinate-clause"
+        ]
+      ],
+      [
+        "afnokken",
+        [
           "second-person singular imperfect conditional indicative main-clause"
         ]
       ]
@@ -227,6 +343,12 @@
     "",
     0,
     [
+      [
+        "afnokken",
+        [
+          "conditional subordinate-clause"
+        ]
+      ],
       [
         "afnokken",
         [
@@ -299,6 +421,91 @@
         "afnokken",
         [
           "past subordinate-clause"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "af zal nokken",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "afnokken",
+        [
+          "future subordinate-clause"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "af zult nokken",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "afnokken",
+        [
+          "future subordinate-clause"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "af zou nokken",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "afnokken",
+        [
+          "conditional subordinate-clause"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "af zoudt nokken",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "afnokken",
+        [
+          "conditional subordinate-clause"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "af zouden nokken",
+    "",
+    "non-lemma",
+    "",
+    0,
+    [
+      [
+        "afnokken",
+        [
+          "conditional subordinate-clause"
         ]
       ]
     ],

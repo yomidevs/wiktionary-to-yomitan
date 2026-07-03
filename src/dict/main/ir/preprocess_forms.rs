@@ -211,6 +211,9 @@ fn preprocess_verb_forms_nl_nl(entry: &mut WordEntry) {
         // These are unusable in this shape...
         // * For the newlines, see https://github.com/tatuylonen/wiktextract/issues/1638
         // * "zou(dt) afnokken"
+        //
+        // Note that this was sort of fixed, and now there are a bunch of forms
+        // with the auxiliary "zullen"
         let has_newline_or_parens = form.form.contains(['\n', '(']);
 
         let is_compound = form

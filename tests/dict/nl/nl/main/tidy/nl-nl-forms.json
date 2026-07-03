@@ -24,6 +24,41 @@
         ]
       ]
     },
+    "zullen afnokken": {
+      "verb": [
+        "extracted",
+        [
+          "first/second/third-person plural future imperfect indicative main-clause",
+          "future imperfect active infinitive short-form",
+          "future subordinate-clause"
+        ]
+      ]
+    },
+    "af zullen nokken": {
+      "verb": [
+        "extracted",
+        [
+          "future imperfect active infinitive short-form",
+          "future subordinate-clause"
+        ]
+      ]
+    },
+    "te zullen afnokken": {
+      "verb": [
+        "extracted",
+        [
+          "future imperfect active infinitive long-form"
+        ]
+      ]
+    },
+    "af te zullen nokken": {
+      "verb": [
+        "extracted",
+        [
+          "future imperfect active infinitive long-form"
+        ]
+      ]
+    },
     "afnokkend": {
       "verb": [
         "extracted",
@@ -32,11 +67,20 @@
         ]
       ]
     },
+    "ev.": {
+      "verb": [
+        "extracted",
+        [
+          "imperative"
+        ]
+      ]
+    },
     "nok af": {
       "verb": [
         "extracted",
         [
-          "first-person singular present imperfect indicative main-clause"
+          "first-person singular present imperfect indicative main-clause",
+          "imperative"
         ]
       ]
     },
@@ -68,7 +112,8 @@
       "verb": [
         "extracted",
         [
-          "first/second/third-person singular future imperfect indicative main-clause"
+          "first/second/third-person singular future imperfect indicative main-clause",
+          "future subordinate-clause"
         ]
       ]
     },
@@ -76,15 +121,8 @@
       "verb": [
         "extracted",
         [
+          "future subordinate-clause",
           "second-person singular future imperfect indicative main-clause"
-        ]
-      ]
-    },
-    "zullen afnokken": {
-      "verb": [
-        "extracted",
-        [
-          "first/second/third-person plural future imperfect indicative main-clause"
         ]
       ]
     },
@@ -92,6 +130,7 @@
       "verb": [
         "extracted",
         [
+          "conditional subordinate-clause",
           "first/second/third-person singular imperfect conditional indicative main-clause"
         ]
       ]
@@ -100,6 +139,7 @@
       "verb": [
         "extracted",
         [
+          "conditional subordinate-clause",
           "second-person singular imperfect conditional indicative main-clause"
         ]
       ]
@@ -108,6 +148,7 @@
       "verb": [
         "extracted",
         [
+          "conditional subordinate-clause",
           "first/second/third-person plural imperfect conditional indicative main-clause"
         ]
       ]
@@ -141,6 +182,46 @@
         "extracted",
         [
           "past subordinate-clause"
+        ]
+      ]
+    },
+    "af zal nokken": {
+      "verb": [
+        "extracted",
+        [
+          "future subordinate-clause"
+        ]
+      ]
+    },
+    "af zult nokken": {
+      "verb": [
+        "extracted",
+        [
+          "future subordinate-clause"
+        ]
+      ]
+    },
+    "af zou nokken": {
+      "verb": [
+        "extracted",
+        [
+          "conditional subordinate-clause"
+        ]
+      ]
+    },
+    "af zoudt nokken": {
+      "verb": [
+        "extracted",
+        [
+          "conditional subordinate-clause"
+        ]
+      ]
+    },
+    "af zouden nokken": {
+      "verb": [
+        "extracted",
+        [
+          "conditional subordinate-clause"
         ]
       ]
     }
