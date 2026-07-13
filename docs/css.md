@@ -1,7 +1,8 @@
 ## Prelude
 
-- The css used by all `wty` dictionaries can be found [here](https://raw.githubusercontent.com/yomidevs/wiktionary-to-yomitan/master/assets/styles.css).
-- The css found on Yomitan side can be found at this [folder](https://github.com/yomidevs/yomitan/tree/master/ext/css), with secret css variables like `--text-color` at [material.css](https://github.com/yomidevs/yomitan/blob/master/ext/css/material.css). Note that these variables will not work in Anki because Yomitan does not support their extraction, and adding fallbacks in `styles.css` may interfere with the user theme.
+- The css used by all `wty` dictionaries can be found [here](https://github.com/yomidevs/wiktionary-to-yomitan/blob/master/assets/styles/styles.css).
+- Dictionaries made for non-Yomitan formats may also contain this simplified Yomitan-side [css](https://github.com/yomidevs/wiktionary-to-yomitan/blob/master/assets/styles/styles_yomitan.css).
+- The original Yomitan-side css can be found at this [folder](https://github.com/yomidevs/yomitan/tree/master/ext/css), with secret css variables like `--text-color` at [material.css](https://github.com/yomidevs/yomitan/blob/master/ext/css/material.css). Note that these variables will not work in Anki because Yomitan does not support their extraction, and adding fallbacks in `styles.css` may interfere with the user theme.
 - Yomitan documentation contains [themes](https://yomitan.wiki/tools-resources/?h=css#yomitan-colored-css) and how to set them up.
 - The sunset Yomichan has a still mostly valid [guide](https://learnjapanese.moe/yomicss/) on how to customize css.
 
