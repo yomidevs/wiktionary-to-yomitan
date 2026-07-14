@@ -6,6 +6,175 @@
       "reading": "mìnglìng",
       "transcriptions": [
         {
+          "ipa": "mìnglìng",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Standard-Chinese",
+            "Pinyin"
+          ]
+        },
+        {
+          "ipa": "ㄇㄧㄥˋ ㄌㄧㄥˋ",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Standard-Chinese",
+            "Bopomofo"
+          ]
+        },
+        {
+          "ipa": "min⁴ nin⁴",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Chengdu",
+            "Sichuanese",
+            "Pinyin"
+          ]
+        },
+        {
+          "ipa": "ming⁶ ling⁶",
+          "tags": [
+            "zh_pron",
+            "Cantonese",
+            "Jyutping",
+            "Standard-Cantonese",
+            "Guangzhou",
+            "Hong Kong",
+            "Pinyin",
+            "Guangdong-Romanization"
+          ]
+        },
+        {
+          "ipa": "min-lin",
+          "tags": [
+            "zh_pron",
+            "Hakka",
+            "Sixian",
+            "Phak-fa-su",
+            "Miaoli",
+            "Neipu"
+          ]
+        },
+        {
+          "ipa": "ming³ ling³",
+          "tags": [
+            "zh_pron",
+            "Jin",
+            "Wiktionary-specific",
+            "Taiyuan"
+          ]
+        },
+        {
+          "ipa": "bēng-lēng",
+          "tags": [
+            "zh_pron",
+            "Min-Nan",
+            "Hokkien",
+            "Phak-fa-su",
+            "Xiamen",
+            "Quanzhou",
+            "Zhangzhou",
+            "Taiwanese",
+            "general"
+          ]
+        },
+        {
+          "ipa": "bǐn-lǐn",
+          "tags": [
+            "zh_pron",
+            "Min-Nan",
+            "Hokkien",
+            "Phak-fa-su",
+            "Tâi-lô"
+          ]
+        },
+        {
+          "ipa": "mêng⁶ lêng⁶",
+          "tags": [
+            "zh_pron",
+            "Min-Nan",
+            "Teochew",
+            "Peng'im"
+          ]
+        },
+        {
+          "ipa": "⁶min-lin",
+          "tags": [
+            "zh_pron",
+            "Wu",
+            "Shanghai",
+            "Wugniu",
+            "Northern"
+          ]
+        },
+        {
+          "ipa": "mìngling",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Standard-Chinese",
+            "Pinyin",
+            "toneless-final-syllable-variant"
+          ]
+        },
+        {
+          "ipa": "ㄇㄧㄥˋ ˙ㄌㄧㄥ",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Standard-Chinese",
+            "Bopomofo",
+            "toneless-final-syllable-variant"
+          ]
+        },
+        {
+          "ipa": "mìngli̊ng",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Standard-Chinese",
+            "Tongyong-Pinyin"
+          ]
+        },
+        {
+          "ipa": "ming⁴-ling⁵",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Standard-Chinese",
+            "Wade–Giles"
+          ]
+        },
+        {
+          "ipa": "mìng-ling",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Standard-Chinese",
+            "Yale"
+          ]
+        },
+        {
+          "ipa": "minq.linq",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Standard-Chinese",
+            "Gwoyeu-Romatsyh"
+          ]
+        },
+        {
+          "ipa": "минлин",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Standard-Chinese",
+            "Cyrillic"
+          ]
+        },
+        {
           "ipa": "/miŋ⁵¹⁻⁵³ liŋ⁵¹/",
           "tags": [
             "Mandarin",
@@ -22,11 +191,32 @@
           ]
         },
         {
+          "ipa": "minlin",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Chengdu",
+            "Latinxua-Sin-Wenz"
+          ]
+        },
+        {
           "ipa": "/min²¹³ nin²¹³/",
           "tags": [
             "Mandarin",
             "Chengdu",
             "IPA"
+          ]
+        },
+        {
+          "ipa": "mihng lihng",
+          "tags": [
+            "zh_pron",
+            "Cantonese",
+            "Standard-Cantonese",
+            "Guangzhou",
+            "Hong Kong",
+            "Yale",
+            "Jyutping"
           ]
         },
         {
@@ -37,6 +227,28 @@
             "Guangzhou",
             "Hong Kong",
             "IPA"
+          ]
+        },
+        {
+          "ipa": "min lin",
+          "tags": [
+            "zh_pron",
+            "Hakka",
+            "Sixian",
+            "Miaoli",
+            "Neipu",
+            "Hakka-Romanization-System"
+          ]
+        },
+        {
+          "ipa": "min⁴ lin⁴",
+          "tags": [
+            "zh_pron",
+            "Hakka",
+            "Sixian",
+            "Miaoli",
+            "Neipu",
+            "Hagfa-Pinyim"
           ]
         },
         {
@@ -56,6 +268,34 @@
             "Taiyuan",
             "IPA",
             "dated"
+          ]
+        },
+        {
+          "ipa": "bīng-līng",
+          "tags": [
+            "zh_pron",
+            "Min-Nan",
+            "Hokkien",
+            "Xiamen",
+            "Quanzhou",
+            "Zhangzhou",
+            "Taiwanese",
+            "general",
+            "Tâi-lô"
+          ]
+        },
+        {
+          "ipa": "bexngleng",
+          "tags": [
+            "zh_pron",
+            "Min-Nan",
+            "Hokkien",
+            "Xiamen",
+            "Quanzhou",
+            "Zhangzhou",
+            "Taiwanese",
+            "general",
+            "Phofsit-Daibuun"
           ]
         },
         {
@@ -121,11 +361,41 @@
           ]
         },
         {
+          "ipa": "mĕng lĕng",
+          "tags": [
+            "zh_pron",
+            "Min-Nan",
+            "Teochew",
+            "POJ"
+          ]
+        },
+        {
           "ipa": "/meŋ³⁵⁻¹¹ leŋ³⁵/",
           "tags": [
             "Min-Nan",
             "Teochew",
             "IPA"
+          ]
+        },
+        {
+          "ipa": "min^去 lin",
+          "tags": [
+            "zh_pron",
+            "Wu",
+            "Northern",
+            "Shanghai",
+            "MiniDict"
+          ]
+        },
+        {
+          "ipa": "³min-lin",
+          "tags": [
+            "zh_pron",
+            "Wu",
+            "Northern",
+            "Shanghai",
+            "Wiktionary-specific",
+            "romanization"
           ]
         },
         {
@@ -147,11 +417,181 @@
       "reading": "píjiǔ",
       "transcriptions": [
         {
+          "ipa": "píjiǔ",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Standard-Chinese",
+            "Pinyin"
+          ]
+        },
+        {
+          "ipa": "ㄆㄧˊ ㄐㄧㄡˇ",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Standard-Chinese",
+            "Bopomofo"
+          ]
+        },
+        {
+          "ipa": "pi¹ jiu³",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Chengdu",
+            "Sichuanese",
+            "Pinyin"
+          ]
+        },
+        {
+          "ipa": "пиҗю (piži͡u, I-II)",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Dongan",
+            "Cyrillic",
+            "Wiktionary-specific"
+          ]
+        },
+        {
+          "ipa": "be¹ zau²",
+          "tags": [
+            "zh_pron",
+            "Cantonese",
+            "Guangzhou",
+            "Hong Kong",
+            "Jyutping",
+            "Standard-Cantonese"
+          ]
+        },
+        {
+          "ipa": "pie² diu²",
+          "tags": [
+            "zh_pron",
+            "Cantonese",
+            "Taishanese",
+            "Wiktionary-specific",
+            "Pinyin",
+            "Taicheng"
+          ]
+        },
+        {
+          "ipa": "bi¹ jiu³",
+          "tags": [
+            "zh_pron",
+            "Hakka"
+          ]
+        },
+        {
+          "ipa": "pi¹ jiou²",
+          "tags": [
+            "zh_pron",
+            "Jin",
+            "Wiktionary-specific",
+            "Taiyuan"
+          ]
+        },
+        {
+          "ipa": "bì-ciū",
+          "tags": [
+            "zh_pron",
+            "Min-Dong",
+            "Foochow-Romanized",
+            "Fuzhou"
+          ]
+        },
+        {
+          "ipa": "pî-chiú",
+          "tags": [
+            "zh_pron",
+            "Min-Nan",
+            "Hokkien",
+            "Phak-fa-su",
+            "Xiamen",
+            "Quanzhou",
+            "Zhangzhou"
+          ]
+        },
+        {
+          "ipa": "bi⁵ ziu²",
+          "tags": [
+            "zh_pron",
+            "Min-Nan",
+            "Teochew",
+            "Peng'im"
+          ]
+        },
+        {
+          "ipa": "⁶bi-cieu",
+          "tags": [
+            "zh_pron",
+            "Wu",
+            "Shanghai",
+            "Wugniu",
+            "Northern"
+          ]
+        },
+        {
+          "ipa": "píjiǒu",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Standard-Chinese",
+            "Tongyong-Pinyin"
+          ]
+        },
+        {
+          "ipa": "pʻi²-chiu³",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Standard-Chinese",
+            "Wade–Giles"
+          ]
+        },
+        {
+          "ipa": "pí-jyǒu",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Standard-Chinese",
+            "Yale"
+          ]
+        },
+        {
+          "ipa": "pyijeou",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Standard-Chinese",
+            "Gwoyeu-Romatsyh"
+          ]
+        },
+        {
+          "ipa": "пицзю",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Standard-Chinese",
+            "Cyrillic"
+          ]
+        },
+        {
           "ipa": "/pʰi³⁵ t͡ɕi̯oʊ̯²¹⁴⁻²¹⁽⁴⁾/",
           "tags": [
             "Mandarin",
             "Standard-Chinese",
             "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "pi giu",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Chengdu",
+            "Latinxua-Sin-Wenz"
           ]
         },
         {
@@ -168,6 +608,41 @@
             "Mandarin",
             "Dongan",
             "IPA"
+          ]
+        },
+        {
+          "ipa": "bē jáu",
+          "tags": [
+            "zh_pron",
+            "Cantonese",
+            "Standard-Cantonese",
+            "Guangzhou",
+            "Hong Kong",
+            "Yale",
+            "Jyutping"
+          ]
+        },
+        {
+          "ipa": "be¹ dzau²",
+          "tags": [
+            "zh_pron",
+            "Cantonese",
+            "Standard-Cantonese",
+            "Guangzhou",
+            "Hong Kong",
+            "Cantonese",
+            "Pinyin"
+          ]
+        },
+        {
+          "ipa": "bé¹ zeo²",
+          "tags": [
+            "zh_pron",
+            "Cantonese",
+            "Standard-Cantonese",
+            "Guangzhou",
+            "Hong Kong",
+            "Guangdong-Romanization"
           ]
         },
         {
@@ -211,6 +686,30 @@
             "Min-Dong",
             "Fuzhou",
             "IPA"
+          ]
+        },
+        {
+          "ipa": "pî-tsiú",
+          "tags": [
+            "zh_pron",
+            "Min-Nan",
+            "Hokkien",
+            "Xiamen",
+            "Quanzhou",
+            "Zhangzhou",
+            "Tâi-lô"
+          ]
+        },
+        {
+          "ipa": "piciuo",
+          "tags": [
+            "zh_pron",
+            "Min-Nan",
+            "Hokkien",
+            "Xiamen",
+            "Quanzhou",
+            "Zhangzhou",
+            "Phofsit-Daibuun"
           ]
         },
         {
@@ -258,11 +757,41 @@
           ]
         },
         {
+          "ipa": "pî tsiú",
+          "tags": [
+            "zh_pron",
+            "Min-Nan",
+            "Teochew",
+            "POJ"
+          ]
+        },
+        {
           "ipa": "/pi⁵⁵⁻¹¹ t͡siu⁵²/",
           "tags": [
             "Min-Nan",
             "Teochew",
             "IPA"
+          ]
+        },
+        {
+          "ipa": "bi^去 cieu",
+          "tags": [
+            "zh_pron",
+            "Wu",
+            "Northern",
+            "Shanghai",
+            "MiniDict"
+          ]
+        },
+        {
+          "ipa": "³bi-jieu",
+          "tags": [
+            "zh_pron",
+            "Wu",
+            "Northern",
+            "Shanghai",
+            "Wiktionary-specific",
+            "romanization"
           ]
         },
         {
