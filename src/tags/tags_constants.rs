@@ -374,7 +374,7 @@ pub static TAG_BANK: [(&str, &str, i32, &[&str], i32); 386] = [
     ("🇦🇷🇺🇾", "variety", 0, &["Río de la Plata"], 0),
     ("🇦🇹", "variety", 0, &["Austria", "Austrian German"], 0),
     ("🇦🇹VI", "variety", 0, &["Vienna"], 0),
-    ("🇦🇺", "variety", 0, &["Australia", "General-Australian"], 0),
+    ("🇦🇺", "variety", 0, &["Australia", "Australian", "General-Australian"], 0),
     ("🇧🇦", "variety", 0, &["Bosnia"], 0),
     ("🇧🇭", "variety", 0, &["Bahrain"], 0),
     ("🇧🇴", "variety", 0, &["Bolivia"], 0),

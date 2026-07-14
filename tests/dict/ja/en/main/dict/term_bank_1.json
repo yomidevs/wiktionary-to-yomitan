@@ -782,7 +782,7 @@
                             "data": {
                               "content": "summary-entry"
                             },
-                            "content": "1 example"
+                            "content": "2 examples"
                           },
                           {
                             "tag": "div",
@@ -831,200 +831,6 @@
                                 }
                               ]
                             }
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "tag": "ul",
-                    "content": [
-                      {
-                        "tag": "li",
-                        "content": [
-                          "to move forward; (of a machine) to operate, function; (of objects) to move at a high speed (of a vehicle)",
-                          {
-                            "tag": "details",
-                            "data": {
-                              "content": "details-entry-examples"
-                            },
-                            "content": [
-                              {
-                                "tag": "summary",
-                                "data": {
-                                  "content": "summary-entry"
-                                },
-                                "content": "1 example"
-                              },
-                              {
-                                "tag": "div",
-                                "data": {
-                                  "content": "extra-info"
-                                },
-                                "content": {
-                                  "tag": "div",
-                                  "data": {
-                                    "content": "example-sentence"
-                                  },
-                                  "content": [
-                                    {
-                                      "tag": "div",
-                                      "data": {
-                                        "content": "example-sentence-a"
-                                      },
-                                      "content": [
-                                        "車が",
-                                        {
-                                          "tag": "span",
-                                          "data": {
-                                            "content": "bold-text"
-                                          },
-                                          "content": "走って"
-                                        },
-                                        "いる。"
-                                      ]
-                                    },
-                                    {
-                                      "tag": "div",
-                                      "data": {
-                                        "content": "example-sentence-b"
-                                      },
-                                      "content": [
-                                        "A car is ",
-                                        {
-                                          "tag": "span",
-                                          "data": {
-                                            "content": "bold-text"
-                                          },
-                                          "content": "run"
-                                        },
-                                        "ning. / Cars are ",
-                                        {
-                                          "tag": "span",
-                                          "data": {
-                                            "content": "bold-text"
-                                          },
-                                          "content": "run"
-                                        },
-                                        "ning."
-                                      ]
-                                    }
-                                  ]
-                                }
-                              }
-                            ]
-                          }
-                        ]
-                      },
-                      {
-                        "tag": "li",
-                        "content": [
-                          "to flow vigorously (of liquid)",
-                          {
-                            "tag": "details",
-                            "data": {
-                              "content": "details-entry-examples"
-                            },
-                            "content": [
-                              {
-                                "tag": "summary",
-                                "data": {
-                                  "content": "summary-entry"
-                                },
-                                "content": "1 example"
-                              },
-                              {
-                                "tag": "div",
-                                "data": {
-                                  "content": "extra-info"
-                                },
-                                "content": {
-                                  "tag": "div",
-                                  "data": {
-                                    "content": "example-sentence"
-                                  },
-                                  "content": [
-                                    {
-                                      "tag": "div",
-                                      "data": {
-                                        "content": "example-sentence-a"
-                                      },
-                                      "content": [
-                                        "石の上を水が",
-                                        {
-                                          "tag": "span",
-                                          "data": {
-                                            "content": "bold-text"
-                                          },
-                                          "content": "走る"
-                                        },
-                                        "。"
-                                      ]
-                                    },
-                                    {
-                                      "tag": "div",
-                                      "data": {
-                                        "content": "example-sentence-b"
-                                      },
-                                      "content": [
-                                        "The water ",
-                                        {
-                                          "tag": "span",
-                                          "data": {
-                                            "content": "bold-text"
-                                          },
-                                          "content": "runs"
-                                        },
-                                        " over the stones."
-                                      ]
-                                    }
-                                  ]
-                                }
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "tag": "li",
-                "content": [
-                  {
-                    "tag": "div",
-                    "content": [
-                      {
-                        "tag": "div",
-                        "data": {
-                          "content": "tags"
-                        },
-                        "content": [
-                          {
-                            "tag": "span",
-                            "title": "transitive verb",
-                            "data": {
-                              "content": "tag",
-                              "category": "partOfSpeech"
-                            },
-                            "content": "vt"
-                          }
-                        ]
-                      },
-                      "to run through some kind of place",
-                      {
-                        "tag": "details",
-                        "data": {
-                          "content": "details-entry-examples"
-                        },
-                        "content": [
-                          {
-                            "tag": "summary",
-                            "data": {
-                              "content": "summary-entry"
-                            },
-                            "content": "1 example"
                           },
                           {
                             "tag": "div",
@@ -1069,6 +875,134 @@
                                       "content": "runs"
                                     },
                                     " down this street."
+                                  ]
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "to move forward; (of a machine) to operate, function; (of objects) to move at a high speed (of a vehicle)",
+                      {
+                        "tag": "details",
+                        "data": {
+                          "content": "details-entry-examples"
+                        },
+                        "content": [
+                          {
+                            "tag": "summary",
+                            "data": {
+                              "content": "summary-entry"
+                            },
+                            "content": "1 example"
+                          },
+                          {
+                            "tag": "div",
+                            "data": {
+                              "content": "extra-info"
+                            },
+                            "content": {
+                              "tag": "div",
+                              "data": {
+                                "content": "example-sentence"
+                              },
+                              "content": [
+                                {
+                                  "tag": "div",
+                                  "data": {
+                                    "content": "example-sentence-a"
+                                  },
+                                  "content": "車が走る"
+                                },
+                                {
+                                  "tag": "div",
+                                  "data": {
+                                    "content": "example-sentence-b"
+                                  },
+                                  "content": "a car moves"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "li",
+                "content": [
+                  {
+                    "tag": "div",
+                    "content": [
+                      "to flow vigorously (of liquid)",
+                      {
+                        "tag": "details",
+                        "data": {
+                          "content": "details-entry-examples"
+                        },
+                        "content": [
+                          {
+                            "tag": "summary",
+                            "data": {
+                              "content": "summary-entry"
+                            },
+                            "content": "1 example"
+                          },
+                          {
+                            "tag": "div",
+                            "data": {
+                              "content": "extra-info"
+                            },
+                            "content": {
+                              "tag": "div",
+                              "data": {
+                                "content": "example-sentence"
+                              },
+                              "content": [
+                                {
+                                  "tag": "div",
+                                  "data": {
+                                    "content": "example-sentence-a"
+                                  },
+                                  "content": [
+                                    "石の上を水が",
+                                    {
+                                      "tag": "span",
+                                      "data": {
+                                        "content": "bold-text"
+                                      },
+                                      "content": "走る"
+                                    },
+                                    "。"
+                                  ]
+                                },
+                                {
+                                  "tag": "div",
+                                  "data": {
+                                    "content": "example-sentence-b"
+                                  },
+                                  "content": [
+                                    "The water ",
+                                    {
+                                      "tag": "span",
+                                      "data": {
+                                        "content": "bold-text"
+                                      },
+                                      "content": "runs"
+                                    },
+                                    " over the stones."
                                   ]
                                 }
                               ]

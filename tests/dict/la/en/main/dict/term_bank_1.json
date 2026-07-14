@@ -277,7 +277,7 @@
                                   "data": {
                                     "content": "example-sentence-c"
                                   },
-                                  "content": "43 BCE – c. 17 CE, Ovidius, Heroides 17.17, (translation Benham's Book of Quotations 1948)"
+                                  "content": "43 BCE – c. 17 CE, Ovidius, Heroides 17.17 (translation Benham's Book of Quotations 1948)"
                                 }
                               ]
                             }
@@ -409,7 +409,7 @@
                         "data": {
                           "content": "Etymology-content"
                         },
-                        "content": "Etymology tree\nProto-Indo-European *leǵ-\nProto-Indo-European *-eti\nProto-Indo-European *léǵeti\nProto-Italic *legō\nLatin legō\nFrom Proto-Italic *legō, from Proto-Indo-European *léǵeti, from the root *leǵ- (“to gather”). Cognates include Ancient Greek λέγω (légō, “to speak, to choose, to mean”) and Albanian mbledh. May be related to lēx.\nFor sense 6 (“to read”), compare typologically разбира́ть (razbirátʹ), разбира́ться (razbirátʹsja) (< брать (bratʹ)), разбо́рчивый (razbórčivyj) (по́черк (póčerk))."
+                        "content": "Etymology tree\nProto-Indo-European *leǵ-\nProto-Indo-European *-eti\nProto-Indo-European *léǵeti\nProto-Italic *legō\nLatin legō\nFrom Proto-Italic *legō, from Proto-Indo-European *léǵeti, from the root *leǵ- (“to gather”). Cognates include Ancient Greek λέγω (légō, “to speak, to choose, to mean”) and Albanian mbledh. May be related to lēx.\nFor etymology 1 sense 6 (“to read”), compare typologically разбира́ть (razbirátʹ), разбира́ться (razbirátʹsja) (< брать (bratʹ)), разбо́рчивый (razbórčivyj) (по́черк (póčerk))."
                       }
                     ]
                   }
@@ -459,7 +459,7 @@
                                   "data": {
                                     "content": "example-sentence-a"
                                   },
-                                  "content": "“… Date volnera lymphīs / abluam, et, extrēmus sī quis super hālitus errat, / ōre legam.” …"
+                                  "content": "“[...] Date volnera lymphīs / abluam, et, extrēmus sī quis super hālitus errat, / ōre legam.” [...]"
                                 },
                                 {
                                   "tag": "div",
@@ -854,7 +854,7 @@
                         "data": {
                           "content": "Etymology-content"
                         },
-                        "content": "Etymology tree\nAncient Greek λείριον (leírion)bor.\nLatin līlium\nBorrowed from Ancient Greek λείριον (leírion). See there for more."
+                        "content": "Borrowed from Ancient Greek λείριον (leírion). See there for more."
                       }
                     ]
                   }
@@ -1433,7 +1433,7 @@
                         "data": {
                           "content": "Etymology-content"
                         },
-                        "content": "For Proto-Italic *domos, from Proto-Indo-European *dṓm (“house, home”), from root *dem- (“to build”). Cognates include Ancient Greek δόμος (dómos), Albanian dhomë (“a chamber, a room”), Avestan 𐬛𐬀𐬨- (dam-) Sanskrit दम (dáma), Proto-Slavic *domъ and further to English timber. At least indirectly cognate to Latin dominus.\nThe feminine gender is probably due to the original root noun; attempts to transfer it to the 4th declension are due to 2nd declension feminines being unusual outside of tree names. Some manuscripts of Plautus show forms in dem-; De Vaan (2008) doubts their authenticity."
+                        "content": "From Proto-Italic *domos, from Proto-Indo-European *dṓm (“house, home”), from root *dem- (“to build”). Cognates include Ancient Greek δόμος (dómos), Albanian dhomë (“a chamber, a room”), Avestan 𐬛𐬀𐬨- (dam-) Sanskrit दम (dáma), Proto-Slavic *domъ and further to English timber. At least indirectly cognate to Latin dominus.\nThe feminine gender is probably due to the original root noun; attempts to transfer it to the 4th declension are due to 2nd declension feminines being unusual outside of tree names. Some manuscripts of Plautus show forms in dem-; De Vaan (2008) doubts their authenticity."
                       }
                     ]
                   }
@@ -2106,7 +2106,7 @@
                         "data": {
                           "content": "Etymology-content"
                         },
-                        "content": "Etymology tree\nProto-Indo-European *ḱe?\nProto-Indo-European *ḱóm\nProto-Italic *kom\nProto-Italic *kom-\nLatin con-\nProto-Indo-European *h₂eǵ-\nProto-Indo-European *-eti\nProto-Indo-European *h₂éǵeti\nProto-Italic *agō\nLatin agō\nProto-Indo-European *-tós\nProto-Italic *-tos\nLatin -tus\nProto-Indo-European *-h₂\nProto-Indo-European *-éh₂\nProto-Indo-European *-yéti\nProto-Indo-European *-eh₂yéti\nProto-Italic *-āō\nLatin -ō\nLatin -tō\nLatin -itō\nLatin agitō\nLatin cōgitō\nFrom con- + agitō."
+                        "content": "Etymology tree\nProto-Indo-European *ḱe?\nProto-Indo-European *ḱóm\nProto-Italic *kom\nProto-Italic *kom-\nLatin con-\nProto-Indo-European *h₂eǵ-\nProto-Indo-European *-eti\nProto-Indo-European *h₂éǵeti\nProto-Italic *agō\nLatin agō\nProto-Indo-European *-tós\nProto-Italic *-tos\nLatin -tus\nProto-Indo-European *-h₂\nProto-Indo-European *-éh₂\nProto-Indo-European *-yéti\nProto-Indo-European *-eh₂yéti\nProto-Indo-European *-h₂tiinflu.\nProto-Italic *-ājō\nProto-Italic *-āō\nLatin -ō\nLatin -tō\nLatin -itō\nLatin agitō\nLatin cōgitō\nFrom con- + agitō."
                       }
                     ]
                   }

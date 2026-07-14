@@ -1076,6 +1076,14 @@
     }
   },
   "Abbenhaus": {
+    "A.": {
+      "name": [
+        "extracted",
+        [
+          "abbreviation"
+        ]
+      ]
+    },
     "Abbenhues": {
       "name": [
         "extracted",

@@ -168,60 +168,7 @@
                       31
                     ]
                   ]
-                }
-              ],
-              "children": {
-                "to move forward; (of a machine) to operate, function; (of objects) to move at a high speed (of a vehicle)": {
-                  "examples": [
-                    {
-                      "text": "車が走っている。",
-                      "translation": "A car is running. / Cars are running.",
-                      "bold_text_offsets": [
-                        [
-                          2,
-                          5
-                        ]
-                      ],
-                      "bold_translation_offsets": [
-                        [
-                          9,
-                          12
-                        ],
-                        [
-                          29,
-                          32
-                        ]
-                      ]
-                    }
-                  ]
                 },
-                "to flow vigorously (of liquid)": {
-                  "examples": [
-                    {
-                      "text": "石の上を水が走る。",
-                      "translation": "The water runs over the stones.",
-                      "bold_text_offsets": [
-                        [
-                          6,
-                          8
-                        ]
-                      ],
-                      "bold_translation_offsets": [
-                        [
-                          10,
-                          14
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              }
-            },
-            "to run through some kind of place": {
-              "tags": [
-                "transitive"
-              ],
-              "examples": [
                 {
                   "text": "彼はこの道をよく走る。",
                   "translation": "He often runs down this street.",
@@ -235,6 +182,34 @@
                     [
                       9,
                       13
+                    ]
+                  ]
+                }
+              ]
+            },
+            "to move forward; (of a machine) to operate, function; (of objects) to move at a high speed (of a vehicle)": {
+              "examples": [
+                {
+                  "text": "車が走る",
+                  "translation": "a car moves"
+                }
+              ]
+            },
+            "to flow vigorously (of liquid)": {
+              "examples": [
+                {
+                  "text": "石の上を水が走る。",
+                  "translation": "The water runs over the stones.",
+                  "bold_text_offsets": [
+                    [
+                      6,
+                      8
+                    ]
+                  ],
+                  "bold_translation_offsets": [
+                    [
+                      10,
+                      14
                     ]
                   ]
                 }

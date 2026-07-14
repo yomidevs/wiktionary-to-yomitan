@@ -2764,23 +2764,6 @@
     ""
   ],
   [
-    "domu",
-    "domū",
-    "non-lemma",
-    "n",
-    0,
-    [
-      [
-        "domus",
-        [
-          "dative/ablative singular"
-        ]
-      ]
-    ],
-    0,
-    ""
-  ],
-  [
     "domibus",
     "",
     "non-lemma",
@@ -2825,6 +2808,23 @@
         "domus",
         [
           "accusative plural"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "domu",
+    "domū",
+    "non-lemma",
+    "n",
+    0,
+    [
+      [
+        "domus",
+        [
+          "ablative singular"
         ]
       ]
     ],
