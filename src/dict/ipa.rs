@@ -6,7 +6,7 @@ use crate::{
     dict::{Dictionary, Langs, main::get_reading},
     lang::{Edition, Lang},
     models::{
-        kaikki::WordEntry,
+        kaikki::{Sound, WordEntry},
         yomitan::{
             Ipa, PhoneticTranscription, TermMetaBankEntry, TermPhoneticTranscription, YomitanDict,
         },
@@ -95,24 +95,51 @@ fn is_phonetic(text: &str) -> bool {
     text.starts_with('[') && text.ends_with(']')
 }
 
+// Extract ipa and normalize it
+fn extract_ipa(sound: &Sound) -> Option<Ipa> {
+    if sound.ipa.is_empty() {
+        return None;
+    }
+    let mut tags = sound.tags.clone();
+    if !sound.note.is_empty() {
+        tags.push(sound.note.clone());
+    }
+    Some(Ipa {
+        ipa: normalize_ipa(&sound.ipa),
+        tags,
+    })
+}
+
+// Extract zh_pron (a common template), and leave it as is (don't normalize it), since
+// there is no guarantee that the contents follow the IPA (see Bopomofo etc.).
+//
+// We add the zh_pron tag for clarity in this case.
+//
+// Note that this is extremely verbose, but includes information that can't be found
+// otherwise by just looking at the IPA data (see, again, Bopomofo).
+//
+// It is only relevant when the target is Chinese, but the overhead is minimal.
+fn extract_zh_pron(sound: &Sound) -> Option<Ipa> {
+    if sound.zh_pron.is_empty() {
+        return None;
+    }
+    let mut tags = vec!["zh_pron".to_string()];
+    tags.extend(sound.tags.clone());
+    if !sound.note.is_empty() {
+        tags.push(sound.note.clone());
+    }
+    Some(Ipa {
+        ipa: sound.zh_pron.clone(),
+        tags,
+    })
+}
+
 // Grouping by ipa is done at process_ipa
 fn get_ipas(entry: &WordEntry) -> Vec<Ipa> {
     entry
         .sounds
         .iter()
-        .filter_map(|sound| {
-            if sound.ipa.is_empty() {
-                return None;
-            }
-            let mut tags = sound.tags.clone();
-            if !sound.note.is_empty() {
-                tags.push(sound.note.clone());
-            }
-            Some(Ipa {
-                ipa: normalize_ipa(&sound.ipa),
-                tags,
-            })
-        })
+        .filter_map(|sound| extract_ipa(sound).or_else(|| extract_zh_pron(sound)))
         .collect()
 }
 
