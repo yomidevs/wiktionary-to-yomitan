@@ -74,7 +74,7 @@ Here is a basic example on how to handle tags with your custom css.
 
 ### Tags
 
-This css will only show "Hokkien" and "bopomofo" pronunciations:
+This css will only show "Hokkien" and "Bopomofo" pronunciations:
 
 ```css
 .pronunciation {
@@ -83,7 +83,7 @@ This css will only show "Hokkien" and "bopomofo" pronunciations:
 .pronunciation:has(.tag[data-details="Hokkien"]) {
     display: block;
 }
-.pronunciation:has(.tag[data-details="bopomofo"]) {
+.pronunciation:has(.tag[data-details="Bopomofo"]) {
     display: block;
 }
 ```
