@@ -196,6 +196,7 @@ def upload_to_huggingface() -> None:
 
     # Upload dict + index (stage folder)
     prepare_stage()
+    # TODO: deprecated, use upload_folder
     api.upload_large_folder(**kwargs)  # type: ignore
     print(f"Upload complete @ https://huggingface.co/datasets/{REPO_ID_HF}")
 
