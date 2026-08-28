@@ -7,7 +7,7 @@ cov:
 update *args:
   python3 scripts/update_tests.py {{args}}
 
-# Release
+# Release (linux only)
 release *args:
   systemd-run --user --scope -p MemoryMax=24G -p MemoryHigh=24G cargo run -r -- release {{args}}
 
