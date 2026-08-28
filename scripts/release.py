@@ -41,6 +41,7 @@ CMD_CHOICES = get_args(CmdTy.__value__)
 class Args:
     cmd: CmdTy
     skip_stage: bool
+    tag_only: bool
 
 
 def release_version() -> str:
@@ -128,31 +129,57 @@ def login_to_huggingface() -> None:
 
 
 def upload_release(api: HfApi, version: str) -> None:
-    """Upload dict + index, both to the versioned folder and to latest.
+    """Upload dict + index to the latest folder.
 
-    `upload_folder` places a local folder anywhere in the repo via `path_in_repo`,
-    so the same source is sent to both destinations without staging copies on disk.
+    `latest` is what the dictionary indexes point at to check for updates, so the
+    path is fixed: it is baked into every dictionary already installed in yomitan
+    (see docs/update.md). Older releases used to be a `versions/{version}` copy of
+    these same files; they are git tags now, so we upload one copy instead of two.
 
     The resulting layout is:
 
-        versions/{version}/     latest/
-        ├── dict/               ├── dict/
-        └── index/              └── index/
+        latest/
+        ├── dict/
+        └── index/
 
     The README of each folder is uploaded separately, see upload_to_huggingface.
     """
-    for path_in_repo in (f"versions/{version}", "latest"):
-        for folder, source in (("dict", PM.dictionary), ("index", PM.index)):
-            destination = f"{path_in_repo}/{folder}"
-            print(f"[upload] {source} -> {destination}")
-            api.upload_folder(
-                folder_path=str(source),
-                path_in_repo=destination,
-                repo_id=REPO_ID_HF,
-                repo_type="dataset",
-                commit_message=f"[{version}] upload {destination}",
-            )
-            print(f"[upload] complete @ {destination}")
+    for folder, source in (("dict", PM.dictionary), ("index", PM.index)):
+        destination = f"latest/{folder}"
+        print(f"[upload] {source} -> {destination}")
+        api.upload_folder(
+            folder_path=str(source),
+            path_in_repo=destination,
+            repo_id=REPO_ID_HF,
+            repo_type="dataset",
+            commit_message=f"[{version}] upload {destination}",
+        )
+        print(f"[upload] complete @ {destination}")
+
+
+def tag_release(api: HfApi, version: str) -> None:
+    """Tag the release, replacing the old `versions/{version}` copy.
+
+    NOTE: tags can be deleted via the CLI: hf repos tag delete ...
+    """
+    api.create_tag(
+        REPO_ID_HF,
+        tag=version,
+        repo_type="dataset",
+        tag_message=f"wty release {version}",
+        # A publish can be resumed with --skip-stage, so the tag may exist already.
+        exist_ok=True,
+    )
+    print(f"Tagged release @ {REPO_HF}/tree/{version}")
+
+
+def tag_only() -> None:
+    """Tag the release without uploading anything."""
+    login_to_huggingface()
+    version = release_version()
+    print(f"\nTag {REPO_ID_HF} as {version}, without uploading?")
+    double_check()
+    tag_release(HfApi(), version)
 
 
 # https://huggingface.co/new-dataset
@@ -182,11 +209,11 @@ def upload_to_huggingface() -> None:
     upload_release(api, version)
     print(f"Upload complete @ https://huggingface.co/datasets/{REPO_ID_HF}")
 
-    # Upload README and logs at root, and also to latest and versions folders.
+    # Upload README and logs at root, and also to the latest folder.
     readme_path = PM.readme
     update_readme_local(readme_path, commit_sha, version)
 
-    for folder_in_repo in ("", f"versions/{version}", "latest"):
+    for folder_in_repo in ("", "latest"):
         api.upload_file(
             path_or_fileobj=str(readme_path),
             path_in_repo=f"{folder_in_repo}/README.md",
@@ -195,6 +222,8 @@ def upload_to_huggingface() -> None:
             commit_message=f"[{version}] update README",
         )
         print(f"Uploaded README @ {folder_in_repo or 'root'}")
+
+    tag_release(api, version)
 
 
 def super_squash() -> None:
@@ -265,14 +294,22 @@ def parse_args() -> Args:
         action="store_true",
         help="Do not move /dict and /index into the release folder (they are already there)",
     )
+    parser.add_argument(
+        "--tag-only",
+        action="store_true",
+        help="Only tag the release, without staging or uploading anything",
+    )
     args = parser.parse_args()
-    return Args(cmd=args.cmd, skip_stage=args.skip_stage)
+    return Args(cmd=args.cmd, skip_stage=args.skip_stage, tag_only=args.tag_only)
 
 
 def main() -> None:
     args = parse_args()
     match args.cmd:
         case "publish":
+            if args.tag_only:
+                tag_only()
+                return
             if not args.skip_stage:
                 stage()
             upload_to_huggingface()
