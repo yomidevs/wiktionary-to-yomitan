@@ -17,7 +17,6 @@ git push
 import argparse
 import datetime
 import re
-import shutil
 import subprocess
 import sys
 from dataclasses import dataclass
@@ -41,6 +40,7 @@ CMD_CHOICES = get_args(CmdTy.__value__)
 @dataclass
 class Args:
     cmd: CmdTy
+    skip_stage: bool
 
 
 def release_version() -> str:
@@ -65,11 +65,6 @@ class PathManager:
         self.assets = Path("assets")
         self.languages_json = self.assets / "languages.json"
         self.log = Path("log.txt")
-
-        # Stage structure
-        self.stage = self.release / "stage"
-        self.version = self.stage / "versions" / release_version()
-        self.latest = self.stage / "latest"
 
     def setup(self) -> None:
         self.release.mkdir(exist_ok=True)
@@ -119,38 +114,6 @@ def stats(
     return n_files, human_size(size_files)
 
 
-def prepare_stage() -> None:
-    """Take the release folder created with wty and structure it to comply with
-    huggingface upload_large_folder.
-
-    The resulting layout is:
-
-        stage/
-        ├── versions/
-        │   └── {version}/
-        │       ├── dict/
-        │       ├── index/
-        │       ├── README.md
-        │       └── log.txt
-        └── latest/
-            ├── dict/
-            ├── index/
-            ├── README.md
-            └── log.txt
-
-    We copy (not move) files so the local release directory remains intact.
-
-    The README and log shown on the Hugging Face repo root are handled
-    separately and do not require upload_large_folder.
-    """
-    PM.stage.mkdir()  # Fail if exists
-
-    for destination in (PM.version, PM.latest):
-        print(f"[stage] copying release to {destination}...")
-        shutil.copytree(str(PM.dictionary), destination / "dict")
-        shutil.copytree(str(PM.index), destination / "index")
-
-
 def login_to_huggingface() -> None:
     try:
         # Requires an ".env" file with
@@ -163,6 +126,34 @@ def login_to_huggingface() -> None:
         sys.exit(1)
 
 
+def upload_release(api: HfApi, version: str) -> None:
+    """Upload dict + index, both to the versioned folder and to latest.
+
+    `upload_folder` places a local folder anywhere in the repo via `path_in_repo`,
+    so the same source is sent to both destinations without staging copies on disk.
+
+    The resulting layout is:
+
+        versions/{version}/     latest/
+        ├── dict/               ├── dict/
+        └── index/              └── index/
+
+    The README of each folder is uploaded separately, see upload_to_huggingface.
+    """
+    for path_in_repo in (f"versions/{version}", "latest"):
+        for folder, source in (("dict", PM.dictionary), ("index", PM.index)):
+            destination = f"{path_in_repo}/{folder}"
+            print(f"[upload] {source} -> {destination}")
+            api.upload_folder(
+                folder_path=str(source),
+                path_in_repo=destination,
+                repo_id=REPO_ID_HF,
+                repo_type="dataset",
+                commit_message=f"[{version}] upload {destination}",
+            )
+            print(f"[upload] complete @ {destination}")
+
+
 # https://huggingface.co/new-dataset
 # https://huggingface.co/settings/tokens
 def upload_to_huggingface() -> None:
@@ -172,21 +163,14 @@ def upload_to_huggingface() -> None:
 
     dict_dir = PM.dictionary
     _, size = stats(dict_dir)
-    stage_dir = PM.stage
     version = release_version()
     git_cmd = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=".")
     commit_sha = git_cmd.decode().strip()
     commit_sha_short = commit_sha[:7]
 
-    kwargs = dict(
-        folder_path=str(stage_dir),
-        repo_id=REPO_ID_HF,
-        repo_type="dataset",
-    )
-
     print()
     print(commit_sha_short, commit_sha)
-    pprint(kwargs)
+    pprint({"repo_id": REPO_ID_HF, "repo_type": "dataset"})
     print(f"{version=}")
     print()
     print(f"Upload {dict_dir} ({size}) to {REPO_ID_HF}?")
@@ -194,17 +178,14 @@ def upload_to_huggingface() -> None:
 
     api = HfApi()
 
-    # Upload dict + index (stage folder)
-    prepare_stage()
-    # TODO: deprecated, use upload_folder
-    api.upload_large_folder(**kwargs)  # type: ignore
+    upload_release(api, version)
     print(f"Upload complete @ https://huggingface.co/datasets/{REPO_ID_HF}")
 
     # Upload README and logs at root, and also to latest and versions folders.
     readme_path = PM.readme
     update_readme_local(readme_path, commit_sha, version)
 
-    for folder_in_repo in ("", f"versions/{release_version()}", "latest"):
+    for folder_in_repo in ("", f"versions/{version}", "latest"):
         api.upload_file(
             path_or_fileobj=str(readme_path),
             path_in_repo=f"{folder_in_repo}/README.md",
@@ -219,7 +200,7 @@ def super_squash() -> None:
     """Squash the huggingface repo history.
 
     Huggingface will complain once we reach a certain amount of commits.
-    Since the commits are mangled due to upload_large_folder anyway, we don't care
+    Since the commits are mangled due to upload_folder anyway, we don't care
     too much about the history, and they claim this speeds things up...
     """
     login_to_huggingface()
@@ -253,15 +234,20 @@ logs: [link]({logs_link})
     readme_path.write_text(readme_content, encoding="utf-8")
 
 
-def pre_stage() -> None:
+def stage() -> None:
     """Create a release folder, then move "/dict" and "/index" into it"""
     PM.release.mkdir(exist_ok=True)
     # /dict and /index should be at release parent folder
     for folder in ("dict", "index"):
         src = PM.release.parent / folder
         dst = PM.release / folder
+        if not src.exists() and dst.exists():
+            print(
+                f"[stage] already moved: {dst}. Use --skip-stage to resume a publish."
+            )
+            exit(1)
         src.rename(dst)
-        print(f"[pre-stage] moved: {src} -> {dst}")
+        print(f"[stage] moved: {src} -> {dst}")
 
 
 def parse_args() -> Args:
@@ -273,15 +259,21 @@ def parse_args() -> Args:
         choices=CMD_CHOICES,
         help="Command to run (default: publish)",
     )
+    parser.add_argument(
+        "--skip-stage",
+        action="store_true",
+        help="Do not move /dict and /index into the release folder (they are already there)",
+    )
     args = parser.parse_args()
-    return Args(cmd=args.cmd)
+    return Args(cmd=args.cmd, skip_stage=args.skip_stage)
 
 
 def main() -> None:
     args = parse_args()
     match args.cmd:
         case "publish":
-            pre_stage()
+            if not args.skip_stage:
+                stage()
             upload_to_huggingface()
         case "squash":
             super_squash()
