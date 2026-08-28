@@ -69,10 +69,11 @@ class PathManager:
     def setup(self) -> None:
         self.release.mkdir(exist_ok=True)
 
-    def check_dict_dir(self) -> None:
-        if not self.dictionary.exists() or not any(self.dictionary.iterdir()):
-            print(f"No files found in {self.dictionary}")
-            exit(1)
+    def check_release_dirs(self) -> None:
+        for folder in (self.dictionary, self.index):
+            if not folder.exists() or not any(folder.iterdir()):
+                print(f"No files found in {folder}")
+                exit(1)
 
 
 PM = PathManager(Path("data"))
@@ -157,7 +158,7 @@ def upload_release(api: HfApi, version: str) -> None:
 # https://huggingface.co/new-dataset
 # https://huggingface.co/settings/tokens
 def upload_to_huggingface() -> None:
-    PM.check_dict_dir()
+    PM.check_release_dirs()
 
     login_to_huggingface()
 
