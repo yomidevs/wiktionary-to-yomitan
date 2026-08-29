@@ -1,8 +1,10 @@
 Building a release and publishing it are two separate steps:
 
 ```console
-$ just release              # builds every dictionary into data/release
-$ just hf publish           # uploads them to the hugging face dataset
+# Builds every dictionary into data/
+$ cargo run -r -- release
+# Uploads them to hugging face
+$ just hf publish
 ```
 
 `hf publish` moves `data/{dict,index}` into `data/release`, uploads both to `latest/`, then tags that commit with the release date.
