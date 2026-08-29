@@ -16,12 +16,10 @@ git push
 
 import argparse
 import datetime
-import re
 import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from pprint import pprint
 from typing import Literal
 
 from dotenv import load_dotenv
@@ -31,7 +29,6 @@ REPO_ID_HF = "daxida/wty-release"
 REPO_HF = f"https://huggingface.co/datasets/{REPO_ID_HF}"
 REPO_ID_GH = "https://github.com/daxida/wty"
 
-type DictTy = Literal["main", "ipa", "ipa-merged", "glossary"]
 type CmdTy = Literal["publish", "squash", "tag"]
 type TagCmdTy = Literal["list", "create", "delete"]
 
@@ -59,15 +56,6 @@ class PathManager:
         self.dictionary = self.release / "dict"  # self.dict has messed highlighting
         self.index = self.release / "index"
         self.readme = self.release / "README.md"
-        self.download = self.release / "kaikki"
-
-        # These are at the "github repo root"
-        self.assets = Path("assets")
-        self.languages_json = self.assets / "languages.json"
-        self.log = Path("log.txt")
-
-    def setup(self) -> None:
-        self.release.mkdir(exist_ok=True)
 
     def check_release_dirs(self) -> None:
         for folder in (self.dictionary, self.index):
@@ -96,23 +84,10 @@ def human_size(size_bytes: float, precision: int = 2) -> str:
     return f"{size_bytes:.{precision}f} GB"
 
 
-def stats(
-    path: Path,
-    *,
-    file_pattern: str | None = None,
-    endswith: str | None = None,
-) -> tuple[int, str]:
-    n_files = 0
-    size_files = 0
-    for f in path.rglob("*"):
-        if f.is_file():
-            if file_pattern is not None and not re.match(file_pattern, f.name):
-                continue
-            if endswith is not None and not f.name.endswith(endswith):
-                continue
-            n_files += 1
-            size_files += f.stat().st_size
-    return n_files, human_size(size_files)
+def human_size_of(path: Path) -> str:
+    """Total size of every file under path."""
+    size_files = sum(f.stat().st_size for f in path.rglob("*") if f.is_file())
+    return human_size(size_files)
 
 
 def login_to_huggingface() -> None:
@@ -215,24 +190,20 @@ def upload_to_huggingface() -> None:
     PM.check_release_dirs()
 
     dict_dir = PM.dictionary
-    _, size = stats(dict_dir)
     version = release_version()
     git_cmd = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=".")
     commit_sha = git_cmd.decode().strip()
-    commit_sha_short = commit_sha[:7]
 
     print()
-    print(commit_sha_short, commit_sha)
-    pprint({"repo_id": REPO_ID_HF, "repo_type": "dataset"})
     print(f"{version=}")
-    print()
-    print(f"Upload {dict_dir} ({size}) to {REPO_ID_HF}?")
+    print(f"commit={commit_sha[:7]} {commit_sha}")
+    print(f"Upload {dict_dir} ({human_size_of(dict_dir)}) to {REPO_ID_HF}?")
     double_check()
 
     api = HfApi()
 
     upload_release(api, version)
-    print(f"Upload complete @ https://huggingface.co/datasets/{REPO_ID_HF}")
+    print(f"Upload complete @ {REPO_HF}")
 
     # Upload README and logs at root, and also to the latest folder.
     readme_path = PM.readme
@@ -296,7 +267,6 @@ def stage() -> None:
     an error here, check_release_dirs reports it.
     """
     PM.release.mkdir(exist_ok=True)
-    # /dict and /index should be at release parent folder
     for folder in ("dict", "index"):
         src = PM.release.parent / folder
         dst = PM.release / folder
