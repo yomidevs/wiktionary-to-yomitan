@@ -22,7 +22,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 from pprint import pprint
-from typing import Literal, get_args
+from typing import Literal
 
 from dotenv import load_dotenv
 from huggingface_hub import HfApi, whoami
@@ -32,16 +32,16 @@ REPO_HF = f"https://huggingface.co/datasets/{REPO_ID_HF}"
 REPO_ID_GH = "https://github.com/daxida/wty"
 
 type DictTy = Literal["main", "ipa", "ipa-merged", "glossary"]
-type CmdTy = Literal["publish", "squash"]
-
-CMD_CHOICES = get_args(CmdTy.__value__)
+type CmdTy = Literal["publish", "squash", "tag"]
+type TagCmdTy = Literal["list", "create", "delete"]
 
 
 @dataclass
 class Args:
     cmd: CmdTy
+    tag_cmd: TagCmdTy | None
+    tag: str | None
     skip_stage: bool
-    tag_only: bool
 
 
 def release_version() -> str:
@@ -74,7 +74,7 @@ class PathManager:
         for folder in (self.dictionary, self.index):
             if not folder.exists() or not any(folder.iterdir()):
                 print(f"No files found in {folder}")
-                exit(1)
+                sys.exit(1)
 
 
 PM = PathManager(Path("data"))
@@ -86,7 +86,7 @@ def double_check(msg: str = "") -> None:
         print(msg)
     if input("Proceed? [y/n] ") != "y":
         print("Exiting.")
-        exit(1)
+        sys.exit(1)
 
 
 def human_size(size_bytes: float, precision: int = 2) -> str:
@@ -173,12 +173,31 @@ def tag_release(api: HfApi, version: str) -> None:
     print(f"Tagged release @ {REPO_HF}/tree/{version}")
 
 
-def tag_only() -> None:
-    """Tag the release without uploading anything."""
-    login_to_huggingface()
-    version = release_version()
-    print(f"\nTag {REPO_ID_HF} as {version}, without uploading?")
+def list_tags() -> None:
+    """List the release tags of the hf repo."""
+    refs = HfApi().list_repo_refs(REPO_ID_HF, repo_type="dataset")
+    for ref in refs.tags:
+        print(f"{ref.name}\t{ref.target_commit}")
+    if not refs.tags:
+        print(f"No tags in {REPO_ID_HF}")
+
+
+def delete_tag(version: str) -> None:
+    """Delete a release tag of the hf repo."""
+    print()
+    print(f"Delete the tag {version} of {REPO_ID_HF}?")
     double_check()
+
+    HfApi().delete_tag(REPO_ID_HF, tag=version, repo_type="dataset")
+    print(f"Deleted tag {version}")
+
+
+def create_tag(version: str) -> None:
+    """Tag a release of the hf repo, without uploading anything."""
+    print()
+    print(f"Tag {REPO_ID_HF} as {version}, without uploading?")
+    double_check()
+
     tag_release(HfApi(), version)
 
 
@@ -186,8 +205,6 @@ def tag_only() -> None:
 # https://huggingface.co/settings/tokens
 def upload_to_huggingface() -> None:
     PM.check_release_dirs()
-
-    login_to_huggingface()
 
     dict_dir = PM.dictionary
     _, size = stats(dict_dir)
@@ -233,7 +250,6 @@ def super_squash() -> None:
     Since the commits are mangled due to upload_folder anyway, we don't care
     too much about the history, and they claim this speeds things up...
     """
-    login_to_huggingface()
     api = HfApi()
     api.super_squash_history(
         repo_id=REPO_ID_HF,
@@ -275,46 +291,67 @@ def stage() -> None:
             print(
                 f"[stage] already moved: {dst}. Use --skip-stage to resume a publish."
             )
-            exit(1)
+            sys.exit(1)
         src.rename(dst)
         print(f"[stage] moved: {src} -> {dst}")
 
 
 def parse_args() -> Args:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "cmd",
-        nargs="?",
-        default="publish",
-        choices=CMD_CHOICES,
-        help="Command to run (default: publish)",
-    )
-    parser.add_argument(
+    parser.set_defaults(skip_stage=False, tag_cmd=None, tag=None)
+    sub = parser.add_subparsers(dest="cmd", required=True, metavar="command")
+
+    publish = sub.add_parser("publish", help="Upload the release, then tag it")
+    publish.add_argument(
         "--skip-stage",
         action="store_true",
         help="Do not move /dict and /index into the release folder (they are already there)",
     )
-    parser.add_argument(
-        "--tag-only",
-        action="store_true",
-        help="Only tag the release, without staging or uploading anything",
-    )
+
+    sub.add_parser("squash", help="Squash the history of the hf repo")
+
+    tag = sub.add_parser("tag", help="Manage the release tags of the hf repo")
+    tag_sub = tag.add_subparsers(dest="tag_cmd", required=True, metavar="command")
+    tag_sub.add_parser("list", help="List tags for the repo")
+    for name in ("create", "delete"):
+        tag_cmd = tag_sub.add_parser(name, help=f"{name.title()} a tag for the repo")
+        tag_cmd.add_argument(
+            "tag",
+            nargs="?",
+            default=None,
+            help=f"Tag to {name} (default: the current version)",
+        )
+
     args = parser.parse_args()
-    return Args(cmd=args.cmd, skip_stage=args.skip_stage, tag_only=args.tag_only)
+    return Args(
+        cmd=args.cmd,
+        tag_cmd=args.tag_cmd,
+        skip_stage=args.skip_stage,
+        tag=args.tag,
+    )
 
 
 def main() -> None:
     args = parse_args()
+
+    login_to_huggingface()
+
     match args.cmd:
         case "publish":
-            if args.tag_only:
-                tag_only()
-                return
             if not args.skip_stage:
                 stage()
             upload_to_huggingface()
         case "squash":
             super_squash()
+        case "tag":
+            version = args.tag or release_version()
+            match args.tag_cmd:
+                case "list":
+                    list_tags()
+                case "create":
+                    create_tag(version)
+                case "delete":
+                    delete_tag(version)
 
 
 if __name__ == "__main__":

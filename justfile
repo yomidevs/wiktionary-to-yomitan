@@ -11,8 +11,9 @@ update *args:
 release *args:
   systemd-run --user --scope -p MemoryMax=24G -p MemoryHigh=24G cargo run -r -- release {{args}}
 
-# Publish a release made with release.rs to hugging face
-publish *args:
+# Hugging Face commands for a release made with release.rs.
+# Run 'just hf --help' for the full command list.
+hf *args:
   python3 scripts/release.py {{args}}
 
 # Scan the release dictionaries for size information
