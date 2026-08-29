@@ -41,7 +41,6 @@ class Args:
     cmd: CmdTy
     tag_cmd: TagCmdTy | None
     tag: str | None
-    skip_stage: bool
 
 
 def release_version() -> str:
@@ -160,7 +159,7 @@ def upload_release(api: HfApi, version: str) -> None:
 def tag_release(api: HfApi, version: str, *, replace: bool = False) -> None:
     """Tag the release, replacing the old `versions/{version}` copy.
 
-    A publish can be resumed with --skip-stage, or run again the same day after a
+    A publish can be resumed, or run again the same day after a
     fix, so the tag may exist already. It has to *move* to the commit we just made:
     the uploads replaced `latest`, so a tag left on the older commit would archive
     files that are no longer there. Hence `replace` for the publish path.
@@ -290,16 +289,25 @@ logs: [link]({logs_link})
 
 
 def stage() -> None:
-    """Create a release folder, then move "/dict" and "/index" into it"""
+    """Create a release folder, then move "/dict" and "/index" into it.
+
+    Idempotent, so that an interrupted publish can simply be run again: what is
+    already in the release folder is left alone. An empty release folder is not
+    an error here, check_release_dirs reports it.
+    """
     PM.release.mkdir(exist_ok=True)
     # /dict and /index should be at release parent folder
     for folder in ("dict", "index"):
         src = PM.release.parent / folder
         dst = PM.release / folder
-        if not src.exists() and dst.exists():
-            print(
-                f"[stage] already moved: {dst}. Use --skip-stage to resume a publish."
-            )
+        if not src.exists():
+            print(f"[stage] already staged: {dst}")
+            continue
+        if dst.exists():
+            # A new release was built while the previous one is still staged;
+            # renaming over it would fail with "directory not empty".
+            print(f"[stage] {dst} is the previous release. Remove it first:")
+            print(f"  rm -rf {dst}")
             sys.exit(1)
         src.rename(dst)
         print(f"[stage] moved: {src} -> {dst}")
@@ -307,15 +315,10 @@ def stage() -> None:
 
 def parse_args() -> Args:
     parser = argparse.ArgumentParser()
-    parser.set_defaults(skip_stage=False, tag_cmd=None, tag=None)
+    parser.set_defaults(tag_cmd=None, tag=None)
     sub = parser.add_subparsers(dest="cmd", required=True, metavar="command")
 
-    publish = sub.add_parser("publish", help="Upload the release, then tag it")
-    publish.add_argument(
-        "--skip-stage",
-        action="store_true",
-        help="Do not move /dict and /index into the release folder (they are already there)",
-    )
+    sub.add_parser("publish", help="Upload the release, then tag it")
 
     sub.add_parser("squash", help="Squash the history of the hf repo")
 
@@ -335,7 +338,6 @@ def parse_args() -> Args:
     return Args(
         cmd=args.cmd,
         tag_cmd=args.tag_cmd,
-        skip_stage=args.skip_stage,
         tag=args.tag,
     )
 
@@ -347,8 +349,7 @@ def main() -> None:
 
     match args.cmd:
         case "publish":
-            if not args.skip_stage:
-                stage()
+            stage()
             upload_to_huggingface()
         case "squash":
             super_squash()
