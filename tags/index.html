@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../language/">
+        <link rel="prev" href="../release/">
       
       
         <link rel="next" href="../tests/">
@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -456,6 +456,33 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -746,12 +773,12 @@ They appear in the order they are in the dictionary.</li>
 <p>where <code>notes</code> is replaced with either a string, or a list of strings representing aliases, the <strong>first</strong> one being shown when hovering the tag.</p>
 <p>For example, this tag information:</p>
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;abbv&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"abbv"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">""</span><span class="p">,</span>
 <span class="w">    </span><span class="mi">0</span><span class="p">,</span>
 <span class="w">    </span><span class="p">[</span>
-<span class="w">        </span><span class="s2">&quot;abbreviation&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;abbrev&quot;</span>
+<span class="w">        </span><span class="s2">"abbreviation"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"abbrev"</span>
 <span class="w">    </span><span class="p">],</span>
 <span class="w">    </span><span class="mi">0</span>
 <span class="p">]</span>
@@ -774,20 +801,20 @@ They appear in the order they are in the dictionary.</li>
 <p>To add or update tag localization for a language, create a file named <code>tags_{iso}.json</code> in the appropriate directory (e.g. <code>assets/tags/locale/tags_ja.json</code> for Japanese).</p>
 <p>The file maps English canonical tag names to their localized equivalents:
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;noun&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;名詞&quot;</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;動&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;動詞&quot;</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;transitive verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;他動&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;他動詞&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="nt">"noun"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"名"</span><span class="p">,</span><span class="w"> </span><span class="s2">"名詞"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"動"</span><span class="p">,</span><span class="w"> </span><span class="s2">"動詞"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"transitive verb"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"他動"</span><span class="p">,</span><span class="w"> </span><span class="s2">"他動詞"</span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <p>Each entry is a pair of <code>[short, long]</code> forms, where <code>short</code> is shown in the dictionary and <code>long</code> is shown on hover.</p>
 <p>The <code>short</code> field can be left empty, in which case we default to using <code>long</code> at both places.</p>
 <p>The key must match the 4th field of the corresponding entry in <code>assets/tag_bank_term.json</code>.
 When that field is a string, use it directly. When it is an array, use the <strong>first</strong> element (the primary alias):
-<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="s2">&quot;v&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;partOfSpeech&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;verb&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
-<span class="err">→</span><span class="w"> </span><span class="err">key</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="s2">&quot;verb&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="s2">"v"</span><span class="p">,</span><span class="w"> </span><span class="s2">"partOfSpeech"</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="s2">"verb"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
+<span class="err">→</span><span class="w"> </span><span class="err">key</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="s2">"verb"</span>
 
-<span class="p">[</span><span class="s2">&quot;vt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;partOfSpeech&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;transitive verb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;transitive&quot;</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
-<span class="err">→</span><span class="w"> </span><span class="err">key</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="s2">&quot;transitive verb&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">n</span><span class="err">o</span><span class="kc">t</span><span class="w"> </span><span class="s2">&quot;transitive&quot;</span>
+<span class="p">[</span><span class="s2">"vt"</span><span class="p">,</span><span class="w"> </span><span class="s2">"partOfSpeech"</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">"transitive verb"</span><span class="p">,</span><span class="w"> </span><span class="s2">"transitive"</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
+<span class="err">→</span><span class="w"> </span><span class="err">key</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="s2">"transitive verb"</span><span class="p">,</span><span class="w"> </span><span class="kc">n</span><span class="err">o</span><span class="kc">t</span><span class="w"> </span><span class="s2">"transitive"</span>
 </code></pre></div></p>
 <div class="admonition warning">
 <p class="admonition-title">Run the build script after any modification to update the rust code: either <code>just build</code> or <code>python3 scripts/build.py</code></p>
@@ -855,7 +882,7 @@ You do not need to localize every tag: any tag without a localization entry will
       <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.tracking", "toc.integrate", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../javascripts/download.js"></script>
       

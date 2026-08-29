@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../tags/">
+        <link rel="prev" href="../language/">
       
       
-        <link rel="next" href="../update/">
+        <link rel="next" href="../tags/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>Tests - wty</title>
+        <title>Release - wty</title>
       
     
     
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tests
+              Release
             
           </span>
         </div>
@@ -451,10 +451,17 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../release/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -470,6 +477,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -505,17 +513,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../tests/" class="md-nav__link">
         
   
   
@@ -531,7 +532,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -583,15 +583,17 @@
   
 
 
-  <h1>Tests</h1>
+  <h1>Release</h1>
 
-<p>Tests are run with <code>cargo test</code>, benchmarks with <code>cargo bench</code>.</p>
-<p>If you only want to run tests for the main dictionary in a single language pair, without capturing output:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>main<span class="w"> </span>ja<span class="w"> </span>en<span class="w"> </span>--root-dir<span class="o">=</span>tests<span class="w"> </span>--save-temps<span class="w"> </span>--pretty
+<p>Building a release and publishing it are two separate steps:</p>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>Builds<span class="w"> </span>every<span class="w"> </span>dictionary<span class="w"> </span>into<span class="w"> </span>data/
+<span class="gp">$ </span>cargo<span class="w"> </span>run<span class="w"> </span>-r<span class="w"> </span>--<span class="w"> </span>release
+<span class="gp"># </span>Uploads<span class="w"> </span>them<span class="w"> </span>to<span class="w"> </span>hugging<span class="w"> </span>face
+<span class="gp">$ </span>just<span class="w"> </span>hf<span class="w"> </span>publish
 </code></pre></div>
-<p>To add a word (here, faul) to the testsuite, besides copy pasting it, you can run (requires <a href="https://github.com/casey/just">just</a>):</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>just<span class="w"> </span>add<span class="w"> </span>de<span class="w"> </span>en<span class="w"> </span>faul
-</code></pre></div>
+<p><code>hf publish</code> moves <code>data/{dict,index}</code> into <code>data/release</code>, uploads both to <code>latest/</code>, then tags that commit with the release date.</p>
+<p><code>latest/</code> is the only path that cannot move: it is baked into the <code>indexUrl</code> of every dictionary already installed in yomitan (see <a href="../update/">update</a>). Tags replace the older <code>versions/{date}</code> copies of those same files, and are browsable at <code>{repo}/tree/{date}</code>. Republishing on the same day moves the tag to the new commit, so it always matches <code>latest/</code>.</p>
+<p>If a publish is interrupted, run it again: staging is idempotent and the uploads resume where they stopped. The remaining commands are <code>just hf tag {list,create,delete}</code>, and <code>just hf squash</code>, which squashes the repo history to reclaim storage.</p>
 
 
 
