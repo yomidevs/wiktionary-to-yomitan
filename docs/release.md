@@ -3,6 +3,7 @@ Building a release and publishing it are two separate steps:
 ```console
 # Builds every dictionary into data/
 $ cargo run -r -- release
+
 # Uploads them to hugging face
 $ just hf publish
 ```

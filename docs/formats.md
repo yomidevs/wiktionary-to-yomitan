@@ -2,24 +2,24 @@
 
 The full list of available formats can be seen in the CLI passing the `--help` flag.
 
-| Format | CLI | Requires extra tools | Downloads | Used in |
-|--------|-----|----------------------|-----------|---------|
-| `yomitan` | ✅ | ❌ | ✅ | Yomitan |
-| `mdict-text` | ✅ | ✅ | ❌ | GoldenDict-ng |
-| `stardict` | ✅ | ❌ | ❌ | KOReader |
+| Format | Requires extra tools | Downloads | Used in |
+|--------|----------------------|-----------|---------|
+| `yomitan` | ❌ | ✅ | Yomitan |
+| `mdict` | ❌ | ❌ | GoldenDict-ng |
+| `stardict` | ❌ | ❌ | KOReader |
 
----
+The remaining values (`html`, `ir`, `debug-forms`, `skip`) are debugging aids.
 
 To make a dictionary in a certain format:
 
 ```console
-// Defaults to yomitan
+# Defaults to yomitan
 $ wty main ja en
 
-// Glossary dictionary in mdict-text
-$ wty glossary de en --format=mdict-text
+# Glossary dictionary in mdict
+$ wty glossary de en --format=mdict
 
-// Ipa dictionary in stardict
+# Ipa dictionary in stardict
 $ wty ipa el el --format=stardict
 ```
 
@@ -29,9 +29,9 @@ $ wty ipa el el --format=stardict
 
 Produces a zip archive importable into yomitan. Downloads are available [here](download.md).
 
-## `mdict-text`
+## `mdict`
 
-Produces a plain-text file that can be consumed by any MDict conversion tool (f.e. [MDictUtils](https://github.com/daxida/MDictUtils) or [mdict-utils](https://github.com/liuyug/mdict-utils)), to make a `*.mdx` file. See [this](https://github.com/yomidevs/wiktionary-to-yomitan/issues/340#issuecomment-4276798146) for more information.
+Produces a `*.mdx` file, with the css bundled in, that can be imported as is. It is written with [pangloss](https://github.com/daxida/pangloss), so no external MDict conversion tool is needed.
 
 ## `stardict`
 
