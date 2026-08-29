@@ -1,18 +1,19 @@
 ## How to update a dictionary
 
-Work in progress...
+wty dictionaries are updatable, so a new release can be fetched from Yomitan without reimporting anything:
 
-1. Click on check for updates
-2. Click on the ! mark next to any dictionary that has an update
-3. Click on update
+1. Open Yomitan settings, go to "Dictionaries"
+2. Click "Check for updates"
+3. Click the `!` mark next to any dictionary that has one
+4. Click "Update"
 
-Add a picture here, don't think yomitan covers it.
+## Which dictionaries to import
 
-This should fetch the dictionary for a future release.
-
-Explain this quote from [here](https://yomitan.wiki/dictionaries/):
+The Yomitan [wiki](https://yomitan.wiki/dictionaries/) notes:
 
 > Be aware that non-English dictionaries generally contain fewer entries than their English counterparts. Even if your primary language is not English, you may consider also importing the English version for better coverage.
+
+This holds for wty too, because a dictionary can only contain what its Wiktionary edition wrote down. `wty main de es` is extracted from the Spanish edition, which documents far fewer German headwords than the English one does. Importing `wty main de en` alongside it fills those gaps, at the cost of English definitions.
 
 ## How updating works internally
 
@@ -20,7 +21,7 @@ A comprehensive guide about making yomitan dictionaries can be found [here](http
 
 Updating is done via the dictionary index ([schema](https://github.com/yomidevs/yomitan/blob/master/ext/data/schemas/dictionary-index-schema.json)), and more precisely, via these four attributes:
 
-1. `revision`: the sematic or calendar version of the dictionary. We use calendar for all dictionaries.
+1. `revision`: the semantic or calendar version of the dictionary. We use calendar for all dictionaries.
 2. `isUpdatable`: set to true, makes the dictionary updatable.
 3. `indexUrl`: points to an unzipped copy of the new dictionary index.
 4. `downloadUrl`: points to a zipped version of the new dictionary.

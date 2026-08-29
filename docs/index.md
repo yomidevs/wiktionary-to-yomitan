@@ -1,10 +1,10 @@
 # Overview
 
-Wiktionary to yomitan (wty) is a project to make Yomitan-compatible dictionaries from Wiktionary.
+Wiktionary to yomitan (wty) is a project to make Yomitan-compatible dictionaries from Wiktionary. It also hosts those dictionaries, and this documentation page.
 
-It also deals with this documentation page, and the online hosting of those dictionaries.
+To get started, [download](download.md) a dictionary and see how to [import](import.md) it into Yomitan. The Yomitan [wiki](https://yomitan.wiki/getting-started/) has a comprehensive overview.
 
-To get started, see how to [import](import.md) a wty dictionary to Yomitan, or the Yomitan [wiki](https://yomitan.wiki/getting-started/) for a comprehensive overview.
+The kinds of dictionaries wty makes are described in [dictionaries](dictionaries.md), the non-Yomitan output formats in [formats](formats.md).
 
 ## Similar projects
 
