@@ -449,10 +449,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mdict-text" class="md-nav__link">
+  <a href="#mdict" class="md-nav__link">
     <span class="md-ellipsis">
       
-        mdict-text
+        mdict
       
     </span>
   </a>
@@ -666,7 +666,6 @@
 <thead>
 <tr>
 <th>Format</th>
-<th>CLI</th>
 <th>Requires extra tools</th>
 <th>Downloads</th>
 <th>Used in</th>
@@ -675,43 +674,40 @@
 <tbody>
 <tr>
 <td><code>yomitan</code></td>
-<td>✅</td>
 <td>❌</td>
 <td>✅</td>
 <td>Yomitan</td>
 </tr>
 <tr>
-<td><code>mdict-text</code></td>
-<td>✅</td>
-<td>✅</td>
+<td><code>mdict</code></td>
+<td>❌</td>
 <td>❌</td>
 <td>GoldenDict-ng</td>
 </tr>
 <tr>
 <td><code>stardict</code></td>
-<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>KOReader</td>
 </tr>
 </tbody>
 </table>
-<hr />
+<p>The remaining values (<code>html</code>, <code>ir</code>, <code>debug-forms</code>, <code>skip</code>) are debugging aids.</p>
 <p>To make a dictionary in a certain format:</p>
-<div class="highlight"><pre><span></span><code><span class="go">// Defaults to yomitan</span>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>Defaults<span class="w"> </span>to<span class="w"> </span>yomitan
 <span class="gp">$ </span>wty<span class="w"> </span>main<span class="w"> </span>ja<span class="w"> </span>en
 
-<span class="go">// Glossary dictionary in mdict-text</span>
-<span class="gp">$ </span>wty<span class="w"> </span>glossary<span class="w"> </span>de<span class="w"> </span>en<span class="w"> </span>--format<span class="o">=</span>mdict-text
+<span class="gp"># </span>Glossary<span class="w"> </span>dictionary<span class="w"> </span><span class="k">in</span><span class="w"> </span>mdict
+<span class="gp">$ </span>wty<span class="w"> </span>glossary<span class="w"> </span>de<span class="w"> </span>en<span class="w"> </span>--format<span class="o">=</span>mdict
 
-<span class="go">// Ipa dictionary in stardict</span>
+<span class="gp"># </span>Ipa<span class="w"> </span>dictionary<span class="w"> </span><span class="k">in</span><span class="w"> </span>stardict
 <span class="gp">$ </span>wty<span class="w"> </span>ipa<span class="w"> </span>el<span class="w"> </span>el<span class="w"> </span>--format<span class="o">=</span>stardict
 </code></pre></div>
 <hr />
 <h2 id="yomitan-default"><code>yomitan</code> <em>(default)</em><a class="headerlink" href="#yomitan-default" title="Permanent link">&para;</a></h2>
 <p>Produces a zip archive importable into yomitan. Downloads are available <a href="../download/">here</a>.</p>
-<h2 id="mdict-text"><code>mdict-text</code><a class="headerlink" href="#mdict-text" title="Permanent link">&para;</a></h2>
-<p>Produces a plain-text file that can be consumed by any MDict conversion tool (f.e. <a href="https://github.com/daxida/MDictUtils">MDictUtils</a> or <a href="https://github.com/liuyug/mdict-utils">mdict-utils</a>), to make a <code>*.mdx</code> file. See <a href="https://github.com/yomidevs/wiktionary-to-yomitan/issues/340#issuecomment-4276798146">this</a> for more information.</p>
+<h2 id="mdict"><code>mdict</code><a class="headerlink" href="#mdict" title="Permanent link">&para;</a></h2>
+<p>Produces a <code>*.mdx</code> file, with the css bundled in, that can be imported as is. It is written with <a href="https://github.com/daxida/pangloss">pangloss</a>, so no external MDict conversion tool is needed.</p>
 <h2 id="stardict"><code>stardict</code><a class="headerlink" href="#stardict" title="Permanent link">&para;</a></h2>
 <p>Produces a folder with <code>*.ifo</code>, <code>*.dict</code> etc. files that can be directly imported.</p>
 <p>KOReader dictionary install <a href="https://github.com/koreader/koreader/wiki/Dictionary-support">guide</a>.</p>

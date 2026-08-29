@@ -587,7 +587,7 @@
 
 <p>Tests are run with <code>cargo test</code>, benchmarks with <code>cargo bench</code>.</p>
 <p>If you only want to run tests for the main dictionary in a single language pair, without capturing output:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>main<span class="w"> </span>ja<span class="w"> </span>en<span class="w"> </span>--root-dir<span class="o">=</span>tests<span class="w"> </span>--save-temps<span class="w"> </span>--pretty
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>main<span class="w"> </span>ja<span class="w"> </span>en<span class="w"> </span>--root-dir<span class="o">=</span>tests<span class="w"> </span>--pretty
 </code></pre></div>
 <p>To add a word (here, faul) to the testsuite, besides copy pasting it, you can run (requires <a href="https://github.com/casey/just">just</a>):</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>just<span class="w"> </span>add<span class="w"> </span>de<span class="w"> </span>en<span class="w"> </span>faul

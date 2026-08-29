@@ -605,6 +605,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#which-dictionaries-to-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which dictionaries to import
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#how-updating-works-internally" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -646,23 +657,24 @@
   <h1>Update</h1>
 
 <h2 id="how-to-update-a-dictionary">How to update a dictionary<a class="headerlink" href="#how-to-update-a-dictionary" title="Permanent link">&para;</a></h2>
-<p>Work in progress...</p>
+<p>wty dictionaries are updatable, so a new release can be fetched from Yomitan without reimporting anything:</p>
 <ol>
-<li>Click on check for updates</li>
-<li>Click on the ! mark next to any dictionary that has an update</li>
-<li>Click on update</li>
+<li>Open Yomitan settings, go to "Dictionaries"</li>
+<li>Click "Check for updates"</li>
+<li>Click the <code>!</code> mark next to any dictionary that has one</li>
+<li>Click "Update"</li>
 </ol>
-<p>Add a picture here, don't think yomitan covers it.</p>
-<p>This should fetch the dictionary for a future release.</p>
-<p>Explain this quote from <a href="https://yomitan.wiki/dictionaries/">here</a>:</p>
+<h2 id="which-dictionaries-to-import">Which dictionaries to import<a class="headerlink" href="#which-dictionaries-to-import" title="Permanent link">&para;</a></h2>
+<p>The Yomitan <a href="https://yomitan.wiki/dictionaries/">wiki</a> notes:</p>
 <blockquote>
 <p>Be aware that non-English dictionaries generally contain fewer entries than their English counterparts. Even if your primary language is not English, you may consider also importing the English version for better coverage.</p>
 </blockquote>
+<p>This holds for wty too, because a dictionary can only contain what its Wiktionary edition wrote down. <code>wty main de es</code> is extracted from the Spanish edition, which documents far fewer German headwords than the English one does. Importing <code>wty main de en</code> alongside it fills those gaps, at the cost of English definitions.</p>
 <h2 id="how-updating-works-internally">How updating works internally<a class="headerlink" href="#how-updating-works-internally" title="Permanent link">&para;</a></h2>
 <p>A comprehensive guide about making yomitan dictionaries can be found <a href="https://github.com/yomidevs/yomitan/blob/master/docs/making-yomitan-dictionaries.md">here</a>.</p>
 <p>Updating is done via the dictionary index (<a href="https://github.com/yomidevs/yomitan/blob/master/ext/data/schemas/dictionary-index-schema.json">schema</a>), and more precisely, via these four attributes:</p>
 <ol>
-<li><code>revision</code>: the sematic or calendar version of the dictionary. We use calendar for all dictionaries.</li>
+<li><code>revision</code>: the semantic or calendar version of the dictionary. We use calendar for all dictionaries.</li>
 <li><code>isUpdatable</code>: set to true, makes the dictionary updatable.</li>
 <li><code>indexUrl</code>: points to an unzipped copy of the new dictionary index.</li>
 <li><code>downloadUrl</code>: points to a zipped version of the new dictionary.</li>
