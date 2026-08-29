@@ -16,31 +16,28 @@ git push
 
 import argparse
 import datetime
-import re
 import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from pprint import pprint
-from typing import Literal, get_args
+from typing import Literal
 
 from dotenv import load_dotenv
 from huggingface_hub import HfApi, whoami
 
 REPO_ID_HF = "daxida/wty-release"
 REPO_HF = f"https://huggingface.co/datasets/{REPO_ID_HF}"
-REPO_ID_GH = "https://github.com/daxida/wty"
+REPO_ID_GH = "https://github.com/yomidevs/wiktionary-to-yomitan"
 
-type DictTy = Literal["main", "ipa", "ipa-merged", "glossary"]
-type CmdTy = Literal["publish", "squash"]
-
-CMD_CHOICES = get_args(CmdTy.__value__)
+type CmdTy = Literal["publish", "squash", "tag"]
+type TagCmdTy = Literal["list", "create", "delete"]
 
 
 @dataclass
 class Args:
     cmd: CmdTy
-    skip_stage: bool
+    tag_cmd: TagCmdTy | None
+    tag: str | None
 
 
 def release_version() -> str:
@@ -59,21 +56,12 @@ class PathManager:
         self.dictionary = self.release / "dict"  # self.dict has messed highlighting
         self.index = self.release / "index"
         self.readme = self.release / "README.md"
-        self.download = self.release / "kaikki"
-
-        # These are at the "github repo root"
-        self.assets = Path("assets")
-        self.languages_json = self.assets / "languages.json"
-        self.log = Path("log.txt")
-
-    def setup(self) -> None:
-        self.release.mkdir(exist_ok=True)
 
     def check_release_dirs(self) -> None:
         for folder in (self.dictionary, self.index):
             if not folder.exists() or not any(folder.iterdir()):
                 print(f"No files found in {folder}")
-                exit(1)
+                sys.exit(1)
 
 
 PM = PathManager(Path("data"))
@@ -85,7 +73,7 @@ def double_check(msg: str = "") -> None:
         print(msg)
     if input("Proceed? [y/n] ") != "y":
         print("Exiting.")
-        exit(1)
+        sys.exit(1)
 
 
 def human_size(size_bytes: float, precision: int = 2) -> str:
@@ -96,23 +84,10 @@ def human_size(size_bytes: float, precision: int = 2) -> str:
     return f"{size_bytes:.{precision}f} GB"
 
 
-def stats(
-    path: Path,
-    *,
-    file_pattern: str | None = None,
-    endswith: str | None = None,
-) -> tuple[int, str]:
-    n_files = 0
-    size_files = 0
-    for f in path.rglob("*"):
-        if f.is_file():
-            if file_pattern is not None and not re.match(file_pattern, f.name):
-                continue
-            if endswith is not None and not f.name.endswith(endswith):
-                continue
-            n_files += 1
-            size_files += f.stat().st_size
-    return n_files, human_size(size_files)
+def human_size_of(path: Path) -> str:
+    """Total size of every file under path."""
+    size_files = sum(f.stat().st_size for f in path.rglob("*") if f.is_file())
+    return human_size(size_files)
 
 
 def login_to_huggingface() -> None:
@@ -128,31 +103,85 @@ def login_to_huggingface() -> None:
 
 
 def upload_release(api: HfApi, version: str) -> None:
-    """Upload dict + index, both to the versioned folder and to latest.
+    """Upload dict + index to the latest folder.
 
-    `upload_folder` places a local folder anywhere in the repo via `path_in_repo`,
-    so the same source is sent to both destinations without staging copies on disk.
+    `latest` is what the dictionary indexes point at to check for updates, so the
+    path is fixed: it is baked into every dictionary already installed in yomitan
+    (see docs/update.md). Older releases used to be a `versions/{version}` copy of
+    these same files; they are git tags now, so we upload one copy instead of two.
 
     The resulting layout is:
 
-        versions/{version}/     latest/
-        ├── dict/               ├── dict/
-        └── index/              └── index/
+        latest/
+        ├── dict/
+        └── index/
 
     The README of each folder is uploaded separately, see upload_to_huggingface.
     """
-    for path_in_repo in (f"versions/{version}", "latest"):
-        for folder, source in (("dict", PM.dictionary), ("index", PM.index)):
-            destination = f"{path_in_repo}/{folder}"
-            print(f"[upload] {source} -> {destination}")
-            api.upload_folder(
-                folder_path=str(source),
-                path_in_repo=destination,
-                repo_id=REPO_ID_HF,
-                repo_type="dataset",
-                commit_message=f"[{version}] upload {destination}",
-            )
-            print(f"[upload] complete @ {destination}")
+    for folder, source in (("dict", PM.dictionary), ("index", PM.index)):
+        destination = f"latest/{folder}"
+        print(f"[upload] {source} -> {destination}")
+        api.upload_folder(
+            folder_path=str(source),
+            path_in_repo=destination,
+            repo_id=REPO_ID_HF,
+            repo_type="dataset",
+            commit_message=f"[{version}] upload {destination}",
+        )
+        print(f"[upload] complete @ {destination}")
+
+
+def tag_release(api: HfApi, version: str, *, replace: bool = False) -> None:
+    """Tag the release, replacing the old `versions/{version}` copy.
+
+    A publish can be resumed, or run again the same day after a
+    fix, so the tag may exist already. It has to *move* to the commit we just made:
+    the uploads replaced `latest`, so a tag left on the older commit would archive
+    files that are no longer there. Hence `replace` for the publish path.
+
+    NOTE: tags can be deleted via the CLI: hf repos tag delete ...
+    """
+    if replace:
+        refs = api.list_repo_refs(REPO_ID_HF, repo_type="dataset")
+        if any(ref.name == version for ref in refs.tags):
+            print(f"Moving the existing tag {version} to the new commit")
+            api.delete_tag(REPO_ID_HF, tag=version, repo_type="dataset")
+
+    api.create_tag(
+        REPO_ID_HF,
+        tag=version,
+        repo_type="dataset",
+        tag_message=f"wty release {version}",
+    )
+    print(f"Tagged release @ {REPO_HF}/tree/{version}")
+
+
+def list_tags() -> None:
+    """List the release tags of the hf repo."""
+    refs = HfApi().list_repo_refs(REPO_ID_HF, repo_type="dataset")
+    for ref in refs.tags:
+        print(f"{ref.name}\t{ref.target_commit}")
+    if not refs.tags:
+        print(f"No tags in {REPO_ID_HF}")
+
+
+def delete_tag(version: str) -> None:
+    """Delete a release tag of the hf repo."""
+    print()
+    print(f"Delete the tag {version} of {REPO_ID_HF}?")
+    double_check()
+
+    HfApi().delete_tag(REPO_ID_HF, tag=version, repo_type="dataset")
+    print(f"Deleted tag {version}")
+
+
+def create_tag(version: str) -> None:
+    """Tag a release of the hf repo, without uploading anything."""
+    print()
+    print(f"Tag {REPO_ID_HF} as {version}, without uploading?")
+    double_check()
+
+    tag_release(HfApi(), version)
 
 
 # https://huggingface.co/new-dataset
@@ -160,33 +189,27 @@ def upload_release(api: HfApi, version: str) -> None:
 def upload_to_huggingface() -> None:
     PM.check_release_dirs()
 
-    login_to_huggingface()
-
     dict_dir = PM.dictionary
-    _, size = stats(dict_dir)
     version = release_version()
     git_cmd = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=".")
     commit_sha = git_cmd.decode().strip()
-    commit_sha_short = commit_sha[:7]
 
     print()
-    print(commit_sha_short, commit_sha)
-    pprint({"repo_id": REPO_ID_HF, "repo_type": "dataset"})
     print(f"{version=}")
-    print()
-    print(f"Upload {dict_dir} ({size}) to {REPO_ID_HF}?")
+    print(f"commit={commit_sha[:7]} {commit_sha}")
+    print(f"Upload {dict_dir} ({human_size_of(dict_dir)}) to {REPO_ID_HF}?")
     double_check()
 
     api = HfApi()
 
     upload_release(api, version)
-    print(f"Upload complete @ https://huggingface.co/datasets/{REPO_ID_HF}")
+    print(f"Upload complete @ {REPO_HF}")
 
-    # Upload README and logs at root, and also to latest and versions folders.
+    # Upload README and logs at root, and also to the latest folder.
     readme_path = PM.readme
     update_readme_local(readme_path, commit_sha, version)
 
-    for folder_in_repo in ("", f"versions/{version}", "latest"):
+    for folder_in_repo in ("", "latest"):
         api.upload_file(
             path_or_fileobj=str(readme_path),
             path_in_repo=f"{folder_in_repo}/README.md",
@@ -196,6 +219,8 @@ def upload_to_huggingface() -> None:
         )
         print(f"Uploaded README @ {folder_in_repo or 'root'}")
 
+    tag_release(api, version, replace=True)
+
 
 def super_squash() -> None:
     """Squash the huggingface repo history.
@@ -204,7 +229,6 @@ def super_squash() -> None:
     Since the commits are mangled due to upload_folder anyway, we don't care
     too much about the history, and they claim this speeds things up...
     """
-    login_to_huggingface()
     api = HfApi()
     api.super_squash_history(
         repo_id=REPO_ID_HF,
@@ -236,48 +260,78 @@ logs: [link]({logs_link})
 
 
 def stage() -> None:
-    """Create a release folder, then move "/dict" and "/index" into it"""
+    """Create a release folder, then move "/dict" and "/index" into it.
+
+    Idempotent, so that an interrupted publish can simply be run again: what is
+    already in the release folder is left alone. An empty release folder is not
+    an error here, check_release_dirs reports it.
+    """
     PM.release.mkdir(exist_ok=True)
-    # /dict and /index should be at release parent folder
     for folder in ("dict", "index"):
         src = PM.release.parent / folder
         dst = PM.release / folder
-        if not src.exists() and dst.exists():
-            print(
-                f"[stage] already moved: {dst}. Use --skip-stage to resume a publish."
-            )
-            exit(1)
+        if not src.exists():
+            print(f"[stage] already staged: {dst}")
+            continue
+        if dst.exists():
+            # A new release was built while the previous one is still staged;
+            # renaming over it would fail with "directory not empty".
+            print(f"[stage] {dst} is the previous release. Remove it first:")
+            print(f"  rm -rf {dst}")
+            sys.exit(1)
         src.rename(dst)
         print(f"[stage] moved: {src} -> {dst}")
 
 
 def parse_args() -> Args:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "cmd",
-        nargs="?",
-        default="publish",
-        choices=CMD_CHOICES,
-        help="Command to run (default: publish)",
-    )
-    parser.add_argument(
-        "--skip-stage",
-        action="store_true",
-        help="Do not move /dict and /index into the release folder (they are already there)",
-    )
+    parser.set_defaults(tag_cmd=None, tag=None)
+    sub = parser.add_subparsers(dest="cmd", required=True, metavar="command")
+
+    sub.add_parser("publish", help="Upload the release, then tag it")
+
+    sub.add_parser("squash", help="Squash the history of the hf repo")
+
+    tag = sub.add_parser("tag", help="Manage the release tags of the hf repo")
+    tag_sub = tag.add_subparsers(dest="tag_cmd", required=True, metavar="command")
+    tag_sub.add_parser("list", help="List tags for the repo")
+    for name in ("create", "delete"):
+        tag_cmd = tag_sub.add_parser(name, help=f"{name.title()} a tag for the repo")
+        tag_cmd.add_argument(
+            "tag",
+            nargs="?",
+            default=None,
+            help=f"Tag to {name} (default: the current version)",
+        )
+
     args = parser.parse_args()
-    return Args(cmd=args.cmd, skip_stage=args.skip_stage)
+    return Args(
+        cmd=args.cmd,
+        tag_cmd=args.tag_cmd,
+        tag=args.tag,
+    )
 
 
 def main() -> None:
     args = parse_args()
+
+    login_to_huggingface()
+
     match args.cmd:
         case "publish":
-            if not args.skip_stage:
-                stage()
+            stage()
             upload_to_huggingface()
         case "squash":
             super_squash()
+        case "tag":
+            version = args.tag or release_version()
+            match args.tag_cmd:
+                case "list":
+                    list_tags()
+                case "create":
+                    create_tag(version)
+                case "delete":
+                    delete_tag(version)
 
 
 if __name__ == "__main__":
