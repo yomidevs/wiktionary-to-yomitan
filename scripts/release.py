@@ -27,7 +27,7 @@ from huggingface_hub import HfApi, whoami
 
 REPO_ID_HF = "daxida/wty-release"
 REPO_HF = f"https://huggingface.co/datasets/{REPO_ID_HF}"
-REPO_ID_GH = "https://github.com/daxida/wty"
+REPO_ID_GH = "https://github.com/yomidevs/wiktionary-to-yomitan"
 
 type CmdTy = Literal["publish", "squash", "tag"]
 type TagCmdTy = Literal["list", "create", "delete"]
