@@ -157,18 +157,27 @@ def upload_release(api: HfApi, version: str) -> None:
         print(f"[upload] complete @ {destination}")
 
 
-def tag_release(api: HfApi, version: str) -> None:
+def tag_release(api: HfApi, version: str, *, replace: bool = False) -> None:
     """Tag the release, replacing the old `versions/{version}` copy.
+
+    A publish can be resumed with --skip-stage, or run again the same day after a
+    fix, so the tag may exist already. It has to *move* to the commit we just made:
+    the uploads replaced `latest`, so a tag left on the older commit would archive
+    files that are no longer there. Hence `replace` for the publish path.
 
     NOTE: tags can be deleted via the CLI: hf repos tag delete ...
     """
+    if replace:
+        refs = api.list_repo_refs(REPO_ID_HF, repo_type="dataset")
+        if any(ref.name == version for ref in refs.tags):
+            print(f"Moving the existing tag {version} to the new commit")
+            api.delete_tag(REPO_ID_HF, tag=version, repo_type="dataset")
+
     api.create_tag(
         REPO_ID_HF,
         tag=version,
         repo_type="dataset",
         tag_message=f"wty release {version}",
-        # A publish can be resumed with --skip-stage, so the tag may exist already.
-        exist_ok=True,
     )
     print(f"Tagged release @ {REPO_HF}/tree/{version}")
 
@@ -240,7 +249,7 @@ def upload_to_huggingface() -> None:
         )
         print(f"Uploaded README @ {folder_in_repo or 'root'}")
 
-    tag_release(api, version)
+    tag_release(api, version, replace=True)
 
 
 def super_squash() -> None:
