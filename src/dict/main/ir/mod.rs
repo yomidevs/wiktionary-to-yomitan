@@ -648,10 +648,13 @@ fn should_skip_form(edition: Edition, source: Lang, entry: &WordEntry, form: &Fo
         (Edition::En, Lang::Fi) => {
             // Bloated, remove anything non-essential
             // For the reasoning behind possessive, see. should_break_at_finish_forms
+            //
+            // Possessive forms come tagged either "possessive" or, since the tables now
+            // expose the number of the possessum, "singular-possessive"/"plural-possessive".
             if form
                 .tags
                 .iter()
-                .any(|tag| tag == "rare" || tag == "possessive")
+                .any(|tag| tag == "rare" || tag.ends_with("possessive"))
             {
                 return true;
             }
