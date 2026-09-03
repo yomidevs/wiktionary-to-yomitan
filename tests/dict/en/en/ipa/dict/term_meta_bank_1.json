@@ -56,18 +56,24 @@
         {
           "ipa": "/ˈfælkən/",
           "tags": [
+            "Atlantic-Canada",
             "🇺🇸",
             "🇦🇺"
           ]
         },
         {
-          "ipa": "/ˈfɑːlkən/",
+          "ipa": "/ˈfɑlkən/",
           "tags": [
+            "Atlantic-Canada",
             "🇺🇸"
           ]
         },
         {
-          "ipa": "/ˈfoːlkən/"
+          "ipa": "/ˈfoːlkən/",
+          "tags": [
+            "🇦🇺",
+            "🇳🇿"
+          ]
         },
         {
           "ipa": "/ˈfɛlkən/",
@@ -120,6 +126,14 @@
       "transcriptions": [
         {
           "ipa": "/ɪkˈspænsɪv/"
+        },
+        {
+          "ipa": "/ɪkˈspansɪv/",
+          "tags": [
+            "British",
+            "Southern",
+            "Standard"
+          ]
         }
       ]
     }
@@ -151,7 +165,7 @@
         {
           "ipa": "/pəˈnɪn.ʃə.lə(ɹ)/",
           "tags": [
-            "Australian, yod-coalescence"
+            "Australia, yod-coalescence"
           ]
         }
       ]

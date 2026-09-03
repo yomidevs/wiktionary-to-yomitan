@@ -44,7 +44,24 @@
       "noun": [
         "extracted",
         [
-          "diminutive"
+          "diminutive",
+          "singulative"
+        ]
+      ]
+    },
+    "снежи́ще": {
+      "noun": [
+        "extracted",
+        [
+          "augmentative"
+        ]
+      ]
+    },
+    "снежи́нка": {
+      "noun": [
+        "extracted",
+        [
+          "singulative"
         ]
       ]
     },

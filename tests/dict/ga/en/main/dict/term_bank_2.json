@@ -9,7 +9,7 @@
       [
         "buneolas",
         [
-          "genitive singular"
+          "genitive singular indefinite"
         ]
       ]
     ],
@@ -32,7 +32,7 @@
       [
         "buneolas",
         [
-          "vocative singular"
+          "vocative singular indefinite"
         ]
       ]
     ],
@@ -95,13 +95,13 @@
       [
         "crodh",
         [
-          "genitive singular"
+          "genitive singular indefinite"
         ]
       ],
       [
         "crodh",
         [
-          "nominative/dative plural definite"
+          "nominative/dative plural definite/indefinite"
         ]
       ]
     ],
@@ -124,7 +124,7 @@
       [
         "crodh",
         [
-          "vocative singular"
+          "vocative singular indefinite"
         ]
       ]
     ],
@@ -141,7 +141,7 @@
       [
         "crodh",
         [
-          "vocative plural"
+          "vocative plural indefinite"
         ]
       ]
     ],

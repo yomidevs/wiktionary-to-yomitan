@@ -182,7 +182,7 @@
               ]
             }
           },
-          "etymology_text": "Etymology tree\nProto-Indo-European *leǵ-\nProto-Indo-European *-eti\nProto-Indo-European *léǵeti\nProto-Italic *legō\nLatin legō\nFrom Proto-Italic *legō, from Proto-Indo-European *léǵeti, from the root *leǵ- (“to gather”). Cognates include Ancient Greek λέγω (légō, “to speak, to choose, to mean”) and Albanian mbledh. May be related to lēx.\nFor etymology 1 sense 6 (“to read”), compare typologically разбира́ть (razbirátʹ), разбира́ться (razbirátʹsja) (< брать (bratʹ)), разбо́рчивый (razbórčivyj) (по́черк (póčerk)).",
+          "etymology_text": "Etymology tree\nProto-Indo-European *leǵ-\nProto-Indo-European *-eti\nProto-Indo-European *léǵeti\nProto-Italic *legō\nLatin legō\nFrom Proto-Italic *legō, from Proto-Indo-European *léǵeti, from the root *leǵ- (“to gather”). Cognates include Ancient Greek λέγω (légō, “to speak, to choose, to mean”) and Albanian mbledh. May be related to lēx.\nFor etymology 1 sense 6 (“to read”), compare typologically Russian разбира́ть (razbirátʹ), разбира́ться (razbirátʹsja) (< брать (bratʹ)), разбо́рчивый (razbórčivyj) (по́черк (póčerk)).",
           "head_info_text": "legō (present infinitive legere, perfect active lēgī, supine lēctum); third conjugation",
           "wlink": "https://en.wiktionary.org/wiki/lego#Latin",
           "klink": "https://kaikki.org/dictionary/Latin/meaning/l/le/lego.html"
@@ -778,6 +778,13 @@
                 "adjective",
                 "declension-1",
                 "declension-2"
+              ],
+              "examples": [
+                {
+                  "text": "Heic est sepulcrum hau pulcrum pulcrai feminae",
+                  "translation": "Here is the ugly tomb of a beautiful woman\n(literally, “Here is the tomb of no beauty for a beautiful woman”)",
+                  "ref": "c. 135-120 BCE, CIL 6.15346"
+                }
               ]
             },
             "noble, honorable, excellent": {

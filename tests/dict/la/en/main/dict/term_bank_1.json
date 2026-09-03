@@ -409,7 +409,7 @@
                         "data": {
                           "content": "Etymology-content"
                         },
-                        "content": "Etymology tree\nProto-Indo-European *leǵ-\nProto-Indo-European *-eti\nProto-Indo-European *léǵeti\nProto-Italic *legō\nLatin legō\nFrom Proto-Italic *legō, from Proto-Indo-European *léǵeti, from the root *leǵ- (“to gather”). Cognates include Ancient Greek λέγω (légō, “to speak, to choose, to mean”) and Albanian mbledh. May be related to lēx.\nFor etymology 1 sense 6 (“to read”), compare typologically разбира́ть (razbirátʹ), разбира́ться (razbirátʹsja) (< брать (bratʹ)), разбо́рчивый (razbórčivyj) (по́черк (póčerk))."
+                        "content": "Etymology tree\nProto-Indo-European *leǵ-\nProto-Indo-European *-eti\nProto-Indo-European *léǵeti\nProto-Italic *legō\nLatin legō\nFrom Proto-Italic *legō, from Proto-Indo-European *léǵeti, from the root *leǵ- (“to gather”). Cognates include Ancient Greek λέγω (légō, “to speak, to choose, to mean”) and Albanian mbledh. May be related to lēx.\nFor etymology 1 sense 6 (“to read”), compare typologically Russian разбира́ть (razbirátʹ), разбира́ться (razbirátʹsja) (< брать (bratʹ)), разбо́рчивый (razbórčivyj) (по́черк (póčerk))."
                       }
                     ]
                   }
@@ -3303,7 +3303,57 @@
                   {
                     "tag": "div",
                     "content": [
-                      "beautiful, fair, pretty"
+                      "beautiful, fair, pretty",
+                      {
+                        "tag": "details",
+                        "data": {
+                          "content": "details-entry-examples"
+                        },
+                        "content": [
+                          {
+                            "tag": "summary",
+                            "data": {
+                              "content": "summary-entry"
+                            },
+                            "content": "1 example"
+                          },
+                          {
+                            "tag": "div",
+                            "data": {
+                              "content": "extra-info"
+                            },
+                            "content": {
+                              "tag": "div",
+                              "data": {
+                                "content": "example-sentence"
+                              },
+                              "content": [
+                                {
+                                  "tag": "div",
+                                  "data": {
+                                    "content": "example-sentence-a"
+                                  },
+                                  "content": "Heic est sepulcrum hau pulcrum pulcrai feminae"
+                                },
+                                {
+                                  "tag": "div",
+                                  "data": {
+                                    "content": "example-sentence-b"
+                                  },
+                                  "content": "Here is the ugly tomb of a beautiful woman\n(literally, “Here is the tomb of no beauty for a beautiful woman”)"
+                                },
+                                {
+                                  "tag": "div",
+                                  "data": {
+                                    "content": "example-sentence-c"
+                                  },
+                                  "content": "c. 135-120 BCE, CIL 6.15346"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
                     ]
                   }
                 ]
