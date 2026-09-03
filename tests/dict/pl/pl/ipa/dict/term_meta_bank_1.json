@@ -16,5 +16,23 @@
         }
       ]
     }
+  ],
+  [
+    "pobiec",
+    "ipa",
+    {
+      "reading": "pobiec",
+      "transcriptions": [
+        {
+          "ipa": "/ˈpɔbʲjɛt͡s/"
+        },
+        {
+          "ipa": "/pobʹi ̯ec/",
+          "tags": [
+            "Slavic-alphabet"
+          ]
+        }
+      ]
+    }
   ]
 ]

@@ -75,5 +75,90 @@
         }
       ]
     }
+  },
+  "pobiec": {
+    "": {
+      "verb": [
+        {
+          "gloss_tree": {
+            "przemieścić się do przodu, biegnąc": {
+              "examples": [
+                {
+                  "text": "Dzieci pobiegły przez pole, by powitać księdza.",
+                  "bold_text_offsets": [
+                    [
+                      7,
+                      15
+                    ]
+                  ]
+                }
+              ]
+            },
+            "pospiesznie udać się gdzieś lub po kogoś": {
+              "tags": [
+                "colloquial"
+              ],
+              "examples": [
+                {
+                  "text": "Pobiegnij po tatę i powiedz mu, że zepsuł się kran.",
+                  "bold_text_offsets": [
+                    [
+                      0,
+                      9
+                    ]
+                  ]
+                }
+              ]
+            },
+            "(o spojrzeniu, myślach itp.) zwrócić się ku czemuś lub komuś": {
+              "tags": [
+                "literary"
+              ],
+              "examples": [
+                {
+                  "text": "Jego spojrzenie pobiegło w stronę zbliżającej się grupy urzędników.",
+                  "bold_text_offsets": [
+                    [
+                      16,
+                      24
+                    ]
+                  ]
+                }
+              ]
+            },
+            "(o drogach, szlakach, ulicach itp.) zostać wytyczonym w pewnym kierunku": {
+              "examples": [
+                {
+                  "text": "Nowa autostrada pobiegnie ku granicy z Białorusią.",
+                  "bold_text_offsets": [
+                    [
+                      16,
+                      25
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "tags": [
+            "intransitive",
+            "perfective"
+          ],
+          "synonyms": [
+            {
+              "word": "pognać"
+            },
+            {
+              "word": "polecieć"
+            },
+            {
+              "word": "popędzić"
+            }
+          ],
+          "wlink": "https://pl.wiktionary.org/wiki/pobiec#Polish",
+          "klink": "https://kaikki.org/plwiktionary/All%20languages%20combined/meaning/p/po/pobiec.html"
+        }
+      ]
+    }
   }
 }
