@@ -681,8 +681,7 @@
       "verb": [
         "extracted",
         [
-          "past",
-          "perfective"
+          "past"
         ]
       ]
     },
@@ -690,7 +689,6 @@
       "verb": [
         "extracted",
         [
-          "imperfective",
           "irrealis stem"
         ]
       ]
@@ -699,7 +697,6 @@
       "verb": [
         "extracted",
         [
-          "imperfective",
           "irrealis stem"
         ]
       ]
@@ -725,7 +722,6 @@
       "verb": [
         "extracted",
         [
-          "hypothetical",
           "imperative stem",
           "realis stem"
         ]
@@ -735,105 +731,8 @@
       "verb": [
         "extracted",
         [
-          "hypothetical",
           "imperative stem",
           "realis stem"
-        ]
-      ]
-    },
-    "走られる": {
-      "verb": [
-        "extracted",
-        [
-          "passive"
-        ]
-      ]
-    },
-    "はしられる": {
-      "verb": [
-        "extracted",
-        [
-          "passive"
-        ]
-      ]
-    },
-    "走らせる": {
-      "verb": [
-        "extracted",
-        [
-          "causative"
-        ]
-      ]
-    },
-    "走らす": {
-      "verb": [
-        "extracted",
-        [
-          "causative"
-        ]
-      ]
-    },
-    "はしらせる": {
-      "verb": [
-        "extracted",
-        [
-          "causative"
-        ]
-      ]
-    },
-    "はしらす": {
-      "verb": [
-        "extracted",
-        [
-          "causative"
-        ]
-      ]
-    },
-    "走れる": {
-      "verb": [
-        "extracted",
-        [
-          "potential"
-        ]
-      ]
-    },
-    "はしれる": {
-      "verb": [
-        "extracted",
-        [
-          "potential"
-        ]
-      ]
-    },
-    "走ろう": {
-      "verb": [
-        "extracted",
-        [
-          "volitional"
-        ]
-      ]
-    },
-    "はしろう": {
-      "verb": [
-        "extracted",
-        [
-          "volitional"
-        ]
-      ]
-    },
-    "走らない": {
-      "verb": [
-        "extracted",
-        [
-          "negative"
-        ]
-      ]
-    },
-    "はしらない": {
-      "verb": [
-        "extracted",
-        [
-          "negative"
         ]
       ]
     },
@@ -841,7 +740,7 @@
       "verb": [
         "extracted",
         [
-          "negative continuative"
+          "negative"
         ]
       ]
     },
@@ -849,65 +748,7 @@
       "verb": [
         "extracted",
         [
-          "negative continuative"
-        ]
-      ]
-    },
-    "走ります": {
-      "verb": [
-        "extracted",
-        [
-          "formal"
-        ]
-      ]
-    },
-    "はしります": {
-      "verb": [
-        "extracted",
-        [
-          "formal"
-        ]
-      ]
-    },
-    "はしった": {
-      "verb": [
-        "extracted",
-        [
-          "perfective"
-        ]
-      ]
-    },
-    "走って": {
-      "verb": [
-        "extracted",
-        [
-          "conjunctive"
-        ]
-      ]
-    },
-    "はしって": {
-      "verb": [
-        "extracted",
-        [
-          "conjunctive"
-        ]
-      ]
-    },
-    "走れば": {
-      "verb": [
-        "extracted",
-        [
-          "causative",
-          "conditional hypothetical"
-        ]
-      ]
-    },
-    "はしれば": {
-      "verb": [
-        "extracted",
-        [
-          "causative",
-          "conditional hypothetical"
+          "negative"
         ]
       ]
     },
@@ -924,6 +765,22 @@
         "extracted",
         [
           "contrastive"
+        ]
+      ]
+    },
+    "走れば": {
+      "verb": [
+        "extracted",
+        [
+          "causative"
+        ]
+      ]
+    },
+    "はしれば": {
+      "verb": [
+        "extracted",
+        [
+          "causative"
         ]
       ]
     },
@@ -1097,8 +954,6 @@
       "verb": [
         "extracted",
         [
-          "continuative",
-          "imperfective",
           "stem"
         ]
       ]
@@ -1107,276 +962,7 @@
       "verb": [
         "extracted",
         [
-          "past",
-          "perfective"
-        ]
-      ]
-    },
-    "ようだて": {
-      "verb": [
-        "extracted",
-        [
-          "continuative",
-          "imperfective"
-        ]
-      ]
-    },
-    "ようだてる": {
-      "verb": [
-        "extracted",
-        [
-          "attributive",
-          "terminative"
-        ]
-      ]
-    },
-    "用立てれ": {
-      "verb": [
-        "extracted",
-        [
-          "hypothetical"
-        ]
-      ]
-    },
-    "ようだてれ": {
-      "verb": [
-        "extracted",
-        [
-          "hypothetical"
-        ]
-      ]
-    },
-    "用立てよ": {
-      "verb": [
-        "extracted",
-        [
-          "imperative literary"
-        ]
-      ]
-    },
-    "用立てろ": {
-      "verb": [
-        "extracted",
-        [
-          "imperative colloquial"
-        ]
-      ]
-    },
-    "ようだてよ": {
-      "verb": [
-        "extracted",
-        [
-          "imperative literary"
-        ]
-      ]
-    },
-    "ようだてろ": {
-      "verb": [
-        "extracted",
-        [
-          "imperative colloquial"
-        ]
-      ]
-    },
-    "用立てられる": {
-      "verb": [
-        "extracted",
-        [
-          "passive",
-          "potential"
-        ]
-      ]
-    },
-    "ようだてられる": {
-      "verb": [
-        "extracted",
-        [
-          "passive",
-          "potential"
-        ]
-      ]
-    },
-    "用立てさせる": {
-      "verb": [
-        "extracted",
-        [
-          "causative"
-        ]
-      ]
-    },
-    "用立てさす": {
-      "verb": [
-        "extracted",
-        [
-          "causative"
-        ]
-      ]
-    },
-    "ようだてさせる": {
-      "verb": [
-        "extracted",
-        [
-          "causative"
-        ]
-      ]
-    },
-    "ようだてさす": {
-      "verb": [
-        "extracted",
-        [
-          "causative"
-        ]
-      ]
-    },
-    "用立てれる": {
-      "verb": [
-        "extracted",
-        [
-          "colloquial potential"
-        ]
-      ]
-    },
-    "ようだてれる": {
-      "verb": [
-        "extracted",
-        [
-          "colloquial potential"
-        ]
-      ]
-    },
-    "用立てよう": {
-      "verb": [
-        "extracted",
-        [
-          "volitional"
-        ]
-      ]
-    },
-    "ようだてよう": {
-      "verb": [
-        "extracted",
-        [
-          "volitional"
-        ]
-      ]
-    },
-    "用立てない": {
-      "verb": [
-        "extracted",
-        [
-          "negative"
-        ]
-      ]
-    },
-    "用立てぬ": {
-      "verb": [
-        "extracted",
-        [
-          "negative"
-        ]
-      ]
-    },
-    "用立てん": {
-      "verb": [
-        "extracted",
-        [
-          "negative"
-        ]
-      ]
-    },
-    "ようだてない": {
-      "verb": [
-        "extracted",
-        [
-          "negative"
-        ]
-      ]
-    },
-    "ようだてぬ": {
-      "verb": [
-        "extracted",
-        [
-          "negative"
-        ]
-      ]
-    },
-    "ようだてん": {
-      "verb": [
-        "extracted",
-        [
-          "negative"
-        ]
-      ]
-    },
-    "用立てず": {
-      "verb": [
-        "extracted",
-        [
-          "negative continuative"
-        ]
-      ]
-    },
-    "ようだてず": {
-      "verb": [
-        "extracted",
-        [
-          "negative continuative"
-        ]
-      ]
-    },
-    "用立てます": {
-      "verb": [
-        "extracted",
-        [
-          "formal"
-        ]
-      ]
-    },
-    "ようだてます": {
-      "verb": [
-        "extracted",
-        [
-          "formal"
-        ]
-      ]
-    },
-    "ようだてた": {
-      "verb": [
-        "extracted",
-        [
-          "perfective"
-        ]
-      ]
-    },
-    "用立てて": {
-      "verb": [
-        "extracted",
-        [
-          "conjunctive"
-        ]
-      ]
-    },
-    "ようだてて": {
-      "verb": [
-        "extracted",
-        [
-          "conjunctive"
-        ]
-      ]
-    },
-    "用立てれば": {
-      "verb": [
-        "extracted",
-        [
-          "conditional hypothetical"
-        ]
-      ]
-    },
-    "ようだてれば": {
-      "verb": [
-        "extracted",
-        [
-          "conditional hypothetical"
+          "past"
         ]
       ]
     }
