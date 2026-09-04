@@ -140,9 +140,8 @@ impl WiktextractDb {
 
     pub fn blob_to_word_entry(blob: &[u8]) -> Result<WordEntry> {
         let archived: &Archived<WordEntry> =
-            rkyv::access::<Archived<WordEntry>, rkyv::rancor::Error>(blob).unwrap();
-        let word_entry: WordEntry =
-            rkyv::deserialize::<WordEntry, rkyv::rancor::Error>(archived).unwrap();
+            rkyv::access::<Archived<WordEntry>, rkyv::rancor::Error>(blob)?;
+        let word_entry: WordEntry = rkyv::deserialize::<WordEntry, rkyv::rancor::Error>(archived)?;
         Ok(word_entry)
     }
 }
