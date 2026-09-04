@@ -839,9 +839,9 @@ dependencies = [
 
 [[package]]
 name = "pangloss"
-version = "0.1.6"
+version = "0.1.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5e8dc9117450529de3fa25a920531b75bae203ffa126ddb21a171fcb160a858c"
+checksum = "61964b9b74a4b49c5a86d778a343f3f0b7cbfbf2953489f30d677c4e5ece834f"
 dependencies = [
  "anyhow",
  "byteorder",
@@ -856,6 +856,7 @@ dependencies = [
  "scraper",
  "serde",
  "serde_json",
+ "simd-adler32",
  "tracing",
  "tracing-subscriber",
  "zip 8.6.0",
@@ -1371,9 +1372,9 @@ checksum = "0fda2ff0d084019ba4d7c6f371c95d8fd75ce3524c3cb8fb653a3023f6323e64"
 
 [[package]]
 name = "simd-adler32"
-version = "0.3.9"
+version = "0.3.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "703d5c7ef118737c72f1af64ad2f6f8c5e1921f818cdcb97b8fe6fc69bf66214"
+checksum = "3a219298ac11a56ea9a6d2120044824d6f01aeb034955e7af7bc16858527deea"
 
 [[package]]
 name = "simdutf8"

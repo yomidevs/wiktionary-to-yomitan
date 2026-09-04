@@ -4,16 +4,13 @@ use std::{
 };
 
 use anyhow::Result;
-use pangloss::{
-    AltEntry, AltMap, DataEntry, Definition, Entry, Glossary, GlossaryInfo, Writer,
-    formats::mdict::MdictFormat,
-};
+use pangloss::{DataEntry, Glossary, GlossaryInfo, Writer, formats::mdict::MdictFormat};
 
 use crate::{
     cli::Options,
-    dict::writer::{STYLES_CSS, YOMITAN_CSS, renderer::Renderer},
+    dict::writer::{STYLES_CSS, YOMITAN_CSS, build_entries},
     lang::Lang,
-    models::yomitan::{DetailedDefinition, YomitanDict},
+    models::yomitan::YomitanDict,
     path::PathManager,
 };
 
@@ -40,29 +37,7 @@ pub fn write_mdict(
 }
 
 fn build_glossary(dict_name: &str, ydict: YomitanDict) -> Glossary {
-    // Aren't these duplicated in entries?
-    let mut alt_map = AltMap::new();
-    for entry in &ydict.term_bank_form {
-        for def in &entry.definitions {
-            let DetailedDefinition::Inflection((from, _tags)) = def else {
-                panic!("forms must be made from inflections");
-            };
-            alt_map
-                .entry(from.clone())
-                .or_default()
-                .push(AltEntry::only_term(entry.term.clone()));
-        }
-    }
-
-    let entries: Vec<Entry> = ydict
-        .into_iter_flat()
-        .map(|entry| {
-            Entry::new(
-                entry.term().to_string(),
-                Definition::Html(MdictRenderer::render_entry(&entry).into_string()),
-            )
-        })
-        .collect();
+    let entries = build_entries::<MdictRenderer>(ydict);
 
     // In theory we could call this in pangloss
     let data_entries = vec![
@@ -76,7 +51,6 @@ fn build_glossary(dict_name: &str, ydict: YomitanDict) -> Glossary {
     Glossary {
         entries,
         data_entries,
-        alt_map,
         info,
         ..Default::default()
     }

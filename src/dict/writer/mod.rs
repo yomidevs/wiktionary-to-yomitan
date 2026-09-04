@@ -2,10 +2,13 @@ use std::fmt;
 
 use anyhow::Result;
 use clap::ValueEnum;
+use pangloss::{AltEntry, Definition, Entry};
 
 use crate::{
+    Map,
     cli::{LangSpecs, Options},
     dict::{Dictionary, Intermediate},
+    models::yomitan::{DetailedDefinition, YomitanDict},
     path::PathManager,
     utils::{CHECK_C, pretty_println_at_path},
 };
@@ -132,4 +135,31 @@ impl WriterFormat {
 
         Ok(())
     }
+}
+
+/// Render every entry of `ydict` with `R`.
+fn build_entries<R: renderer::Renderer>(ydict: YomitanDict) -> Vec<Entry> {
+    let mut alts: Map<String, Vec<AltEntry>> = Map::default();
+    for entry in &ydict.term_bank_form {
+        for def in &entry.definitions {
+            let DetailedDefinition::Inflection((from, _tags)) = def else {
+                panic!("forms must be made from inflections");
+            };
+            alts.entry(from.clone())
+                .or_default()
+                .push(AltEntry::only_term(entry.term.clone()));
+        }
+    }
+
+    ydict
+        .into_iter_flat()
+        .map(|entry| {
+            let alts = alts.swap_remove(entry.term()).unwrap_or_default();
+            Entry::new(
+                entry.term().to_string(),
+                Definition::Html(R::render_entry(&entry).into_string()),
+            )
+            .with_alts(alts)
+        })
+        .collect()
 }
