@@ -238,10 +238,10 @@ pub fn make_dict_from_jsonl<D: Dictionary>(dict: D, raw_args: D::A) -> Result<()
                 continue;
             }
 
-            accepted_count += 1;
-            if accepted_count == opts.first {
+            if opts.first == Some(accepted_count) {
                 break;
             }
+            accepted_count += 1;
 
             if dict.skip_if(&entry) {
                 continue;

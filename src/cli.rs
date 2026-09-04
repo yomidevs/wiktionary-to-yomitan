@@ -185,9 +185,9 @@ pub struct Options {
     #[arg(long, short)]
     pub redownload: bool,
 
-    /// Only keep the first n filtered lines. -1 keeps all
-    #[arg(long, default_value_t = -1)]
-    pub first: i32,
+    /// Only keep the first n filtered lines.
+    #[arg(long)]
+    pub first: Option<usize>,
 
     // Example:
     //   `--filter pos,adv`
