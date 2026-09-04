@@ -263,12 +263,12 @@ impl Deref for DictName {
 }
 
 fn parse_tuple(s: &str) -> Result<(FilterKey, String), String> {
-    let parts: Vec<_> = s.split(',').map(|x| x.trim().to_string()).collect();
-    if parts.len() != 2 {
+    // Split on the *first* comma only: the value may contain commas itself!
+    let Some((key, value)) = s.split_once(',') else {
         return Err("expected two comma-separated values".into());
-    }
-    let filter_key = FilterKey::try_from(parts[0].as_str()).map_err(|e| e.to_string())?;
-    core::result::Result::Ok((filter_key, parts[1].clone()))
+    };
+    let filter_key = FilterKey::try_from(key.trim()).map_err(|e| e.to_string())?;
+    Result::Ok((filter_key, value.trim().to_string()))
 }
 
 /// A key used to filter a [`WordEntry`] by one of its fields.
@@ -476,5 +476,28 @@ mod tests {
         assert!(MainArgs::try_parse_from(["_pname", "el", "el", "--filter", "foo,bar"]).is_err());
         assert!(MainArgs::try_parse_from(["_pname", "el", "el", "--filter", "word,hello"]).is_ok());
         assert!(MainArgs::try_parse_from(["_pname", "el", "el", "--reject", "pos,name"]).is_ok());
+    }
+
+    #[test]
+    fn filter_flag_empty_values() {
+        assert!(MainArgs::try_parse_from(["_pname", "el", "el", "--filter", "word"]).is_err());
+    }
+
+    fn parse_filter_value(filter: &str) -> String {
+        let args = MainArgs::try_parse_from(["_pname", "el", "el", "--filter", filter]).unwrap();
+        let [(key, value)] = args.options.filter.as_slice() else {
+            panic!("expected exactly one filter");
+        };
+        assert!(matches!(key, FilterKey::Word));
+        value.clone()
+    }
+
+    #[test]
+    fn filter_flag_value_with_comma() {
+        assert_eq!(parse_filter_value("word,Hello, world"), "Hello, world");
+        // The headword *is* a comma
+        assert_eq!(parse_filter_value("word,,"), ",");
+        // Both halves are still trimmed
+        assert_eq!(parse_filter_value("word, hello "), "hello");
     }
 }
