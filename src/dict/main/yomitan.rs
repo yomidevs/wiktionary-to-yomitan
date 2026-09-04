@@ -122,8 +122,8 @@ fn get_found_tags(pos: Pos, info: &LemmaInfo) -> Vec<TagInfo> {
     std::iter::once(pos.long())
         .chain(info.tags.iter().map(String::as_str)) // top level tags (the non-En preferred way)
         .chain(common_tags_iter)
-        .filter(|s| seen.insert(*s))
         .filter_map(find_tag_in_bank)
+        .filter(|tag_info| seen.insert(tag_info.short_tag.clone()))
         .collect()
 }
 
@@ -484,10 +484,12 @@ fn to_yomitan_forms(source: Lang, form_map: &FormMap) -> Vec<TermBankEntryForm> 
             // It is unclear if we just want to pass the pos here since tags
             // may only be relevant for some deinflected words and not others.
             // The changes are minimal, at any rate.
+            let mut seen = Set::default();
             let short_tags: Vec<_> = std::iter::once(pos.long())
                 .chain(tags.iter().map(String::as_str))
                 .filter_map(find_tag_in_bank)
                 .map(|tag| tag.short_tag)
+                .filter(|short_tag| seen.insert(short_tag.clone()))
                 .collect();
 
             TermBankEntryForm::new(
