@@ -1,5 +1,4 @@
 use std::{
-    collections::HashMap,
     fs::File,
     io::{BufWriter, Write},
     path::PathBuf,
@@ -8,6 +7,7 @@ use std::{
 use anyhow::Result;
 
 use crate::{
+    Map,
     cli::Options,
     models::yomitan::{DetailedDefinition, YomitanDict},
     path::PathManager,
@@ -25,8 +25,8 @@ pub fn write_debug_forms(_: &Options, _: &PathManager, ydict: YomitanDict) -> Re
     // of ANY dictionary (and we only care about the main one)
     // ... and in theory, there is no guarantee that the irs format of the main
     // dictionary won't change, while this logic remains the same.
-    let mut grouped_by: HashMap<&str, Vec<&str>> = HashMap::new();
-    let mut from_to_rules: HashMap<&str, Vec<&str>> = HashMap::new(); // it's short pos
+    let mut grouped_by: Map<&str, Vec<&str>> = Map::default();
+    let mut from_to_rules: Map<&str, Vec<&str>> = Map::default(); // it's short pos
 
     for entry in &ydict.term_bank_form {
         for def in &entry.definitions {
