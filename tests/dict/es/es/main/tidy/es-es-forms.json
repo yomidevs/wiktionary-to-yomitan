@@ -412,5 +412,15 @@
         ]
       ]
     }
+  },
+  "revelado": {
+    "revelada": {
+      "adjective": [
+        "inflection",
+        [
+          "adjective"
+        ]
+      ]
+    }
   }
 }
