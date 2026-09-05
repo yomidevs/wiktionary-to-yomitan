@@ -78,7 +78,9 @@ pub trait Renderer {
         html! {
             div class="entry form" {
                 h2 { (&entry.term) }
-                div class="reading" { (&entry.reading) }
+                @if !entry.reading.is_empty() {
+                    div class="reading" { (&entry.reading) }
+                }
                 ul {
                     @for def in &entry.definitions {
                         li { (Self::render_detailed_definition(def)) }
