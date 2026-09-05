@@ -65,7 +65,7 @@ pub fn release(rargs: ReleaseArgs) -> Result<()> {
     // English is the bottleneck. This puts English first to start working asap.
     editions.sort_by_key(|ed| i32::from(*ed != Edition::En));
 
-    println!("rargs: {:?}", &rargs);
+    println!("rargs: {rargs:?}");
     println!("Making release with {} editions", editions.len());
     println!(
         "- {}",

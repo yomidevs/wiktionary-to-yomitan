@@ -52,7 +52,7 @@ impl WiktextractDb {
         let conn = Connection::open(&db_path)?;
 
         conn.execute_batch(
-            r#"
+            r"
             CREATE TABLE IF NOT EXISTS wiktextract (
                 id INTEGER PRIMARY KEY,
                 lang TEXT NOT NULL,
@@ -73,7 +73,7 @@ impl WiktextractDb {
 
             CREATE INDEX IF NOT EXISTS idx_translations_entry_id
             ON translations(entry_id);
-            "#,
+            ",
         )?;
 
         let mut db = Self { conn };

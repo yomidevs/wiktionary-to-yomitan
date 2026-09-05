@@ -1,4 +1,4 @@
-//! Glossary and GlossaryExtended dictionaries.
+//! `Glossary` and `GlossaryExtended` dictionaries.
 
 use crate::{
     Map, Set,

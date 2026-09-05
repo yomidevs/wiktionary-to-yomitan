@@ -1,4 +1,4 @@
-//! Ipa and IpaMerged dictionaries.
+//! `Ipa` and `IpaMerged` dictionaries.
 
 use crate::{
     Map,
@@ -70,8 +70,7 @@ fn normalize_ipa(text: &str) -> String {
     let lst = text.chars().last();
 
     match (fst, lst) {
-        (Some('['), Some(']')) => text.to_string(),
-        (Some('/'), Some('/')) => text.to_string(),
+        (Some('['), Some(']')) | (Some('/'), Some('/')) => text.to_string(),
         (Some('\\'), Some('\\')) if text.len() > 1 => format!("/{}/", &text[1..text.len() - 1]),
         _ => format!("/{text}/"),
     }

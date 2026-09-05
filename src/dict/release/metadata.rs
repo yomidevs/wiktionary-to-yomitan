@@ -124,7 +124,7 @@ fn scan_and_group(root_dir: &Path, stats: &TimingStats) -> Result<Metadata> {
 
     for entry in walkdir::WalkDir::new(root_dir)
         .into_iter()
-        .filter_map(|e| e.ok())
+        .filter_map(Result::ok)
         .filter(|e| e.path().extension().is_some_and(|x| x == "zip"))
     {
         let path = entry.path();

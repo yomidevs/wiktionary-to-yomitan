@@ -664,15 +664,11 @@ fn should_skip_form(edition: Edition, source: Lang, entry: &WordEntry, form: &Fo
                 return true;
             }
         }
-        (Edition::Ja, Lang::Ja) => {
-            // Since we expect "Letter" as Yomitan "Dictionary search resolution", forms prefixed
-            // by the lemma are redundant.
-            // - lemma: ぷくぷく
-            // - forms: ぷくぷくし | ぷくぷくせ | ぷくぷくさ etc.
-            if form.form.starts_with(&entry.word) {
-                return true;
-            }
-        }
+        // Since we expect "Letter" as Yomitan "Dictionary search resolution", forms prefixed
+        // by the lemma are redundant.
+        // - lemma: ぷくぷく
+        // - forms: ぷくぷくし | ぷくぷくせ | ぷくぷくさ etc.
+        (Edition::Ja, Lang::Ja) if form.form.starts_with(&entry.word) => return true,
         _ => (),
     }
     false

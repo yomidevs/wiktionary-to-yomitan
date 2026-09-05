@@ -8,8 +8,8 @@ const PERSON_TAGS: [&str; 3] = ["first-person", "second-person", "third-person"]
 /// Merge similar tags if the only difference is the person-tags.
 ///
 /// F.e.
-/// in:  ['first-person singular', 'third-person singular']
-/// out: ['singular first/third-person ']
+/// in:  `['first-person singular', 'third-person singular']`
+/// out: `['singular first/third-person ']`
 ///
 /// Note that this does not preserve logical tag order, and should be called before `sort_tag`.
 pub fn merge_tags_by_person(tags: &mut Vec<Tag>) {

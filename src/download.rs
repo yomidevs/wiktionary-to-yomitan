@@ -11,14 +11,12 @@ use crate::{
 };
 
 /// Return the url of the "raw" dataset.
-fn url_jsonl_gz(edition: Edition) -> Result<String> {
+fn url_jsonl_gz(edition: Edition) -> String {
     let root = "https://kaikki.org";
 
     match edition {
-        Edition::En => Ok(format!("{root}/dictionary/raw-wiktextract-data.jsonl.gz")),
-        other => Ok(format!(
-            "{root}/{other}wiktionary/raw-wiktextract-data.jsonl.gz"
-        )),
+        Edition::En => format!("{root}/dictionary/raw-wiktextract-data.jsonl.gz"),
+        other => format!("{root}/{other}wiktionary/raw-wiktextract-data.jsonl.gz"),
     }
 }
 
@@ -86,7 +84,7 @@ mod html {
     ///
     /// WARN: expects `path_jsonl` to be a valid path (with existing parents etc.)
     pub fn download_jsonl(edition: Edition, path_jsonl: &Path, quiet: bool) -> Result<()> {
-        let url = url_jsonl_gz(edition)?;
+        let url = url_jsonl_gz(edition);
         if !quiet {
             println!("⬇ Downloading {url}");
         }

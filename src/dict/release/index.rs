@@ -25,7 +25,7 @@ pub fn extract_indexes(rargs: &ReleaseArgs) -> Result<()> {
 
     for entry in walkdir::WalkDir::new(&dict_dir)
         .into_iter()
-        .filter_map(|e| e.ok())
+        .filter_map(Result::ok)
         .filter(|e| e.path().extension().is_some_and(|x| x == "zip"))
     {
         let zip_path = entry.path();

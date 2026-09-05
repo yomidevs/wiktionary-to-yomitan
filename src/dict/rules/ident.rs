@@ -41,7 +41,7 @@ fn tags_to_rules<'a>(source: Lang, word: &str, short_tags: &'a [String]) -> Vec<
         _ => {}
     }
 
-    debug_assert!(rules.iter().find(|r| !is_valid_rule(source, r)).is_none());
+    debug_assert!(rules.iter().all(|r| is_valid_rule(source, r)));
 
     rules
 }
