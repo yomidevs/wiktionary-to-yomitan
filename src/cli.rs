@@ -129,6 +129,24 @@ pub struct ReleaseArgs {
     /// Writer format for all dictionaries
     #[arg(long, default_value_t = WriterFormat::Yomitan)]
     pub format: WriterFormat,
+
+    /// Only release these editions (defaults to all)
+    #[arg(value_delimiter = ',')]
+    pub editions: Vec<Edition>,
+}
+
+impl ReleaseArgs {
+    /// The editions to cover, English first because it is the bottleneck and we
+    /// want it started as soon as possible.
+    pub fn editions(&self) -> Vec<Edition> {
+        let mut editions = if self.editions.is_empty() {
+            Edition::all()
+        } else {
+            self.editions.clone()
+        };
+        editions.sort_by_key(|ed| i32::from(*ed != Edition::En));
+        editions
+    }
 }
 
 #[derive(Parser, Debug, Default)]
