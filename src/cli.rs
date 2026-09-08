@@ -6,6 +6,7 @@ use anyhow::{Ok, Result, bail};
 use clap::{Parser, Subcommand};
 
 use crate::{
+    Set,
     dict::{Langs, WriterFormat},
     lang::{Edition, EditionSpec, Lang},
     models::kaikki::WordEntry,
@@ -123,6 +124,15 @@ pub struct IpaMergedArgs {
     pub options: Options,
 }
 
+fn dedup_editions(editions: &[Edition]) -> Vec<Edition> {
+    editions
+        .iter()
+        .copied()
+        .collect::<Set<_>>()
+        .into_iter()
+        .collect()
+}
+
 #[derive(Parser, Debug)]
 pub struct ReleaseArgs {
     /// Change the root directory
@@ -145,7 +155,7 @@ impl ReleaseArgs {
         let mut editions = if self.editions.is_empty() {
             Edition::all()
         } else {
-            self.editions.clone()
+            dedup_editions(&self.editions)
         };
         editions.sort_by_key(|ed| i32::from(*ed != Edition::En));
         editions
@@ -193,7 +203,7 @@ impl DbSelectArgs {
         if self.editions.is_empty() {
             Edition::all()
         } else {
-            self.editions.clone()
+            dedup_editions(&self.editions)
         }
     }
 }
@@ -536,6 +546,26 @@ mod tests {
         } else {
             panic!()
         }
+    }
+
+    #[test]
+    fn editions_are_deduplicated() {
+        let parse = |args: &[&str]| {
+            let cli = Cli::try_parse_from(args).unwrap();
+            match cli.command {
+                Command::Db(db) => {
+                    let DbOp::Build(build) = db.op else { panic!() };
+                    build.select.editions()
+                }
+                _ => panic!(),
+            }
+        };
+
+        assert_eq!(parse(&["wty", "db", "build", "en,en"]), vec![Edition::En]);
+        assert_eq!(
+            parse(&["wty", "db", "build", "ja,el,ja"]),
+            vec![Edition::Ja, Edition::El]
+        );
     }
 
     #[test]
