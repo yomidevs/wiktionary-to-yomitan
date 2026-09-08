@@ -162,24 +162,33 @@ pub struct DbArgs {
 pub enum DbOp {
     /// Import the Kaikki jsonlines into a database, downloading them if needed
     Build(DbBuildArgs),
+
+    /// Delete databases
+    Drop(DbSelectArgs),
 }
 
 #[derive(Parser, Debug)]
 pub struct DbBuildArgs {
-    /// Editions to build (defaults to all)
-    #[arg(value_delimiter = ',')]
-    pub editions: Vec<Edition>,
+    #[command(flatten)]
+    pub select: DbSelectArgs,
 
     /// Rebuild even if the database already exists
     #[arg(long)]
     pub force: bool,
+}
+
+#[derive(Parser, Debug, Clone)]
+pub struct DbSelectArgs {
+    /// Editions to act on (defaults to all)
+    #[arg(value_delimiter = ',')]
+    pub editions: Vec<Edition>,
 
     /// Change the root directory
     #[arg(long, default_value = "data")]
     pub root_dir: PathBuf,
 }
 
-impl DbBuildArgs {
+impl DbSelectArgs {
     pub fn editions(&self) -> Vec<Edition> {
         if self.editions.is_empty() {
             Edition::all()

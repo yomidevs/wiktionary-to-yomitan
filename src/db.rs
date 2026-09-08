@@ -49,12 +49,13 @@ impl WiktextractDb {
         Ok(Self { conn })
     }
 
-    /// Delete the database of `edition`, if there is one.
-    fn remove<P>(root_dir: P, edition: Edition) -> Result<()>
+    /// Delete the database of `edition`. Returns whether there was one to delete.
+    fn remove<P>(root_dir: P, edition: Edition) -> Result<bool>
     where
         P: AsRef<Path>,
     {
         let db_path = Self::db_path_for(root_dir, edition);
+        let existed = db_path.exists();
 
         for suffix in ["", "-journal", "-wal", "-shm"] {
             let path = db_path.with_file_name(format!(
@@ -70,7 +71,7 @@ impl WiktextractDb {
             }
         }
 
-        Ok(())
+        Ok(existed)
     }
 
     /// Resolve the jsonl of `edition` (downloading it if missing) and import it.
@@ -223,20 +224,33 @@ impl WiktextractDb {
 
 /// Run a `wty db` subcommand.
 pub fn run(args: DbArgs) -> Result<()> {
-    let DbOp::Build(args) = args.op;
+    match args.op {
+        DbOp::Build(args) => {
+            let editions = args.select.editions();
+            let root_dir = &args.select.root_dir;
+            let _ = std::fs::create_dir_all(root_dir.join("kaikki"));
 
-    let editions = args.editions();
-    let _ = std::fs::create_dir_all(args.root_dir.join("kaikki"));
-
-    let start = Instant::now();
-    editions.par_iter().try_for_each(|edition| {
-        WiktextractDb::build(&args.root_dir, *edition, args.force, false).map(|_| ())
-    })?;
-    println!(
-        "Built {} database(s) in {:.2?}",
-        editions.len(),
-        start.elapsed()
-    );
+            let start = Instant::now();
+            editions.par_iter().try_for_each(|edition| {
+                WiktextractDb::build(root_dir, *edition, args.force, false).map(|_| ())
+            })?;
+            println!(
+                "Built {} database(s) in {:.2?}",
+                editions.len(),
+                start.elapsed()
+            );
+        }
+        DbOp::Drop(args) => {
+            for edition in args.editions() {
+                let existed = WiktextractDb::remove(&args.root_dir, edition)?;
+                if existed {
+                    println!("[{edition}] dropped");
+                } else {
+                    println!("[{edition}] not built");
+                }
+            }
+        }
+    }
 
     Ok(())
 }
