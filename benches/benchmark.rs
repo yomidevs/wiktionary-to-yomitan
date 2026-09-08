@@ -42,7 +42,6 @@ fn bench_monolingual(c: &mut Criterion, edition: Edition, label: &str) {
     std::fs::remove_dir_all(pm.dir_dicts()).unwrap();
 }
 
-// cargo run -r -- main el el -r --cache-filter --skip-yomitan --first 50
 fn bench_el_el(c: &mut Criterion) {
     bench_monolingual(c, Edition::El, "main_dict_el_el");
 }

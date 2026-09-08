@@ -35,9 +35,6 @@ add fr to word:
   jq -c "select(.word == \"{{word}}\" and .lang_code == \"{{fr}}\")" \
   >> "tests/kaikki/{{fr}}-{{to}}-extract.jsonl"; \
 
-flamegraph:
-  cargo flamegraph -r -- main el el -vq --skip-yomitan
-
 stat *args:
   perf stat -d cargo run -r -- {{args}}
 

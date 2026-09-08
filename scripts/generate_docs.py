@@ -7,9 +7,6 @@ from typing import Any
 
 REPO_ID = "daxida/wty-release"
 REPO_URL = f"https://huggingface.co/datasets/{REPO_ID}"
-BASE_URL = f"{REPO_URL}/resolve/main/dict"
-"""https://huggingface.co/datasets/daxida/wty-release/resolve/main/dict"""
-
 
 # duplicated from build
 @dataclass
