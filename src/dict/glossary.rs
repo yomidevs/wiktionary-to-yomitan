@@ -116,7 +116,10 @@ fn process_glossary(
         )));
     }
 
-    let reading = get_reading(source, target, entry).unwrap_or_default();
+    let reading = match get_reading(source, source.into(), entry) {
+        Some(reading) if reading != entry.word => reading,
+        _ => String::new(),
+    };
     let definition_tags = match find_tag_in_bank(&entry.pos) {
         Some(mut tag_info) => {
             localize_tag_info(target, &mut tag_info);
