@@ -182,7 +182,7 @@ def main() -> None:
 
     results = scan_yomitan_repo(args.repo_path)
     res: dict[str, Conditions] = {}
-    for lang, conditions in results.items():
+    for lang, conditions in sorted(results.items()):
         res[lang] = {rule: cond for rule, cond in sorted(conditions.items())}
 
     # TODO: snapshot some json (only once, and add it to the repo so one
