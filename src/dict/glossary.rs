@@ -3,7 +3,7 @@
 use crate::{
     Map, Set,
     cli::{GlossaryArgs, GlossaryExtendedArgs, LangSpecs},
-    dict::{Dictionary, Langs, main::get_reading},
+    dict::{Dictionary, Langs, main::get_reading, rules::rule_identifiers},
     lang::{Edition, Lang},
     models::{
         kaikki::WordEntry,
@@ -61,7 +61,7 @@ impl Dictionary for DGlossaryExtended {
 
     fn to_yomitan(&self, langs: LangSpecs, irs: &Self::I) -> YomitanDict {
         YomitanDict::new(
-            to_yomitan_glossary_extended(langs.target, irs),
+            to_yomitan_glossary_extended(langs.source, langs.target, irs),
             vec![],
             vec![],
         )
@@ -128,13 +128,13 @@ fn process_glossary(
         None => vec![],
     };
     let pos = Pos::from(entry.pos.as_str());
-    let rules = pos.short();
+    let rules = rule_identifiers(source.into(), &entry.word, &[pos.short().to_string()]);
 
     irs.push(TermBankEntry::new(
         entry.word.clone(),
         reading,
         definition_tags,
-        rules.to_string(),
+        rules,
         definitions,
     ));
 }
@@ -189,7 +189,11 @@ fn process_glossary_extended(
     }));
 }
 
-fn to_yomitan_glossary_extended(target: Lang, irs: &IGlossaryExtended) -> Vec<TermBankEntry> {
+fn to_yomitan_glossary_extended(
+    source: Lang,
+    target: Lang,
+    irs: &IGlossaryExtended,
+) -> Vec<TermBankEntry> {
     irs.iter()
         .map(|(lemma, pos, _, translations)| {
             let definition_tags = match find_tag_in_bank(pos.long()) {
@@ -199,13 +203,13 @@ fn to_yomitan_glossary_extended(target: Lang, irs: &IGlossaryExtended) -> Vec<Te
                 }
                 None => vec![],
             };
-            let rules = pos.short();
+            let rules = rule_identifiers(source, lemma, &[pos.short().to_string()]);
 
             TermBankEntry::new(
                 lemma.clone(),
                 String::new(),
                 definition_tags,
-                rules.to_string(),
+                rules,
                 translations
                     .iter()
                     .cloned()
@@ -283,7 +287,7 @@ mod tests {
         dict.postprocess(LangSpecs::from(langs), &mut irs);
         assert_eq!(irs.len(), 2);
 
-        let yomitan_entries = to_yomitan_glossary_extended(Lang::Grc, &irs);
+        let yomitan_entries = to_yomitan_glossary_extended(langs.source, langs.target, &irs);
         assert_eq!(yomitan_entries.len(), 2);
         let term_bank = yomitan_entries.first().unwrap();
         assert_eq!(term_bank.definition_tags[0].short_tag, "n");
@@ -292,8 +296,8 @@ mod tests {
     #[test]
     fn process_glossary_extended_pos_localization() {
         let dict = DGlossaryExtended;
-        // Japanese as target, source irrelevant
-        let langs = Langs::new(Edition::En, Lang::Ja, Lang::En);
+        // Japanese as target: the pos tag must come out localized
+        let langs = Langs::new(Edition::En, Lang::En, Lang::Ja);
         let mut entry = WordEntry::default();
         entry.pos = "noun".to_string();
         entry.translations = vec![
@@ -309,7 +313,7 @@ mod tests {
 
         assert_eq!(pos.long(), "noun");
 
-        let yomitan_entries = to_yomitan_glossary_extended(Lang::Ja, &irs);
+        let yomitan_entries = to_yomitan_glossary_extended(langs.source, langs.target, &irs);
         let term_bank = yomitan_entries.first().unwrap();
         assert_eq!(term_bank.definition_tags[0].short_tag, "名");
     }
