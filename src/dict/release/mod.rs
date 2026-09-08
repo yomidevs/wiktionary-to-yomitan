@@ -16,11 +16,9 @@ use rayon::ThreadPoolBuilder;
 use rayon::prelude::*;
 use rusqlite::{Rows, Statement};
 
-mod db;
 mod index;
 mod metadata;
 
-use db::WiktextractDb;
 use index::extract_indexes;
 use metadata::write_dict_metadata;
 
@@ -29,11 +27,10 @@ use crate::{
         DictName, GlossaryArgs, GlossaryExtendedArgs, GlossaryExtendedLangs, GlossaryLangs,
         IpaArgs, IpaMergedArgs, IpaMergedLangs, MainArgs, MainLangs, Options, ReleaseArgs,
     },
+    db::WiktextractDb,
     dict::{
         DGlossary, DGlossaryExtended, DIpa, DIpaMerged, DMain, Dictionary, Intermediate, Langs,
-        iter_datasets,
     },
-    download::find_or_download_jsonl,
     lang::{Edition, EditionSpec, Lang},
     path::PathManager,
 };
@@ -59,11 +56,7 @@ impl TimingStats {
 
 /// Build a dictionary release.
 pub fn release(rargs: ReleaseArgs) -> Result<()> {
-    // let editions = [Edition::En, Edition::De, Edition::Fr];
-
-    let mut editions = Edition::all();
-    // English is the bottleneck. This puts English first to start working asap.
-    editions.sort_by_key(|ed| i32::from(*ed != Edition::En));
+    let editions = rargs.editions();
 
     println!("rargs: {rargs:?}");
     println!("Making release with {} editions", editions.len());
@@ -87,17 +80,17 @@ pub fn release(rargs: ReleaseArgs) -> Result<()> {
     let stats = TimingStats::new();
 
     editions.iter().for_each(|edition| {
-        release_main(&rargs, *edition, &stats);
-        release_ipa(&rargs, *edition, &stats);
-        release_glossary(&rargs, *edition, &stats);
+        release_main(&rargs, *edition, &editions, &stats);
+        release_ipa(&rargs, *edition, &editions, &stats);
+        release_glossary(&rargs, *edition, &editions, &stats);
     });
 
     let targets = Lang::all();
     // let targets = [Lang::Afb];
     // let targets: Vec<Lang> = editions.iter().map(|ed| (*ed).into()).collect();
     targets.par_iter().for_each(|target| {
-        release_ipa_merged(&rargs, *target, &stats);
-        // release_glossary_extended(*target, &stats);
+        release_ipa_merged(&rargs, *target, &editions, &stats);
+        // release_glossary_extended(*target, &editions, &stats);
     });
 
     let elapsed = start.elapsed();
@@ -105,7 +98,11 @@ pub fn release(rargs: ReleaseArgs) -> Result<()> {
 
     extract_indexes(&rargs)?;
 
-    write_dict_metadata(&rargs.root_dir, &db_stats, &stats)?;
+    if rargs.editions.is_empty() {
+        write_dict_metadata(&rargs.root_dir, &db_stats, &stats)?;
+    } else {
+        println!("[meta] Skipped metadata: this release was scoped to specific editions");
+    }
 
     Ok(())
 }
@@ -117,29 +114,8 @@ fn download_and_create_db(rargs: &ReleaseArgs, editions: &[Edition], stats: &Tim
     let _ = std::fs::create_dir(dir_kaik);
 
     editions.par_iter().for_each(|edition| {
-        let args = MainArgs {
-            langs: MainLangs {
-                source: (*edition).into(),
-                target: *edition,
-            },
-            dict_name: DictName::default(),
-            options: Options {
-                quiet: false,
-                root_dir: rargs.root_dir.clone(),
-                format: rargs.format,
-                ..Default::default()
-            },
-        };
-        let pm: &PathManager = &args.try_into().unwrap();
-
-        let now = Instant::now();
-        let path_jsonl = find_or_download_jsonl(*edition, None, pm).unwrap();
-        println!("Finished download for {edition} ({:.2?})", now.elapsed());
-
-        let now = Instant::now();
-        let _ = WiktextractDb::create(rargs.root_dir.clone(), *edition, path_jsonl).unwrap();
-        stats.record(edition.to_string(), now.elapsed());
-        println!("Finished database for {edition} ({:.2?})", now.elapsed());
+        let elapsed = WiktextractDb::build(&rargs.root_dir, *edition, false, false).unwrap();
+        stats.record(edition.to_string(), elapsed);
     });
 
     println!("Finished download & db creation in {:.2?}", start.elapsed());
@@ -166,7 +142,7 @@ fn pp(
     // eprintln!("{label:<20} done in {:.2?}", time.elapsed());
 }
 
-fn release_main(rargs: &ReleaseArgs, edition: Edition, stats: &TimingStats) {
+fn release_main(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition], stats: &TimingStats) {
     // Limit only this workload (as opposed to the full logic. IPA and glossaries are completely
     // fine and will never OOM).
     let pool = ThreadPoolBuilder::new()
@@ -203,7 +179,7 @@ fn release_main(rargs: &ReleaseArgs, edition: Edition, stats: &TimingStats) {
                 },
             };
 
-            match make_dict_from_db(DMain, args) {
+            match make_dict_from_db(DMain, args, editions) {
                 Ok(()) => pp("main", *source, Some(edition.into()), start, stats),
                 Err(err) => tracing::error!("[main-{source}-{edition}] ERROR: {err:?}"),
             }
@@ -211,7 +187,7 @@ fn release_main(rargs: &ReleaseArgs, edition: Edition, stats: &TimingStats) {
     });
 }
 
-fn release_ipa(rargs: &ReleaseArgs, edition: Edition, stats: &TimingStats) {
+fn release_ipa(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition], stats: &TimingStats) {
     Lang::all().par_iter().for_each(|source| {
         let start = Instant::now();
 
@@ -238,14 +214,19 @@ fn release_ipa(rargs: &ReleaseArgs, edition: Edition, stats: &TimingStats) {
             },
         };
 
-        match make_dict_from_db(DIpa, args) {
+        match make_dict_from_db(DIpa, args, editions) {
             Ok(()) => pp("ipa", *source, Some(edition.into()), start, stats),
             Err(err) => tracing::error!("[ipa-{source}-{edition}] ERROR: {err:?}"),
         }
     });
 }
 
-fn release_ipa_merged(rargs: &ReleaseArgs, target: Lang, stats: &TimingStats) {
+fn release_ipa_merged(
+    rargs: &ReleaseArgs,
+    target: Lang,
+    editions: &[Edition],
+    stats: &TimingStats,
+) {
     let start = Instant::now();
 
     let langs = match target {
@@ -264,13 +245,18 @@ fn release_ipa_merged(rargs: &ReleaseArgs, target: Lang, stats: &TimingStats) {
         },
     };
 
-    match make_dict_from_db(DIpaMerged, args) {
+    match make_dict_from_db(DIpaMerged, args, editions) {
         Ok(()) => pp("ipa-merged", target, None, start, stats),
         Err(err) => tracing::error!("[ipa-merged-{target}] ERROR: {err:?}"),
     }
 }
 
-fn release_glossary(rargs: &ReleaseArgs, edition: Edition, stats: &TimingStats) {
+fn release_glossary(
+    rargs: &ReleaseArgs,
+    edition: Edition,
+    editions: &[Edition],
+    stats: &TimingStats,
+) {
     Lang::all().par_iter().for_each(|target| {
         let start = Instant::now();
 
@@ -294,7 +280,7 @@ fn release_glossary(rargs: &ReleaseArgs, edition: Edition, stats: &TimingStats) 
             },
         };
 
-        match make_dict_from_db(DGlossary, args) {
+        match make_dict_from_db(DGlossary, args, editions) {
             // Reverse order of main/ipa
             Ok(()) => pp("glossary", edition.into(), Some(*target), start, stats),
             Err(err) => tracing::error!("[glossary-{edition}-{target}] ERROR: {err:?}"),
@@ -303,7 +289,7 @@ fn release_glossary(rargs: &ReleaseArgs, edition: Edition, stats: &TimingStats) 
 }
 
 #[allow(unused)]
-fn release_glossary_extended(source: Lang, stats: &TimingStats) {
+fn release_glossary_extended(source: Lang, editions: &[Edition], stats: &TimingStats) {
     Lang::all().par_iter().for_each(|target| {
         let start = Instant::now();
 
@@ -327,7 +313,7 @@ fn release_glossary_extended(source: Lang, stats: &TimingStats) {
             },
         };
 
-        match make_dict_from_db(DGlossaryExtended, args) {
+        match make_dict_from_db(DGlossaryExtended, args, editions) {
             Ok(()) => pp("gloss-all", source, Some(*target), start, stats),
             Err(err) => tracing::error!("[gloss-all-{source}-{target}] ERROR: {err:?}"),
         }
@@ -377,9 +363,13 @@ impl DQuery for DGlossary {
 }
 
 /// Make a dictionary from database made from a Kaikki jsonlines.
-pub fn make_dict_from_db<D: Dictionary + DQuery>(dict: D, raw_args: D::A) -> Result<()> {
+pub fn make_dict_from_db<D: Dictionary + DQuery>(
+    dict: D,
+    raw_args: D::A,
+    editions: &[Edition],
+) -> Result<()> {
     let pm: &PathManager = &raw_args.try_into()?;
-    let (_, source_pm, target_pm) = pm.langs();
+    let (edition_pm, source_pm, target_pm) = pm.langs();
     let opts = &pm.opts;
     pm.setup_dirs()?;
 
@@ -387,9 +377,11 @@ pub fn make_dict_from_db<D: Dictionary + DQuery>(dict: D, raw_args: D::A) -> Res
 
     let mut irs = D::I::default();
 
-    for pair in iter_datasets(pm) {
-        let (edition, _path_jsonl) = pair?;
-
+    for edition in edition_pm
+        .variants()
+        .into_iter()
+        .filter(|e| editions.contains(e))
+    {
         let db = WiktextractDb::open(&opts.root_dir, edition)?;
         let langs = Langs {
             edition,

@@ -10,8 +10,8 @@ mod rules;
 mod scan;
 mod writer;
 
+use core::LangCodeProbe;
 pub use core::{Dictionary, Intermediate, Langs, make_dict_from_jsonl};
-use core::{LangCodeProbe, iter_datasets};
 
 // Dictionary types
 pub use glossary::{DGlossary, DGlossaryExtended};

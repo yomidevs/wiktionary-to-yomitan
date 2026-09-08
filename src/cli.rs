@@ -6,6 +6,7 @@ use anyhow::{Ok, Result, bail};
 use clap::{Parser, Subcommand};
 
 use crate::{
+    Set,
     dict::{Langs, WriterFormat},
     lang::{Edition, EditionSpec, Lang},
     models::kaikki::WordEntry,
@@ -44,6 +45,9 @@ pub enum Command {
 
     /// Download a Kaikki jsonlines
     Download(MainArgs),
+
+    /// Manage the wiktextract databases that `release` reads from
+    Db(DbArgs),
 
     /// Show supported iso codes, with coloured editions
     Iso(IsoArgs),
@@ -120,6 +124,15 @@ pub struct IpaMergedArgs {
     pub options: Options,
 }
 
+fn dedup_editions(editions: &[Edition]) -> Vec<Edition> {
+    editions
+        .iter()
+        .copied()
+        .collect::<Set<_>>()
+        .into_iter()
+        .collect()
+}
+
 #[derive(Parser, Debug)]
 pub struct ReleaseArgs {
     /// Change the root directory
@@ -129,6 +142,70 @@ pub struct ReleaseArgs {
     /// Writer format for all dictionaries
     #[arg(long, default_value_t = WriterFormat::Yomitan)]
     pub format: WriterFormat,
+
+    /// Only release these editions (defaults to all)
+    #[arg(value_delimiter = ',')]
+    pub editions: Vec<Edition>,
+}
+
+impl ReleaseArgs {
+    /// The editions to cover, English first because it is the bottleneck and we
+    /// want it started as soon as possible.
+    pub fn editions(&self) -> Vec<Edition> {
+        let mut editions = if self.editions.is_empty() {
+            Edition::all()
+        } else {
+            dedup_editions(&self.editions)
+        };
+        editions.sort_by_key(|ed| i32::from(*ed != Edition::En));
+        editions
+    }
+}
+
+#[derive(Parser, Debug)]
+pub struct DbArgs {
+    #[command(subcommand)]
+    pub op: DbOp,
+}
+
+#[derive(Subcommand, Debug)]
+pub enum DbOp {
+    /// Import the Kaikki jsonlines into a database, downloading them if needed
+    Build(DbBuildArgs),
+
+    /// Delete databases
+    Drop(DbSelectArgs),
+}
+
+#[derive(Parser, Debug)]
+pub struct DbBuildArgs {
+    #[command(flatten)]
+    pub select: DbSelectArgs,
+
+    /// Rebuild even if the database already exists
+    #[arg(long)]
+    pub force: bool,
+}
+
+#[derive(Parser, Debug, Clone)]
+pub struct DbSelectArgs {
+    /// Editions to act on (defaults to all)
+    #[arg(value_delimiter = ',')]
+    pub editions: Vec<Edition>,
+
+    /// Change the root directory
+    #[arg(long, default_value = "data")]
+    pub root_dir: PathBuf,
+}
+
+impl DbSelectArgs {
+    pub fn editions(&self) -> Vec<Edition> {
+        if self.editions.is_empty() {
+            Edition::all()
+        } else {
+            dedup_editions(&self.editions)
+        }
+    }
 }
 
 #[derive(Parser, Debug, Default)]
@@ -469,6 +546,26 @@ mod tests {
         } else {
             panic!()
         }
+    }
+
+    #[test]
+    fn editions_are_deduplicated() {
+        let parse = |args: &[&str]| {
+            let cli = Cli::try_parse_from(args).unwrap();
+            match cli.command {
+                Command::Db(db) => {
+                    let DbOp::Build(build) = db.op else { panic!() };
+                    build.select.editions()
+                }
+                _ => panic!(),
+            }
+        };
+
+        assert_eq!(parse(&["wty", "db", "build", "en,en"]), vec![Edition::En]);
+        assert_eq!(
+            parse(&["wty", "db", "build", "ja,el,ja"]),
+            vec![Edition::Ja, Edition::El]
+        );
     }
 
     #[test]

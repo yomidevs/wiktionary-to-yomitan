@@ -3,14 +3,21 @@ use std::{
     fs::File,
     io::{BufRead, BufReader},
     path::{Path, PathBuf},
-    time::Instant,
+    time::{Duration, Instant},
 };
 
-use anyhow::Result;
+use anyhow::{Context, Result};
+use rayon::prelude::*;
 use rkyv::Archived;
 use rusqlite::{Connection, params};
 
-use crate::{lang::Edition, models::kaikki::WordEntry};
+use crate::{
+    cli::{DbArgs, DbOp, DictName, MainArgs, MainLangs, Options},
+    download::find_or_download_jsonl,
+    lang::Edition,
+    models::kaikki::WordEntry,
+    path::PathManager,
+};
 
 pub struct WiktextractDb {
     pub conn: Connection,
@@ -40,6 +47,75 @@ impl WiktextractDb {
         let db_path = Self::db_path_for(root_dir, edition);
         let conn = Connection::open(&db_path)?;
         Ok(Self { conn })
+    }
+
+    /// Delete the database of `edition`. Returns whether there was one to delete.
+    fn remove<P>(root_dir: P, edition: Edition) -> Result<bool>
+    where
+        P: AsRef<Path>,
+    {
+        let db_path = Self::db_path_for(root_dir, edition);
+        let existed = db_path.exists();
+
+        for suffix in ["", "-journal", "-wal", "-shm"] {
+            let path = db_path.with_file_name(format!(
+                "{}{suffix}",
+                db_path.file_name().unwrap_or_default().to_string_lossy()
+            ));
+            match std::fs::remove_file(&path) {
+                Ok(()) => tracing::debug!("Removed {}", path.display()),
+                Err(err) if err.kind() == std::io::ErrorKind::NotFound => {}
+                Err(err) => {
+                    return Err(err).with_context(|| format!("removing {}", path.display()));
+                }
+            }
+        }
+
+        Ok(existed)
+    }
+
+    /// Resolve the jsonl of `edition` (downloading it if missing) and import it.
+    ///
+    /// Returns how long the import took, which is what the release metadata records.
+    pub fn build<P>(root_dir: P, edition: Edition, force: bool, quiet: bool) -> Result<Duration>
+    where
+        P: AsRef<Path>,
+    {
+        let root_dir = root_dir.as_ref();
+
+        // Only used to resolve where the jsonl of this edition lives.
+        let args = MainArgs {
+            langs: MainLangs {
+                source: edition.into(),
+                target: edition,
+            },
+            dict_name: DictName::default(),
+            options: Options {
+                quiet,
+                root_dir: root_dir.to_path_buf(),
+                ..Default::default()
+            },
+        };
+        let pm: PathManager = args.try_into()?;
+
+        let now = Instant::now();
+        let path_jsonl = find_or_download_jsonl(edition, None, &pm)?;
+        if !quiet {
+            println!("Finished download for {edition} ({:.2?})", now.elapsed());
+        }
+
+        if force {
+            Self::remove(root_dir, edition)?;
+        }
+
+        let now = Instant::now();
+        Self::create(root_dir, edition, path_jsonl)?;
+        let elapsed = now.elapsed();
+        if !quiet {
+            println!("Finished database for {edition} ({elapsed:.2?})");
+        }
+
+        Ok(elapsed)
     }
 
     pub fn create<P>(root_dir: P, edition: Edition, path_jsonl: PathBuf) -> Result<Self>
@@ -144,4 +220,37 @@ impl WiktextractDb {
         let word_entry: WordEntry = rkyv::deserialize::<WordEntry, rkyv::rancor::Error>(archived)?;
         Ok(word_entry)
     }
+}
+
+/// Run a `wty db` subcommand.
+pub fn run(args: DbArgs) -> Result<()> {
+    match args.op {
+        DbOp::Build(args) => {
+            let editions = args.select.editions();
+            let root_dir = &args.select.root_dir;
+            let _ = std::fs::create_dir_all(root_dir.join("kaikki"));
+
+            let start = Instant::now();
+            editions.par_iter().try_for_each(|edition| {
+                WiktextractDb::build(root_dir, *edition, args.force, false).map(|_| ())
+            })?;
+            println!(
+                "Built {} database(s) in {:.2?}",
+                editions.len(),
+                start.elapsed()
+            );
+        }
+        DbOp::Drop(args) => {
+            for edition in args.editions() {
+                let existed = WiktextractDb::remove(&args.root_dir, edition)?;
+                if existed {
+                    println!("[{edition}] dropped");
+                } else {
+                    println!("[{edition}] not built");
+                }
+            }
+        }
+    }
+
+    Ok(())
 }

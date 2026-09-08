@@ -154,17 +154,6 @@ impl fmt::Debug for Langs {
     }
 }
 
-pub fn iter_datasets(pm: &PathManager) -> impl Iterator<Item = Result<(Edition, PathBuf)>> + '_ {
-    let (edition_pm, source_pm, _) = pm.langs();
-
-    edition_pm.variants().into_iter().map(move |edition| {
-        let path_jsonl = find_or_download_jsonl(edition, Some(source_pm), pm)?;
-        tracing::trace!("edition: {edition}, path: {}", path_jsonl.display());
-
-        Ok((edition, path_jsonl))
-    })
-}
-
 #[derive(Deserialize)]
 #[serde(default)]
 pub struct LangCodeProbe<'a> {
@@ -191,7 +180,7 @@ impl Default for LangCodeProbe<'_> {
 /// Make a dictionary from a Kaikki jsonlines.
 pub fn make_dict_from_jsonl<D: Dictionary>(dict: D, raw_args: D::A) -> Result<()> {
     let pm: &PathManager = &raw_args.try_into()?;
-    let (_, source_pm, target_pm) = pm.langs();
+    let (edition_pm, source_pm, target_pm) = pm.langs();
     let opts = &pm.opts;
 
     pm.setup_dirs()?;
@@ -200,8 +189,9 @@ pub fn make_dict_from_jsonl<D: Dictionary>(dict: D, raw_args: D::A) -> Result<()
     let mut line = Vec::with_capacity(1 << 10);
     let mut irs = D::I::default();
 
-    for pair in iter_datasets(pm) {
-        let (edition, path_jsonl) = pair?;
+    for edition in edition_pm.variants() {
+        let path_jsonl = find_or_download_jsonl(edition, Some(source_pm), pm)?;
+        tracing::trace!("edition: {edition}, path: {}", path_jsonl.display());
 
         let reader_file = File::open(&path_jsonl)?;
         let mut reader = BufReader::with_capacity(capacity, reader_file);
