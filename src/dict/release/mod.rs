@@ -16,11 +16,9 @@ use rayon::ThreadPoolBuilder;
 use rayon::prelude::*;
 use rusqlite::{Rows, Statement};
 
-mod db;
 mod index;
 mod metadata;
 
-use db::WiktextractDb;
 use index::extract_indexes;
 use metadata::write_dict_metadata;
 
@@ -29,10 +27,10 @@ use crate::{
         DictName, GlossaryArgs, GlossaryExtendedArgs, GlossaryExtendedLangs, GlossaryLangs,
         IpaArgs, IpaMergedArgs, IpaMergedLangs, MainArgs, MainLangs, Options, ReleaseArgs,
     },
+    db::WiktextractDb,
     dict::{
         DGlossary, DGlossaryExtended, DIpa, DIpaMerged, DMain, Dictionary, Intermediate, Langs,
     },
-    download::find_or_download_jsonl,
     lang::{Edition, EditionSpec, Lang},
     path::PathManager,
 };
@@ -116,29 +114,8 @@ fn download_and_create_db(rargs: &ReleaseArgs, editions: &[Edition], stats: &Tim
     let _ = std::fs::create_dir(dir_kaik);
 
     editions.par_iter().for_each(|edition| {
-        let args = MainArgs {
-            langs: MainLangs {
-                source: (*edition).into(),
-                target: *edition,
-            },
-            dict_name: DictName::default(),
-            options: Options {
-                quiet: false,
-                root_dir: rargs.root_dir.clone(),
-                format: rargs.format,
-                ..Default::default()
-            },
-        };
-        let pm: &PathManager = &args.try_into().unwrap();
-
-        let now = Instant::now();
-        let path_jsonl = find_or_download_jsonl(*edition, None, pm).unwrap();
-        println!("Finished download for {edition} ({:.2?})", now.elapsed());
-
-        let now = Instant::now();
-        let _ = WiktextractDb::create(rargs.root_dir.clone(), *edition, path_jsonl).unwrap();
-        stats.record(edition.to_string(), now.elapsed());
-        println!("Finished database for {edition} ({:.2?})", now.elapsed());
+        let elapsed = WiktextractDb::build(&rargs.root_dir, *edition, false, false).unwrap();
+        stats.record(edition.to_string(), elapsed);
     });
 
     println!("Finished download & db creation in {:.2?}", start.elapsed());

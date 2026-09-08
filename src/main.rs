@@ -4,6 +4,7 @@ use tracing_subscriber::fmt::format::FmtSpan;
 
 use wty::{
     cli::{Cli, Command, LangSpecs},
+    db,
     dict::{
         DGlossary, DGlossaryExtended, DIpa, DIpaMerged, DMain, make_dict_from_jsonl, release, scan,
     },
@@ -60,6 +61,7 @@ fn run(cmd: Command) -> Result<()> {
             }
             Ok(())
         }
+        Command::Db(args) => db::run(args),
         Command::Release(args) => release(args),
         Command::Scan(args) => scan(args),
     }

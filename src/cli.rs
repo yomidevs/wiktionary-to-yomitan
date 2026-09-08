@@ -45,6 +45,9 @@ pub enum Command {
     /// Download a Kaikki jsonlines
     Download(MainArgs),
 
+    /// Manage the wiktextract databases that `release` reads from
+    Db(DbArgs),
+
     /// Show supported iso codes, with coloured editions
     Iso(IsoArgs),
 
@@ -146,6 +149,43 @@ impl ReleaseArgs {
         };
         editions.sort_by_key(|ed| i32::from(*ed != Edition::En));
         editions
+    }
+}
+
+#[derive(Parser, Debug)]
+pub struct DbArgs {
+    #[command(subcommand)]
+    pub op: DbOp,
+}
+
+#[derive(Subcommand, Debug)]
+pub enum DbOp {
+    /// Import the Kaikki jsonlines into a database, downloading them if needed
+    Build(DbBuildArgs),
+}
+
+#[derive(Parser, Debug)]
+pub struct DbBuildArgs {
+    /// Editions to build (defaults to all)
+    #[arg(value_delimiter = ',')]
+    pub editions: Vec<Edition>,
+
+    /// Rebuild even if the database already exists
+    #[arg(long)]
+    pub force: bool,
+
+    /// Change the root directory
+    #[arg(long, default_value = "data")]
+    pub root_dir: PathBuf,
+}
+
+impl DbBuildArgs {
+    pub fn editions(&self) -> Vec<Edition> {
+        if self.editions.is_empty() {
+            Edition::all()
+        } else {
+            self.editions.clone()
+        }
     }
 }
 
