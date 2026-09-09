@@ -5,13 +5,14 @@
 
 use std::{
     fs::{self, File},
-    io::Write,
+    io::{Cursor, Write},
     path::{Path, PathBuf},
 };
 
 use anyhow::{Ok, Result};
-use zip::ZipWriter;
+use rayon::prelude::*;
 use zip::write::SimpleFileOptions;
+use zip::{ZipArchive, ZipWriter};
 
 use crate::{
     cli::Options,
@@ -122,44 +123,61 @@ fn write_banks(
         None => return Ok(()),
     };
 
-    let total_bank_num = yomitan_entries.len().div_ceil(BANK_SIZE);
+    let banks: Vec<_> = yomitan_entries.chunks(BANK_SIZE).collect();
+    let total_bank_num = banks.len();
 
-    for (bank_num, bank) in yomitan_entries.chunks(BANK_SIZE).enumerate() {
-        *bank_index += 1;
+    let first_index = *bank_index;
+    *bank_index += total_bank_num;
+    let bank_name =
+        |bank_num: usize| format!("{bank_name_prefix}_{}.json", first_index + bank_num + 1);
 
-        let json_bytes = if pretty {
-            serde_json::to_vec_pretty(&bank)?
-        } else {
-            serde_json::to_vec(&bank)?
-        };
+    let report = |bank_num: usize, bank: &[YomitanEntry], name: &str| -> Result<()> {
+        if quiet {
+            return Ok(());
+        }
+        if bank_num > 0 {
+            print!("\r\x1b[K");
+        }
+        pretty_print_at_path(
+            &format!(
+                "Wrote yomitan {label} bank {}/{total_bank_num} ({} entries)",
+                bank_num + 1,
+                bank.len()
+            ),
+            out_dir.join(name),
+        );
+        std::io::stdout().flush()?;
+        Ok(())
+    };
 
-        let bank_name = format!("{bank_name_prefix}_{bank_index}.json");
-        let file_path = out_dir.join(&bank_name);
-
-        match sink {
-            Sink::Disk => {
-                let mut file = File::create(&file_path)?;
-                file.write_all(&json_bytes)?;
-            }
-            Sink::Zip(ref mut zip, zip_options) => {
-                zip.start_file(&bank_name, zip_options)?;
-                zip.write_all(&json_bytes)?;
+    match sink {
+        Sink::Disk => {
+            for (bank_num, bank) in banks.iter().enumerate() {
+                let name = bank_name(bank_num);
+                let json_bytes = to_json(pretty, bank)?;
+                File::create(out_dir.join(&name))?.write_all(&json_bytes)?;
+                report(bank_num, bank, &name)?;
             }
         }
+        Sink::Zip(ref mut zip, zip_options) => {
+            let group_size = rayon::current_num_threads().max(1);
+            for (group_num, group) in banks.chunks(group_size).enumerate() {
+                let compressed: Vec<_> = group
+                    .par_iter()
+                    .enumerate()
+                    .map(|(offset, bank)| {
+                        let name = bank_name(group_num * group_size + offset);
+                        compress_bank(pretty, bank, &name, zip_options)
+                    })
+                    .collect::<Result<_>>()?;
 
-        if !quiet {
-            if bank_num > 0 {
-                print!("\r\x1b[K");
+                for (offset, (bytes, bank)) in compressed.into_iter().zip(group).enumerate() {
+                    let bank_num = group_num * group_size + offset;
+                    let mut bank_zip = ZipArchive::new(Cursor::new(bytes))?;
+                    zip.raw_copy_file(bank_zip.by_index_raw(0)?)?;
+                    report(bank_num, bank, &bank_name(bank_num))?;
+                }
             }
-            pretty_print_at_path(
-                &format!(
-                    "Wrote yomitan {label} bank {}/{total_bank_num} ({} entries)",
-                    bank_num + 1,
-                    bank.len()
-                ),
-                file_path,
-            );
-            std::io::stdout().flush()?;
         }
     }
 
@@ -168,4 +186,27 @@ fn write_banks(
     }
 
     Ok(())
+}
+
+fn to_json(pretty: bool, bank: &[YomitanEntry]) -> Result<Vec<u8>> {
+    let json_bytes = if pretty {
+        serde_json::to_vec_pretty(&bank)?
+    } else {
+        serde_json::to_vec(&bank)?
+    };
+    Ok(json_bytes)
+}
+
+/// Serialize and deflate one bank into a single entry archive.
+fn compress_bank(
+    pretty: bool,
+    bank: &[YomitanEntry],
+    name: &str,
+    zip_options: SimpleFileOptions,
+) -> Result<Vec<u8>> {
+    let json_bytes = to_json(pretty, bank)?;
+    let mut zip = ZipWriter::new(Cursor::new(Vec::new()));
+    zip.start_file(name, zip_options)?;
+    zip.write_all(&json_bytes)?;
+    Ok(zip.finish()?.into_inner())
 }

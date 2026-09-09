@@ -9,7 +9,9 @@ mod merge;
 pub use merge::*;
 
 use std::cmp::Ordering;
+use std::sync::LazyLock;
 
+use crate::Map;
 use crate::lang::Lang;
 use crate::models::kaikki::Tag;
 use crate::models::yomitan::TagInfo;
@@ -153,7 +155,7 @@ fn tags_are_subset(a: &str, b: &str) -> bool {
 // Note that while target is an Edition for the main dictionary, it can be any Lang
 // for the glossary dictionary, which also uses tags.
 //
-/// Return a Vec<[`TagInfo`]> from `TAG_BANK` (`tag_bank_terms.json`).
+/// Return a Vec<[`TagInfo`]> from [`TAG_BANK`] (`tag_bank_terms.json`).
 pub fn get_tag_bank_as_tag_info(target: Lang) -> Vec<TagInfo> {
     if has_locale(target) {
         TAG_BANK
@@ -181,17 +183,22 @@ pub fn get_tag_bank_as_tag_info(target: Lang) -> Vec<TagInfo> {
     }
 }
 
-/// Find the tag in `TAG_BANK` (`tag_bank_terms.json`) and return the `TagInformation` if any.
-///
-/// Expects the long version of the tag.
+/// Find the (long) tag in [`TAG_BANK`] (`tag_bank_terms.json`) and return its [`TagInfo`] if any.
 pub fn find_tag_in_bank(tag: &str) -> Option<TagInfo> {
-    TAG_BANK.iter().find_map(|entry| {
-        if entry.3.contains(&tag) {
-            Some(TagInfo::new(entry))
-        } else {
-            None
+    // Index the aliases once, so the search is O(1) instead of O(n).
+    static ALIAS_INDEX: LazyLock<Map<&'static str, usize>> = LazyLock::new(|| {
+        let mut index = Map::default();
+        for (position, entry) in TAG_BANK.iter().enumerate() {
+            for alias in entry.3 {
+                index.entry(*alias).or_insert(position);
+            }
         }
-    })
+        index
+    });
+
+    ALIAS_INDEX
+        .get(tag)
+        .map(|position| TagInfo::new(&TAG_BANK[*position]))
 }
 
 #[cfg(test)]
