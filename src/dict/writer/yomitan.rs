@@ -5,13 +5,14 @@
 
 use std::{
     fs::{self, File},
-    io::Write,
+    io::{Cursor, Write},
     path::{Path, PathBuf},
 };
 
 use anyhow::{Ok, Result};
-use zip::ZipWriter;
+use rayon::prelude::*;
 use zip::write::SimpleFileOptions;
+use zip::{ZipArchive, ZipWriter};
 
 use crate::{
     cli::Options,
@@ -159,12 +160,23 @@ fn write_banks(
             }
         }
         Sink::Zip(ref mut zip, zip_options) => {
-            for (bank_num, bank) in banks.iter().enumerate() {
-                let name = bank_name(bank_num);
-                let json_bytes = to_json(pretty, bank)?;
-                zip.start_file(&name, zip_options)?;
-                zip.write_all(&json_bytes)?;
-                report(bank_num, bank, &name)?;
+            let group_size = rayon::current_num_threads().max(1);
+            for (group_num, group) in banks.chunks(group_size).enumerate() {
+                let compressed: Vec<_> = group
+                    .par_iter()
+                    .enumerate()
+                    .map(|(offset, bank)| {
+                        let name = bank_name(group_num * group_size + offset);
+                        compress_bank(pretty, bank, &name, zip_options)
+                    })
+                    .collect::<Result<_>>()?;
+
+                for (offset, (bytes, bank)) in compressed.into_iter().zip(group).enumerate() {
+                    let bank_num = group_num * group_size + offset;
+                    let mut bank_zip = ZipArchive::new(Cursor::new(bytes))?;
+                    zip.raw_copy_file(bank_zip.by_index_raw(0)?)?;
+                    report(bank_num, bank, &bank_name(bank_num))?;
+                }
             }
         }
     }
@@ -183,4 +195,18 @@ fn to_json(pretty: bool, bank: &[YomitanEntry]) -> Result<Vec<u8>> {
         serde_json::to_vec(&bank)?
     };
     Ok(json_bytes)
+}
+
+/// Serialize and deflate one bank into a single entry archive.
+fn compress_bank(
+    pretty: bool,
+    bank: &[YomitanEntry],
+    name: &str,
+    zip_options: SimpleFileOptions,
+) -> Result<Vec<u8>> {
+    let json_bytes = to_json(pretty, bank)?;
+    let mut zip = ZipWriter::new(Cursor::new(Vec::new()));
+    zip.start_file(name, zip_options)?;
+    zip.write_all(&json_bytes)?;
+    Ok(zip.finish()?.into_inner())
 }
