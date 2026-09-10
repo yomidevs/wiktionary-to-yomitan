@@ -15,7 +15,7 @@ const PERSON_TAGS: [&str; 3] = ["first-person", "second-person", "third-person"]
 pub fn merge_tags_by_person(tags: &mut Vec<Tag>) {
     let contains_person = tags
         .iter()
-        .any(|tag| PERSON_TAGS.iter().any(|p| tag.contains(p)));
+        .any(|tag| tag.split(' ').any(|word| PERSON_TAGS.contains(&word)));
 
     if !contains_person {
         return;
@@ -126,7 +126,7 @@ pub fn merge_tags_by_german_verb_type(tags: &mut Vec<Tag>) {
 fn merge_tags_by_category(tags: &mut Vec<Tag>, category_tags: &[&str]) {
     let contains = tags
         .iter()
-        .any(|tag| category_tags.iter().any(|p| tag.contains(p)));
+        .any(|tag| tag.split(' ').any(|word| category_tags.contains(&word)));
 
     if !contains {
         return;
