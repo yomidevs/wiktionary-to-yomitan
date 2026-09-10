@@ -1,4 +1,4 @@
-use indexmap::IndexMap;
+use crate::Map;
 
 use crate::models::kaikki::Tag;
 use crate::tags::TAG_SEP;
@@ -10,53 +10,17 @@ const PERSON_TAGS: [&str; 3] = ["first-person", "second-person", "third-person"]
 /// F.e.
 /// in:  `['first-person singular', 'third-person singular']`
 /// out: `['singular first/third-person ']`
-///
-/// Note that this does not preserve logical tag order, and should be called before `sort_tag`.
 pub fn merge_tags_by_person(tags: &mut Vec<Tag>) {
-    let contains_person = tags
-        .iter()
-        .any(|tag| tag.split(' ').any(|word| PERSON_TAGS.contains(&word)));
-
-    if !contains_person {
-        return;
-    }
-
-    // Leave tags with same capacity since we are going to repopulate it
-    let mut old_tags = Vec::with_capacity(tags.capacity());
-    std::mem::swap(&mut old_tags, tags);
-
-    let mut grouped: IndexMap<Vec<&str>, Vec<&str>> = IndexMap::new();
-
-    for tag in &old_tags {
-        let (person_tags, other_tags): (Vec<_>, Vec<_>) =
-            tag.split(' ').partition(|t| PERSON_TAGS.contains(t));
-
-        match person_tags.as_slice() {
-            [person] => grouped.entry(other_tags).or_default().push(person),
-            _ => tags.push(tag.clone()),
-        }
-    }
-
-    for (other_tags, mut person_matches) in grouped {
-        person_matches.sort_by_key(|x| PERSON_TAGS.iter().position(|p| p == x).unwrap_or(999));
-
+    merge_tags(tags, &PERSON_TAGS, |matches| {
         // [first-person, third-person] > first/third-person
-        let merged_person_tag = person_matches
+        matches
             .iter()
             // SAFETY: PERSON_TAGS contains pmatch so it always ends in -person
             .map(|pmatch| pmatch.strip_suffix("-person").unwrap())
             .collect::<Vec<_>>()
             .join(TAG_SEP)
-            + "-person";
-
-        let tag = other_tags
-            .into_iter()
-            .chain(std::iter::once(merged_person_tag.as_ref()))
-            .collect::<Vec<_>>()
-            .join(" ");
-
-        tags.push(tag);
-    }
+            + "-person"
+    });
 }
 
 // Uses a subset of tag_order.json cases
@@ -120,10 +84,15 @@ pub fn merge_tags_by_german_verb_type(tags: &mut Vec<Tag>) {
     merge_tags_by_category(tags, &GERMAN_VERB_TYPE_TAGS);
 }
 
+/// Merge similar tags if the only difference is the category-tags.
+fn merge_tags_by_category(tags: &mut Vec<Tag>, category_tags: &[&str]) {
+    merge_tags(tags, category_tags, |matches| matches.join(TAG_SEP));
+}
+
 /// Generic merge function.
 ///
-/// Similar to `merge_person_tags` with minor differences.
-fn merge_tags_by_category(tags: &mut Vec<Tag>, category_tags: &[&str]) {
+/// Note that this does not preserve logical tag order, and should be called before `sort_tag`.
+fn merge_tags(tags: &mut Vec<Tag>, category_tags: &[&str], combine: impl Fn(&[&str]) -> String) {
     let contains = tags
         .iter()
         .any(|tag| tag.split(' ').any(|word| category_tags.contains(&word)));
@@ -136,14 +105,14 @@ fn merge_tags_by_category(tags: &mut Vec<Tag>, category_tags: &[&str]) {
     let mut old_tags = Vec::with_capacity(tags.capacity());
     std::mem::swap(&mut old_tags, tags);
 
-    let mut grouped: IndexMap<Vec<&str>, Vec<&str>> = IndexMap::new();
+    let mut grouped: Map<Vec<&str>, Vec<&str>> = Map::default();
 
     for tag in &old_tags {
-        let (person_tags, other_tags): (Vec<_>, Vec<_>) =
+        let (matched, other_tags): (Vec<_>, Vec<_>) =
             tag.split(' ').partition(|t| category_tags.contains(t));
 
-        match person_tags.as_slice() {
-            [person] => grouped.entry(other_tags).or_default().push(person),
+        match matched.as_slice() {
+            [one] => grouped.entry(other_tags).or_default().push(one),
             _ => tags.push(tag.clone()),
         }
     }
@@ -151,11 +120,11 @@ fn merge_tags_by_category(tags: &mut Vec<Tag>, category_tags: &[&str]) {
     for (other_tags, mut matches) in grouped {
         matches.sort_by_key(|x| category_tags.iter().position(|p| p == x).unwrap_or(999));
 
-        let merged = matches.join(TAG_SEP);
+        let merged = combine(&matches);
 
         let tag = other_tags
             .into_iter()
-            .chain(std::iter::once(merged.as_ref()))
+            .chain(std::iter::once(merged.as_str()))
             .collect::<Vec<_>>()
             .join(" ");
 
