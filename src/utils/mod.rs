@@ -1,4 +1,4 @@
-use std::{fs, path::Path};
+use std::{fs, path::Path, time::Duration};
 
 use anyhow::Result;
 
@@ -37,8 +37,9 @@ pub fn human_size(size_bytes: f64) -> String {
     format!("{size:.1} GB")
 }
 
-pub fn human_time(ms: u128) -> String {
-    format!("{:.1} s", ms as f64 / 1000.0)
+pub fn human_time(duration: Duration) -> String {
+    let secs = duration.as_secs();
+    format!("{}m {:02}s", secs / 60, secs % 60)
 }
 
 fn get_file_size_human<P: AsRef<Path>>(path: P) -> Result<String> {

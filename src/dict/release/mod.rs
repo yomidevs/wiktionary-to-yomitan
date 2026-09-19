@@ -5,11 +5,7 @@
 //! Command to limit memory usage (linux):
 //! systemd-run --user --scope -p MemoryMax=24G -p MemoryHigh=24G cargo run -r -- release -v
 
-use std::{
-    collections::HashMap,
-    sync::Mutex,
-    time::{Duration, Instant},
-};
+use std::time::Instant;
 
 use anyhow::Result;
 use rayon::ThreadPoolBuilder;
@@ -37,25 +33,9 @@ use crate::{
 
 const MAX_NUM_THREADS_MAIN: usize = 4;
 
-#[derive(Debug, Default)]
-struct TimingStats {
-    timings: Mutex<HashMap<String, Duration>>,
-}
-
-impl TimingStats {
-    fn new() -> Self {
-        Self {
-            timings: Mutex::new(HashMap::new()),
-        }
-    }
-
-    fn record(&self, key: String, duration: Duration) {
-        self.timings.lock().unwrap().insert(key, duration);
-    }
-}
-
 /// Build a dictionary release.
 pub fn release(rargs: ReleaseArgs) -> Result<()> {
+    let start_release = Instant::now();
     let editions = rargs.editions();
 
     println!("rargs: {rargs:?}");
@@ -73,24 +53,22 @@ pub fn release(rargs: ReleaseArgs) -> Result<()> {
     //
     // NOTE: For some reason this takes time even when db are init, why?
     let _ = std::fs::create_dir(&rargs.root_dir);
-    let db_stats = TimingStats::new();
-    download_and_create_db(&rargs, &editions, &db_stats);
+    download_and_create_db(&rargs, &editions);
 
     let start = Instant::now();
-    let stats = TimingStats::new();
 
     editions.iter().for_each(|edition| {
-        release_main(&rargs, *edition, &editions, &stats);
-        release_ipa(&rargs, *edition, &editions, &stats);
-        release_glossary(&rargs, *edition, &editions, &stats);
+        release_main(&rargs, *edition, &editions);
+        release_ipa(&rargs, *edition, &editions);
+        release_glossary(&rargs, *edition, &editions);
     });
 
     let targets = Lang::all();
     // let targets = [Lang::Afb];
     // let targets: Vec<Lang> = editions.iter().map(|ed| (*ed).into()).collect();
     targets.par_iter().for_each(|target| {
-        release_ipa_merged(&rargs, *target, &editions, &stats);
-        // release_glossary_extended(*target, &editions, &stats);
+        release_ipa_merged(&rargs, *target, &editions);
+        // release_glossary_extended(*target, &editions);
     });
 
     let elapsed = start.elapsed();
@@ -98,51 +76,28 @@ pub fn release(rargs: ReleaseArgs) -> Result<()> {
 
     extract_indexes(&rargs)?;
 
-    if rargs.editions.is_empty() {
-        write_dict_metadata(&rargs.root_dir, &db_stats, &stats)?;
-    } else {
-        println!("[meta] Skipped metadata: this release was scoped to specific editions");
-    }
+    let elapsed = start_release.elapsed();
+    println!("Finished release in {elapsed:.2?}");
+
+    write_dict_metadata(&rargs.root_dir, &editions, elapsed)?;
 
     Ok(())
 }
 
-fn download_and_create_db(rargs: &ReleaseArgs, editions: &[Edition], stats: &TimingStats) {
+fn download_and_create_db(rargs: &ReleaseArgs, editions: &[Edition]) {
     let start = Instant::now();
 
     let dir_kaik = rargs.root_dir.join("kaikki"); // cf. same function @ path.rs
     let _ = std::fs::create_dir(dir_kaik);
 
     editions.par_iter().for_each(|edition| {
-        let elapsed = WiktextractDb::build(&rargs.root_dir, *edition, false, false).unwrap();
-        stats.record(edition.to_string(), elapsed);
+        WiktextractDb::build(&rargs.root_dir, *edition, false, false).unwrap();
     });
 
     println!("Finished download & db creation in {:.2?}", start.elapsed());
 }
 
-// Pretty print utility
-fn pp(
-    dict_name: &str,
-    first_lang: Lang,
-    second_lang: Option<Lang>,
-    time: Instant,
-    stats: &TimingStats,
-) {
-    let duration = time.elapsed();
-
-    let key = match second_lang {
-        Some(second_lang) => format!("{dict_name}-{first_lang}-{second_lang}"),
-        None => format!("{dict_name}-{first_lang}"),
-    };
-
-    stats.record(key.clone(), duration);
-
-    // let label = format!("[{}]", key);
-    // eprintln!("{label:<20} done in {:.2?}", time.elapsed());
-}
-
-fn release_main(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition], stats: &TimingStats) {
+fn release_main(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition]) {
     // Limit only this workload (as opposed to the full logic. IPA and glossaries are completely
     // fine and will never OOM).
     let pool = ThreadPoolBuilder::new()
@@ -154,8 +109,6 @@ fn release_main(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition], sta
 
     pool.install(|| {
         Lang::all().par_iter().for_each(|source| {
-            let start = Instant::now();
-
             let langs = match (edition, source) {
                 (Edition::Simple, Lang::Simple) => MainLangs {
                     source: *source,
@@ -179,18 +132,15 @@ fn release_main(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition], sta
                 },
             };
 
-            match make_dict_from_db(DMain, args, editions) {
-                Ok(()) => pp("main", *source, Some(edition.into()), start, stats),
-                Err(err) => tracing::error!("[main-{source}-{edition}] ERROR: {err:?}"),
+            if let Err(err) = make_dict_from_db(DMain, args, editions) {
+                tracing::error!("[main-{source}-{edition}] ERROR: {err:?}");
             }
         });
     });
 }
 
-fn release_ipa(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition], stats: &TimingStats) {
+fn release_ipa(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition]) {
     Lang::all().par_iter().for_each(|source| {
-        let start = Instant::now();
-
         let langs = match (edition, source) {
             (Edition::Simple, Lang::Simple) => MainLangs {
                 source: *source,
@@ -214,21 +164,13 @@ fn release_ipa(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition], stat
             },
         };
 
-        match make_dict_from_db(DIpa, args, editions) {
-            Ok(()) => pp("ipa", *source, Some(edition.into()), start, stats),
-            Err(err) => tracing::error!("[ipa-{source}-{edition}] ERROR: {err:?}"),
+        if let Err(err) = make_dict_from_db(DIpa, args, editions) {
+            tracing::error!("[ipa-{source}-{edition}] ERROR: {err:?}");
         }
     });
 }
 
-fn release_ipa_merged(
-    rargs: &ReleaseArgs,
-    target: Lang,
-    editions: &[Edition],
-    stats: &TimingStats,
-) {
-    let start = Instant::now();
-
+fn release_ipa_merged(rargs: &ReleaseArgs, target: Lang, editions: &[Edition]) {
     let langs = match target {
         Lang::Simple => return,
         _ => IpaMergedLangs { target },
@@ -245,21 +187,13 @@ fn release_ipa_merged(
         },
     };
 
-    match make_dict_from_db(DIpaMerged, args, editions) {
-        Ok(()) => pp("ipa-merged", target, None, start, stats),
-        Err(err) => tracing::error!("[ipa-merged-{target}] ERROR: {err:?}"),
+    if let Err(err) = make_dict_from_db(DIpaMerged, args, editions) {
+        tracing::error!("[ipa-merged-{target}] ERROR: {err:?}");
     }
 }
 
-fn release_glossary(
-    rargs: &ReleaseArgs,
-    edition: Edition,
-    editions: &[Edition],
-    stats: &TimingStats,
-) {
+fn release_glossary(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition]) {
     Lang::all().par_iter().for_each(|target| {
-        let start = Instant::now();
-
         let langs = match (edition, target) {
             (Edition::Simple, _) | (_, Lang::Simple) => return,
             _ if Lang::from(edition) == *target => return,
@@ -280,19 +214,15 @@ fn release_glossary(
             },
         };
 
-        match make_dict_from_db(DGlossary, args, editions) {
-            // Reverse order of main/ipa
-            Ok(()) => pp("glossary", edition.into(), Some(*target), start, stats),
-            Err(err) => tracing::error!("[glossary-{edition}-{target}] ERROR: {err:?}"),
+        if let Err(err) = make_dict_from_db(DGlossary, args, editions) {
+            tracing::error!("[glossary-{edition}-{target}] ERROR: {err:?}");
         }
     });
 }
 
 #[allow(unused)]
-fn release_glossary_extended(source: Lang, editions: &[Edition], stats: &TimingStats) {
+fn release_glossary_extended(source: Lang, editions: &[Edition]) {
     Lang::all().par_iter().for_each(|target| {
-        let start = Instant::now();
-
         let langs = match (source, target) {
             (Lang::Simple, _) | (_, Lang::Simple) => return,
             _ if source == *target => return,
@@ -313,9 +243,8 @@ fn release_glossary_extended(source: Lang, editions: &[Edition], stats: &TimingS
             },
         };
 
-        match make_dict_from_db(DGlossaryExtended, args, editions) {
-            Ok(()) => pp("gloss-all", source, Some(*target), start, stats),
-            Err(err) => tracing::error!("[gloss-all-{source}-{target}] ERROR: {err:?}"),
+        if let Err(err) = make_dict_from_db(DGlossaryExtended, args, editions) {
+            tracing::error!("[gloss-all-{source}-{target}] ERROR: {err:?}");
         }
     });
 }
