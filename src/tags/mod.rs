@@ -1,6 +1,6 @@
 mod tags_constants;
 pub use tags_constants::Pos;
-use tags_constants::{TAG_BANK, TAG_ORDER};
+use tags_constants::{TAG_BANK, tag_order};
 
 mod tags_localization;
 pub use tags_localization::*;
@@ -60,34 +60,18 @@ fn before_sep(s: &str) -> &str {
     s.split_once(TAG_SEP).map_or(s, |(before, _)| before)
 }
 
-// TODO: instead of doing TAG_ORDER.index, rewrite build.py to produce a match
-// statement that returns directly the order.
-//
 /// Sort tags by their position in the `tag_order.json` file.
 ///
 /// If a tag contains `TAG_SEP`, the substring before `TAG_SEP` is used instead.
 /// This is done so we can sort merged tags: nominative/accusative etc.
 ///
+/// Tags not in `tag_order.json` go last, keeping their relative order (the sort is stable).
+///
 /// Expects (but does not check) tags WITHOUT spaces.
 pub fn sort_tags(tags: &mut [&str]) {
     debug_assert!(tags.iter().all(|tag| !tag.contains(' ')));
 
-    tags.sort_by(|a, b| {
-        let bef_a = before_sep(a);
-        let bef_b = before_sep(b);
-
-        let index_a = TAG_ORDER.iter().position(|&x| x == bef_a);
-        let index_b = TAG_ORDER.iter().position(|&x| x == bef_b);
-
-        match (index_a, index_b) {
-            (Some(i), Some(j)) => i.cmp(&j),   // both found → compare positions
-            (Some(_), None) => Ordering::Less, // found beats not-found
-            (None, Some(_)) => Ordering::Greater,
-            // This seems better but it's different from the original
-            // (None, None) => a.cmp(b),        // neither found → alphabetical fallback
-            (None, None) => Ordering::Equal, // neither found → do nothing
-        }
-    });
+    tags.sort_by_key(|tag| tag_order(before_sep(tag)).unwrap_or(usize::MAX));
 }
 
 /// Sort tags by word-by-word lexicographical similarity, grouping tags that
@@ -220,7 +204,7 @@ mod tests {
     #[test]
     fn sort_tags_not_found() {
         let tag_not_found = "__sentinel";
-        assert!(!TAG_ORDER.contains(&tag_not_found));
+        assert!(tag_order(tag_not_found).is_none());
         let mut received = to_str_vec(&[tag_not_found, "Gheg"]);
         let expected = to_string_vec(&[tag_not_found, "Gheg"]);
         sort_tags(&mut received);
@@ -231,9 +215,7 @@ mod tests {
     fn sort_tags_base() {
         let tag1 = "genitive";
         let tag2 = "accusative";
-        let index_1 = TAG_ORDER.iter().position(|&x| x == tag1).unwrap();
-        let index_2 = TAG_ORDER.iter().position(|&x| x == tag2).unwrap();
-        assert!(index_1 < index_2);
+        assert!(tag_order(tag1).unwrap() < tag_order(tag2).unwrap());
 
         let mut received = to_str_vec(&[tag2, tag1]);
         let expected = to_string_vec(&[tag1, tag2]);

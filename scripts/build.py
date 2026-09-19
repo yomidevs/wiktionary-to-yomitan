@@ -137,10 +137,14 @@ def generate_tags_rs(
 
     write_warning(f)
 
-    w(f"pub const TAG_ORDER: [&str; {len(tag_order)}] = [\n")
-    for tag in tag_order:
-        w(f'{idt}"{tag}",\n')
-    w("];\n\n")
+    w("/// Position of the tag in `tag_order.json`, if any.\n")
+    w("pub fn tag_order(tag: &str) -> Option<usize> {\n")
+    w(f"{idt}match tag {{\n")
+    for position, tag in enumerate(tag_order):
+        w(f'{idt * 2}"{tag}" => Some({position}),\n')
+    w(f"{idt * 2}_ => None,\n")
+    w(f"{idt}}}\n")
+    w("}\n\n")
 
     # Not sure why all of this was done in the original, it makes almost no sense
 
