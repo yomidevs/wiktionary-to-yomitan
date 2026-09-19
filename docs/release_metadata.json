@@ -1,103 +1,80 @@
 {
+  "time": "9m 40s",
   "size": "2.1 GB",
   "count": 7675,
-  "time": "2993.8 s",
   "db": {
     "cs": {
-      "size": "245.9 MB",
-      "time": "4.2 s"
+      "size": "246.1 MB"
     },
     "de": {
-      "size": "2.1 GB",
-      "time": "17.8 s"
+      "size": "2.1 GB"
     },
     "el": {
-      "size": "1.1 GB",
-      "time": "14.0 s"
+      "size": "1.1 GB"
     },
     "en": {
-      "size": "14.9 GB",
-      "time": "150.7 s"
+      "size": "14.9 GB"
     },
     "es": {
-      "size": "849.4 MB",
-      "time": "7.9 s"
+      "size": "849.5 MB"
     },
     "fr": {
-      "size": "5.0 GB",
-      "time": "47.3 s"
+      "size": "5.0 GB"
     },
     "id": {
-      "size": "32.3 MB",
-      "time": "0.5 s"
+      "size": "32.4 MB"
     },
     "it": {
-      "size": "399.4 MB",
-      "time": "2.2 s"
+      "size": "399.6 MB"
     },
     "ja": {
-      "size": "332.9 MB",
-      "time": "8.4 s"
+      "size": "333.2 MB"
     },
     "ko": {
-      "size": "174.0 MB",
-      "time": "3.4 s"
+      "size": "174.5 MB"
     },
     "ku": {
-      "size": "415.4 MB",
-      "time": "22.2 s"
+      "size": "415.5 MB"
     },
     "ms": {
-      "size": "27.7 MB",
-      "time": "0.5 s"
+      "size": "27.8 MB"
     },
     "nl": {
-      "size": "687.7 MB",
-      "time": "9.9 s"
+      "size": "689.9 MB"
     },
     "pl": {
-      "size": "625.8 MB",
-      "time": "10.2 s"
+      "size": "626.4 MB"
     },
     "pt": {
-      "size": "317.0 MB",
-      "time": "5.8 s"
+      "size": "317.1 MB"
     },
     "ru": {
-      "size": "1.6 GB",
-      "time": "26.2 s"
+      "size": "1.6 GB"
     },
     "simple": {
-      "size": "35.2 MB",
-      "time": "0.5 s"
+      "size": "35.3 MB"
     },
     "th": {
-      "size": "994.4 MB",
-      "time": "14.0 s"
+      "size": "994.5 MB"
     },
     "tr": {
-      "size": "598.6 MB",
-      "time": "9.1 s"
+      "size": "598.7 MB"
     },
     "vi": {
-      "size": "175.9 MB",
-      "time": "3.2 s"
+      "size": "176.8 MB"
     },
     "zh": {
-      "size": "1.4 GB",
-      "time": "19.1 s"
+      "size": "1.4 GB"
     }
   },
   "dicts": {
     "glossary": {
       "size": "237.5 MB",
       "count": 2694,
-      "time": "560.5 s",
       "sources": {
         "cs": {
           "size": "5.2 MB",
           "count": 127,
-          "time": "6.5 s",
           "targets": {
             "ady": "6.8 KB",
             "af": "16.1 KB",
@@ -231,7 +208,6 @@
         "de": {
           "size": "38.3 MB",
           "count": 143,
-          "time": "66.4 s",
           "targets": {
             "ady": "7.7 KB",
             "af": "105.4 KB",
@@ -381,7 +357,6 @@
         "el": {
           "size": "4.0 MB",
           "count": 128,
-          "time": "6.7 s",
           "targets": {
             "ady": "6.8 KB",
             "af": "14.2 KB",
@@ -516,7 +491,6 @@
         "en": {
           "size": "74.4 MB",
           "count": 149,
-          "time": "186.5 s",
           "targets": {
             "ady": "24.0 KB",
             "af": "291.2 KB",
@@ -602,7 +576,7 @@
             "lt": "410.1 KB",
             "lv": "429.0 KB",
             "lzz": "17.3 KB",
-            "mg": "39.7 KB",
+            "mg": "39.6 KB",
             "mi": "675.6 KB",
             "mk": "816.1 KB",
             "ml": "214.3 KB",
@@ -672,11 +646,10 @@
         "es": {
           "size": "3.4 MB",
           "count": 143,
-          "time": "8.9 s",
           "targets": {
             "af": "20.8 KB",
             "afb": "6.6 KB",
-            "aii": "6.7 KB",
+            "aii": "6.6 KB",
             "ajp": "6.6 KB",
             "ang": "10.2 KB",
             "ar": "33.4 KB",
@@ -822,7 +795,6 @@
         "fr": {
           "size": "20.2 MB",
           "count": 146,
-          "time": "66.3 s",
           "targets": {
             "ady": "7.7 KB",
             "af": "114.2 KB",
@@ -975,7 +947,6 @@
         "id": {
           "size": "33.8 KB",
           "count": 5,
-          "time": "0.0 s",
           "targets": {
             "de": "6.9 KB",
             "en": "6.8 KB",
@@ -987,7 +958,6 @@
         "it": {
           "size": "3.8 MB",
           "count": 135,
-          "time": "4.3 s",
           "targets": {
             "ady": "6.8 KB",
             "af": "14.4 KB",
@@ -1129,7 +1099,6 @@
         "ja": {
           "size": "5.3 MB",
           "count": 150,
-          "time": "11.7 s",
           "targets": {
             "ady": "8.3 KB",
             "af": "29.6 KB",
@@ -1286,7 +1255,6 @@
         "ko": {
           "size": "6.1 MB",
           "count": 138,
-          "time": "7.9 s",
           "targets": {
             "ady": "14.2 KB",
             "af": "40.8 KB",
@@ -1431,7 +1399,6 @@
         "ku": {
           "size": "8.2 MB",
           "count": 148,
-          "time": "29.6 s",
           "targets": {
             "ady": "13.9 KB",
             "af": "50.0 KB",
@@ -1586,7 +1553,6 @@
         "ms": {
           "size": "1.5 MB",
           "count": 144,
-          "time": "1.2 s",
           "targets": {
             "ady": "7.3 KB",
             "af": "9.5 KB",
@@ -1626,7 +1592,7 @@
             "eo": "12.4 KB",
             "es": "18.3 KB",
             "et": "11.8 KB",
-            "eu": "9.2 KB",
+            "eu": "9.1 KB",
             "fa": "13.0 KB",
             "fi": "19.2 KB",
             "fo": "9.8 KB",
@@ -1737,7 +1703,6 @@
         "nl": {
           "size": "8.1 MB",
           "count": 138,
-          "time": "9.9 s",
           "targets": {
             "ady": "8.1 KB",
             "af": "90.8 KB",
@@ -1864,7 +1829,7 @@
             "tl": "25.5 KB",
             "tok": "7.1 KB",
             "tr": "91.6 KB",
-            "ug": "10.7 KB",
+            "ug": "10.6 KB",
             "uk": "64.9 KB",
             "ur": "19.8 KB",
             "uz": "14.7 KB",
@@ -1882,7 +1847,6 @@
         "pl": {
           "size": "7.7 MB",
           "count": 136,
-          "time": "31.4 s",
           "targets": {
             "ady": "8.1 KB",
             "af": "19.1 KB",
@@ -2025,7 +1989,6 @@
         "pt": {
           "size": "5.9 MB",
           "count": 147,
-          "time": "18.4 s",
           "targets": {
             "ady": "8.2 KB",
             "af": "38.5 KB",
@@ -2044,13 +2007,13 @@
             "bo": "13.4 KB",
             "ca": "98.0 KB",
             "ceb": "12.7 KB",
-            "cim": "7.2 KB",
+            "cim": "7.1 KB",
             "cmn": "10.9 KB",
             "cop": "7.2 KB",
             "crh": "10.7 KB",
             "cs": "97.0 KB",
             "csb": "9.8 KB",
-            "cu": "8.9 KB",
+            "cu": "8.8 KB",
             "cy": "44.4 KB",
             "da": "94.0 KB",
             "de": "223.3 KB",
@@ -2059,7 +2022,7 @@
             "egy": "7.6 KB",
             "el": "96.0 KB",
             "en": "360.8 KB",
-            "enm": "7.3 KB",
+            "enm": "7.2 KB",
             "eo": "89.7 KB",
             "es": "252.6 KB",
             "et": "67.1 KB",
@@ -2155,7 +2118,7 @@
             "syc": "6.9 KB",
             "ta": "27.3 KB",
             "te": "19.0 KB",
-            "tg": "17.8 KB",
+            "tg": "17.7 KB",
             "th": "48.1 KB",
             "tl": "27.1 KB",
             "tok": "7.0 KB",
@@ -2179,7 +2142,6 @@
         "ru": {
           "size": "19.1 MB",
           "count": 138,
-          "time": "62.5 s",
           "targets": {
             "ady": "21.8 KB",
             "af": "154.4 KB",
@@ -2324,12 +2286,11 @@
         "th": {
           "size": "1.7 MB",
           "count": 147,
-          "time": "1.4 s",
           "targets": {
             "ady": "7.1 KB",
             "af": "9.3 KB",
             "afb": "6.8 KB",
-            "aii": "7.1 KB",
+            "aii": "7.0 KB",
             "ajp": "6.8 KB",
             "ang": "7.3 KB",
             "apc": "6.8 KB",
@@ -2478,7 +2439,6 @@
         "tr": {
           "size": "3.5 MB",
           "count": 138,
-          "time": "6.8 s",
           "targets": {
             "ady": "7.7 KB",
             "af": "21.1 KB",
@@ -2623,7 +2583,6 @@
         "vi": {
           "size": "1.5 MB",
           "count": 144,
-          "time": "1.1 s",
           "targets": {
             "ady": "7.2 KB",
             "af": "10.6 KB",
@@ -2774,7 +2733,6 @@
         "zh": {
           "size": "19.6 MB",
           "count": 150,
-          "time": "33.0 s",
           "targets": {
             "ady": "16.3 KB",
             "af": "97.8 KB",
@@ -2933,12 +2891,10 @@
     "ipa": {
       "size": "237.1 MB",
       "count": 2163,
-      "time": "480.6 s",
       "sources": {
         "ady": {
           "size": "188.8 KB",
           "count": 13,
-          "time": "0.4 s",
           "targets": {
             "cs": "7.2 KB",
             "de": "8.0 KB",
@@ -2958,7 +2914,6 @@
         "af": {
           "size": "187.8 KB",
           "count": 18,
-          "time": "1.1 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "10.6 KB",
@@ -2983,7 +2938,6 @@
         "afb": {
           "size": "39.5 KB",
           "count": 4,
-          "time": "0.1 s",
           "targets": {
             "en": "17.4 KB",
             "ja": "7.2 KB",
@@ -2994,7 +2948,6 @@
         "aii": {
           "size": "181.1 KB",
           "count": 9,
-          "time": "0.5 s",
           "targets": {
             "en": "118.7 KB",
             "es": "6.7 KB",
@@ -3010,7 +2963,6 @@
         "ajp": {
           "size": "100.1 KB",
           "count": 5,
-          "time": "0.3 s",
           "targets": {
             "en": "61.5 KB",
             "es": "6.7 KB",
@@ -3022,7 +2974,6 @@
         "all": {
           "size": "196.6 KB",
           "count": 5,
-          "time": "0.0 s",
           "targets": {
             "gem-pro": "58.5 KB",
             "gmw-pro": "6.8 KB",
@@ -3034,7 +2985,6 @@
         "ang": {
           "size": "1017.3 KB",
           "count": 17,
-          "time": "2.1 s",
           "targets": {
             "cs": "7.3 KB",
             "de": "8.4 KB",
@@ -3058,7 +3008,6 @@
         "apc": {
           "size": "66.1 KB",
           "count": 7,
-          "time": "0.1 s",
           "targets": {
             "de": "13.5 KB",
             "en": "18.2 KB",
@@ -3072,7 +3021,6 @@
         "ar": {
           "size": "683.6 KB",
           "count": 19,
-          "time": "5.4 s",
           "targets": {
             "cs": "10.4 KB",
             "de": "12.4 KB",
@@ -3096,9 +3044,8 @@
           }
         },
         "arz": {
-          "size": "94.0 KB",
+          "size": "93.9 KB",
           "count": 10,
-          "time": "0.2 s",
           "targets": {
             "de": "6.9 KB",
             "en": "30.3 KB",
@@ -3115,7 +3062,6 @@
         "as": {
           "size": "150.9 KB",
           "count": 13,
-          "time": "0.5 s",
           "targets": {
             "de": "6.9 KB",
             "el": "7.1 KB",
@@ -3135,7 +3081,6 @@
         "ast": {
           "size": "268.1 KB",
           "count": 17,
-          "time": "1.8 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "7.8 KB",
@@ -3159,7 +3104,6 @@
         "az": {
           "size": "353.0 KB",
           "count": 17,
-          "time": "2.8 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "14.4 KB",
@@ -3183,7 +3127,6 @@
         "ba": {
           "size": "230.4 KB",
           "count": 16,
-          "time": "0.7 s",
           "targets": {
             "cs": "6.8 KB",
             "de": "9.4 KB",
@@ -3206,7 +3149,6 @@
         "bcl": {
           "size": "153.2 KB",
           "count": 7,
-          "time": "0.5 s",
           "targets": {
             "en": "105.8 KB",
             "es": "6.7 KB",
@@ -3220,7 +3162,6 @@
         "be": {
           "size": "382.7 KB",
           "count": 18,
-          "time": "1.7 s",
           "targets": {
             "cs": "7.6 KB",
             "de": "77.2 KB",
@@ -3236,7 +3177,7 @@
             "pl": "7.9 KB",
             "pt": "8.1 KB",
             "ru": "15.8 KB",
-            "th": "7.1 KB",
+            "th": "7.0 KB",
             "tr": "7.1 KB",
             "vi": "9.3 KB",
             "zh": "27.3 KB"
@@ -3245,7 +3186,6 @@
         "bg": {
           "size": "950.6 KB",
           "count": 18,
-          "time": "4.7 s",
           "targets": {
             "cs": "7.8 KB",
             "de": "20.4 KB",
@@ -3270,7 +3210,6 @@
         "bn": {
           "size": "355.5 KB",
           "count": 16,
-          "time": "0.9 s",
           "targets": {
             "cs": "7.3 KB",
             "de": "8.4 KB",
@@ -3287,13 +3226,12 @@
             "th": "7.6 KB",
             "tr": "11.4 KB",
             "vi": "8.9 KB",
-            "zh": "26.2 KB"
+            "zh": "26.3 KB"
           }
         },
         "bo": {
           "size": "141.7 KB",
           "count": 14,
-          "time": "0.3 s",
           "targets": {
             "cs": "6.8 KB",
             "de": "7.6 KB",
@@ -3314,7 +3252,6 @@
         "ca": {
           "size": "2.0 MB",
           "count": 17,
-          "time": "7.7 s",
           "targets": {
             "cs": "9.4 KB",
             "de": "107.8 KB",
@@ -3336,9 +3273,8 @@
           }
         },
         "ceb": {
-          "size": "205.5 KB",
+          "size": "205.4 KB",
           "count": 14,
-          "time": "1.0 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "7.0 KB",
@@ -3359,7 +3295,6 @@
         "cim": {
           "size": "20.9 KB",
           "count": 3,
-          "time": "0.2 s",
           "targets": {
             "en": "7.2 KB",
             "fr": "6.8 KB",
@@ -3369,7 +3304,6 @@
         "cmn": {
           "size": "45.2 KB",
           "count": 6,
-          "time": "3.2 s",
           "targets": {
             "en": "6.7 KB",
             "es": "7.1 KB",
@@ -3382,7 +3316,6 @@
         "cop": {
           "size": "67.3 KB",
           "count": 8,
-          "time": "0.5 s",
           "targets": {
             "en": "18.6 KB",
             "fr": "7.2 KB",
@@ -3397,7 +3330,6 @@
         "crh": {
           "size": "91.3 KB",
           "count": 13,
-          "time": "0.6 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "8.0 KB",
@@ -3417,7 +3349,6 @@
         "cs": {
           "size": "2.9 MB",
           "count": 18,
-          "time": "7.9 s",
           "targets": {
             "cs": "1003.2 KB",
             "de": "327.3 KB",
@@ -3442,7 +3373,6 @@
         "csb": {
           "size": "135.8 KB",
           "count": 13,
-          "time": "0.3 s",
           "targets": {
             "cs": "7.3 KB",
             "de": "7.6 KB",
@@ -3462,7 +3392,6 @@
         "cu": {
           "size": "78.2 KB",
           "count": 11,
-          "time": "0.8 s",
           "targets": {
             "cs": "6.8 KB",
             "de": "7.4 KB",
@@ -3480,7 +3409,6 @@
         "cy": {
           "size": "513.9 KB",
           "count": 17,
-          "time": "1.9 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "8.8 KB",
@@ -3504,7 +3432,6 @@
         "da": {
           "size": "394.7 KB",
           "count": 18,
-          "time": "3.7 s",
           "targets": {
             "cs": "11.0 KB",
             "de": "18.5 KB",
@@ -3529,7 +3456,6 @@
         "de": {
           "size": "24.1 MB",
           "count": 19,
-          "time": "22.5 s",
           "targets": {
             "cs": "216.7 KB",
             "de": "12.1 MB",
@@ -3555,7 +3481,6 @@
         "dsb": {
           "size": "156.8 KB",
           "count": 15,
-          "time": "0.4 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "14.6 KB",
@@ -3577,7 +3502,6 @@
         "dum": {
           "size": "57.2 KB",
           "count": 8,
-          "time": "0.2 s",
           "targets": {
             "en": "9.0 KB",
             "fr": "6.7 KB",
@@ -3592,7 +3516,6 @@
         "egy": {
           "size": "138.6 KB",
           "count": 12,
-          "time": "0.4 s",
           "targets": {
             "cs": "6.7 KB",
             "el": "7.0 KB",
@@ -3611,7 +3534,6 @@
         "el": {
           "size": "1.6 MB",
           "count": 18,
-          "time": "5.8 s",
           "targets": {
             "cs": "48.0 KB",
             "de": "13.5 KB",
@@ -3636,7 +3558,6 @@
         "en": {
           "size": "6.4 MB",
           "count": 20,
-          "time": "33.2 s",
           "targets": {
             "cs": "181.7 KB",
             "de": "449.7 KB",
@@ -3663,7 +3584,6 @@
         "enm": {
           "size": "241.7 KB",
           "count": 13,
-          "time": "1.8 s",
           "targets": {
             "de": "6.9 KB",
             "en": "146.2 KB",
@@ -3683,7 +3603,6 @@
         "eo": {
           "size": "2.5 MB",
           "count": 18,
-          "time": "7.1 s",
           "targets": {
             "cs": "17.3 KB",
             "de": "32.3 KB",
@@ -3708,7 +3627,6 @@
         "es": {
           "size": "17.8 MB",
           "count": 18,
-          "time": "18.4 s",
           "targets": {
             "cs": "36.7 KB",
             "de": "77.7 KB",
@@ -3733,7 +3651,6 @@
         "et": {
           "size": "229.4 KB",
           "count": 18,
-          "time": "1.7 s",
           "targets": {
             "cs": "16.3 KB",
             "de": "13.6 KB",
@@ -3758,7 +3675,6 @@
         "eu": {
           "size": "515.9 KB",
           "count": 18,
-          "time": "1.9 s",
           "targets": {
             "cs": "7.3 KB",
             "de": "9.9 KB",
@@ -3783,7 +3699,6 @@
         "fa": {
           "size": "814.7 KB",
           "count": 18,
-          "time": "2.1 s",
           "targets": {
             "cs": "8.0 KB",
             "de": "9.4 KB",
@@ -3808,7 +3723,6 @@
         "fi": {
           "size": "6.4 MB",
           "count": 18,
-          "time": "33.1 s",
           "targets": {
             "cs": "50.0 KB",
             "de": "36.1 KB",
@@ -3833,7 +3747,6 @@
         "fo": {
           "size": "231.2 KB",
           "count": 18,
-          "time": "1.0 s",
           "targets": {
             "cs": "6.9 KB",
             "de": "16.3 KB",
@@ -3858,7 +3771,6 @@
         "fr": {
           "size": "22.3 MB",
           "count": 19,
-          "time": "22.9 s",
           "targets": {
             "cs": "197.6 KB",
             "de": "184.3 KB",
@@ -3884,7 +3796,6 @@
         "frm": {
           "size": "48.9 KB",
           "count": 6,
-          "time": "0.5 s",
           "targets": {
             "en": "7.9 KB",
             "es": "6.7 KB",
@@ -3897,7 +3808,6 @@
         "fro": {
           "size": "117.7 KB",
           "count": 14,
-          "time": "1.3 s",
           "targets": {
             "de": "6.9 KB",
             "en": "18.9 KB",
@@ -3918,7 +3828,6 @@
         "fy": {
           "size": "130.2 KB",
           "count": 15,
-          "time": "0.4 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "8.7 KB",
@@ -3940,7 +3849,6 @@
         "ga": {
           "size": "441.6 KB",
           "count": 18,
-          "time": "2.5 s",
           "targets": {
             "cs": "14.1 KB",
             "de": "9.9 KB",
@@ -3965,7 +3873,6 @@
         "gd": {
           "size": "212.3 KB",
           "count": 15,
-          "time": "0.9 s",
           "targets": {
             "cs": "6.9 KB",
             "de": "7.4 KB",
@@ -3987,7 +3894,6 @@
         "gl": {
           "size": "466.7 KB",
           "count": 17,
-          "time": "5.7 s",
           "targets": {
             "cs": "7.7 KB",
             "de": "7.9 KB",
@@ -4011,7 +3917,6 @@
         "goh": {
           "size": "92.9 KB",
           "count": 13,
-          "time": "0.3 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "8.0 KB",
@@ -4031,7 +3936,6 @@
         "got": {
           "size": "152.8 KB",
           "count": 15,
-          "time": "0.8 s",
           "targets": {
             "cs": "6.8 KB",
             "de": "11.3 KB",
@@ -4053,7 +3957,6 @@
         "grc": {
           "size": "2.2 MB",
           "count": 16,
-          "time": "5.5 s",
           "targets": {
             "cs": "14.7 KB",
             "de": "16.3 KB",
@@ -4076,7 +3979,6 @@
         "gu": {
           "size": "208.7 KB",
           "count": 16,
-          "time": "0.5 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "7.6 KB",
@@ -4099,7 +4001,6 @@
         "gv": {
           "size": "101.6 KB",
           "count": 13,
-          "time": "0.3 s",
           "targets": {
             "de": "7.2 KB",
             "en": "16.5 KB",
@@ -4119,7 +4020,6 @@
         "haw": {
           "size": "149.8 KB",
           "count": 15,
-          "time": "0.3 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "7.2 KB",
@@ -4141,7 +4041,6 @@
         "he": {
           "size": "351.0 KB",
           "count": 18,
-          "time": "1.7 s",
           "targets": {
             "cs": "23.5 KB",
             "de": "8.1 KB",
@@ -4166,7 +4065,6 @@
         "hi": {
           "size": "1.0 MB",
           "count": 18,
-          "time": "2.6 s",
           "targets": {
             "cs": "7.8 KB",
             "de": "7.8 KB",
@@ -4191,7 +4089,6 @@
         "hu": {
           "size": "1.6 MB",
           "count": 18,
-          "time": "7.3 s",
           "targets": {
             "cs": "26.5 KB",
             "de": "19.8 KB",
@@ -4216,7 +4113,6 @@
         "hy": {
           "size": "944.3 KB",
           "count": 18,
-          "time": "2.7 s",
           "targets": {
             "cs": "7.5 KB",
             "de": "13.1 KB",
@@ -4241,7 +4137,6 @@
         "ia": {
           "size": "142.9 KB",
           "count": 15,
-          "time": "1.0 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "10.2 KB",
@@ -4263,7 +4158,6 @@
         "id": {
           "size": "701.3 KB",
           "count": 19,
-          "time": "3.1 s",
           "targets": {
             "cs": "8.4 KB",
             "de": "8.8 KB",
@@ -4287,9 +4181,8 @@
           }
         },
         "io": {
-          "size": "426.2 KB",
+          "size": "426.3 KB",
           "count": 16,
-          "time": "1.5 s",
           "targets": {
             "cs": "7.1 KB",
             "de": "18.7 KB",
@@ -4306,13 +4199,12 @@
             "ru": "15.1 KB",
             "th": "7.9 KB",
             "vi": "7.6 KB",
-            "zh": "26.1 KB"
+            "zh": "26.2 KB"
           }
         },
         "is": {
           "size": "518.0 KB",
           "count": 18,
-          "time": "2.3 s",
           "targets": {
             "cs": "10.1 KB",
             "de": "14.8 KB",
@@ -4337,7 +4229,6 @@
         "it": {
           "size": "10.4 MB",
           "count": 18,
-          "time": "18.3 s",
           "targets": {
             "cs": "36.6 KB",
             "de": "161.8 KB",
@@ -4362,7 +4253,6 @@
         "izh": {
           "size": "293.5 KB",
           "count": 7,
-          "time": "0.9 s",
           "targets": {
             "en": "251.6 KB",
             "es": "6.7 KB",
@@ -4376,7 +4266,6 @@
         "ja": {
           "size": "2.3 MB",
           "count": 19,
-          "time": "11.4 s",
           "targets": {
             "cs": "61.5 KB",
             "de": "10.1 KB",
@@ -4402,7 +4291,6 @@
         "jv": {
           "size": "115.0 KB",
           "count": 14,
-          "time": "0.5 s",
           "targets": {
             "de": "6.9 KB",
             "en": "25.8 KB",
@@ -4423,7 +4311,6 @@
         "ka": {
           "size": "663.6 KB",
           "count": 18,
-          "time": "1.7 s",
           "targets": {
             "cs": "8.5 KB",
             "de": "18.8 KB",
@@ -4448,7 +4335,6 @@
         "kix": {
           "size": "99.1 KB",
           "count": 4,
-          "time": "0.2 s",
           "targets": {
             "en": "78.3 KB",
             "ja": "7.0 KB",
@@ -4459,7 +4345,6 @@
         "kk": {
           "size": "318.3 KB",
           "count": 17,
-          "time": "1.5 s",
           "targets": {
             "cs": "7.2 KB",
             "de": "7.5 KB",
@@ -4483,7 +4368,6 @@
         "km": {
           "size": "172.2 KB",
           "count": 14,
-          "time": "0.8 s",
           "targets": {
             "de": "8.9 KB",
             "el": "7.1 KB",
@@ -4504,7 +4388,6 @@
         "kmr": {
           "size": "87.6 KB",
           "count": 7,
-          "time": "0.3 s",
           "targets": {
             "en": "41.1 KB",
             "fr": "6.7 KB",
@@ -4518,7 +4401,6 @@
         "kn": {
           "size": "114.1 KB",
           "count": 12,
-          "time": "0.3 s",
           "targets": {
             "cs": "6.9 KB",
             "de": "8.1 KB",
@@ -4537,7 +4419,6 @@
         "ko": {
           "size": "2.2 MB",
           "count": 19,
-          "time": "6.2 s",
           "targets": {
             "cs": "16.5 KB",
             "de": "10.9 KB",
@@ -4563,7 +4444,6 @@
         "ku": {
           "size": "1.1 MB",
           "count": 13,
-          "time": "0.7 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "12.7 KB",
@@ -4583,7 +4463,6 @@
         "kw": {
           "size": "125.0 KB",
           "count": 14,
-          "time": "0.5 s",
           "targets": {
             "cs": "6.6 KB",
             "de": "6.9 KB",
@@ -4604,7 +4483,6 @@
         "ky": {
           "size": "139.2 KB",
           "count": 15,
-          "time": "0.6 s",
           "targets": {
             "cs": "6.8 KB",
             "de": "7.5 KB",
@@ -4626,7 +4504,6 @@
         "la": {
           "size": "3.2 MB",
           "count": 18,
-          "time": "17.8 s",
           "targets": {
             "cs": "36.7 KB",
             "de": "39.4 KB",
@@ -4645,13 +4522,12 @@
             "th": "17.3 KB",
             "tr": "8.1 KB",
             "vi": "34.9 KB",
-            "zh": "145.8 KB"
+            "zh": "145.9 KB"
           }
         },
         "lb": {
           "size": "334.7 KB",
           "count": 18,
-          "time": "1.0 s",
           "targets": {
             "cs": "7.3 KB",
             "de": "8.0 KB",
@@ -4676,7 +4552,6 @@
         "liv": {
           "size": "110.9 KB",
           "count": 10,
-          "time": "0.2 s",
           "targets": {
             "cs": "6.8 KB",
             "en": "49.6 KB",
@@ -4693,7 +4568,6 @@
         "lld": {
           "size": "61.2 KB",
           "count": 9,
-          "time": "0.2 s",
           "targets": {
             "de": "6.9 KB",
             "en": "7.0 KB",
@@ -4709,7 +4583,6 @@
         "lo": {
           "size": "420.4 KB",
           "count": 15,
-          "time": "0.5 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "7.1 KB",
@@ -4725,13 +4598,12 @@
             "th": "254.8 KB",
             "tr": "6.9 KB",
             "vi": "6.7 KB",
-            "zh": "7.4 KB"
+            "zh": "7.5 KB"
           }
         },
         "lt": {
           "size": "590.5 KB",
           "count": 18,
-          "time": "1.9 s",
           "targets": {
             "cs": "13.0 KB",
             "de": "18.9 KB",
@@ -4756,7 +4628,6 @@
         "lv": {
           "size": "207.9 KB",
           "count": 18,
-          "time": "2.9 s",
           "targets": {
             "cs": "9.2 KB",
             "de": "31.7 KB",
@@ -4781,7 +4652,6 @@
         "lzz": {
           "size": "52.6 KB",
           "count": 7,
-          "time": "0.2 s",
           "targets": {
             "en": "11.2 KB",
             "fr": "7.2 KB",
@@ -4795,7 +4665,6 @@
         "mg": {
           "size": "381.0 KB",
           "count": 15,
-          "time": "0.4 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "6.9 KB",
@@ -4817,12 +4686,11 @@
         "mi": {
           "size": "117.6 KB",
           "count": 14,
-          "time": "0.3 s",
           "targets": {
             "de": "10.5 KB",
             "en": "24.6 KB",
             "es": "6.7 KB",
-            "fr": "6.9 KB",
+            "fr": "6.8 KB",
             "it": "6.9 KB",
             "ja": "7.0 KB",
             "ms": "6.8 KB",
@@ -4838,7 +4706,6 @@
         "mk": {
           "size": "1.3 MB",
           "count": 17,
-          "time": "3.9 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "44.1 KB",
@@ -4862,7 +4729,6 @@
         "ml": {
           "size": "286.0 KB",
           "count": 15,
-          "time": "0.6 s",
           "targets": {
             "de": "7.0 KB",
             "en": "172.9 KB",
@@ -4884,7 +4750,6 @@
         "mn": {
           "size": "222.4 KB",
           "count": 16,
-          "time": "0.6 s",
           "targets": {
             "cs": "7.8 KB",
             "de": "7.5 KB",
@@ -4907,7 +4772,6 @@
         "mr": {
           "size": "190.5 KB",
           "count": 14,
-          "time": "0.6 s",
           "targets": {
             "de": "11.8 KB",
             "en": "87.5 KB",
@@ -4928,7 +4792,6 @@
         "ms": {
           "size": "389.4 KB",
           "count": 19,
-          "time": "1.6 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "7.2 KB",
@@ -4954,7 +4817,6 @@
         "mt": {
           "size": "417.2 KB",
           "count": 18,
-          "time": "1.3 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "9.5 KB",
@@ -4977,9 +4839,8 @@
           }
         },
         "my": {
-          "size": "327.6 KB",
+          "size": "327.7 KB",
           "count": 17,
-          "time": "0.7 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "14.0 KB",
@@ -5003,7 +4864,6 @@
         "nah": {
           "size": "33.9 KB",
           "count": 5,
-          "time": "0.0 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "6.9 KB",
@@ -5015,7 +4875,6 @@
         "nb": {
           "size": "255.9 KB",
           "count": 13,
-          "time": "4.3 s",
           "targets": {
             "cs": "7.9 KB",
             "en": "150.2 KB",
@@ -5035,7 +4894,6 @@
         "nl": {
           "size": "3.0 MB",
           "count": 19,
-          "time": "8.3 s",
           "targets": {
             "cs": "32.0 KB",
             "de": "25.4 KB",
@@ -5061,7 +4919,6 @@
         "nn": {
           "size": "311.4 KB",
           "count": 15,
-          "time": "3.5 s",
           "targets": {
             "cs": "7.1 KB",
             "el": "7.0 KB",
@@ -5083,7 +4940,6 @@
         "no": {
           "size": "270.2 KB",
           "count": 14,
-          "time": "1.0 s",
           "targets": {
             "cs": "6.9 KB",
             "de": "12.3 KB",
@@ -5104,7 +4960,6 @@
         "non": {
           "size": "95.1 KB",
           "count": 13,
-          "time": "0.7 s",
           "targets": {
             "de": "7.0 KB",
             "en": "12.3 KB",
@@ -5124,7 +4979,6 @@
         "nrf": {
           "size": "49.7 KB",
           "count": 7,
-          "time": "0.4 s",
           "targets": {
             "en": "9.3 KB",
             "es": "6.7 KB",
@@ -5138,7 +4992,6 @@
         "nv": {
           "size": "122.5 KB",
           "count": 14,
-          "time": "0.7 s",
           "targets": {
             "cs": "6.7 KB",
             "en": "28.2 KB",
@@ -5159,7 +5012,6 @@
         "oc": {
           "size": "900.2 KB",
           "count": 17,
-          "time": "3.4 s",
           "targets": {
             "cs": "7.8 KB",
             "de": "33.9 KB",
@@ -5183,7 +5035,6 @@
         "or": {
           "size": "102.6 KB",
           "count": 10,
-          "time": "0.1 s",
           "targets": {
             "en": "34.3 KB",
             "es": "7.0 KB",
@@ -5194,13 +5045,12 @@
             "th": "7.9 KB",
             "tr": "6.8 KB",
             "vi": "7.2 KB",
-            "zh": "9.3 KB"
+            "zh": "9.2 KB"
           }
         },
         "ota": {
           "size": "88.2 KB",
           "count": 11,
-          "time": "0.8 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "6.9 KB",
@@ -5218,7 +5068,6 @@
         "pa": {
           "size": "190.0 KB",
           "count": 14,
-          "time": "0.8 s",
           "targets": {
             "de": "7.3 KB",
             "en": "88.2 KB",
@@ -5239,7 +5088,6 @@
         "pdt": {
           "size": "41.5 KB",
           "count": 6,
-          "time": "0.2 s",
           "targets": {
             "en": "7.6 KB",
             "ja": "7.0 KB",
@@ -5252,7 +5100,6 @@
         "pi": {
           "size": "63.5 KB",
           "count": 9,
-          "time": "1.7 s",
           "targets": {
             "de": "7.1 KB",
             "en": "7.1 KB",
@@ -5262,13 +5109,12 @@
             "ru": "6.9 KB",
             "th": "7.1 KB",
             "vi": "7.4 KB",
-            "zh": "7.0 KB"
+            "zh": "7.1 KB"
           }
         },
         "pl": {
           "size": "4.8 MB",
           "count": 18,
-          "time": "11.2 s",
           "targets": {
             "cs": "99.1 KB",
             "de": "261.3 KB",
@@ -5293,7 +5139,6 @@
         "pt": {
           "size": "8.3 MB",
           "count": 18,
-          "time": "15.2 s",
           "targets": {
             "cs": "18.1 KB",
             "de": "69.6 KB",
@@ -5318,7 +5163,6 @@
         "ro": {
           "size": "561.5 KB",
           "count": 18,
-          "time": "5.6 s",
           "targets": {
             "cs": "8.4 KB",
             "de": "26.5 KB",
@@ -5343,7 +5187,6 @@
         "rsk": {
           "size": "183.3 KB",
           "count": 9,
-          "time": "0.7 s",
           "targets": {
             "cs": "6.9 KB",
             "en": "124.5 KB",
@@ -5359,7 +5202,6 @@
         "ru": {
           "size": "14.1 MB",
           "count": 18,
-          "time": "16.5 s",
           "targets": {
             "cs": "83.3 KB",
             "de": "55.3 KB",
@@ -5384,7 +5226,6 @@
         "rup": {
           "size": "78.0 KB",
           "count": 11,
-          "time": "0.3 s",
           "targets": {
             "de": "6.9 KB",
             "en": "9.8 KB",
@@ -5402,7 +5243,6 @@
         "sa": {
           "size": "371.0 KB",
           "count": 16,
-          "time": "1.7 s",
           "targets": {
             "cs": "7.2 KB",
             "de": "7.0 KB",
@@ -5425,7 +5265,6 @@
         "sah": {
           "size": "111.1 KB",
           "count": 13,
-          "time": "0.5 s",
           "targets": {
             "cs": "7.3 KB",
             "de": "7.5 KB",
@@ -5443,9 +5282,8 @@
           }
         },
         "scn": {
-          "size": "232.2 KB",
+          "size": "232.1 KB",
           "count": 18,
-          "time": "0.7 s",
           "targets": {
             "cs": "6.8 KB",
             "de": "7.1 KB",
@@ -5470,7 +5308,6 @@
         "sco": {
           "size": "133.0 KB",
           "count": 15,
-          "time": "0.5 s",
           "targets": {
             "cs": "6.8 KB",
             "de": "8.3 KB",
@@ -5492,7 +5329,6 @@
         "se": {
           "size": "7.1 MB",
           "count": 13,
-          "time": "5.3 s",
           "targets": {
             "de": "7.0 KB",
             "en": "61.0 KB",
@@ -5510,9 +5346,8 @@
           }
         },
         "sga": {
-          "size": "158.1 KB",
+          "size": "158.0 KB",
           "count": 14,
-          "time": "0.5 s",
           "targets": {
             "de": "6.9 KB",
             "el": "7.0 KB",
@@ -5533,7 +5368,6 @@
         "sh": {
           "size": "934.3 KB",
           "count": 13,
-          "time": "3.6 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "7.4 KB",
@@ -5553,7 +5387,6 @@
         "simple": {
           "size": "382.7 KB",
           "count": 1,
-          "time": "0.1 s",
           "targets": {
             "simple": "382.7 KB"
           }
@@ -5561,7 +5394,6 @@
         "sk": {
           "size": "646.7 KB",
           "count": 18,
-          "time": "2.3 s",
           "targets": {
             "cs": "56.7 KB",
             "de": "43.1 KB",
@@ -5586,7 +5418,6 @@
         "sl": {
           "size": "291.4 KB",
           "count": 18,
-          "time": "2.4 s",
           "targets": {
             "cs": "10.4 KB",
             "de": "29.3 KB",
@@ -5611,7 +5442,6 @@
         "sq": {
           "size": "274.9 KB",
           "count": 18,
-          "time": "2.0 s",
           "targets": {
             "cs": "9.3 KB",
             "de": "20.1 KB",
@@ -5636,7 +5466,6 @@
         "su": {
           "size": "61.2 KB",
           "count": 8,
-          "time": "0.2 s",
           "targets": {
             "cs": "6.6 KB",
             "en": "13.7 KB",
@@ -5651,12 +5480,11 @@
         "sv": {
           "size": "463.0 KB",
           "count": 19,
-          "time": "7.2 s",
           "targets": {
             "cs": "25.5 KB",
             "de": "110.2 KB",
             "el": "7.4 KB",
-            "en": "104.4 KB",
+            "en": "104.3 KB",
             "es": "33.5 KB",
             "fr": "17.3 KB",
             "it": "11.7 KB",
@@ -5677,7 +5505,6 @@
         "sw": {
           "size": "122.1 KB",
           "count": 15,
-          "time": "1.5 s",
           "targets": {
             "cs": "6.8 KB",
             "de": "7.9 KB",
@@ -5699,7 +5526,6 @@
         "syc": {
           "size": "119.6 KB",
           "count": 9,
-          "time": "0.3 s",
           "targets": {
             "en": "59.8 KB",
             "es": "6.7 KB",
@@ -5713,9 +5539,8 @@
           }
         },
         "ta": {
-          "size": "362.5 KB",
+          "size": "362.6 KB",
           "count": 16,
-          "time": "1.2 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "7.7 KB",
@@ -5732,13 +5557,12 @@
             "th": "12.1 KB",
             "tr": "10.6 KB",
             "vi": "9.1 KB",
-            "zh": "23.9 KB"
+            "zh": "24.0 KB"
           }
         },
         "te": {
-          "size": "204.2 KB",
+          "size": "204.3 KB",
           "count": 15,
-          "time": "1.0 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "9.1 KB",
@@ -5760,7 +5584,6 @@
         "tg": {
           "size": "222.1 KB",
           "count": 17,
-          "time": "0.7 s",
           "targets": {
             "cs": "7.4 KB",
             "de": "7.6 KB",
@@ -5778,13 +5601,12 @@
             "th": "7.0 KB",
             "tr": "10.2 KB",
             "vi": "8.3 KB",
-            "zh": "11.6 KB"
+            "zh": "11.5 KB"
           }
         },
         "th": {
           "size": "1.0 MB",
           "count": 16,
-          "time": "1.8 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "12.9 KB",
@@ -5807,7 +5629,6 @@
         "tl": {
           "size": "1021.1 KB",
           "count": 17,
-          "time": "2.5 s",
           "targets": {
             "cs": "6.8 KB",
             "de": "10.1 KB",
@@ -5831,7 +5652,6 @@
         "tok": {
           "size": "70.7 KB",
           "count": 7,
-          "time": "0.0 s",
           "targets": {
             "es": "25.5 KB",
             "fr": "7.8 KB",
@@ -5845,7 +5665,6 @@
         "tr": {
           "size": "771.7 KB",
           "count": 19,
-          "time": "6.9 s",
           "targets": {
             "cs": "15.4 KB",
             "de": "16.4 KB",
@@ -5871,7 +5690,6 @@
         "ug": {
           "size": "154.8 KB",
           "count": 15,
-          "time": "0.5 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "6.9 KB",
@@ -5893,7 +5711,6 @@
         "uk": {
           "size": "1.4 MB",
           "count": 17,
-          "time": "7.0 s",
           "targets": {
             "cs": "35.3 KB",
             "de": "174.2 KB",
@@ -5917,7 +5734,6 @@
         "ur": {
           "size": "298.5 KB",
           "count": 17,
-          "time": "0.9 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "36.6 KB",
@@ -5941,7 +5757,6 @@
         "uz": {
           "size": "127.1 KB",
           "count": 15,
-          "time": "0.9 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "14.1 KB",
@@ -5963,7 +5778,6 @@
         "vec": {
           "size": "102.5 KB",
           "count": 14,
-          "time": "0.3 s",
           "targets": {
             "cs": "6.8 KB",
             "de": "8.7 KB",
@@ -5984,7 +5798,6 @@
         "vi": {
           "size": "2.9 MB",
           "count": 18,
-          "time": "4.6 s",
           "targets": {
             "cs": "8.5 KB",
             "de": "19.4 KB",
@@ -6003,13 +5816,12 @@
             "th": "35.5 KB",
             "tr": "6.8 KB",
             "vi": "1.5 MB",
-            "zh": "110.8 KB"
+            "zh": "111.4 KB"
           }
         },
         "vo": {
           "size": "126.7 KB",
           "count": 14,
-          "time": "0.6 s",
           "targets": {
             "cs": "7.5 KB",
             "de": "7.3 KB",
@@ -6030,7 +5842,6 @@
         "vot": {
           "size": "119.6 KB",
           "count": 7,
-          "time": "0.3 s",
           "targets": {
             "cs": "7.2 KB",
             "en": "78.6 KB",
@@ -6044,7 +5855,6 @@
         "xcl": {
           "size": "13.4 KB",
           "count": 2,
-          "time": "0.0 s",
           "targets": {
             "pl": "6.7 KB",
             "ru": "6.7 KB"
@@ -6053,7 +5863,6 @@
         "yi": {
           "size": "363.2 KB",
           "count": 17,
-          "time": "1.0 s",
           "targets": {
             "cs": "9.6 KB",
             "de": "7.9 KB",
@@ -6077,7 +5886,6 @@
         "yo": {
           "size": "167.1 KB",
           "count": 13,
-          "time": "0.4 s",
           "targets": {
             "cs": "6.9 KB",
             "de": "7.6 KB",
@@ -6097,7 +5905,6 @@
         "yue": {
           "size": "134.4 KB",
           "count": 14,
-          "time": "0.3 s",
           "targets": {
             "cs": "7.9 KB",
             "de": "6.9 KB",
@@ -6118,7 +5925,6 @@
         "zh": {
           "size": "50.8 MB",
           "count": 17,
-          "time": "20.4 s",
           "targets": {
             "cs": "20.8 KB",
             "de": "9.3 KB",
@@ -6142,7 +5948,6 @@
         "zu": {
           "size": "138.1 KB",
           "count": 16,
-          "time": "0.6 s",
           "targets": {
             "cs": "6.7 KB",
             "de": "7.6 KB",
@@ -6167,12 +5972,10 @@
     "ipa-merged": {
       "size": "160.1 MB",
       "count": 169,
-      "time": "1337.9 s",
       "sources": {
         "all": {
           "size": "159.7 MB",
           "count": 150,
-          "time": "773.9 s",
           "targets": {
             "ady": "76.0 KB",
             "af": "48.6 KB",
@@ -6190,7 +5993,7 @@
             "bcl": "94.7 KB",
             "be": "196.5 KB",
             "bg": "589.1 KB",
-            "bn": "198.6 KB",
+            "bn": "198.7 KB",
             "bo": "44.0 KB",
             "ca": "1.2 MB",
             "ceb": "103.2 KB",
@@ -6245,7 +6048,7 @@
             "ka": "421.1 KB",
             "kix": "76.3 KB",
             "kk": "172.2 KB",
-            "km": "66.8 KB",
+            "km": "66.9 KB",
             "kmr": "38.9 KB",
             "kn": "33.4 KB",
             "ko": "1.3 MB",
@@ -6263,12 +6066,12 @@
             "mg": "240.9 KB",
             "mi": "27.6 KB",
             "mk": "839.1 KB",
-            "ml": "150.7 KB",
+            "ml": "150.8 KB",
             "mn": "93.0 KB",
             "mr": "82.7 KB",
             "ms": "217.9 KB",
             "mt": "244.4 KB",
-            "my": "141.0 KB",
+            "my": "141.1 KB",
             "nah": "7.1 KB",
             "nb": "150.5 KB",
             "nl": "2.0 MB",
@@ -6303,8 +6106,8 @@
             "sv": "257.9 KB",
             "sw": "25.0 KB",
             "syc": "57.0 KB",
-            "ta": "200.2 KB",
-            "te": "85.4 KB",
+            "ta": "200.5 KB",
+            "te": "85.5 KB",
             "tg": "88.5 KB",
             "th": "569.4 KB",
             "tl": "719.3 KB",
@@ -6329,7 +6132,6 @@
         "gem-pro": {
           "size": "94.7 KB",
           "count": 5,
-          "time": "133.0 s",
           "targets": {
             "en": "67.5 KB",
             "es": "6.9 KB",
@@ -6341,7 +6143,6 @@
         "gmw-pro": {
           "size": "6.8 KB",
           "count": 1,
-          "time": "56.7 s",
           "targets": {
             "en": "6.8 KB"
           }
@@ -6349,7 +6150,6 @@
         "sla-pro": {
           "size": "13.8 KB",
           "count": 2,
-          "time": "37.0 s",
           "targets": {
             "el": "6.9 KB",
             "ru": "6.8 KB"
@@ -6358,7 +6158,6 @@
         "zlw-ocs": {
           "size": "131.1 KB",
           "count": 7,
-          "time": "204.6 s",
           "targets": {
             "en": "79.9 KB",
             "es": "6.6 KB",
@@ -6372,7 +6171,6 @@
         "zlw-opl": {
           "size": "81.2 KB",
           "count": 4,
-          "time": "132.7 s",
           "targets": {
             "en": "59.2 KB",
             "ja": "7.3 KB",
@@ -6385,12 +6183,10 @@
     "main": {
       "size": "1.5 GB",
       "count": 2649,
-      "time": "614.8 s",
       "sources": {
         "ady": {
           "size": "943.8 KB",
           "count": 15,
-          "time": "0.3 s",
           "targets": {
             "cs": "8.5 KB",
             "de": "11.8 KB",
@@ -6412,7 +6208,6 @@
         "af": {
           "size": "1.5 MB",
           "count": 20,
-          "time": "1.8 s",
           "targets": {
             "cs": "8.8 KB",
             "de": "26.6 KB",
@@ -6439,7 +6234,6 @@
         "afb": {
           "size": "171.6 KB",
           "count": 7,
-          "time": "0.1 s",
           "targets": {
             "en": "109.3 KB",
             "es": "6.8 KB",
@@ -6453,7 +6247,6 @@
         "aii": {
           "size": "1.8 MB",
           "count": 10,
-          "time": "0.6 s",
           "targets": {
             "en": "1.6 MB",
             "es": "7.0 KB",
@@ -6470,7 +6263,6 @@
         "ajp": {
           "size": "597.2 KB",
           "count": 7,
-          "time": "0.3 s",
           "targets": {
             "en": "495.5 KB",
             "es": "7.3 KB",
@@ -6484,7 +6276,6 @@
         "ang": {
           "size": "3.9 MB",
           "count": 18,
-          "time": "2.0 s",
           "targets": {
             "cs": "11.5 KB",
             "de": "20.5 KB",
@@ -6509,7 +6300,6 @@
         "apc": {
           "size": "245.8 KB",
           "count": 8,
-          "time": "0.1 s",
           "targets": {
             "de": "28.2 KB",
             "en": "161.2 KB",
@@ -6524,7 +6314,6 @@
         "ar": {
           "size": "16.7 MB",
           "count": 20,
-          "time": "9.1 s",
           "targets": {
             "cs": "32.1 KB",
             "de": "71.5 KB",
@@ -6551,7 +6340,6 @@
         "arz": {
           "size": "357.0 KB",
           "count": 15,
-          "time": "0.3 s",
           "targets": {
             "de": "7.6 KB",
             "el": "7.2 KB",
@@ -6573,7 +6361,6 @@
         "as": {
           "size": "1.3 MB",
           "count": 18,
-          "time": "0.6 s",
           "targets": {
             "de": "7.5 KB",
             "el": "7.9 KB",
@@ -6598,7 +6385,6 @@
         "ast": {
           "size": "2.3 MB",
           "count": 18,
-          "time": "1.8 s",
           "targets": {
             "cs": "7.3 KB",
             "de": "10.6 KB",
@@ -6623,7 +6409,6 @@
         "az": {
           "size": "9.1 MB",
           "count": 19,
-          "time": "5.1 s",
           "targets": {
             "cs": "10.4 KB",
             "de": "66.0 KB",
@@ -6649,7 +6434,6 @@
         "ba": {
           "size": "2.1 MB",
           "count": 19,
-          "time": "0.7 s",
           "targets": {
             "cs": "8.3 KB",
             "de": "16.4 KB",
@@ -6675,7 +6459,6 @@
         "bcl": {
           "size": "534.6 KB",
           "count": 13,
-          "time": "0.5 s",
           "targets": {
             "el": "7.4 KB",
             "en": "394.9 KB",
@@ -6695,7 +6478,6 @@
         "be": {
           "size": "4.5 MB",
           "count": 19,
-          "time": "1.5 s",
           "targets": {
             "cs": "12.8 KB",
             "de": "186.4 KB",
@@ -6721,7 +6503,6 @@
         "bg": {
           "size": "10.6 MB",
           "count": 19,
-          "time": "4.4 s",
           "targets": {
             "cs": "16.8 KB",
             "de": "97.6 KB",
@@ -6747,7 +6528,6 @@
         "bn": {
           "size": "2.3 MB",
           "count": 19,
-          "time": "0.8 s",
           "targets": {
             "cs": "9.6 KB",
             "de": "13.7 KB",
@@ -6773,7 +6553,6 @@
         "bo": {
           "size": "672.8 KB",
           "count": 19,
-          "time": "0.2 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "12.1 KB",
@@ -6799,7 +6578,6 @@
         "ca": {
           "size": "8.9 MB",
           "count": 18,
-          "time": "7.1 s",
           "targets": {
             "cs": "19.5 KB",
             "de": "394.5 KB",
@@ -6824,7 +6602,6 @@
         "ceb": {
           "size": "1.6 MB",
           "count": 19,
-          "time": "0.8 s",
           "targets": {
             "cs": "7.4 KB",
             "de": "7.9 KB",
@@ -6850,7 +6627,6 @@
         "cim": {
           "size": "434.8 KB",
           "count": 11,
-          "time": "0.2 s",
           "targets": {
             "cs": "7.1 KB",
             "en": "338.0 KB",
@@ -6868,7 +6644,6 @@
         "cmn": {
           "size": "727.4 KB",
           "count": 7,
-          "time": "1.9 s",
           "targets": {
             "en": "26.2 KB",
             "es": "29.5 KB",
@@ -6882,7 +6657,6 @@
         "cop": {
           "size": "945.8 KB",
           "count": 16,
-          "time": "0.6 s",
           "targets": {
             "de": "11.7 KB",
             "el": "9.2 KB",
@@ -6905,7 +6679,6 @@
         "crh": {
           "size": "1.0 MB",
           "count": 18,
-          "time": "0.5 s",
           "targets": {
             "cs": "8.0 KB",
             "de": "16.3 KB",
@@ -6930,7 +6703,6 @@
         "cs": {
           "size": "27.1 MB",
           "count": 19,
-          "time": "9.8 s",
           "targets": {
             "cs": "7.8 MB",
             "de": "2.3 MB",
@@ -6956,7 +6728,6 @@
         "csb": {
           "size": "778.5 KB",
           "count": 18,
-          "time": "0.3 s",
           "targets": {
             "cs": "22.5 KB",
             "de": "11.1 KB",
@@ -6981,7 +6752,6 @@
         "cu": {
           "size": "2.3 MB",
           "count": 17,
-          "time": "1.0 s",
           "targets": {
             "cs": "55.9 KB",
             "de": "13.7 KB",
@@ -7005,7 +6775,6 @@
         "cy": {
           "size": "3.2 MB",
           "count": 19,
-          "time": "1.8 s",
           "targets": {
             "cs": "9.3 KB",
             "de": "15.8 KB",
@@ -7031,7 +6800,6 @@
         "da": {
           "size": "7.0 MB",
           "count": 19,
-          "time": "3.2 s",
           "targets": {
             "cs": "25.6 KB",
             "de": "74.1 KB",
@@ -7057,7 +6825,6 @@
         "de": {
           "size": "105.3 MB",
           "count": 20,
-          "time": "51.6 s",
           "targets": {
             "cs": "1.4 MB",
             "de": "51.2 MB",
@@ -7084,7 +6851,6 @@
         "dsb": {
           "size": "784.3 KB",
           "count": 17,
-          "time": "0.4 s",
           "targets": {
             "cs": "9.9 KB",
             "de": "99.7 KB",
@@ -7106,13 +6872,12 @@
           }
         },
         "dum": {
-          "size": "347.3 KB",
+          "size": "347.2 KB",
           "count": 14,
-          "time": "0.2 s",
           "targets": {
             "de": "7.0 KB",
             "el": "7.1 KB",
-            "en": "167.3 KB",
+            "en": "167.2 KB",
             "es": "7.2 KB",
             "fr": "8.2 KB",
             "ja": "18.0 KB",
@@ -7129,7 +6894,6 @@
         "egy": {
           "size": "730.4 KB",
           "count": 16,
-          "time": "0.4 s",
           "targets": {
             "cs": "7.0 KB",
             "el": "8.9 KB",
@@ -7152,7 +6916,6 @@
         "el": {
           "size": "51.6 MB",
           "count": 19,
-          "time": "12.5 s",
           "targets": {
             "cs": "248.3 KB",
             "de": "51.6 KB",
@@ -7178,7 +6941,6 @@
         "en": {
           "size": "159.6 MB",
           "count": 20,
-          "time": "47.9 s",
           "targets": {
             "cs": "1.0 MB",
             "de": "1.9 MB",
@@ -7205,7 +6967,6 @@
         "enm": {
           "size": "2.4 MB",
           "count": 16,
-          "time": "1.8 s",
           "targets": {
             "de": "7.4 KB",
             "el": "7.6 KB",
@@ -7228,7 +6989,6 @@
         "eo": {
           "size": "14.3 MB",
           "count": 19,
-          "time": "7.4 s",
           "targets": {
             "cs": "55.4 KB",
             "de": "233.8 KB",
@@ -7254,7 +7014,6 @@
         "es": {
           "size": "62.2 MB",
           "count": 20,
-          "time": "29.1 s",
           "targets": {
             "cs": "239.7 KB",
             "de": "265.0 KB",
@@ -7281,7 +7040,6 @@
         "et": {
           "size": "3.7 MB",
           "count": 19,
-          "time": "2.0 s",
           "targets": {
             "cs": "63.2 KB",
             "de": "36.3 KB",
@@ -7307,7 +7065,6 @@
         "eu": {
           "size": "4.1 MB",
           "count": 19,
-          "time": "1.9 s",
           "targets": {
             "cs": "9.8 KB",
             "de": "35.7 KB",
@@ -7333,7 +7090,6 @@
         "fa": {
           "size": "5.1 MB",
           "count": 19,
-          "time": "1.9 s",
           "targets": {
             "cs": "13.7 KB",
             "de": "24.6 KB",
@@ -7359,7 +7115,6 @@
         "fi": {
           "size": "49.6 MB",
           "count": 19,
-          "time": "40.1 s",
           "targets": {
             "cs": "319.7 KB",
             "de": "164.8 KB",
@@ -7385,7 +7140,6 @@
         "fo": {
           "size": "1.7 MB",
           "count": 19,
-          "time": "0.9 s",
           "targets": {
             "cs": "8.4 KB",
             "de": "153.5 KB",
@@ -7409,16 +7163,15 @@
           }
         },
         "fr": {
-          "size": "106.3 MB",
+          "size": "106.0 MB",
           "count": 20,
-          "time": "36.7 s",
           "targets": {
             "cs": "1.9 MB",
             "de": "846.2 KB",
             "el": "2.6 MB",
             "en": "10.5 MB",
             "es": "473.1 KB",
-            "fr": "72.7 MB",
+            "fr": "72.4 MB",
             "id": "10.1 KB",
             "it": "544.2 KB",
             "ja": "867.2 KB",
@@ -7438,7 +7191,6 @@
         "frm": {
           "size": "891.5 KB",
           "count": 15,
-          "time": "0.6 s",
           "targets": {
             "el": "8.0 KB",
             "en": "476.6 KB",
@@ -7447,7 +7199,7 @@
             "it": "11.1 KB",
             "ja": "38.9 KB",
             "ko": "6.8 KB",
-            "ku": "9.8 KB",
+            "ku": "9.7 KB",
             "ms": "6.9 KB",
             "nl": "7.5 KB",
             "pt": "7.4 KB",
@@ -7460,7 +7212,6 @@
         "fro": {
           "size": "2.9 MB",
           "count": 16,
-          "time": "1.4 s",
           "targets": {
             "de": "8.1 KB",
             "el": "18.0 KB",
@@ -7483,7 +7234,6 @@
         "fy": {
           "size": "673.0 KB",
           "count": 17,
-          "time": "0.3 s",
           "targets": {
             "cs": "7.4 KB",
             "de": "16.4 KB",
@@ -7507,7 +7257,6 @@
         "ga": {
           "size": "4.5 MB",
           "count": 19,
-          "time": "2.4 s",
           "targets": {
             "cs": "32.6 KB",
             "de": "25.0 KB",
@@ -7533,7 +7282,6 @@
         "gd": {
           "size": "1.5 MB",
           "count": 18,
-          "time": "0.9 s",
           "targets": {
             "cs": "8.1 KB",
             "de": "9.4 KB",
@@ -7558,7 +7306,6 @@
         "gem-pro": {
           "size": "1.4 MB",
           "count": 6,
-          "time": "0.7 s",
           "targets": {
             "el": "7.4 KB",
             "en": "1.4 MB",
@@ -7571,7 +7318,6 @@
         "gl": {
           "size": "7.9 MB",
           "count": 19,
-          "time": "5.6 s",
           "targets": {
             "cs": "15.1 KB",
             "de": "13.8 KB",
@@ -7597,7 +7343,6 @@
         "gmw-pro": {
           "size": "889.1 KB",
           "count": 5,
-          "time": "0.5 s",
           "targets": {
             "en": "856.6 KB",
             "es": "7.0 KB",
@@ -7609,7 +7354,6 @@
         "goh": {
           "size": "505.0 KB",
           "count": 17,
-          "time": "0.3 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "18.5 KB",
@@ -7633,12 +7377,11 @@
         "got": {
           "size": "1.9 MB",
           "count": 18,
-          "time": "0.9 s",
           "targets": {
             "cs": "8.3 KB",
             "de": "57.6 KB",
             "el": "8.4 KB",
-            "en": "1017.8 KB",
+            "en": "1016.7 KB",
             "es": "13.3 KB",
             "fr": "50.2 KB",
             "it": "7.9 KB",
@@ -7658,7 +7401,6 @@
         "grc": {
           "size": "23.8 MB",
           "count": 17,
-          "time": "8.8 s",
           "targets": {
             "cs": "65.2 KB",
             "de": "345.8 KB",
@@ -7682,7 +7424,6 @@
         "gu": {
           "size": "1.2 MB",
           "count": 19,
-          "time": "0.5 s",
           "targets": {
             "cs": "7.3 KB",
             "de": "11.4 KB",
@@ -7706,9 +7447,8 @@
           }
         },
         "gv": {
-          "size": "568.7 KB",
+          "size": "568.6 KB",
           "count": 18,
-          "time": "0.3 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "9.1 KB",
@@ -7733,7 +7473,6 @@
         "haw": {
           "size": "597.7 KB",
           "count": 20,
-          "time": "0.2 s",
           "targets": {
             "cs": "7.9 KB",
             "de": "15.7 KB",
@@ -7760,7 +7499,6 @@
         "he": {
           "size": "4.7 MB",
           "count": 20,
-          "time": "1.7 s",
           "targets": {
             "cs": "110.3 KB",
             "de": "29.5 KB",
@@ -7787,7 +7525,6 @@
         "hi": {
           "size": "6.6 MB",
           "count": 19,
-          "time": "3.4 s",
           "targets": {
             "cs": "11.5 KB",
             "de": "10.6 KB",
@@ -7813,7 +7550,6 @@
         "hu": {
           "size": "17.6 MB",
           "count": 19,
-          "time": "7.2 s",
           "targets": {
             "cs": "123.8 KB",
             "de": "90.2 KB",
@@ -7839,7 +7575,6 @@
         "hy": {
           "size": "8.6 MB",
           "count": 19,
-          "time": "4.1 s",
           "targets": {
             "cs": "10.7 KB",
             "de": "67.5 KB",
@@ -7865,7 +7600,6 @@
         "ia": {
           "size": "1.3 MB",
           "count": 19,
-          "time": "0.5 s",
           "targets": {
             "cs": "7.3 KB",
             "de": "38.6 KB",
@@ -7891,7 +7625,6 @@
         "id": {
           "size": "7.6 MB",
           "count": 20,
-          "time": "2.6 s",
           "targets": {
             "cs": "12.2 KB",
             "de": "22.7 KB",
@@ -7918,7 +7651,6 @@
         "io": {
           "size": "2.6 MB",
           "count": 18,
-          "time": "1.1 s",
           "targets": {
             "cs": "9.3 KB",
             "de": "156.2 KB",
@@ -7943,7 +7675,6 @@
         "is": {
           "size": "4.9 MB",
           "count": 19,
-          "time": "2.2 s",
           "targets": {
             "cs": "25.0 KB",
             "de": "76.0 KB",
@@ -7969,7 +7700,6 @@
         "it": {
           "size": "61.8 MB",
           "count": 20,
-          "time": "25.4 s",
           "targets": {
             "cs": "212.3 KB",
             "de": "723.1 KB",
@@ -7996,9 +7726,8 @@
         "izh": {
           "size": "3.2 MB",
           "count": 12,
-          "time": "1.3 s",
           "targets": {
-            "cs": "6.9 KB",
+            "cs": "6.8 KB",
             "en": "3.0 MB",
             "es": "7.9 KB",
             "fr": "8.7 KB",
@@ -8015,7 +7744,6 @@
         "ja": {
           "size": "41.8 MB",
           "count": 20,
-          "time": "11.4 s",
           "targets": {
             "cs": "504.4 KB",
             "de": "37.6 KB",
@@ -8042,7 +7770,6 @@
         "jv": {
           "size": "562.0 KB",
           "count": 19,
-          "time": "0.3 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "7.0 KB",
@@ -8062,13 +7789,12 @@
             "th": "8.1 KB",
             "tr": "8.2 KB",
             "vi": "9.3 KB",
-            "zh": "21.7 KB"
+            "zh": "21.6 KB"
           }
         },
         "ka": {
           "size": "6.5 MB",
           "count": 19,
-          "time": "2.7 s",
           "targets": {
             "cs": "13.8 KB",
             "de": "85.9 KB",
@@ -8094,7 +7820,6 @@
         "kix": {
           "size": "294.5 KB",
           "count": 4,
-          "time": "0.1 s",
           "targets": {
             "en": "270.9 KB",
             "ja": "7.3 KB",
@@ -8105,7 +7830,6 @@
         "kk": {
           "size": "3.6 MB",
           "count": 19,
-          "time": "1.1 s",
           "targets": {
             "cs": "9.9 KB",
             "de": "9.7 KB",
@@ -8131,7 +7855,6 @@
         "km": {
           "size": "1.6 MB",
           "count": 19,
-          "time": "0.6 s",
           "targets": {
             "cs": "6.9 KB",
             "de": "16.0 KB",
@@ -8157,7 +7880,6 @@
         "kmr": {
           "size": "552.0 KB",
           "count": 10,
-          "time": "0.3 s",
           "targets": {
             "en": "407.3 KB",
             "es": "6.8 KB",
@@ -8174,7 +7896,6 @@
         "kn": {
           "size": "687.0 KB",
           "count": 18,
-          "time": "0.2 s",
           "targets": {
             "cs": "8.3 KB",
             "de": "12.5 KB",
@@ -8199,7 +7920,6 @@
         "ko": {
           "size": "21.2 MB",
           "count": 20,
-          "time": "6.1 s",
           "targets": {
             "cs": "34.9 KB",
             "de": "38.3 KB",
@@ -8226,7 +7946,6 @@
         "ku": {
           "size": "14.3 MB",
           "count": 16,
-          "time": "2.1 s",
           "targets": {
             "cs": "10.3 KB",
             "de": "30.0 KB",
@@ -8247,14 +7966,13 @@
           }
         },
         "kw": {
-          "size": "932.4 KB",
+          "size": "932.3 KB",
           "count": 18,
-          "time": "0.5 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "7.4 KB",
             "el": "8.3 KB",
-            "en": "633.3 KB",
+            "en": "633.2 KB",
             "es": "14.1 KB",
             "fr": "55.4 KB",
             "it": "7.5 KB",
@@ -8274,7 +7992,6 @@
         "ky": {
           "size": "1.3 MB",
           "count": 19,
-          "time": "0.5 s",
           "targets": {
             "cs": "8.3 KB",
             "de": "10.1 KB",
@@ -8300,7 +8017,6 @@
         "la": {
           "size": "46.0 MB",
           "count": 20,
-          "time": "24.5 s",
           "targets": {
             "cs": "378.0 KB",
             "de": "2.0 MB",
@@ -8327,12 +8043,11 @@
         "lb": {
           "size": "1.5 MB",
           "count": 19,
-          "time": "0.8 s",
           "targets": {
             "cs": "9.6 KB",
             "de": "16.3 KB",
             "el": "9.7 KB",
-            "en": "722.6 KB",
+            "en": "722.5 KB",
             "es": "9.6 KB",
             "fr": "287.2 KB",
             "it": "15.4 KB",
@@ -8347,13 +8062,12 @@
             "th": "16.7 KB",
             "tr": "12.2 KB",
             "vi": "9.7 KB",
-            "zh": "64.5 KB"
+            "zh": "64.2 KB"
           }
         },
         "liv": {
           "size": "678.2 KB",
           "count": 16,
-          "time": "0.3 s",
           "targets": {
             "cs": "7.7 KB",
             "el": "7.2 KB",
@@ -8376,11 +8090,10 @@
         "lld": {
           "size": "330.2 KB",
           "count": 17,
-          "time": "0.5 s",
           "targets": {
             "de": "7.6 KB",
             "el": "7.2 KB",
-            "en": "165.5 KB",
+            "en": "165.4 KB",
             "es": "9.1 KB",
             "fr": "11.8 KB",
             "it": "8.0 KB",
@@ -8400,7 +8113,6 @@
         "lo": {
           "size": "1.5 MB",
           "count": 19,
-          "time": "0.7 s",
           "targets": {
             "cs": "8.2 KB",
             "de": "8.2 KB",
@@ -8426,7 +8138,6 @@
         "lt": {
           "size": "3.9 MB",
           "count": 20,
-          "time": "1.7 s",
           "targets": {
             "cs": "60.9 KB",
             "de": "80.5 KB",
@@ -8453,7 +8164,6 @@
         "lv": {
           "size": "5.9 MB",
           "count": 19,
-          "time": "3.2 s",
           "targets": {
             "cs": "32.9 KB",
             "de": "73.1 KB",
@@ -8479,7 +8189,6 @@
         "lzz": {
           "size": "662.9 KB",
           "count": 12,
-          "time": "0.3 s",
           "targets": {
             "en": "477.1 KB",
             "es": "6.9 KB",
@@ -8498,7 +8207,6 @@
         "mg": {
           "size": "686.4 KB",
           "count": 20,
-          "time": "0.2 s",
           "targets": {
             "cs": "7.6 KB",
             "de": "7.2 KB",
@@ -8525,7 +8233,6 @@
         "mi": {
           "size": "552.6 KB",
           "count": 19,
-          "time": "0.2 s",
           "targets": {
             "cs": "6.9 KB",
             "de": "25.4 KB",
@@ -8540,7 +8247,7 @@
             "ms": "8.8 KB",
             "nl": "10.2 KB",
             "pl": "16.4 KB",
-            "pt": "15.9 KB",
+            "pt": "15.8 KB",
             "ru": "57.5 KB",
             "th": "7.8 KB",
             "tr": "8.4 KB",
@@ -8551,7 +8258,6 @@
         "mk": {
           "size": "9.3 MB",
           "count": 19,
-          "time": "4.1 s",
           "targets": {
             "cs": "9.3 KB",
             "de": "96.1 KB",
@@ -8577,7 +8283,6 @@
         "ml": {
           "size": "1.3 MB",
           "count": 18,
-          "time": "0.5 s",
           "targets": {
             "de": "7.5 KB",
             "el": "9.7 KB",
@@ -8602,7 +8307,6 @@
         "mn": {
           "size": "1.4 MB",
           "count": 19,
-          "time": "0.5 s",
           "targets": {
             "cs": "13.3 KB",
             "de": "10.0 KB",
@@ -8628,7 +8332,6 @@
         "mr": {
           "size": "1.1 MB",
           "count": 19,
-          "time": "0.5 s",
           "targets": {
             "cs": "6.9 KB",
             "de": "40.1 KB",
@@ -8654,7 +8357,6 @@
         "ms": {
           "size": "3.4 MB",
           "count": 20,
-          "time": "1.4 s",
           "targets": {
             "cs": "7.6 KB",
             "de": "8.9 KB",
@@ -8681,7 +8383,6 @@
         "mt": {
           "size": "2.0 MB",
           "count": 19,
-          "time": "1.3 s",
           "targets": {
             "cs": "9.8 KB",
             "de": "17.0 KB",
@@ -8707,7 +8408,6 @@
         "my": {
           "size": "1.6 MB",
           "count": 19,
-          "time": "0.6 s",
           "targets": {
             "cs": "6.9 KB",
             "de": "35.9 KB",
@@ -8733,7 +8433,6 @@
         "nah": {
           "size": "100.0 KB",
           "count": 12,
-          "time": "0.0 s",
           "targets": {
             "cs": "7.3 KB",
             "de": "7.4 KB",
@@ -8752,7 +8451,6 @@
         "nb": {
           "size": "4.4 MB",
           "count": 16,
-          "time": "4.0 s",
           "targets": {
             "cs": "16.4 KB",
             "el": "7.1 KB",
@@ -8775,7 +8473,6 @@
         "nl": {
           "size": "39.8 MB",
           "count": 20,
-          "time": "10.1 s",
           "targets": {
             "cs": "148.6 KB",
             "de": "126.6 KB",
@@ -8802,7 +8499,6 @@
         "nn": {
           "size": "3.9 MB",
           "count": 17,
-          "time": "3.0 s",
           "targets": {
             "cs": "8.8 KB",
             "el": "11.2 KB",
@@ -8826,7 +8522,6 @@
         "no": {
           "size": "2.5 MB",
           "count": 16,
-          "time": "1.0 s",
           "targets": {
             "cs": "8.0 KB",
             "de": "52.7 KB",
@@ -8849,7 +8544,6 @@
         "non": {
           "size": "1.1 MB",
           "count": 16,
-          "time": "0.7 s",
           "targets": {
             "de": "10.1 KB",
             "el": "7.8 KB",
@@ -8872,7 +8566,6 @@
         "nrf": {
           "size": "769.4 KB",
           "count": 11,
-          "time": "0.5 s",
           "targets": {
             "cs": "7.5 KB",
             "en": "578.4 KB",
@@ -8890,11 +8583,10 @@
         "nv": {
           "size": "1.2 MB",
           "count": 18,
-          "time": "0.6 s",
           "targets": {
             "cs": "6.9 KB",
             "el": "7.7 KB",
-            "en": "810.8 KB",
+            "en": "810.7 KB",
             "es": "12.2 KB",
             "fr": "12.4 KB",
             "it": "10.0 KB",
@@ -8915,7 +8607,6 @@
         "oc": {
           "size": "4.2 MB",
           "count": 18,
-          "time": "2.4 s",
           "targets": {
             "cs": "11.7 KB",
             "de": "132.3 KB",
@@ -8940,7 +8631,6 @@
         "or": {
           "size": "369.3 KB",
           "count": 18,
-          "time": "0.1 s",
           "targets": {
             "cs": "6.8 KB",
             "el": "7.1 KB",
@@ -8951,7 +8641,7 @@
             "ja": "9.0 KB",
             "ko": "8.5 KB",
             "ku": "31.1 KB",
-            "ms": "7.1 KB",
+            "ms": "7.0 KB",
             "nl": "7.8 KB",
             "pl": "26.8 KB",
             "pt": "6.9 KB",
@@ -8965,7 +8655,6 @@
         "ota": {
           "size": "1.9 MB",
           "count": 17,
-          "time": "0.7 s",
           "targets": {
             "cs": "9.1 KB",
             "de": "7.4 KB",
@@ -8989,7 +8678,6 @@
         "pa": {
           "size": "1.6 MB",
           "count": 19,
-          "time": "1.0 s",
           "targets": {
             "cs": "6.9 KB",
             "de": "9.3 KB",
@@ -9015,11 +8703,10 @@
         "pdt": {
           "size": "396.1 KB",
           "count": 13,
-          "time": "0.2 s",
           "targets": {
             "en": "268.9 KB",
             "es": "7.1 KB",
-            "fr": "7.4 KB",
+            "fr": "7.3 KB",
             "ja": "9.8 KB",
             "ku": "28.5 KB",
             "ms": "6.8 KB",
@@ -9035,7 +8722,6 @@
         "pi": {
           "size": "4.5 MB",
           "count": 19,
-          "time": "1.3 s",
           "targets": {
             "cs": "7.5 KB",
             "de": "8.4 KB",
@@ -9061,7 +8747,6 @@
         "pl": {
           "size": "50.3 MB",
           "count": 20,
-          "time": "16.5 s",
           "targets": {
             "cs": "563.9 KB",
             "de": "1.3 MB",
@@ -9088,7 +8773,6 @@
         "pt": {
           "size": "33.6 MB",
           "count": 20,
-          "time": "16.2 s",
           "targets": {
             "cs": "74.5 KB",
             "de": "166.9 KB",
@@ -9115,7 +8799,6 @@
         "ro": {
           "size": "15.0 MB",
           "count": 20,
-          "time": "8.1 s",
           "targets": {
             "cs": "19.7 KB",
             "de": "62.2 KB",
@@ -9142,10 +8825,9 @@
         "rsk": {
           "size": "2.0 MB",
           "count": 12,
-          "time": "0.8 s",
           "targets": {
             "cs": "8.0 KB",
-            "en": "1.9 MB",
+            "en": "1.8 MB",
             "es": "6.9 KB",
             "fr": "9.5 KB",
             "ja": "12.5 KB",
@@ -9161,7 +8843,6 @@
         "ru": {
           "size": "127.6 MB",
           "count": 20,
-          "time": "25.5 s",
           "targets": {
             "cs": "695.5 KB",
             "de": "333.6 KB",
@@ -9188,7 +8869,6 @@
         "rup": {
           "size": "570.5 KB",
           "count": 15,
-          "time": "0.3 s",
           "targets": {
             "cs": "7.0 KB",
             "de": "7.0 KB",
@@ -9203,14 +8883,13 @@
             "pt": "15.8 KB",
             "ru": "24.4 KB",
             "tr": "7.5 KB",
-            "vi": "8.8 KB",
+            "vi": "8.7 KB",
             "zh": "27.9 KB"
           }
         },
         "sa": {
           "size": "4.7 MB",
           "count": 19,
-          "time": "1.8 s",
           "targets": {
             "cs": "11.2 KB",
             "de": "8.6 KB",
@@ -9236,7 +8915,6 @@
         "sah": {
           "size": "937.3 KB",
           "count": 19,
-          "time": "0.3 s",
           "targets": {
             "cs": "16.9 KB",
             "de": "9.5 KB",
@@ -9262,7 +8940,6 @@
         "scn": {
           "size": "1.1 MB",
           "count": 19,
-          "time": "0.5 s",
           "targets": {
             "cs": "8.1 KB",
             "de": "8.2 KB",
@@ -9288,7 +8965,6 @@
         "sco": {
           "size": "708.8 KB",
           "count": 18,
-          "time": "0.5 s",
           "targets": {
             "cs": "7.8 KB",
             "de": "13.3 KB",
@@ -9313,7 +8989,6 @@
         "se": {
           "size": "10.9 MB",
           "count": 17,
-          "time": "6.8 s",
           "targets": {
             "cs": "6.9 KB",
             "de": "7.6 KB",
@@ -9335,13 +9010,12 @@
           }
         },
         "sga": {
-          "size": "784.3 KB",
+          "size": "784.2 KB",
           "count": 16,
-          "time": "0.4 s",
           "targets": {
             "de": "7.7 KB",
             "el": "8.0 KB",
-            "en": "597.7 KB",
+            "en": "597.6 KB",
             "es": "12.6 KB",
             "fr": "21.2 KB",
             "ja": "18.4 KB",
@@ -9360,7 +9034,6 @@
         "sh": {
           "size": "12.5 MB",
           "count": 15,
-          "time": "6.6 s",
           "targets": {
             "cs": "10.2 KB",
             "de": "9.8 KB",
@@ -9382,7 +9055,6 @@
         "simple": {
           "size": "3.5 MB",
           "count": 1,
-          "time": "0.3 s",
           "targets": {
             "simple": "3.5 MB"
           }
@@ -9390,7 +9062,6 @@
         "sk": {
           "size": "5.0 MB",
           "count": 19,
-          "time": "2.1 s",
           "targets": {
             "cs": "336.8 KB",
             "de": "119.5 KB",
@@ -9416,12 +9087,11 @@
         "sl": {
           "size": "4.2 MB",
           "count": 19,
-          "time": "2.1 s",
           "targets": {
             "cs": "30.5 KB",
             "de": "79.0 KB",
             "el": "770.2 KB",
-            "en": "809.0 KB",
+            "en": "808.8 KB",
             "es": "17.9 KB",
             "fr": "1.3 MB",
             "it": "16.4 KB",
@@ -9442,7 +9112,6 @@
         "sla-pro": {
           "size": "1.6 MB",
           "count": 4,
-          "time": "0.7 s",
           "targets": {
             "el": "8.0 KB",
             "en": "1.5 MB",
@@ -9453,7 +9122,6 @@
         "sq": {
           "size": "3.8 MB",
           "count": 19,
-          "time": "2.6 s",
           "targets": {
             "cs": "24.8 KB",
             "de": "119.7 KB",
@@ -9479,7 +9147,6 @@
         "su": {
           "size": "451.9 KB",
           "count": 19,
-          "time": "0.2 s",
           "targets": {
             "cs": "7.2 KB",
             "el": "7.5 KB",
@@ -9505,7 +9172,6 @@
         "sv": {
           "size": "18.2 MB",
           "count": 20,
-          "time": "7.9 s",
           "targets": {
             "cs": "138.6 KB",
             "de": "1.6 MB",
@@ -9532,7 +9198,6 @@
         "sw": {
           "size": "2.6 MB",
           "count": 19,
-          "time": "1.4 s",
           "targets": {
             "cs": "13.6 KB",
             "de": "21.4 KB",
@@ -9558,7 +9223,6 @@
         "syc": {
           "size": "710.3 KB",
           "count": 10,
-          "time": "0.3 s",
           "targets": {
             "en": "559.8 KB",
             "es": "7.1 KB",
@@ -9575,7 +9239,6 @@
         "ta": {
           "size": "3.4 MB",
           "count": 19,
-          "time": "1.3 s",
           "targets": {
             "cs": "6.9 KB",
             "de": "10.2 KB",
@@ -9601,7 +9264,6 @@
         "te": {
           "size": "2.1 MB",
           "count": 19,
-          "time": "0.9 s",
           "targets": {
             "cs": "7.2 KB",
             "de": "18.1 KB",
@@ -9618,7 +9280,7 @@
             "pl": "63.4 KB",
             "pt": "9.5 KB",
             "ru": "74.7 KB",
-            "th": "10.5 KB",
+            "th": "10.4 KB",
             "tr": "19.2 KB",
             "vi": "27.6 KB",
             "zh": "164.0 KB"
@@ -9627,7 +9289,6 @@
         "tg": {
           "size": "1.5 MB",
           "count": 19,
-          "time": "0.4 s",
           "targets": {
             "cs": "11.2 KB",
             "de": "13.0 KB",
@@ -9653,7 +9314,6 @@
         "th": {
           "size": "6.5 MB",
           "count": 19,
-          "time": "1.9 s",
           "targets": {
             "cs": "8.2 KB",
             "de": "31.6 KB",
@@ -9679,7 +9339,6 @@
         "tl": {
           "size": "4.8 MB",
           "count": 20,
-          "time": "2.1 s",
           "targets": {
             "cs": "19.0 KB",
             "de": "33.0 KB",
@@ -9706,7 +9365,6 @@
         "tok": {
           "size": "174.8 KB",
           "count": 10,
-          "time": "0.0 s",
           "targets": {
             "es": "58.6 KB",
             "fr": "15.5 KB",
@@ -9723,7 +9381,6 @@
         "tr": {
           "size": "37.7 MB",
           "count": 20,
-          "time": "13.9 s",
           "targets": {
             "cs": "75.0 KB",
             "de": "90.9 KB",
@@ -9750,7 +9407,6 @@
         "ug": {
           "size": "1.5 MB",
           "count": 19,
-          "time": "0.6 s",
           "targets": {
             "cs": "7.3 KB",
             "de": "7.3 KB",
@@ -9776,11 +9432,10 @@
         "uk": {
           "size": "18.8 MB",
           "count": 20,
-          "time": "5.7 s",
           "targets": {
             "cs": "166.6 KB",
             "de": "517.2 KB",
-            "el": "27.4 KB",
+            "el": "27.3 KB",
             "en": "9.3 MB",
             "es": "17.0 KB",
             "fr": "2.6 MB",
@@ -9803,7 +9458,6 @@
         "ur": {
           "size": "2.1 MB",
           "count": 19,
-          "time": "0.9 s",
           "targets": {
             "cs": "7.4 KB",
             "de": "274.7 KB",
@@ -9829,7 +9483,6 @@
         "urj-fin-pro": {
           "size": "1.0 MB",
           "count": 3,
-          "time": "0.4 s",
           "targets": {
             "en": "1022.1 KB",
             "es": "7.4 KB",
@@ -9839,7 +9492,6 @@
         "uz": {
           "size": "2.9 MB",
           "count": 19,
-          "time": "1.1 s",
           "targets": {
             "cs": "10.9 KB",
             "de": "49.8 KB",
@@ -9865,7 +9517,6 @@
         "vec": {
           "size": "577.6 KB",
           "count": 18,
-          "time": "0.2 s",
           "targets": {
             "cs": "7.9 KB",
             "de": "13.6 KB",
@@ -9890,7 +9541,6 @@
         "vi": {
           "size": "11.8 MB",
           "count": 20,
-          "time": "4.0 s",
           "targets": {
             "cs": "15.7 KB",
             "de": "112.3 KB",
@@ -9917,7 +9567,6 @@
         "vo": {
           "size": "1.2 MB",
           "count": 18,
-          "time": "0.7 s",
           "targets": {
             "cs": "159.5 KB",
             "de": "11.5 KB",
@@ -9942,7 +9591,6 @@
         "vot": {
           "size": "986.9 KB",
           "count": 15,
-          "time": "0.4 s",
           "targets": {
             "cs": "11.2 KB",
             "en": "857.9 KB",
@@ -9964,7 +9612,6 @@
         "xcl": {
           "size": "1.7 MB",
           "count": 12,
-          "time": "0.7 s",
           "targets": {
             "el": "7.9 KB",
             "en": "1.6 MB",
@@ -9983,7 +9630,6 @@
         "yi": {
           "size": "2.4 MB",
           "count": 19,
-          "time": "0.9 s",
           "targets": {
             "cs": "19.3 KB",
             "de": "16.4 KB",
@@ -10009,7 +9655,6 @@
         "yo": {
           "size": "787.9 KB",
           "count": 18,
-          "time": "0.3 s",
           "targets": {
             "cs": "9.7 KB",
             "de": "9.4 KB",
@@ -10032,9 +9677,8 @@
           }
         },
         "yue": {
-          "size": "331.9 KB",
+          "size": "331.8 KB",
           "count": 16,
-          "time": "0.2 s",
           "targets": {
             "cs": "10.7 KB",
             "de": "7.5 KB",
@@ -10055,36 +9699,34 @@
           }
         },
         "zh": {
-          "size": "32.1 MB",
+          "size": "33.1 MB",
           "count": 18,
-          "time": "17.1 s",
           "targets": {
             "cs": "38.4 KB",
             "de": "50.5 KB",
             "el": "40.3 KB",
-            "en": "19.3 MB",
+            "en": "19.9 MB",
             "fr": "986.5 KB",
             "id": "23.5 KB",
-            "it": "120.0 KB",
+            "it": "120.7 KB",
             "ja": "1.7 MB",
-            "ko": "966.2 KB",
+            "ko": "982.0 KB",
             "ku": "38.1 KB",
             "ms": "23.4 KB",
             "nl": "45.4 KB",
             "pl": "637.4 KB",
             "pt": "87.3 KB",
-            "th": "264.2 KB",
+            "th": "279.1 KB",
             "tr": "36.9 KB",
-            "vi": "155.8 KB",
-            "zh": "7.7 MB"
+            "vi": "160.7 KB",
+            "zh": "8.0 MB"
           }
         },
         "zlw-ocs": {
-          "size": "793.9 KB",
+          "size": "793.8 KB",
           "count": 9,
-          "time": "0.4 s",
           "targets": {
-            "en": "708.6 KB",
+            "en": "708.5 KB",
             "es": "7.1 KB",
             "ja": "9.5 KB",
             "ku": "7.1 KB",
@@ -10098,10 +9740,9 @@
         "zlw-opl": {
           "size": "869.4 KB",
           "count": 8,
-          "time": "0.3 s",
           "targets": {
             "cs": "7.1 KB",
-            "en": "798.0 KB",
+            "en": "797.9 KB",
             "es": "7.1 KB",
             "ja": "9.4 KB",
             "ku": "7.5 KB",
@@ -10113,7 +9754,6 @@
         "zu": {
           "size": "533.3 KB",
           "count": 18,
-          "time": "0.5 s",
           "targets": {
             "cs": "6.9 KB",
             "de": "8.5 KB",
