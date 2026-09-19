@@ -18,7 +18,7 @@ use crate::{
         kaikki::{Example, Offset, Synonym, Tag},
         yomitan::{
             BacklinkContent, BacklinkContentKind, DetailedDefinition, GenericNode, NTag, Node,
-            NodeData, NodeDataKey, TagInfo, TermBankEntry, TermBankEntryForm, YomitanDict, wrap,
+            TagInfo, TermBankEntry, TermBankEntryForm, YomitanDict, wrap,
         },
     },
     tags::{Pos, find_tag_in_bank, localize_tag, localize_tag_info},
@@ -286,17 +286,10 @@ fn structured_tags(target: Lang, tags: &[Tag], common_short_tags_found: &[Tag]) 
                 Some((short, long)) => (short.to_string(), long.to_string()),
                 None => (tag_info.short_tag, tag_info.long_tag),
             };
-            GenericNode {
-                tag: NTag::Span,
-                title: Some(long_tag),
-                data: Some(NodeData::from_iter([
-                    (NodeDataKey::Content, "tag"),
-                    (NodeDataKey::Category, &tag_info.category),
-                ])),
-                lang: None,
-                content: Node::Text(short_tag),
-            }
-            .into_node()
+            GenericNode::new(NTag::Span, "tag", Node::Text(short_tag))
+                .with_title(long_tag)
+                .with_category(&tag_info.category)
+                .into_node()
         })
         .collect();
 
@@ -333,16 +326,12 @@ fn structured_examples(target: Lang, examples: &[Example]) -> Node {
 
 // TODO: change a-b-c into a more descriptive name: text/translation/ref
 fn structured_example(example: &Example) -> Node {
-    let mut structured_example_content = GenericNode {
-        tag: NTag::Div,
-        title: None,
-        data: Some(NodeData::from_iter([(
-            NodeDataKey::Content,
-            "example-sentence-a",
-        )])),
-        lang: example.lang,
-        content: structured_example_text(&example.text, &example.bold_text_offsets),
-    }
+    let mut structured_example_content = GenericNode::new(
+        NTag::Div,
+        "example-sentence-a",
+        structured_example_text(&example.text, &example.bold_text_offsets),
+    )
+    .with_lang(example.lang)
     .into_node()
     .into_array_node();
 

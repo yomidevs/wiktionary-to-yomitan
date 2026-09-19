@@ -393,9 +393,49 @@ pub struct GenericNode {
 }
 
 impl GenericNode {
+    /// A node with a `data-sc-content` attribute, unless `content_ty` is empty.
+    pub fn new(tag: NTag, content_ty: &str, content: Node) -> Self {
+        Self {
+            tag,
+            title: None,
+            data: match content_ty {
+                "" => None,
+                _ => Some(NodeData::from_iter([(NodeDataKey::Content, content_ty)])),
+            },
+            lang: None,
+            content,
+        }
+    }
+
+    #[must_use]
+    pub fn with_title(mut self, title: String) -> Self {
+        self.title = Some(title);
+        self
+    }
+
+    /// Adds a `data-sc-category` attribute.
+    #[must_use]
+    pub fn with_category(mut self, category: &str) -> Self {
+        self.data
+            .get_or_insert_with(|| NodeData(Map::default()))
+            .0
+            .insert(NodeDataKey::Category, category.to_string());
+        self
+    }
+
+    #[must_use]
+    pub const fn with_lang(mut self, lang: Option<ScriptTag>) -> Self {
+        self.lang = lang;
+        self
+    }
+
     pub fn into_node(self) -> Node {
         Node::Generic(Box::new(self))
     }
+}
+
+pub fn wrap(tag: NTag, content_ty: &str, content: Node) -> Node {
+    GenericNode::new(tag, content_ty, content).into_node()
 }
 
 // In the general case, this should be a String. We use an enum to shrink the size of Node.
@@ -463,20 +503,6 @@ impl Serialize for StructuredContent {
         state.serialize_field("content", &self.content)?;
         state.end()
     }
-}
-
-pub fn wrap(tag: NTag, content_ty: &str, content: Node) -> Node {
-    GenericNode {
-        tag,
-        title: None, // hardcoded since most of the wrap calls don't use it
-        data: match content_ty {
-            "" => None,
-            _ => Some(NodeData::from_iter([(NodeDataKey::Content, content_ty)])),
-        },
-        lang: None,
-        content,
-    }
-    .into_node()
 }
 
 /// A tag. See [yomitan-dict-builder].
