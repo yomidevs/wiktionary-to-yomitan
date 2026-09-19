@@ -1,6 +1,7 @@
 //! HTML renderers for the YomitanEntry type.
 
 use crate::models::yomitan::*;
+use crate::tags::ScriptTag;
 use maud::{Markup, html};
 
 pub trait Renderer {
@@ -181,6 +182,7 @@ pub trait Renderer {
                     class=(class)
                     data-sc-content=[content_attr]
                     data-sc-category=[category_attr]
+                    lang=[node.lang.map(ScriptTag::as_lang_attr)]
                 { (content) }
             },
             NTag::Ol => html! {

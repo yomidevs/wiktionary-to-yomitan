@@ -8,6 +8,9 @@ pub use tags_localization::*;
 mod merge;
 pub use merge::*;
 
+mod examples;
+pub use examples::ScriptTag;
+
 use std::cmp::Ordering;
 use std::sync::LazyLock;
 

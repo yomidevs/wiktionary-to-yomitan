@@ -293,6 +293,7 @@ fn structured_tags(target: Lang, tags: &[Tag], common_short_tags_found: &[Tag]) 
                     (NodeDataKey::Content, "tag"),
                     (NodeDataKey::Category, &tag_info.category),
                 ])),
+                lang: None,
                 content: Node::Text(short_tag),
             }
             .into_node()
@@ -332,11 +333,17 @@ fn structured_examples(target: Lang, examples: &[Example]) -> Node {
 
 // TODO: change a-b-c into a more descriptive name: text/translation/ref
 fn structured_example(example: &Example) -> Node {
-    let mut structured_example_content = wrap(
-        NTag::Div,
-        "example-sentence-a",
-        structured_example_text(&example.text, &example.bold_text_offsets),
-    )
+    let mut structured_example_content = GenericNode {
+        tag: NTag::Div,
+        title: None,
+        data: Some(NodeData::from_iter([(
+            NodeDataKey::Content,
+            "example-sentence-a",
+        )])),
+        lang: example.lang,
+        content: structured_example_text(&example.text, &example.bold_text_offsets),
+    }
+    .into_node()
     .into_array_node();
 
     if !example.translation.is_empty() {

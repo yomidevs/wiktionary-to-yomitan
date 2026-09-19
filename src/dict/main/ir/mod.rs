@@ -895,11 +895,17 @@ fn get_gloss_tree(entry: &WordEntry) -> GlossTree {
     let mut gloss_tree = GlossTree::default();
 
     for sense in &entry.senses {
+        // Examples in both scripts (Chinese) come in pairs: do not split them
+        let max_examples = if sense.examples.iter().any(|ex| ex.lang.is_some()) {
+            2 * MAX_NUMBER_OF_EXAMPLES
+        } else {
+            MAX_NUMBER_OF_EXAMPLES
+        };
         let mut filtered_examples: Vec<_> = sense
             .examples
             .iter()
             .filter(|ex| !ex.text.is_empty() && ex.text.chars().count() <= MAX_SIZE_OF_EXAMPLE)
-            .take(MAX_NUMBER_OF_EXAMPLES)
+            .take(max_examples)
             .cloned()
             .map(|mut ex| {
                 // Remove reference if too long

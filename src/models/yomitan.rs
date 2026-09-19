@@ -10,7 +10,7 @@
 use serde::ser::{SerializeStruct, SerializeTuple, Serializer};
 use serde::{Deserialize, Serialize};
 
-use crate::{Map, models::kaikki::Tag};
+use crate::{Map, models::kaikki::Tag, tags::ScriptTag};
 
 /// A custom type for a yomitan dictionary.
 ///
@@ -386,6 +386,9 @@ pub struct GenericNode {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data: Option<NodeData>,
 
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub lang: Option<ScriptTag>,
+
     pub content: Node,
 }
 
@@ -470,6 +473,7 @@ pub fn wrap(tag: NTag, content_ty: &str, content: Node) -> Node {
             "" => None,
             _ => Some(NodeData::from_iter([(NodeDataKey::Content, content_ty)])),
         },
+        lang: None,
         content,
     }
     .into_node()
