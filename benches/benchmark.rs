@@ -39,7 +39,7 @@ fn bench_monolingual(c: &mut Criterion, edition: Edition, label: &str) {
         b.iter(|| make_dict_from_jsonl(DMain, args.clone()));
     });
 
-    std::fs::remove_dir_all(pm.dir_dicts()).unwrap();
+    let _ = std::fs::remove_dir_all(pm.dir_dicts());
 }
 
 fn bench_el_el(c: &mut Criterion) {
