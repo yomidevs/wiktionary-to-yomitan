@@ -154,16 +154,18 @@ fn preprocess_verb_forms_es_es(entry: &mut WordEntry) {
 
 // This function is made based on preprocess_forms_de_de. See that function for more details.
 fn preprocess_verb_forms_fr_fr(entry: &mut WordEntry) {
-    const PRONOUNS: &[&str] = &[
-        "je ",
-        "j' ",
-        "tu ",
-        "il/elle/on ",
-        "nous ",
-        "vous ",
-        "ils/elles ",
-    ];
+    const PRONOUNS: &[&str] = &["je ", "tu ", "il/elle/on ", "nous ", "vous ", "ils/elles "];
     strip_prefixes(entry, PRONOUNS);
+
+    // Elided "je" pronoun, which has no trailing space: "j’arrive"
+    for form in &mut entry.forms {
+        if let Some(stripped) = ["j’", "j'"]
+            .iter()
+            .find_map(|prefix| form.form.strip_prefix(prefix))
+        {
+            form.form = stripped.to_string();
+        }
+    }
 
     entry.forms.retain(|form| {
         let is_compound = form

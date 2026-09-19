@@ -19,32 +19,12 @@
       ]
     }
   },
-  "encyclopédie": {
-    "j’encyclopédie": {
-      "verb": [
-        "extracted",
-        [
-          "present indicative"
-        ]
-      ]
-    }
-  },
   "arriver": {
     "arrive": {
       "verb": [
         "inflection",
         [
           "redirected from arrive"
-        ]
-      ]
-    }
-  },
-  "arrive": {
-    "j’arrive": {
-      "verb": [
-        "extracted",
-        [
-          "present indicative"
         ]
       ]
     }
