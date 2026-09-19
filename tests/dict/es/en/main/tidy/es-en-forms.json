@@ -1073,5 +1073,15 @@
         ]
       ]
     }
+  },
+  "ir": {
+    "va": {
+      "verb": [
+        "inflection",
+        [
+          "singular present indicative thd-person"
+        ]
+      ]
+    }
   }
 }
