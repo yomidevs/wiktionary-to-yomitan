@@ -1158,11 +1158,11 @@ fn handle_inflection_sense_en(source: Lang, entry: &WordEntry, sense: &Sense, ir
     let mut inflections = Set::default();
     let of_uninflected = format!("of {uninflected}");
     for gloss in &sense.glosses {
-        let cleaned = gloss
-            .replace("inflection of ", "")
-            .replace(&of_uninflected, "")
-            .replace(uninflected, "")
-            .replace(':', "");
+        if gloss.ends_with(':') {
+            continue;
+        }
+
+        let cleaned = gloss.replace(&of_uninflected, "").replace(':', "");
 
         let inflection = PARENS_RE.replace_all(&cleaned, "").trim().to_string();
 
