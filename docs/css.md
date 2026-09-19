@@ -70,6 +70,21 @@ Here is a basic example on how to handle tags with your custom css.
 [data-sc-category="topic"] { display: none; }
 ```
 
+### Examples (Chinese)
+
+Chinese examples usually come in pairs, one in traditional and one in simplified characters.
+
+```css
+/* Hide simplified examples (use zh-Hant to hide traditional ones instead) */
+div[data-sc-content="extra-info"]:has([lang="zh-Hans"]) {
+  display: none;
+}
+```
+
+!!! warning "Hiding traditional examples"
+    Examples that are identical in both scripts (e.g. 警犬) are only given once, marked as
+    traditional, so hiding `zh-Hant` also hides them.
+
 ## Ipa dictionary
 
 ### Tags

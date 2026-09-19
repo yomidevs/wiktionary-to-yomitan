@@ -155,7 +155,7 @@
                             "data": {
                               "content": "summary-entry"
                             },
-                            "content": "3 examples"
+                            "content": "4 examples"
                           },
                           {
                             "tag": "div",
@@ -173,6 +173,7 @@
                                   "data": {
                                     "content": "example-sentence-a"
                                   },
+                                  "lang": "zh-Hant",
                                   "content": [
                                     "這是鎮上最",
                                     {
@@ -221,6 +222,7 @@
                                   "data": {
                                     "content": "example-sentence-a"
                                   },
+                                  "lang": "zh-Hans",
                                   "content": [
                                     "这是镇上最",
                                     {
@@ -269,6 +271,7 @@
                                   "data": {
                                     "content": "example-sentence-a"
                                   },
+                                  "lang": "zh-Hant",
                                   "content": [
                                     "用",
                                     {
@@ -279,6 +282,54 @@
                                       "content": "便宜"
                                     },
                                     "的肉就做不出好湯。"
+                                  ]
+                                },
+                                {
+                                  "tag": "div",
+                                  "data": {
+                                    "content": "example-sentence-b"
+                                  },
+                                  "content": [
+                                    {
+                                      "tag": "span",
+                                      "data": {
+                                        "content": "bold-text"
+                                      },
+                                      "content": "Cheap"
+                                    },
+                                    " meat doesn't make good soup."
+                                  ]
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "tag": "div",
+                            "data": {
+                              "content": "extra-info"
+                            },
+                            "content": {
+                              "tag": "div",
+                              "data": {
+                                "content": "example-sentence"
+                              },
+                              "content": [
+                                {
+                                  "tag": "div",
+                                  "data": {
+                                    "content": "example-sentence-a"
+                                  },
+                                  "lang": "zh-Hans",
+                                  "content": [
+                                    "用",
+                                    {
+                                      "tag": "span",
+                                      "data": {
+                                        "content": "bold-text"
+                                      },
+                                      "content": "便宜"
+                                    },
+                                    "的肉就做不出好汤。"
                                   ]
                                 },
                                 {

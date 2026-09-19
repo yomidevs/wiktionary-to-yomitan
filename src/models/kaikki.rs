@@ -13,7 +13,7 @@
 
 use serde::{Deserialize, Serialize};
 
-use crate::tags::{BLACKLISTED_FORM_TAGS, IDENTITY_FORM_TAGS};
+use crate::tags::{BLACKLISTED_FORM_TAGS, IDENTITY_FORM_TAGS, ScriptTag};
 
 // In case we ever decide to narrow them
 pub type Tag = String;
@@ -99,6 +99,12 @@ pub struct Example {
     pub bold_text_offsets: Vec<Offset>,
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub bold_translation_offsets: Vec<Offset>, // [en]
+    #[serde(
+        rename(deserialize = "tags"),
+        deserialize_with = "ScriptTag::deserialize_kaikki_tags",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub lang: Option<ScriptTag>,
 }
 
 #[derive(Debug, Deserialize, Serialize, Default)]

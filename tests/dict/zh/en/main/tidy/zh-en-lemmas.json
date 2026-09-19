@@ -44,7 +44,8 @@
                       12,
                       17
                     ]
-                  ]
+                  ],
+                  "lang": "zh-Hant"
                 },
                 {
                   "text": "这是镇上最便宜的商店。",
@@ -60,7 +61,8 @@
                       12,
                       17
                     ]
-                  ]
+                  ],
+                  "lang": "zh-Hans"
                 },
                 {
                   "text": "用便宜的肉就做不出好湯。",
@@ -76,7 +78,25 @@
                       0,
                       5
                     ]
-                  ]
+                  ],
+                  "lang": "zh-Hant"
+                },
+                {
+                  "text": "用便宜的肉就做不出好汤。",
+                  "translation": "Cheap meat doesn't make good soup.",
+                  "bold_text_offsets": [
+                    [
+                      1,
+                      3
+                    ]
+                  ],
+                  "bold_translation_offsets": [
+                    [
+                      0,
+                      5
+                    ]
+                  ],
+                  "lang": "zh-Hans"
                 }
               ]
             }
