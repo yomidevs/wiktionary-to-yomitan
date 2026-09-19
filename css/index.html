@@ -408,6 +408,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#examples-chinese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples (Chinese)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -771,6 +782,18 @@
 <span class="c">/* Hide inner topic tags (note the -sc-) */</span>
 <span class="o">[</span><span class="nt">data-sc-category</span><span class="o">=</span><span class="s2">"topic"</span><span class="o">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
+<h3 id="examples-chinese">Examples (Chinese)<a class="headerlink" href="#examples-chinese" title="Permanent link">&para;</a></h3>
+<p>Chinese examples usually come in pairs, one in traditional and one in simplified characters.</p>
+<div class="highlight"><pre><span></span><code><span class="c">/* Hide simplified examples (use zh-Hant to hide traditional ones instead) */</span>
+<span class="nt">div</span><span class="o">[</span><span class="nt">data-sc-content</span><span class="o">=</span><span class="s2">"extra-info"</span><span class="o">]</span><span class="p">:</span><span class="nd">has</span><span class="o">([</span><span class="nt">lang</span><span class="o">=</span><span class="s2">"zh-Hans"</span><span class="o">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Hiding traditional examples</p>
+<p>Examples that are identical in both scripts (e.g. 警犬) are only given once, marked as
+traditional, so hiding <code>zh-Hant</code> also hides them.</p>
+</div>
 <h2 id="ipa-dictionary">Ipa dictionary<a class="headerlink" href="#ipa-dictionary" title="Permanent link">&para;</a></h2>
 <h3 id="tags_1">Tags<a class="headerlink" href="#tags_1" title="Permanent link">&para;</a></h3>
 <p>This css will only show "Hokkien" and "Bopomofo" pronunciations:</p>
