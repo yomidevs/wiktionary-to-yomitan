@@ -25,7 +25,8 @@ use crate::{
     },
     db::WiktextractDb,
     dict::{
-        DGlossary, DGlossaryExtended, DIpa, DIpaMerged, DMain, Dictionary, Intermediate, Langs,
+        DGlossary, DGlossaryExtended, DIpa, DIpaMerged, DMain, Dictionary, Langs,
+        core::skip_below_min_entries,
     },
     lang::{Edition, EditionSpec, Lang},
     path::PathManager,
@@ -309,11 +310,11 @@ pub fn make_dict_from_db<D: Dictionary + DQuery>(
         dict.found_ir_message(pm.langs, &irs);
     }
 
-    if irs.is_empty() {
+    dict.postprocess(pm.langs, &mut irs);
+
+    if skip_below_min_entries(&irs, pm) {
         return Ok(());
     }
-
-    dict.postprocess(pm.langs, &mut irs);
 
     opts.format.write(&dict, pm.langs, opts, pm, &irs)?;
 

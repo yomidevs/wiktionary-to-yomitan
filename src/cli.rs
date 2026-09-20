@@ -155,6 +155,7 @@ impl ReleaseArgs {
             quiet: true,
             root_dir: self.root_dir.clone(),
             format: self.format,
+            min_entries: DEFAULT_MIN_ENTRIES,
             ..Default::default()
         }
     }
@@ -315,7 +316,17 @@ pub struct Options {
     /// Writer format
     #[arg(long, default_value_t = WriterFormat::Yomitan)]
     pub format: WriterFormat,
+
+    /// Do not write dictionaries with fewer than this many entries
+    #[arg(long, default_value_t = DEFAULT_MIN_ENTRIES)]
+    pub min_entries: usize,
 }
+
+/// Default of [`Options::min_entries`].
+///
+/// NOTE: `Options::default()` is derived, so it leaves `min_entries` at 0 and writes every
+/// non-empty dictionary. That is what tests and benches want.
+pub const DEFAULT_MIN_ENTRIES: usize = 100;
 
 /// Newtype string wrapper to overwrite Default with `wty`.
 #[derive(Debug, Clone)]
