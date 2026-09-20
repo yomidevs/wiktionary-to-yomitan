@@ -10,7 +10,6 @@ use std::time::Instant;
 use anyhow::Result;
 use rayon::ThreadPoolBuilder;
 use rayon::prelude::*;
-use rusqlite::{Rows, Statement};
 
 mod index;
 mod metadata;
@@ -217,21 +216,11 @@ fn release_glossary_extended(rargs: &ReleaseArgs, source: Lang, editions: &[Edit
     });
 }
 
-/// Implementation of the sql query.
+/// The sql selecting the entries this dictionary is built from.
 ///
-/// Defaults to selecting entries that match the source lang.
+/// Bound with the source iso, plus the target iso if it takes a second parameter.
 pub trait DQuery {
-    fn statement_str() -> &'static str {
-        "SELECT entry FROM wiktextract WHERE lang = ?1"
-    }
-
-    fn query<'a>(
-        stmt: &'a mut Statement,
-        source: &str,
-        _target: &str,
-    ) -> rusqlite::Result<Rows<'a>> {
-        stmt.query([source])
-    }
+    const SQL: &'static str = "SELECT entry FROM wiktextract WHERE lang = ?1";
 }
 
 impl DQuery for DMain {}
@@ -240,42 +229,22 @@ impl DQuery for DIpaMerged {}
 
 /// Select entries with translations in *both* source and target.
 impl DQuery for DGlossaryExtended {
-    fn statement_str() -> &'static str {
-        r"
+    const SQL: &'static str = r"
         SELECT w.entry
         FROM wiktextract w
         JOIN translations s ON s.entry_id = w.id AND s.target_lang = ?1
         JOIN translations t ON t.entry_id = w.id AND t.target_lang = ?2
-        "
-    }
-
-    fn query<'a>(
-        stmt: &'a mut Statement,
-        source: &str,
-        target: &str,
-    ) -> rusqlite::Result<rusqlite::Rows<'a>> {
-        stmt.query([source, target])
-    }
+        ";
 }
 
 /// Select entries that match the source lang and have translations in target.
 impl DQuery for DGlossary {
-    fn statement_str() -> &'static str {
-        r"
+    const SQL: &'static str = r"
         SELECT w.entry
         FROM wiktextract w
         JOIN translations t ON w.id = t.entry_id
         WHERE w.lang = ?1 AND t.target_lang = ?2
-        "
-    }
-
-    fn query<'a>(
-        stmt: &'a mut Statement,
-        source: &str,
-        target: &str,
-    ) -> rusqlite::Result<rusqlite::Rows<'a>> {
-        stmt.query([source, target])
-    }
+        ";
 }
 
 /// Make a dictionary from database made from a Kaikki jsonlines.
@@ -305,8 +274,11 @@ pub fn make_dict_from_db<D: Dictionary + DQuery>(
             target: target_pm,
         };
 
-        let mut stmt = db.conn.prepare(D::statement_str())?;
-        let mut rows = D::query(&mut stmt, source_pm.iso(), target_pm.iso())?;
+        let mut stmt = db.conn.prepare(D::SQL)?;
+        let mut rows = match stmt.parameter_count() {
+            1 => stmt.query([source_pm.iso()])?,
+            _ => stmt.query([source_pm.iso(), target_pm.iso()])?,
+        };
 
         while let Some(row) = rows.next()? {
             let blob: &[u8] = row.get_ref(0)?.as_blob()?;
