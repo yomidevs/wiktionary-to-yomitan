@@ -973,11 +973,35 @@ fn insert_glosses(
     insert_glosses(children, tail, tags, topics, examples);
 }
 
-static DE_INFLECTION_RE: LazyLock<Regex> = LazyLock::new(|| {
-    Regex::new(
-        r"^(.*)des (?:Verbs|Adjektivs|Substantivs|Demonstrativpronomens|Possessivpronomens|Pronomens) (.*)$"
-    ).unwrap()
-});
+/// The nouns that can follow "des" in a German inflection gloss.
+const DE_INFLECTION_HEADS: [&str; 6] = [
+    "Verbs",
+    "Adjektivs",
+    "Substantivs",
+    "Demonstrativpronomens",
+    "Possessivpronomens",
+    "Pronomens",
+];
+
+/// Split a German inflection gloss into (inflection tags, uninflected word).
+fn split_de_inflection(gloss: &str) -> Option<(&str, &str)> {
+    if gloss.contains('\n') {
+        return None;
+    }
+
+    let mut upto = gloss.len();
+    while let Some(start) = gloss[..upto].rfind("des ") {
+        let after = &gloss[start + "des ".len()..];
+        for head in DE_INFLECTION_HEADS {
+            if let Some(rest) = after.strip_prefix(head).and_then(|r| r.strip_prefix(' ')) {
+                return Some((&gloss[..start], rest));
+            }
+        }
+        upto = start;
+    }
+
+    None
+}
 
 const TAGS_RETAINED_EL: [&str; 9] = [
     "masculine",
@@ -1008,14 +1032,13 @@ fn handle_inflection_sense(
             let Some((inflection_tags, uninflected)) = sense
                 .glosses
                 .first()
-                .and_then(|gloss| DE_INFLECTION_RE.captures(gloss))
-                .and_then(|caps| Some((caps.get(1)?, caps.get(2)?)))
+                .and_then(|gloss| split_de_inflection(gloss))
             else {
                 return false;
             };
-            let inflection_tags = inflection_tags.as_str().trim();
+            let inflection_tags = inflection_tags.trim();
             irs.insert_form(
-                uninflected.as_str(),
+                uninflected,
                 &entry.word,
                 &entry.pos,
                 FormSource::Inflection,
