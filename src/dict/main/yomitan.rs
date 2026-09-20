@@ -5,7 +5,7 @@ use crate::{
     cli::LangSpecs,
     dict::{
         main::{
-            ir::{FormMap, GlossTree, LemmaInfo, LemmaMap, Tidy, normalize_orthography},
+            ir::{FormMap, GlossInfo, GlossTree, LemmaInfo, LemmaMap, Tidy, normalize_orthography},
             locale::{
                 localize_etymology_string, localize_examples_string, localize_grammar_string,
                 localize_synonyms_string,
@@ -75,7 +75,7 @@ fn to_yomitan_lemma(
 
     detailed_definition_content.push(structured_glosses(
         target,
-        info.gloss_tree.clone(),
+        &info.gloss_tree,
         &common_short_tags_found,
     ));
 
@@ -174,7 +174,7 @@ fn structured_backlink(wlink: String, klink: String) -> Node {
 
 fn structured_glosses(
     target: Lang,
-    gloss_tree: GlossTree,
+    gloss_tree: &GlossTree,
     common_short_tags_found: &[Tag],
 ) -> Node {
     wrap(
@@ -182,18 +182,18 @@ fn structured_glosses(
         "glosses",
         Node::Array(
             gloss_tree
-                .into_iter()
-                .map(|gloss_pair| {
-                    wrap(
-                        NTag::Li,
-                        "",
-                        Node::Array(structured_glosses_go(
-                            target,
-                            &GlossTree::from_iter([gloss_pair]),
-                            common_short_tags_found,
-                            0,
-                        )),
-                    )
+                .iter()
+                .map(|(gloss, gloss_info)| {
+                    let mut nodes = Vec::new();
+                    push_gloss_nodes(
+                        target,
+                        gloss,
+                        gloss_info,
+                        common_short_tags_found,
+                        0,
+                        &mut nodes,
+                    );
+                    wrap(NTag::Li, "", Node::Array(nodes))
                 })
                 .collect(),
         ),
@@ -207,56 +207,75 @@ fn structured_glosses_go(
     common_short_tags_found: &[Tag],
     level: usize,
 ) -> Vec<Node> {
-    let html_tag = if level == 0 { NTag::Div } else { NTag::Li };
     let mut nested = Vec::new();
 
     for (gloss, gloss_info) in gloss_tree {
-        // Tags/topics that are not common to all glosses (i.e. specific to this gloss)
-        let minimal_tags: Vec<_> = gloss_info
-            .tags
-            .iter()
-            .chain(gloss_info.topics.iter())
-            .filter(|&tag| !common_short_tags_found.contains(tag))
-            .cloned()
-            .collect();
-
-        let mut level_content = Node::new_array();
-
-        if let Some(structured_tags) =
-            structured_tags(target, &minimal_tags, common_short_tags_found)
-        {
-            level_content.push(structured_tags);
-        }
-
-        level_content.push(Node::Text(gloss.into()));
-
-        if !gloss_info.examples.is_empty() {
-            level_content.push(structured_examples(target, &gloss_info.examples));
-        }
-
-        nested.push(wrap(html_tag, "", level_content));
-
-        let Some(children) = &gloss_info.children else {
-            continue;
-        };
-
-        // We dont want tags from the parent appearing again in the children
-        let mut new_common_short_tags_found = minimal_tags;
-        new_common_short_tags_found.extend_from_slice(common_short_tags_found);
-
-        nested.push(wrap(
-            NTag::Ul,
-            "",
-            Node::Array(structured_glosses_go(
-                target,
-                children,
-                &new_common_short_tags_found,
-                level + 1,
-            )),
-        ));
+        push_gloss_nodes(
+            target,
+            gloss,
+            gloss_info,
+            common_short_tags_found,
+            level,
+            &mut nested,
+        );
     }
 
     nested
+}
+
+/// Append the nodes of a single gloss: the gloss itself, then a nested list of its
+/// children, if any.
+fn push_gloss_nodes(
+    target: Lang,
+    gloss: &str,
+    gloss_info: &GlossInfo,
+    common_short_tags_found: &[Tag],
+    level: usize,
+    nested: &mut Vec<Node>,
+) {
+    let html_tag = if level == 0 { NTag::Div } else { NTag::Li };
+
+    // Tags/topics that are not common to all glosses (i.e. specific to this gloss)
+    let minimal_tags: Vec<_> = gloss_info
+        .tags
+        .iter()
+        .chain(gloss_info.topics.iter())
+        .filter(|&tag| !common_short_tags_found.contains(tag))
+        .cloned()
+        .collect();
+
+    let mut level_content = Node::new_array();
+
+    if let Some(structured_tags) = structured_tags(target, &minimal_tags, common_short_tags_found) {
+        level_content.push(structured_tags);
+    }
+
+    level_content.push(Node::Text(gloss.into()));
+
+    if !gloss_info.examples.is_empty() {
+        level_content.push(structured_examples(target, &gloss_info.examples));
+    }
+
+    nested.push(wrap(html_tag, "", level_content));
+
+    let Some(children) = &gloss_info.children else {
+        return;
+    };
+
+    // We dont want tags from the parent appearing again in the children
+    let mut new_common_short_tags_found = minimal_tags;
+    new_common_short_tags_found.extend_from_slice(common_short_tags_found);
+
+    nested.push(wrap(
+        NTag::Ul,
+        "",
+        Node::Array(structured_glosses_go(
+            target,
+            children,
+            &new_common_short_tags_found,
+            level + 1,
+        )),
+    ));
 }
 
 /// Structure inner tags.
