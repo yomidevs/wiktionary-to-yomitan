@@ -23,7 +23,7 @@ from pathlib import Path
 from typing import Literal
 
 from dotenv import load_dotenv
-from huggingface_hub import HfApi, whoami
+from huggingface_hub import HfApi, RepoFile, whoami
 
 REPO_ID_HF = "daxida/wty-release"
 REPO_HF = f"https://huggingface.co/datasets/{REPO_ID_HF}"
@@ -102,6 +102,45 @@ def login_to_huggingface() -> None:
         sys.exit(1)
 
 
+def print_deletions(api: HfApi, sample: int = 10) -> None:
+    """Report what upload_release is about to delete from the hub."""
+    stale = []
+    for folder, source in (("dict", PM.dictionary), ("index", PM.index)):
+        destination = f"latest/{folder}"
+        try:
+            remote = {
+                entry.path
+                for entry in api.list_repo_tree(
+                    repo_id=REPO_ID_HF,
+                    repo_type="dataset",
+                    path_in_repo=destination,
+                    recursive=True,
+                )
+                if isinstance(entry, RepoFile)
+            }
+        except Exception as e:
+            print(f"[cleanup] could not list {destination}, skipping the preview: {e}")
+            return
+
+        local = {
+            f"{destination}/{path.relative_to(source).as_posix()}"
+            for path in source.rglob("*")
+            if path.is_file()
+        }
+        stale += sorted(remote - local)
+
+    if not stale:
+        print("[cleanup] nothing to delete, every remote file is in the release")
+        return
+
+    print(f"[cleanup] {len(stale)} file(s) in latest/ are absent from {PM.release}")
+    print("[cleanup] and will be removed from the hub:")
+    for path_in_repo in stale[:sample]:
+        print(f"  - {path_in_repo}")
+    if len(stale) > sample:
+        print(f"  ... and {len(stale) - sample} more")
+
+
 def upload_release(api: HfApi, version: str) -> None:
     """Upload dict + index to the latest folder.
 
@@ -117,6 +156,14 @@ def upload_release(api: HfApi, version: str) -> None:
         └── index/
 
     The README of each folder is uploaded separately, see upload_to_huggingface.
+
+    `delete_patterns` makes each folder a mirror of its local counterpart instead of
+    adding to whatever is already there. Without it a pair that disappears (renamed,
+    gone empty, or under --min-entries) keeps being served from `latest/`.
+
+    The patterns are matched relative to `path_in_repo`, so this only ever deletes under
+    `latest/dict` and `latest/index`. The READMEs live at the root and at `latest/`, and
+    `.gitattributes` is never deleted.
     """
     for folder, source in (("dict", PM.dictionary), ("index", PM.index)):
         destination = f"latest/{folder}"
@@ -127,6 +174,7 @@ def upload_release(api: HfApi, version: str) -> None:
             repo_id=REPO_ID_HF,
             repo_type="dataset",
             commit_message=f"[{version}] upload {destination}",
+            delete_patterns="*",
         )
         print(f"[upload] complete @ {destination}")
 
@@ -194,13 +242,14 @@ def upload_to_huggingface() -> None:
     git_cmd = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=".")
     commit_sha = git_cmd.decode().strip()
 
+    api = HfApi()
+
     print()
     print(f"{version=}")
     print(f"commit={commit_sha[:7]} {commit_sha}")
+    print_deletions(api)
     print(f"Upload {dict_dir} ({human_size_of(dict_dir)}) to {REPO_ID_HF}?")
     double_check()
-
-    api = HfApi()
 
     upload_release(api, version)
     print(f"Upload complete @ {REPO_HF}")
