@@ -3,6 +3,20 @@ use crate::Map;
 use crate::models::kaikki::Tag;
 use crate::tags::TAG_SEP;
 
+/// Apply every category merge.
+///
+/// Note that while some of the merges are only relevant for certain editions, they are quite
+/// cheap, and don't deserve (for now), to be only applied in case we match some (Edition, Lang)
+/// pairs.
+pub fn merge_tags_by_categories(tags: &mut Vec<Tag>) {
+    merge_tags_by_person(tags);
+    merge_tags_by_case(tags);
+    merge_tags_by_verb_form(tags);
+    merge_tags_by_definitiveness(tags); // [ko-en]
+    merge_tags_by_gender(tags);
+    merge_tags_by_german_verb_type(tags);
+}
+
 const PERSON_TAGS: [&str; 3] = ["first-person", "second-person", "third-person"];
 
 /// Merge similar tags if the only difference is the person-tags.
@@ -10,7 +24,7 @@ const PERSON_TAGS: [&str; 3] = ["first-person", "second-person", "third-person"]
 /// F.e.
 /// in:  `['first-person singular', 'third-person singular']`
 /// out: `['singular first/third-person ']`
-pub fn merge_tags_by_person(tags: &mut Vec<Tag>) {
+fn merge_tags_by_person(tags: &mut Vec<Tag>) {
     merge_tags(tags, &PERSON_TAGS, |matches| {
         // [first-person, third-person] > first/third-person
         matches
@@ -36,7 +50,7 @@ const CASE_TAGS: [&str; 8] = [
     "partitive",
 ];
 
-pub fn merge_tags_by_case(tags: &mut Vec<Tag>) {
+fn merge_tags_by_case(tags: &mut Vec<Tag>) {
     merge_tags_by_category(tags, &CASE_TAGS);
 }
 
@@ -56,7 +70,7 @@ const VERB_FORM_TAGS: [&str; 11] = [
     "interrogative",
 ];
 
-pub fn merge_tags_by_verb_form(tags: &mut Vec<Tag>) {
+fn merge_tags_by_verb_form(tags: &mut Vec<Tag>) {
     merge_tags_by_category(tags, &VERB_FORM_TAGS);
 }
 
@@ -64,7 +78,7 @@ pub fn merge_tags_by_verb_form(tags: &mut Vec<Tag>) {
 // TODO: At some point, generate this from that file
 const DEFINITIVENESS_TAGS: [&str; 2] = ["definite", "indefinite"];
 
-pub fn merge_tags_by_definitiveness(tags: &mut Vec<Tag>) {
+fn merge_tags_by_definitiveness(tags: &mut Vec<Tag>) {
     merge_tags_by_category(tags, &DEFINITIVENESS_TAGS);
 }
 
@@ -72,7 +86,7 @@ pub fn merge_tags_by_definitiveness(tags: &mut Vec<Tag>) {
 // TODO: At some point, generate this from that file
 const GENDER_TAGS: [&str; 3] = ["masculine", "feminine", "neuter"];
 
-pub fn merge_tags_by_gender(tags: &mut Vec<Tag>) {
+fn merge_tags_by_gender(tags: &mut Vec<Tag>) {
     merge_tags_by_category(tags, &GENDER_TAGS);
 }
 
@@ -80,7 +94,7 @@ pub fn merge_tags_by_gender(tags: &mut Vec<Tag>) {
 // TODO: At some point, generate this from that file
 const GERMAN_VERB_TYPE_TAGS: [&str; 3] = ["weak", "strong", "mixed"];
 
-pub fn merge_tags_by_german_verb_type(tags: &mut Vec<Tag>) {
+fn merge_tags_by_german_verb_type(tags: &mut Vec<Tag>) {
     merge_tags_by_category(tags, &GERMAN_VERB_TYPE_TAGS);
 }
 
