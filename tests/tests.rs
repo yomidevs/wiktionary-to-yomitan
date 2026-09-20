@@ -222,7 +222,11 @@ fn snapshot_glossary() {
 fn snapshot_glossary_extended() {
     let fixture_dir = Path::new(FIXTURE_DIR);
 
-    for (source, target) in [(Lang::De, Lang::Es), (Lang::Es, Lang::De)] {
+    for (source, target) in [
+        (Lang::De, Lang::Es),
+        (Lang::Es, Lang::De),
+        (Lang::Ja, Lang::Es),
+    ] {
         let args = fixture_glossary_extended_args(
             Edition::En,
             source,
