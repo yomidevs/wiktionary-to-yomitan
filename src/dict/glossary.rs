@@ -6,7 +6,7 @@ use crate::{
     dict::{Dictionary, Langs, main::get_reading, rules::rule_identifiers},
     lang::{Edition, Lang},
     models::{
-        kaikki::WordEntry,
+        kaikki::{Translation, WordEntry},
         yomitan::{DetailedDefinition, NTag, Node, TermBankEntry, YomitanDict, wrap},
     },
     tags::{Pos, find_tag_in_bank, localize_tag_info},
@@ -47,9 +47,9 @@ impl Dictionary for DGlossaryExtended {
     fn postprocess(&self, _: LangSpecs, irs: &mut Self::I) {
         let mut map = MergedSenses::default();
 
-        for (lemma, pos, edition, senses) in irs.drain(..) {
+        for (lemma, reading, pos, edition, senses) in irs.drain(..) {
             let (_, merged) = map
-                .entry((lemma, pos))
+                .entry((lemma, reading, pos))
                 .or_insert_with(|| (edition, Map::default()));
 
             for (sense, translations) in senses {
@@ -57,13 +57,16 @@ impl Dictionary for DGlossaryExtended {
             }
         }
 
-        irs.extend(map.into_iter().map(|((lemma, pos), (edition, senses))| {
-            let senses = senses
-                .into_iter()
-                .map(|(sense, translations)| (sense, translations.into_iter().collect()))
-                .collect();
-            (lemma, pos, edition, senses)
-        }));
+        irs.extend(
+            map.into_iter()
+                .map(|((lemma, reading, pos), (edition, senses))| {
+                    let senses = senses
+                        .into_iter()
+                        .map(|(sense, translations)| (sense, translations.into_iter().collect()))
+                        .collect();
+                    (lemma, reading, pos, edition, senses)
+                }),
+        );
     }
 
     fn to_yomitan(&self, langs: LangSpecs, irs: &Self::I) -> YomitanDict {
@@ -146,16 +149,31 @@ fn process_glossary(
     ));
 }
 
+/// Reading for a translated word, empty when there is none.
+fn translation_reading(source: Lang, translation: &Translation) -> String {
+    let reading = match source {
+        Lang::Ja => &translation.alt,
+        Lang::Zh | Lang::Fa => &translation.roman,
+        _ => return String::new(),
+    };
+
+    if *reading == translation.word {
+        return String::new();
+    }
+
+    reading.clone()
+}
+
 /// (sense, translations). The sense is in the edition's language: it only groups, and is
 /// never rendered.
 type Senses = Vec<(String, Vec<String>)>;
 
-/// (lemma, pos, edition, senses). The pos is the pivot entry's, not the lemma's.
-type IGlossaryExtended = Vec<(String, Pos, Edition, Senses)>;
+/// (lemma, reading, pos, edition, senses). The pos is the pivot entry's, not the lemma's.
+type IGlossaryExtended = Vec<(String, String, Pos, Edition, Senses)>;
 
 /// Merge target of [`DGlossaryExtended::postprocess`]:
-/// `(lemma, pos) -> (edition, sense -> translations)`.
-type MergedSenses = Map<(String, Pos), (Edition, Map<String, Set<String>>)>;
+/// `(lemma, reading, pos) -> (edition, sense -> translations)`.
+type MergedSenses = Map<(String, String, Pos), (Edition, Map<String, Set<String>>)>;
 
 fn process_glossary_extended(
     edition: Edition,
@@ -164,7 +182,7 @@ fn process_glossary_extended(
     entry: &WordEntry,
     irs: &mut IGlossaryExtended,
 ) {
-    let mut translations: Map<&str, (Vec<&str>, Vec<&str>)> = Map::default();
+    let mut translations: Map<&str, (Vec<&str>, Vec<&Translation>)> = Map::default();
 
     for translation in entry.non_trivial_translations() {
         if translation.lang_code == target.iso() {
@@ -180,7 +198,7 @@ fn process_glossary_extended(
                 .entry(&translation.sense)
                 .or_default()
                 .1
-                .push(&translation.word);
+                .push(translation);
         }
     }
 
@@ -193,9 +211,10 @@ fn process_glossary_extended(
 
     // A "semi" cartesian product. See the test below.
     irs.extend(translations.iter().flat_map(|(sense, (targets, sources))| {
-        sources.iter().map(|lemma| {
+        sources.iter().map(|translation| {
             (
-                (*lemma).to_string(),
+                translation.word.clone(),
+                translation_reading(source, translation),
                 Pos::from(entry.pos.as_str()),
                 edition,
                 vec![(
@@ -213,7 +232,7 @@ fn to_yomitan_glossary_extended(
     irs: &IGlossaryExtended,
 ) -> Vec<TermBankEntry> {
     irs.iter()
-        .map(|(lemma, pos, _, senses)| {
+        .map(|(lemma, reading, pos, _, senses)| {
             let definition_tags = match find_tag_in_bank(pos.long()) {
                 Some(mut tag_info) => {
                     localize_tag_info(target, &mut tag_info);
@@ -239,7 +258,7 @@ fn to_yomitan_glossary_extended(
 
             TermBankEntry::new(
                 lemma.clone(),
-                String::new(),
+                reading.clone(),
                 definition_tags,
                 rules,
                 definitions,
@@ -260,6 +279,7 @@ mod tests {
                 lang_code: lang_code.into(),
                 sense: sense.into(),
                 word: word.into(),
+                ..Default::default()
             }
         }
     }
@@ -298,9 +318,9 @@ mod tests {
 
         assert_eq!(irs.len(), 3);
 
-        let (lemma1, pos, _, senses1) = &irs[0];
-        let (lemma2, _, _, senses2) = &irs[1];
-        let (lemma3, _, _, senses3) = &irs[2];
+        let (lemma1, _, pos, _, senses1) = &irs[0];
+        let (lemma2, _, _, _, senses2) = &irs[1];
+        let (lemma3, _, _, _, senses3) = &irs[2];
 
         assert_eq!(pos.long(), "noun");
         assert_eq!(lemma1, "Ἡράκλειαι στῆλαι");
@@ -349,7 +369,7 @@ mod tests {
         dict.postprocess(LangSpecs::from(langs), &mut irs);
 
         assert_eq!(irs.len(), 1);
-        let (_, _, _, senses) = &irs[0];
+        let (_, _, _, _, senses) = &irs[0];
         let senses: Vec<String> = senses
             .iter()
             .map(|(sense, translations)| format!("{sense}: {}", translations.join(", ")))
@@ -386,7 +406,7 @@ mod tests {
         dict.process(langs, &entry, &mut irs);
 
         assert_eq!(irs.len(), 1);
-        let (_, pos, _, _) = &irs[0];
+        let (_, _, pos, _, _) = &irs[0];
 
         assert_eq!(pos.long(), "noun");
 

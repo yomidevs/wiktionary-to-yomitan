@@ -146,6 +146,11 @@ pub struct Translation {
     pub word: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     pub sense: String,
+    // These two are used to get the reading for GlossaryExtended
+    #[serde(skip_serializing_if = "String::is_empty")]
+    pub roman: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
+    pub alt: String,
 }
 
 // WordEntry impls
