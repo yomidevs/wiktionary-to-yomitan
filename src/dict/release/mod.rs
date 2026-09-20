@@ -109,27 +109,18 @@ fn release_main(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition]) {
 
     pool.install(|| {
         Lang::all().par_iter().for_each(|source| {
-            let langs = match (edition, source) {
-                (Edition::Simple, Lang::Simple) => MainLangs {
-                    source: *source,
-                    target: edition,
-                },
-                (Edition::Simple, _) | (_, Lang::Simple) => return,
-                _ => MainLangs {
-                    source: *source,
-                    target: edition,
-                },
-            };
+            // Simple English only pairs with itself
+            if (edition == Edition::Simple) != (*source == Lang::Simple) {
+                return;
+            }
 
             let args = MainArgs {
-                langs,
-                dict_name: DictName::default(),
-                options: Options {
-                    quiet: true,
-                    root_dir: rargs.root_dir.clone(),
-                    format: rargs.format,
-                    ..Default::default()
+                langs: MainLangs {
+                    source: *source,
+                    target: edition,
                 },
+                dict_name: DictName::default(),
+                options: rargs.options(),
             };
 
             if let Err(err) = make_dict_from_db(DMain, args, editions) {
@@ -141,27 +132,18 @@ fn release_main(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition]) {
 
 fn release_ipa(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition]) {
     Lang::all().par_iter().for_each(|source| {
-        let langs = match (edition, source) {
-            (Edition::Simple, Lang::Simple) => MainLangs {
-                source: *source,
-                target: edition,
-            },
-            (Edition::Simple, _) | (_, Lang::Simple) => return,
-            _ => MainLangs {
-                source: *source,
-                target: edition,
-            },
-        };
+        // Simple English only pairs with itself
+        if (edition == Edition::Simple) != (*source == Lang::Simple) {
+            return;
+        }
 
         let args = IpaArgs {
-            langs,
-            dict_name: DictName::default(),
-            options: Options {
-                quiet: true,
-                root_dir: rargs.root_dir.clone(),
-                format: rargs.format,
-                ..Default::default()
+            langs: MainLangs {
+                source: *source,
+                target: edition,
             },
+            dict_name: DictName::default(),
+            options: rargs.options(),
         };
 
         if let Err(err) = make_dict_from_db(DIpa, args, editions) {
@@ -171,20 +153,14 @@ fn release_ipa(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition]) {
 }
 
 fn release_ipa_merged(rargs: &ReleaseArgs, target: Lang, editions: &[Edition]) {
-    let langs = match target {
-        Lang::Simple => return,
-        _ => IpaMergedLangs { target },
-    };
+    if target == Lang::Simple {
+        return;
+    }
 
     let args = IpaMergedArgs {
-        langs,
+        langs: IpaMergedLangs { target },
         dict_name: DictName::default(),
-        options: Options {
-            quiet: true,
-            root_dir: rargs.root_dir.clone(),
-            format: rargs.format,
-            ..Default::default()
-        },
+        options: rargs.options(),
     };
 
     if let Err(err) = make_dict_from_db(DIpaMerged, args, editions) {
@@ -206,12 +182,7 @@ fn release_glossary(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition])
         let args = GlossaryArgs {
             langs,
             dict_name: DictName::default(),
-            options: Options {
-                quiet: true,
-                root_dir: rargs.root_dir.clone(),
-                format: rargs.format,
-                ..Default::default()
-            },
+            options: rargs.options(),
         };
 
         if let Err(err) = make_dict_from_db(DGlossary, args, editions) {

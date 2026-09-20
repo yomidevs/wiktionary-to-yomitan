@@ -5,7 +5,7 @@ use crate::tags::TAG_SEP;
 
 /// Define the merge categories with their tag words.
 ///
-/// Registering the words once via the macro gives both the list the merges use, and the 
+/// Registering the words once via the macro gives both the list the merges use, and the
 /// [`tag_category`] match, so the two cannot drift apart.
 macro_rules! categories {
     ($($variant:ident => [$($word:literal),+ $(,)?],)+) => {

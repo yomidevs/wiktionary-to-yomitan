@@ -149,6 +149,16 @@ pub struct ReleaseArgs {
 }
 
 impl ReleaseArgs {
+    /// The options every dictionary of the release is built with.
+    pub fn options(&self) -> Options {
+        Options {
+            quiet: true,
+            root_dir: self.root_dir.clone(),
+            format: self.format,
+            ..Default::default()
+        }
+    }
+
     /// The editions to cover, English first because it is the bottleneck and we
     /// want it started as soon as possible.
     pub fn editions(&self) -> Vec<Edition> {
