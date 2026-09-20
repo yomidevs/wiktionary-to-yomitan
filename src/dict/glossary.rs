@@ -45,17 +45,24 @@ impl Dictionary for DGlossaryExtended {
 
     // TODO: change type "I" to not have to merge lemmas here
     fn postprocess(&self, _: LangSpecs, irs: &mut Self::I) {
-        let mut map = Map::default();
+        let mut map = MergedSenses::default();
 
-        for (lemma, pos, edition, translations) in irs.drain(..) {
-            map.entry((lemma, pos))
-                .or_insert_with(|| (edition, Set::default()))
-                .1
-                .extend(translations);
+        for (lemma, pos, edition, senses) in irs.drain(..) {
+            let (_, merged) = map
+                .entry((lemma, pos))
+                .or_insert_with(|| (edition, Map::default()));
+
+            for (sense, translations) in senses {
+                merged.entry(sense).or_default().extend(translations);
+            }
         }
 
-        irs.extend(map.into_iter().map(|((lemma, pos), (edition, set))| {
-            (lemma, pos, edition, set.into_iter().collect::<Vec<_>>())
+        irs.extend(map.into_iter().map(|((lemma, pos), (edition, senses))| {
+            let senses = senses
+                .into_iter()
+                .map(|(sense, translations)| (sense, translations.into_iter().collect()))
+                .collect();
+            (lemma, pos, edition, senses)
         }));
     }
 
@@ -139,8 +146,16 @@ fn process_glossary(
     ));
 }
 
-/// (lemma, pos, edition, translations)
-type IGlossaryExtended = Vec<(String, Pos, Edition, Vec<String>)>;
+/// (sense, translations). The sense is in the edition's language: it only groups, and is
+/// never rendered.
+type Senses = Vec<(String, Vec<String>)>;
+
+/// (lemma, pos, edition, senses). The pos is the pivot entry's, not the lemma's.
+type IGlossaryExtended = Vec<(String, Pos, Edition, Senses)>;
+
+/// Merge target of [`DGlossaryExtended::postprocess`]:
+/// `(lemma, pos) -> (edition, sense -> translations)`.
+type MergedSenses = Map<(String, Pos), (Edition, Map<String, Set<String>>)>;
 
 fn process_glossary_extended(
     edition: Edition,
@@ -177,13 +192,16 @@ fn process_glossary_extended(
     }
 
     // A "semi" cartesian product. See the test below.
-    irs.extend(translations.iter().flat_map(|(_, (targets, sources))| {
+    irs.extend(translations.iter().flat_map(|(sense, (targets, sources))| {
         sources.iter().map(|lemma| {
             (
                 (*lemma).to_string(),
                 Pos::from(entry.pos.as_str()),
                 edition,
-                targets.iter().map(|def| (*def).to_string()).collect(),
+                vec![(
+                    (*sense).to_string(),
+                    targets.iter().map(|def| (*def).to_string()).collect(),
+                )],
             )
         })
     }));
@@ -195,7 +213,7 @@ fn to_yomitan_glossary_extended(
     irs: &IGlossaryExtended,
 ) -> Vec<TermBankEntry> {
     irs.iter()
-        .map(|(lemma, pos, _, translations)| {
+        .map(|(lemma, pos, _, senses)| {
             let definition_tags = match find_tag_in_bank(pos.long()) {
                 Some(mut tag_info) => {
                     localize_tag_info(target, &mut tag_info);
@@ -205,16 +223,26 @@ fn to_yomitan_glossary_extended(
             };
             let rules = rule_identifiers(source, lemma, &[pos.short().to_string()]);
 
+            // One definition per sense. The label is only a grouping key: it is written in
+            // the edition's language, which is neither the source nor the target. Senses
+            // that share a translation set collapse into a single definition.
+            let mut seen = Set::default();
+            let definitions = senses
+                .iter()
+                .filter(|(_, translations)| {
+                    let mut key: Vec<&str> = translations.iter().map(String::as_str).collect();
+                    key.sort_unstable();
+                    seen.insert(key)
+                })
+                .map(|(_, translations)| DetailedDefinition::Text(translations.join(", ")))
+                .collect();
+
             TermBankEntry::new(
                 lemma.clone(),
                 String::new(),
                 definition_tags,
                 rules,
-                translations
-                    .iter()
-                    .cloned()
-                    .map(DetailedDefinition::Text)
-                    .collect(),
+                definitions,
             )
         })
         .collect()
@@ -270,19 +298,22 @@ mod tests {
 
         assert_eq!(irs.len(), 3);
 
-        let (lemma1, pos, _, defs1) = &irs[0];
-        let (lemma2, _, _, defs2) = &irs[1];
-        let (lemma3, _, _, defs3) = &irs[2];
+        let (lemma1, pos, _, senses1) = &irs[0];
+        let (lemma2, _, _, senses2) = &irs[1];
+        let (lemma3, _, _, senses3) = &irs[2];
 
         assert_eq!(pos.long(), "noun");
         assert_eq!(lemma1, "Ἡράκλειαι στῆλαι");
         assert_eq!(lemma2, "Ἡράκλειαι στῆλαι");
         assert_eq!(lemma3, "Κάλπη");
 
-        let expected = vec!["Gibraltar".to_string(), "Gjibraltari".to_string()];
-        assert_eq!(defs1, &expected);
-        assert_eq!(defs2, &expected);
-        assert_eq!(defs3, &expected);
+        let expected = vec![(
+            "British overseas territory".to_string(),
+            vec!["Gibraltar".to_string(), "Gjibraltari".to_string()],
+        )];
+        assert_eq!(senses1, &expected);
+        assert_eq!(senses2, &expected);
+        assert_eq!(senses3, &expected);
 
         dict.postprocess(LangSpecs::from(langs), &mut irs);
         assert_eq!(irs.len(), 2);
@@ -291,6 +322,52 @@ mod tests {
         assert_eq!(yomitan_entries.len(), 2);
         let term_bank = yomitan_entries.first().unwrap();
         assert_eq!(term_bank.definition_tags[0].short_tag, "n");
+    }
+
+    /// Each sense of a pivot entry becomes its own definition, and senses that share a
+    /// translation set collapse into one.
+    #[test]
+    fn process_glossary_extended_groups_by_sense() {
+        let dict = DGlossaryExtended;
+        let langs = Langs::new(Edition::En, Lang::Es, Lang::De);
+
+        // es "banco" is the translation of three senses of "bank", two of which share the
+        // same German word.
+        let mut entry = WordEntry::default();
+        entry.pos = "noun".to_string();
+        entry.translations = vec![
+            Translation::new("es", "financial institution", "banco"),
+            Translation::new("de", "financial institution", "Bank"),
+            Translation::new("es", "sloping ground beside water", "banco"),
+            Translation::new("de", "sloping ground beside water", "Sandbank"),
+            Translation::new("es", "bench", "banco"),
+            Translation::new("de", "bench", "Bank"),
+        ];
+
+        let mut irs = IGlossaryExtended::new();
+        dict.process(langs, &entry, &mut irs);
+        dict.postprocess(LangSpecs::from(langs), &mut irs);
+
+        assert_eq!(irs.len(), 1);
+        let (_, _, _, senses) = &irs[0];
+        let senses: Vec<String> = senses
+            .iter()
+            .map(|(sense, translations)| format!("{sense}: {}", translations.join(", ")))
+            .collect();
+        assert_eq!(
+            senses,
+            [
+                "financial institution: Bank",
+                "sloping ground beside water: Sandbank",
+                "bench: Bank",
+            ]
+        );
+
+        // "bench" and "financial institution" share their German translation, so the three
+        // senses render as two definitions.
+        let yomitan_entries = to_yomitan_glossary_extended(langs.source, langs.target, &irs);
+        let banco = yomitan_entries.first().unwrap();
+        assert_eq!(banco.definitions.len(), 2);
     }
 
     #[test]

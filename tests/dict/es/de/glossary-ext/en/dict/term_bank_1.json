@@ -6,8 +6,7 @@
     "v",
     0,
     [
-      "bringen",
-      "holen"
+      "bringen, holen"
     ],
     0,
     ""
@@ -43,8 +42,7 @@
     "v",
     0,
     [
-      "teilnehmen",
-      "sich beteiligen"
+      "teilnehmen, sich beteiligen"
     ],
     0,
     ""
@@ -56,14 +54,8 @@
     "adj",
     0,
     [
-      "umfangreich",
-      "umfassend",
-      "gesprächig",
-      "gesellig",
-      "herzlich",
-      "beredt",
-      "mitteilsam",
-      "freundlich",
+      "umfangreich, umfassend",
+      "gesprächig, gesellig, herzlich, beredt, mitteilsam, freundlich",
       "expansiv"
     ],
     0,
@@ -88,8 +80,7 @@
     "adj",
     0,
     [
-      "magisch",
-      "zauberisch"
+      "magisch, zauberisch"
     ],
     0,
     ""
