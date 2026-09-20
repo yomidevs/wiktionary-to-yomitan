@@ -480,6 +480,9 @@ impl TryFrom<GlossaryExtendedLangs> for LangSpecs {
     type Error = anyhow::Error;
 
     fn try_from(langs: GlossaryExtendedLangs) -> Result<Self> {
+        if langs.edition == EditionSpec::One(Edition::Simple) {
+            anyhow::bail!("Simple English can not be used as the Edition for this dictionary.");
+        }
         err_on_simple_english(&langs.source, &langs.target)?;
         err_on_source_being_target(&langs.source, &langs.target)?;
 
@@ -567,6 +570,22 @@ mod tests {
         } else {
             panic!()
         }
+    }
+
+    #[test]
+    fn glossary_extended_can_not_use_the_simple_edition() {
+        let specs = |edition, source, target| {
+            let args = ["wty", "glossary-extended", edition, source, target];
+            match Cli::try_parse_from(args).unwrap().command {
+                Command::GlossaryExtended(args) => LangSpecs::try_from(args.langs),
+                _ => panic!(),
+            }
+        };
+
+        assert!(specs("simple", "de", "en").is_err());
+        assert!(specs("en", "de", "el").is_ok());
+        // "all" stays fine: the Simple edition just contributes nothing.
+        assert!(specs("all", "de", "el").is_ok());
     }
 
     #[test]
