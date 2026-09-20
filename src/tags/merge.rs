@@ -3,110 +3,120 @@ use crate::Map;
 use crate::models::kaikki::Tag;
 use crate::tags::TAG_SEP;
 
+/// Define the merge categories with their tag words.
+///
+/// Registering the words once via the macro gives both the list the merges use, and the 
+/// [`tag_category`] match, so the two cannot drift apart.
+macro_rules! categories {
+    ($($variant:ident => [$($word:literal),+ $(,)?],)+) => {
+        /// The categories we merge tags by.
+        #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+        enum Category {
+            $($variant,)+
+        }
+
+        impl Category {
+            /// In merge order.
+            const ALL: [Self; [$(Self::$variant,)+].len()] = [$(Self::$variant,)+];
+
+            /// Its tag words, in the order they are merged in.
+            const fn tags(self) -> &'static [&'static str] {
+                match self {
+                    $(Self::$variant => &[$($word,)+],)+
+                }
+            }
+        }
+
+        /// The category of a tag word, if any.
+        fn tag_category(word: &str) -> Option<Category> {
+            match word {
+                $($($word)|+ => Some(Category::$variant),)+
+                _ => None,
+            }
+        }
+    };
+}
+
+// Everything but the person tags is a subset of tag_order.json.
+// TODO: At some point, generate those from that file
+categories! {
+    Person => ["first-person", "second-person", "third-person"],
+    Case => [
+        "nominative",
+        "genitive",
+        "dative",
+        "accusative",
+        "vocative",
+        "ablative",
+        "locative",
+        "partitive",
+    ],
+    VerbForm => [
+        "imperative",
+        "gerund",
+        "imperfective",
+        "perfective",
+        "active",
+        "passive",
+        "participle",
+        "subjunctive",
+        "indicative",
+        "hortative",
+        "interrogative",
+    ],
+    // [ko-en]
+    Definitiveness => ["definite", "indefinite"],
+    Gender => ["masculine", "feminine", "neuter"],
+    GermanVerbType => ["weak", "strong", "mixed"],
+}
+
+impl Category {
+    /// Merge tags that only differ in the words of this category.
+    fn merge(self, tags: &mut Vec<Tag>) {
+        match self {
+            // first-person + third-person > first/third-person
+            Self::Person => merge_tags(tags, self, |matches| {
+                matches
+                    .iter()
+                    // SAFETY: the person tags always end in -person
+                    .map(|pmatch| pmatch.strip_suffix("-person").unwrap())
+                    .collect::<Vec<_>>()
+                    .join(TAG_SEP)
+                    + "-person"
+            }),
+            _ => merge_tags(tags, self, |matches| matches.join(TAG_SEP)),
+        }
+    }
+}
+
 /// Apply every category merge.
 ///
-/// Note that while some of the merges are only relevant for certain editions, they are quite
-/// cheap, and don't deserve (for now), to be only applied in case we match some (Edition, Lang)
-/// pairs.
+/// Most forms have no category word at all, so classify the words once and skip the merges that
+/// cannot match. Note that some merges are only relevant for certain editions, but they are
+/// cheap enough not to gate on (Edition, Lang) pairs.
 pub fn merge_tags_by_categories(tags: &mut Vec<Tag>) {
-    merge_tags_by_person(tags);
-    merge_tags_by_case(tags);
-    merge_tags_by_verb_form(tags);
-    merge_tags_by_definitiveness(tags); // [ko-en]
-    merge_tags_by_gender(tags);
-    merge_tags_by_german_verb_type(tags);
-}
+    let mut present = [false; Category::ALL.len()];
+    for tag in &*tags {
+        for word in tag.split(' ') {
+            if let Some(category) = tag_category(word) {
+                present[category as usize] = true;
+            }
+        }
+    }
 
-const PERSON_TAGS: [&str; 3] = ["first-person", "second-person", "third-person"];
-
-/// Merge similar tags if the only difference is the person-tags.
-///
-/// F.e.
-/// in:  `['first-person singular', 'third-person singular']`
-/// out: `['singular first/third-person ']`
-fn merge_tags_by_person(tags: &mut Vec<Tag>) {
-    merge_tags(tags, &PERSON_TAGS, |matches| {
-        // [first-person, third-person] > first/third-person
-        matches
-            .iter()
-            // SAFETY: PERSON_TAGS contains pmatch so it always ends in -person
-            .map(|pmatch| pmatch.strip_suffix("-person").unwrap())
-            .collect::<Vec<_>>()
-            .join(TAG_SEP)
-            + "-person"
-    });
-}
-
-// Uses a subset of tag_order.json cases
-// TODO: At some point, generate this from that file
-const CASE_TAGS: [&str; 8] = [
-    "nominative",
-    "genitive",
-    "dative",
-    "accusative",
-    "vocative",
-    "ablative",
-    "locative",
-    "partitive",
-];
-
-fn merge_tags_by_case(tags: &mut Vec<Tag>) {
-    merge_tags_by_category(tags, &CASE_TAGS);
-}
-
-// Uses a subset of tag_order.json cases
-// TODO: At some point, generate this from that file
-const VERB_FORM_TAGS: [&str; 11] = [
-    "imperative",
-    "gerund",
-    "imperfective",
-    "perfective",
-    "active",
-    "passive",
-    "participle",
-    "subjunctive",
-    "indicative",
-    "hortative",
-    "interrogative",
-];
-
-fn merge_tags_by_verb_form(tags: &mut Vec<Tag>) {
-    merge_tags_by_category(tags, &VERB_FORM_TAGS);
-}
-
-// Uses a subset of tag_order.json cases
-// TODO: At some point, generate this from that file
-const DEFINITIVENESS_TAGS: [&str; 2] = ["definite", "indefinite"];
-
-fn merge_tags_by_definitiveness(tags: &mut Vec<Tag>) {
-    merge_tags_by_category(tags, &DEFINITIVENESS_TAGS);
-}
-
-// Uses a subset of tag_order.json cases
-// TODO: At some point, generate this from that file
-const GENDER_TAGS: [&str; 3] = ["masculine", "feminine", "neuter"];
-
-fn merge_tags_by_gender(tags: &mut Vec<Tag>) {
-    merge_tags_by_category(tags, &GENDER_TAGS);
-}
-
-// Uses a subset of tag_order.json cases
-// TODO: At some point, generate this from that file
-const GERMAN_VERB_TYPE_TAGS: [&str; 3] = ["weak", "strong", "mixed"];
-
-fn merge_tags_by_german_verb_type(tags: &mut Vec<Tag>) {
-    merge_tags_by_category(tags, &GERMAN_VERB_TYPE_TAGS);
-}
-
-/// Merge similar tags if the only difference is the category-tags.
-fn merge_tags_by_category(tags: &mut Vec<Tag>, category_tags: &[&str]) {
-    merge_tags(tags, category_tags, |matches| matches.join(TAG_SEP));
+    for category in Category::ALL {
+        if present[category as usize] {
+            category.merge(tags);
+        }
+    }
 }
 
 /// Generic merge function.
 ///
 /// Note that this does not preserve logical tag order, and should be called before `sort_tag`.
-fn merge_tags(tags: &mut Vec<Tag>, category_tags: &[&str], combine: impl Fn(&[&str]) -> String) {
+fn merge_tags(tags: &mut Vec<Tag>, category: Category, combine: impl Fn(&[&str]) -> String) {
+    let category_tags = category.tags();
+
     let contains = tags
         .iter()
         .any(|tag| tag.split(' ').any(|word| category_tags.contains(&word)));
@@ -157,7 +167,7 @@ mod tests {
     fn make_test_merge_person_tags(received: &[&str], expected: &[&str]) {
         let mut vreceived: Vec<String> = to_string_vec(received);
         let vexpected: Vec<String> = to_string_vec(expected);
-        merge_tags_by_person(&mut vreceived);
+        Category::Person.merge(&mut vreceived);
         assert_eq!(vreceived, vexpected);
     }
 
