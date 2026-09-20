@@ -21,7 +21,7 @@ use metadata::write_dict_metadata;
 use crate::{
     cli::{
         DictName, GlossaryArgs, GlossaryExtendedArgs, GlossaryExtendedLangs, GlossaryLangs,
-        IpaArgs, IpaMergedArgs, IpaMergedLangs, MainArgs, MainLangs, Options, ReleaseArgs,
+        IpaArgs, IpaMergedArgs, IpaMergedLangs, MainArgs, MainLangs, ReleaseArgs,
     },
     db::WiktextractDb,
     dict::{
@@ -69,7 +69,7 @@ pub fn release(rargs: ReleaseArgs) -> Result<()> {
     // let targets: Vec<Lang> = editions.iter().map(|ed| (*ed).into()).collect();
     targets.par_iter().for_each(|target| {
         release_ipa_merged(&rargs, *target, &editions);
-        // release_glossary_extended(*target, &editions);
+        // release_glossary_extended(&rargs, *target, &editions);
     });
 
     let elapsed = start.elapsed();
@@ -193,7 +193,7 @@ fn release_glossary(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition])
 }
 
 #[allow(unused)]
-fn release_glossary_extended(source: Lang, editions: &[Edition]) {
+fn release_glossary_extended(rargs: &ReleaseArgs, source: Lang, editions: &[Edition]) {
     Lang::all().par_iter().for_each(|target| {
         let langs = match (source, target) {
             (Lang::Simple, _) | (_, Lang::Simple) => return,
@@ -208,11 +208,7 @@ fn release_glossary_extended(source: Lang, editions: &[Edition]) {
         let args = GlossaryExtendedArgs {
             langs,
             dict_name: DictName::default(),
-            options: Options {
-                quiet: true,
-                root_dir: "data".into(),
-                ..Default::default()
-            },
+            options: rargs.options(),
         };
 
         if let Err(err) = make_dict_from_db(DGlossaryExtended, args, editions) {
@@ -241,7 +237,26 @@ pub trait DQuery {
 impl DQuery for DMain {}
 impl DQuery for DIpa {}
 impl DQuery for DIpaMerged {}
-impl DQuery for DGlossaryExtended {}
+
+/// Select entries with translations in *both* source and target.
+impl DQuery for DGlossaryExtended {
+    fn statement_str() -> &'static str {
+        r"
+        SELECT w.entry
+        FROM wiktextract w
+        JOIN translations s ON s.entry_id = w.id AND s.target_lang = ?1
+        JOIN translations t ON t.entry_id = w.id AND t.target_lang = ?2
+        "
+    }
+
+    fn query<'a>(
+        stmt: &'a mut Statement,
+        source: &str,
+        target: &str,
+    ) -> rusqlite::Result<rusqlite::Rows<'a>> {
+        stmt.query([source, target])
+    }
+}
 
 /// Select entries that match the source lang and have translations in target.
 impl DQuery for DGlossary {
