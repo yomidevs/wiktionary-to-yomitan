@@ -220,11 +220,14 @@ fn translation_reading(source: Lang, translation: &Translation) -> String {
         _ => return String::new(),
     };
 
-    if *reading == translation.word {
+    // If there are multiple words ("ワシ, わし, washi") only the first is the reading.
+    let reading = reading.split(',').next().unwrap_or(reading).trim();
+
+    if reading == translation.word {
         return String::new();
     }
 
-    reading.clone()
+    reading.to_string()
 }
 
 /// The reading of every word that has exactly one, keyed by `(lemma, pos)`.
