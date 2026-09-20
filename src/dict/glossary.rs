@@ -31,56 +31,6 @@ impl Dictionary for DGlossary {
     }
 }
 
-impl Dictionary for DGlossaryExtended {
-    type A = GlossaryExtendedArgs;
-    type I = IGlossaryExtended;
-
-    fn supports_probe(&self) -> bool {
-        false
-    }
-
-    fn process(&self, langs: Langs, entry: &WordEntry, irs: &mut Self::I) {
-        process_glossary_extended(langs.source, langs.target, entry, irs);
-    }
-
-    // TODO: change type "I" to not have to merge lemmas here
-    fn postprocess(&self, _: LangSpecs, irs: &mut Self::I) {
-        let readings = single_readings(irs);
-        let mut map = MergedSenses::default();
-
-        for (lemma, mut reading, pos, senses) in irs.drain(..) {
-            if reading.is_empty() {
-                reading = readings
-                    .get(&(lemma.clone(), pos))
-                    .cloned()
-                    .unwrap_or_default();
-            }
-
-            let merged = map.entry((lemma, reading, pos)).or_default();
-
-            for (sense, translations) in senses {
-                merged.entry(sense).or_default().extend(translations);
-            }
-        }
-
-        irs.extend(map.into_iter().map(|((lemma, reading, pos), senses)| {
-            let senses = senses
-                .into_iter()
-                .map(|(sense, translations)| (sense, translations.into_iter().collect()))
-                .collect();
-            (lemma, reading, pos, senses)
-        }));
-    }
-
-    fn to_yomitan(&self, langs: LangSpecs, irs: &Self::I) -> YomitanDict {
-        YomitanDict::new(
-            to_yomitan_glossary_extended(langs.source, langs.target, irs),
-            vec![],
-            vec![],
-        )
-    }
-}
-
 fn process_glossary(
     source: Edition,
     target: Lang,
@@ -152,49 +102,6 @@ fn process_glossary(
     ));
 }
 
-/// Reading for a translated word, empty when there is none.
-fn translation_reading(source: Lang, translation: &Translation) -> String {
-    let reading = match source {
-        Lang::Ja => &translation.alt,
-        Lang::Zh | Lang::Fa => &translation.roman,
-        _ => return String::new(),
-    };
-
-    if *reading == translation.word {
-        return String::new();
-    }
-
-    reading.clone()
-}
-
-/// The reading of every word that has exactly one, keyed by `(lemma, pos)`.
-///
-/// A translation table does not repeat the reading on every row, so the same word arrives
-/// both with and without one from Kaikki.
-fn single_readings(irs: &IGlossaryExtended) -> Map<(String, Pos), String> {
-    let mut readings: Map<(&str, Pos), Option<&str>> = Map::default();
-
-    for (lemma, reading, pos, _) in irs {
-        if reading.is_empty() {
-            continue;
-        }
-
-        let known = readings
-            .entry((lemma.as_str(), *pos))
-            .or_insert(Some(reading.as_str()));
-        if *known != Some(reading.as_str()) {
-            *known = None;
-        }
-    }
-
-    readings
-        .into_iter()
-        .filter_map(|((lemma, pos), reading)| {
-            Some(((lemma.to_string(), pos), reading?.to_string()))
-        })
-        .collect()
-}
-
 /// (sense, translations). The sense is in the edition's language: it only groups, and is
 /// never rendered.
 type Senses = Vec<(String, Vec<String>)>;
@@ -205,6 +112,56 @@ type IGlossaryExtended = Vec<(String, String, Pos, Senses)>;
 /// Merge target of [`DGlossaryExtended::postprocess`]:
 /// `(lemma, reading, pos) -> sense -> translations`.
 type MergedSenses = Map<(String, String, Pos), Map<String, Set<String>>>;
+
+impl Dictionary for DGlossaryExtended {
+    type A = GlossaryExtendedArgs;
+    type I = IGlossaryExtended;
+
+    fn supports_probe(&self) -> bool {
+        false
+    }
+
+    fn process(&self, langs: Langs, entry: &WordEntry, irs: &mut Self::I) {
+        process_glossary_extended(langs.source, langs.target, entry, irs);
+    }
+
+    // TODO: change type "I" to not have to merge lemmas here
+    fn postprocess(&self, _: LangSpecs, irs: &mut Self::I) {
+        let readings = single_readings(irs);
+        let mut map = MergedSenses::default();
+
+        for (lemma, mut reading, pos, senses) in irs.drain(..) {
+            if reading.is_empty() {
+                reading = readings
+                    .get(&(lemma.clone(), pos))
+                    .cloned()
+                    .unwrap_or_default();
+            }
+
+            let merged = map.entry((lemma, reading, pos)).or_default();
+
+            for (sense, translations) in senses {
+                merged.entry(sense).or_default().extend(translations);
+            }
+        }
+
+        irs.extend(map.into_iter().map(|((lemma, reading, pos), senses)| {
+            let senses = senses
+                .into_iter()
+                .map(|(sense, translations)| (sense, translations.into_iter().collect()))
+                .collect();
+            (lemma, reading, pos, senses)
+        }));
+    }
+
+    fn to_yomitan(&self, langs: LangSpecs, irs: &Self::I) -> YomitanDict {
+        YomitanDict::new(
+            to_yomitan_glossary_extended(langs.source, langs.target, irs),
+            vec![],
+            vec![],
+        )
+    }
+}
 
 fn process_glossary_extended(
     source: Lang,
@@ -253,6 +210,49 @@ fn process_glossary_extended(
             )
         })
     }));
+}
+
+/// Reading for a translated word, empty when there is none.
+fn translation_reading(source: Lang, translation: &Translation) -> String {
+    let reading = match source {
+        Lang::Ja => &translation.alt,
+        Lang::Zh | Lang::Fa => &translation.roman,
+        _ => return String::new(),
+    };
+
+    if *reading == translation.word {
+        return String::new();
+    }
+
+    reading.clone()
+}
+
+/// The reading of every word that has exactly one, keyed by `(lemma, pos)`.
+///
+/// A translation table does not repeat the reading on every row, so the same word arrives
+/// both with and without one from Kaikki.
+fn single_readings(irs: &IGlossaryExtended) -> Map<(String, Pos), String> {
+    let mut readings: Map<(&str, Pos), Option<&str>> = Map::default();
+
+    for (lemma, reading, pos, _) in irs {
+        if reading.is_empty() {
+            continue;
+        }
+
+        let known = readings
+            .entry((lemma.as_str(), *pos))
+            .or_insert(Some(reading.as_str()));
+        if *known != Some(reading.as_str()) {
+            *known = None;
+        }
+    }
+
+    readings
+        .into_iter()
+        .filter_map(|((lemma, pos), reading)| {
+            Some(((lemma.to_string(), pos), reading?.to_string()))
+        })
+        .collect()
 }
 
 fn to_yomitan_glossary_extended(
