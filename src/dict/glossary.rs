@@ -48,13 +48,13 @@ impl Dictionary for DGlossaryExtended {
         let mut map = Map::default();
 
         for (lemma, pos, edition, translations) in irs.drain(..) {
-            map.entry(lemma)
-                .or_insert_with(|| (pos, edition, Set::default()))
-                .2
+            map.entry((lemma, pos))
+                .or_insert_with(|| (edition, Set::default()))
+                .1
                 .extend(translations);
         }
 
-        irs.extend(map.into_iter().map(|(lemma, (pos, edition, set))| {
+        irs.extend(map.into_iter().map(|((lemma, pos), (edition, set))| {
             (lemma, pos, edition, set.into_iter().collect::<Vec<_>>())
         }));
     }
