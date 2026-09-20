@@ -9,6 +9,10 @@ use wty::{
     path::PathManager,
 };
 
+/// Root of the bench fixtures.
+///
+/// Every `<source>-<target>-extract.jsonl` under `kaikki/` was made by taking the
+/// first 50 entries of that edition's kaikki dump.
 const BENCH_FIXTURES_DIR_100: &str = "benches/fixtures";
 
 fn fixture_options(fixture_dir: &Path) -> Options {
@@ -50,5 +54,9 @@ fn bench_de_de(c: &mut Criterion) {
     bench_monolingual(c, Edition::De, "main_dict_de_de");
 }
 
-criterion_group!(benches, bench_el_el, bench_de_de);
+fn bench_en_en(c: &mut Criterion) {
+    bench_monolingual(c, Edition::En, "main_dict_en_en");
+}
+
+criterion_group!(benches, bench_el_el, bench_de_de, bench_en_en);
 criterion_main!(benches);
