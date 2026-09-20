@@ -256,13 +256,31 @@ pub fn make_dict_from_jsonl<D: Dictionary>(dict: D, raw_args: D::A) -> Result<()
         dict.found_ir_message(pm.langs, &irs);
     }
 
-    if irs.is_empty() {
+    dict.postprocess(pm.langs, &mut irs);
+
+    if skip_below_min_entries(&irs, pm) {
         return Ok(());
     }
-
-    dict.postprocess(pm.langs, &mut irs);
 
     opts.format.write(&dict, pm.langs, opts, pm, &irs)?;
 
     Ok(())
+}
+
+/// Whether `irs` is too thin to be worth writing, per `opts.min_entries`.
+pub fn skip_below_min_entries<I: Intermediate>(irs: &I, pm: &PathManager) -> bool {
+    // An empty dictionary is never written, whatever the threshold is.
+    let min_entries = pm.opts.min_entries.max(1);
+
+    if irs.len() < min_entries {
+        tracing::debug!(
+            "[{}-{}] Skipping: {} entries < min_entries {min_entries}",
+            pm.langs.source,
+            pm.langs.target,
+            irs.len(),
+        );
+        return true;
+    }
+
+    false
 }
