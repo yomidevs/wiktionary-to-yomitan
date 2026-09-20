@@ -222,13 +222,15 @@ fn snapshot_glossary() {
 fn snapshot_glossary_extended() {
     let fixture_dir = Path::new(FIXTURE_DIR);
 
-    for (source, target) in [
-        (Lang::De, Lang::Es),
-        (Lang::Es, Lang::De),
-        (Lang::Ja, Lang::Es),
+    for (edition, source, target) in [
+        (Edition::En, Lang::De, Lang::Es),
+        (Edition::En, Lang::Es, Lang::De),
+        (Edition::En, Lang::Ja, Lang::Es),
+        // Same word is translated twice, once with a reading and once without
+        (Edition::Ru, Lang::Zh, Lang::Pt),
     ] {
         let args = fixture_glossary_extended_args(
-            Edition::En,
+            edition,
             source,
             target,
             fixture_dir,

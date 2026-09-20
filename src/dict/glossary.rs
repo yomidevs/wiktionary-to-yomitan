@@ -45,9 +45,17 @@ impl Dictionary for DGlossaryExtended {
 
     // TODO: change type "I" to not have to merge lemmas here
     fn postprocess(&self, _: LangSpecs, irs: &mut Self::I) {
+        let readings = single_readings(irs);
         let mut map = MergedSenses::default();
 
-        for (lemma, reading, pos, senses) in irs.drain(..) {
+        for (lemma, mut reading, pos, senses) in irs.drain(..) {
+            if reading.is_empty() {
+                reading = readings
+                    .get(&(lemma.clone(), pos))
+                    .cloned()
+                    .unwrap_or_default();
+            }
+
             let merged = map.entry((lemma, reading, pos)).or_default();
 
             for (sense, translations) in senses {
@@ -157,6 +165,34 @@ fn translation_reading(source: Lang, translation: &Translation) -> String {
     }
 
     reading.clone()
+}
+
+/// The reading of every word that has exactly one, keyed by `(lemma, pos)`.
+///
+/// A translation table does not repeat the reading on every row, so the same word arrives
+/// both with and without one from Kaikki.
+fn single_readings(irs: &IGlossaryExtended) -> Map<(String, Pos), String> {
+    let mut readings: Map<(&str, Pos), Option<&str>> = Map::default();
+
+    for (lemma, reading, pos, _) in irs {
+        if reading.is_empty() {
+            continue;
+        }
+
+        let known = readings
+            .entry((lemma.as_str(), *pos))
+            .or_insert(Some(reading.as_str()));
+        if *known != Some(reading.as_str()) {
+            *known = None;
+        }
+    }
+
+    readings
+        .into_iter()
+        .filter_map(|((lemma, pos), reading)| {
+            Some(((lemma.to_string(), pos), reading?.to_string()))
+        })
+        .collect()
 }
 
 /// (sense, translations). The sense is in the edition's language: it only groups, and is
