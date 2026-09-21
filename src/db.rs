@@ -140,15 +140,6 @@ impl WiktextractDb {
                 target_lang TEXT NOT NULL,
                 FOREIGN KEY(entry_id) REFERENCES wiktextract(id)
             );
-
-            CREATE INDEX IF NOT EXISTS idx_wiktextract_lang
-            ON wiktextract(lang);
-
-            CREATE INDEX IF NOT EXISTS idx_translations_target_lang
-            ON translations(target_lang);
-
-            CREATE INDEX IF NOT EXISTS idx_translations_entry_id
-            ON translations(entry_id);
             ",
         )?;
 
@@ -165,6 +156,20 @@ impl WiktextractDb {
         } else {
             tracing::trace!("DB already initialized for {edition} ({count} rows)");
         }
+
+        // Indexing after the import is cheaper than maintaining the b-trees on every insert.
+        db.conn.execute_batch(
+            r"
+            CREATE INDEX IF NOT EXISTS idx_wiktextract_lang
+            ON wiktextract(lang);
+
+            CREATE INDEX IF NOT EXISTS idx_translations_target_lang_entry_id
+            ON translations(target_lang, entry_id);
+
+            CREATE INDEX IF NOT EXISTS idx_translations_entry_id
+            ON translations(entry_id);
+            ",
+        )?;
 
         Ok(db)
     }
