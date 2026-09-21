@@ -328,5 +328,56 @@
     ],
     0,
     ""
+  ],
+  [
+    "basser",
+    "",
+    "non-lemma",
+    "adj",
+    0,
+    [
+      [
+        "bass",
+        [
+          "comparative"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "bassest",
+    "",
+    "non-lemma",
+    "adj",
+    0,
+    [
+      [
+        "bass",
+        [
+          "superlative"
+        ]
+      ]
+    ],
+    0,
+    ""
+  ],
+  [
+    "basses",
+    "",
+    "non-lemma",
+    "n",
+    0,
+    [
+      [
+        "bass",
+        [
+          "plural"
+        ]
+      ]
+    ],
+    0,
+    ""
   ]
 ]

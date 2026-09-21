@@ -190,7 +190,14 @@ pub fn make_dict_from_jsonl<D: Dictionary>(dict: D, raw_args: D::A) -> Result<()
     let mut irs = D::I::default();
 
     for edition in edition_pm.variants() {
-        let path_jsonl = find_or_download_jsonl(edition, Some(source_pm), pm)?;
+        // A dictionary that does not probe does not filter by source either.
+        // Read this as a (reasonable) hack to make glossary-extended work.
+        let dataset_lang = if dict.supports_probe() {
+            source_pm
+        } else {
+            Lang::from(edition) // glossary-extended case
+        };
+        let path_jsonl = find_or_download_jsonl(edition, Some(dataset_lang), pm)?;
         tracing::trace!("edition: {edition}, path: {}", path_jsonl.display());
 
         let reader_file = File::open(&path_jsonl)?;

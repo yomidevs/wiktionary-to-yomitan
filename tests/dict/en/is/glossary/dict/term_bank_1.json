@@ -189,5 +189,43 @@
     ],
     0,
     ""
+  ],
+  [
+    "bass",
+    "",
+    "n",
+    "n",
+    0,
+    [
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "musical instrument"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "bassagítar"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    0,
+    ""
   ]
 ]

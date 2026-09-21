@@ -388,5 +388,88 @@
         }
       ]
     }
+  },
+  "bass": {
+    "": {
+      "adjective": [
+        {
+          "gloss_tree": {
+            "Of sound, a voice or an instrument, low in pitch or frequency.": {
+              "examples": [
+                {
+                  "text": "The giant spoke in a deep, bass, rumbling voice that shook me to my boots.",
+                  "bold_text_offsets": [
+                    [
+                      27,
+                      31
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "etymology_text": "Etymology tree\nProto-Indo-European *gʷem-\nProto-Indo-European *-tis\nProto-Indo-European *gʷémtis\nProto-Hellenic *gʷə́tis\nAncient Greek βᾰ́σῐς (bắsĭs)bor.\nLatin basis\nOld French basebor.\nMiddle English base\nEnglish base\n▲\nItalian bassoinflu.\nEnglish bass\nA respelling of base under the influence of Italian basso (“low”).",
+          "head_info_text": "bass (comparative basser, superlative bassest)",
+          "wlink": "https://en.wiktionary.org/wiki/bass#English",
+          "klink": "https://kaikki.org/dictionary/English/meaning/b/ba/bass.html"
+        }
+      ],
+      "noun": [
+        {
+          "gloss_tree": {
+            "A low spectrum of sound tones.": {
+              "examples": [
+                {
+                  "text": "Peter adjusted the equalizer on his audio equipment to emphasize the bass.",
+                  "bold_text_offsets": [
+                    [
+                      69,
+                      73
+                    ]
+                  ]
+                }
+              ]
+            },
+            "A section of a musical group that produces low-pitched sound, lower than the baritone and tenor.": {
+              "topics": [
+                "entertainment",
+                "lifestyle",
+                "music"
+              ],
+              "examples": [
+                {
+                  "text": "The conductor preferred to situate the bass in the middle rear, rather than to one side of the orchestra.",
+                  "bold_text_offsets": [
+                    [
+                      39,
+                      43
+                    ]
+                  ]
+                }
+              ]
+            },
+            "One who sings in the bass range.": {
+              "topics": [
+                "entertainment",
+                "lifestyle",
+                "music"
+              ]
+            },
+            "An instrument that plays in the bass range, in particular a bass guitar, double bass, electric bass, or bass synthesiser.": {
+              "topics": [
+                "entertainment",
+                "lifestyle",
+                "music"
+              ]
+            },
+            "The clef sign that indicates that the pitch of the notes is below middle C.": {}
+          },
+          "etymology_text": "Etymology tree\nProto-Indo-European *gʷem-\nProto-Indo-European *-tis\nProto-Indo-European *gʷémtis\nProto-Hellenic *gʷə́tis\nAncient Greek βᾰ́σῐς (bắsĭs)bor.\nLatin basis\nOld French basebor.\nMiddle English base\nEnglish base\n▲\nItalian bassoinflu.\nEnglish bass\nA respelling of base under the influence of Italian basso (“low”).",
+          "head_info_text": "bass (plural basses)",
+          "wlink": "https://en.wiktionary.org/wiki/bass#English",
+          "klink": "https://kaikki.org/dictionary/English/meaning/b/ba/bass.html"
+        }
+      ]
+    }
   }
 }

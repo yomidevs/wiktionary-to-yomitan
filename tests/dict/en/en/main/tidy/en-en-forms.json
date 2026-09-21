@@ -160,5 +160,31 @@
         ]
       ]
     }
+  },
+  "bass": {
+    "basser": {
+      "adjective": [
+        "extracted",
+        [
+          "comparative"
+        ]
+      ]
+    },
+    "bassest": {
+      "adjective": [
+        "extracted",
+        [
+          "superlative"
+        ]
+      ]
+    },
+    "basses": {
+      "noun": [
+        "extracted",
+        [
+          "plural"
+        ]
+      ]
+    }
   }
 }

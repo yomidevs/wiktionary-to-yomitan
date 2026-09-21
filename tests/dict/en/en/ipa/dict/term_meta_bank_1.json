@@ -182,5 +182,17 @@
         }
       ]
     }
+  ],
+  [
+    "bass",
+    "ipa",
+    {
+      "reading": "bass",
+      "transcriptions": [
+        {
+          "ipa": "/beɪs/"
+        }
+      ]
+    }
   ]
 ]

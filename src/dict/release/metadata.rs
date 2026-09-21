@@ -97,19 +97,29 @@ impl serde::Serialize for DbInfo {
     }
 }
 
-fn classify_dict(name: &str) -> &str {
-    if name.ends_with("-ipa") {
-        // wty-afb-en-ipa
-        if name.chars().filter(|c| *c == '-').count() == 3 {
-            "ipa"
-        // wty-afb-ipa
-        } else {
-            "ipa-merged"
-        }
-    } else if name.ends_with("-gloss") {
-        "glossary"
+/// Which dictionary wrote `<source>/<target>/<stem>.zip`.
+fn classify_dict(source: &str, target: &str, stem: &str) -> &'static str {
+    if source == "all" {
+        return "ipa-merged";
+    }
+
+    if stem.ends_with("-ipa") {
+        return "ipa";
+    }
+
+    let Some(body) = stem.strip_suffix("-gloss") else {
+        return "main";
+    };
+
+    // glossary is  `<name>-<source>-<target>`
+    // glossary-ext `<name>-<edition>-<source>-<target>`.
+    let head = body
+        .strip_suffix(&format!("-{source}-{target}"))
+        .unwrap_or(body);
+    if head.contains('-') {
+        "glossary-ext"
     } else {
-        "main"
+        "glossary"
     }
 }
 
@@ -134,7 +144,8 @@ fn scan_and_group(root_dir: &Path) -> Result<Metadata> {
         let target = parts[1].as_os_str().to_string_lossy().into_owned();
         let filename = parts[2].as_os_str().to_string_lossy();
 
-        let dict_type = classify_dict(filename.trim_end_matches(".zip"));
+        let stem = filename.strip_suffix(".zip").unwrap_or(&filename);
+        let dict_type = classify_dict(&source, &target, stem);
         let size = path.metadata()?.len();
 
         let type_entry = meta.dicts.entry(dict_type.to_string()).or_default();
@@ -182,4 +193,28 @@ pub fn write_dict_metadata(root_dir: &Path, editions: &[Edition], time: Duration
     std::fs::write(out_path, &json)?;
     println!("[meta] Dict metadata written to {}", out_path.display());
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn classify() {
+        assert_eq!(classify_dict("el", "en", "wty-el-en"), "main");
+        assert_eq!(classify_dict("el", "en", "wty-el-en-gloss"), "glossary");
+        assert_eq!(
+            classify_dict("el", "en", "wty-all-el-en-gloss"),
+            "glossary-ext"
+        );
+        assert_eq!(
+            classify_dict("el", "en", "wty-de-el-en-gloss"),
+            "glossary-ext"
+        );
+        assert_eq!(classify_dict("el", "en", "wty-el-en-ipa"), "ipa");
+        assert_eq!(classify_dict("all", "en", "wty-en-ipa"), "ipa-merged");
+
+        // isos containing a dash
+        assert_eq!(classify_dict("gem-pro", "en", "wty-gem-pro-en-ipa"), "ipa");
+    }
 }

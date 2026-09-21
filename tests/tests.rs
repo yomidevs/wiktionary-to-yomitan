@@ -3,9 +3,12 @@ use std::{fs, path::Path, sync::OnceLock};
 use anyhow::{Ok, Result};
 
 use wty::{
-    cli::{DictName, GlossaryArgs, GlossaryLangs, IpaArgs, MainArgs, MainLangs, Options},
-    dict::{DGlossary, DIpa, DMain, WriterFormat, make_dict_from_jsonl},
-    lang::{Edition, Lang},
+    cli::{
+        DictName, GlossaryArgs, GlossaryExtendedArgs, GlossaryExtendedLangs, GlossaryLangs,
+        IpaArgs, MainArgs, MainLangs, Options,
+    },
+    dict::{DGlossary, DGlossaryExtended, DIpa, DMain, WriterFormat, make_dict_from_jsonl},
+    lang::{Edition, EditionSpec, Lang},
     path::PathManager,
 };
 
@@ -112,6 +115,24 @@ fn fixture_glossary_args(
     }
 }
 
+fn fixture_glossary_extended_args(
+    edition: Edition,
+    source: Lang,
+    target: Lang,
+    fixture_dir: &Path,
+    format: WriterFormat,
+) -> GlossaryExtendedArgs {
+    GlossaryExtendedArgs {
+        langs: GlossaryExtendedLangs {
+            edition: EditionSpec::One(edition),
+            source,
+            target,
+        },
+        dict_name: DictName::default(),
+        options: fixture_options(fixture_dir, format),
+    }
+}
+
 /// Delete generated artifacts from previous tests runs, if any
 fn delete_previous_output(pm: &PathManager) -> Result<()> {
     let pathdir_dict_temp = pm.dir_temp_dict();
@@ -193,6 +214,29 @@ fn snapshot_glossary() {
             );
             make_dict_from_jsonl(DGlossary, args).unwrap();
         }
+    }
+}
+
+// A very small matrix. This dictionary is experimental.
+#[test]
+fn snapshot_glossary_extended() {
+    let fixture_dir = Path::new(FIXTURE_DIR);
+
+    for (edition, source, target) in [
+        (Edition::En, Lang::De, Lang::Es),
+        (Edition::En, Lang::Es, Lang::De),
+        (Edition::En, Lang::Ja, Lang::Es),
+        // Same word is translated twice, once with a reading and once without
+        (Edition::Ru, Lang::Zh, Lang::Pt),
+    ] {
+        let args = fixture_glossary_extended_args(
+            edition,
+            source,
+            target,
+            fixture_dir,
+            WriterFormat::TestYomitan,
+        );
+        make_dict_from_jsonl(DGlossaryExtended, args).unwrap();
     }
 }
 

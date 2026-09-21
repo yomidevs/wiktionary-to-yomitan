@@ -161,7 +161,16 @@ impl PathManager {
     //
     // TODO: make this depend on WriterFromat?
     fn dir_stage(&self) -> PathBuf {
-        self.dir_dict().join(self.dict_ty.to_string())
+        let dir_stage = self.dir_dict().join(self.dict_ty.to_string());
+
+        match self.dict_ty {
+            // For GlossaryExtended, we need to add the edition to disambiguate intermediary
+            // files (the dictionary zip names differ anyway). That is (dir_stage between ``):
+            // `data/dict/el/en/glossary-ext/de/`tidy/tidy.jsonl
+            // `data/dict/el/en/glossary-ext/fr/`tidy/tidy.jsonl
+            DictionaryType::GlossaryExtended => dir_stage.join(self.langs.edition.to_string()),
+            _ => dir_stage,
+        }
     }
     /// Example: `data/dict/el/el/main/path`
     /// Example: `data/dict/el/el/glossary/path`
