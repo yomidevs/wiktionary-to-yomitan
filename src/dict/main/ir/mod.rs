@@ -927,7 +927,7 @@ fn get_gloss_tree(entry: &WordEntry) -> GlossTree {
             &sense.glosses,
             &sense.tags,
             &sense.topics,
-            &filtered_examples,
+            filtered_examples,
         );
     }
 
@@ -940,7 +940,7 @@ fn insert_glosses(
     glosses: &[String],
     tags: &[Tag],
     topics: &[Tag],
-    examples: &[Example],
+    examples: Vec<Example>,
 ) {
     let Some(head) = glosses.first() else {
         return;
@@ -949,25 +949,28 @@ fn insert_glosses(
     let tail = &glosses[1..];
 
     // get or insert node with only tags at this level
-    let node = gloss_tree.entry(head.clone()).or_insert_with(|| GlossInfo {
-        tags: tags.to_vec(),
-        topics: topics.to_vec(),
-        examples: Vec::new(),
-        children: None,
-    });
-
-    // intersect tags if node already exists
-    if !node.tags.is_empty() {
-        node.tags = tags
-            .iter()
-            .filter(|&t| node.tags.contains(t))
-            .cloned()
-            .collect();
-    }
+    let node = gloss_tree
+        .entry(head.clone())
+        // intersect tags with the ones already there
+        .and_modify(|node| {
+            if !node.tags.is_empty() {
+                node.tags = tags
+                    .iter()
+                    .filter(|&t| node.tags.contains(t))
+                    .cloned()
+                    .collect();
+            }
+        })
+        .or_insert_with(|| GlossInfo {
+            tags: tags.to_vec(),
+            topics: topics.to_vec(),
+            examples: Vec::new(),
+            children: None,
+        });
 
     // assign examples to the last level
     if tail.is_empty() {
-        node.examples = examples.to_vec();
+        node.examples = examples;
         return;
     }
 
