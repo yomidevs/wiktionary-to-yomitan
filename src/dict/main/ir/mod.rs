@@ -96,6 +96,10 @@ impl Tidy {
 }
 
 pub fn found_ir_message_impl(langs: LangSpecs, irs: &Tidy) {
+    if !tracing::enabled!(tracing::Level::DEBUG) {
+        return;
+    }
+
     let n_lemmas = irs.lemma_map.len();
     let n_forms = irs.form_map.len();
     let n_irs = n_lemmas + n_forms;
