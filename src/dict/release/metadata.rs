@@ -111,7 +111,7 @@ fn classify_dict(source: &str, target: &str, stem: &str) -> &'static str {
         return "main";
     };
 
-    // glossary is  `<name>-<source>-<target>` 
+    // glossary is  `<name>-<source>-<target>`
     // glossary-ext `<name>-<edition>-<source>-<target>`.
     let head = body
         .strip_suffix(&format!("-{source}-{target}"))
