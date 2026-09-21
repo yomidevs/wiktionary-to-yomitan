@@ -158,5 +158,139 @@
     ],
     0,
     ""
+  ],
+  [
+    "bass",
+    "",
+    "形",
+    "adj",
+    0,
+    [
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "low in pitch"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "ベース"
+                },
+                {
+                  "tag": "li",
+                  "content": "バス"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    0,
+    ""
+  ],
+  [
+    "bass",
+    "",
+    "名",
+    "n",
+    0,
+    [
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "low spectrum of sound"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "ベース"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "singer with a bass voice type"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "バス"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "musical instrument"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "ベース"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    0,
+    ""
   ]
 ]

@@ -355,5 +355,189 @@
     ],
     0,
     ""
+  ],
+  [
+    "bass",
+    "",
+    "Adj",
+    "adj",
+    0,
+    [
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "low in pitch"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "bass"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    0,
+    ""
+  ],
+  [
+    "bass",
+    "",
+    "S",
+    "n",
+    0,
+    [
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "low spectrum of sound"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "Bass"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "section of musical group"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "Bass"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "singer with a bass voice type"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "Bass"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "musical instrument"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "Bass"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "clef sign"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "Bassschlüssel"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    0,
+    ""
   ]
 ]

@@ -258,5 +258,193 @@
     ],
     0,
     ""
+  ],
+  [
+    "bass",
+    "",
+    "adj",
+    "adj",
+    0,
+    [
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "low in pitch"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "matala"
+                },
+                {
+                  "tag": "li",
+                  "content": "ala-"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    0,
+    ""
+  ],
+  [
+    "bass",
+    "",
+    "n",
+    "n",
+    0,
+    [
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "low spectrum of sound"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "basso"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "section of musical group"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "basso"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "singer with a bass voice type"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "basso"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "musical instrument"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "basso"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "structured-content",
+        "content": {
+          "tag": "div",
+          "content": [
+            {
+              "tag": "div",
+              "data": {
+                "content": "sense-label"
+              },
+              "content": "clef sign"
+            },
+            {
+              "tag": "ul",
+              "data": {
+                "content": "glossary"
+              },
+              "content": [
+                {
+                  "tag": "li",
+                  "content": "bassoavain"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    0,
+    ""
   ]
 ]
