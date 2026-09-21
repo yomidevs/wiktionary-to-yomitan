@@ -180,7 +180,7 @@ impl Serialize for TermBankEntry {
         let definition_tags_str = self
             .definition_tags
             .iter()
-            .map(|tag_info| tag_info.short_tag.clone())
+            .map(|tag_info| tag_info.short_tag.as_str())
             .collect::<Vec<_>>()
             .join(" ");
         tup.serialize_element(&definition_tags_str)?;
