@@ -110,7 +110,7 @@ def generate_tags_rs(
     whitelisted_tags: list[WhitelistedTag],
     f,
 ) -> None:
-    # Having duplicated short tags is pointless, use aliases instead.
+    # Two entries sharing a short tag should be a single entry with aliases instead.
     seen = {}
     for wt in whitelisted_tags:
         st = wt.short_tag
@@ -121,15 +121,15 @@ def generate_tags_rs(
         else:
             seen[st] = wt
 
-    # Having duplicated long tags is pointless, only the first will be found by find_map.
+    # Same for long tags, aliases included: find_tag_in_bank indexes every alias and
+    # keeps the first it sees, so a repeat silently shadows the other entry.
     seen = {}
     for wt in whitelisted_tags:
-        lt = wt.long_tag()
-        if lt in seen:
-            old = seen[lt]
-            print(f"ERROR: duplicated long tag\n{wt}\n{old}")
-            sys.exit(1)
-        else:
+        for lt in wt.longs_as_list():
+            if lt in seen:
+                old = seen[lt]
+                print(f"ERROR: duplicated long tag '{lt}'\n{wt}\n{old}")
+                sys.exit(1)
             seen[lt] = wt
 
     idt = " " * 4
