@@ -7,18 +7,10 @@ cov:
 update *args:
   python3 scripts/update_tests.py {{args}}
 
-# Release (linux only)
-release *args:
-  systemd-run --user --scope -p MemoryMax=24G -p MemoryHigh=24G cargo run -r -- release {{args}}
-
 # Hugging Face commands for a release made with release.rs.
 # Run 'just hf --help' for the full command list.
 hf *args:
   python3 scripts/release.py {{args}}
-
-# Scan the release dictionaries for size information
-scan:
-  python3 scripts/scan.py data/release/dict
 
 docs-serve:
   python3 scripts/generate_docs.py
@@ -34,9 +26,6 @@ add fr to word:
   rg "\"word\": \"{{word}}\"" "data/kaikki/{{to}}-extract.jsonl" -N | \
   jq -c "select(.word == \"{{word}}\" and .lang_code == \"{{fr}}\")" \
   >> "tests/kaikki/{{fr}}-{{to}}-extract.jsonl"; \
-
-stat *args:
-  perf stat -d cargo run -r -- {{args}}
 
 # Bench and log. To bench run 'cargo bench'
 bench-log:

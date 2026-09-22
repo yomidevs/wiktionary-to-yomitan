@@ -812,7 +812,7 @@ def main() -> None:
         path_tag_bank_variety_json,
         path_tag_locale_folder,
     ):
-        if not path.exists:
+        if not path.exists():
             print(f"Path does not exist @ {path}")
             return
 
