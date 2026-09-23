@@ -528,12 +528,12 @@ pub fn preprocess_main(
     // Note that deleting senses is a good decision overall: it reduces clutter and forces the
     // redirect. One just has to be careful about when to do it
     //
+    let may_drop_sense = !opts.experimental || entry.non_trivial_forms().next().is_none();
+
     let old_senses = std::mem::take(&mut entry.senses);
     let mut senses_without_inflections = Vec::new();
     for sense in old_senses {
-        if (!opts.experimental || entry.non_trivial_forms().next().is_none())
-            && handle_inflection_sense(edition, source, entry, &sense, irs)
-        {
+        if may_drop_sense && handle_inflection_sense(edition, source, entry, &sense, irs) {
             // handled as inflection
         } else if handle_alt_of_sense(entry, &sense, irs) {
             // handled as alt-of
