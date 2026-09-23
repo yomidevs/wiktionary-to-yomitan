@@ -79,7 +79,7 @@ pub fn link_wiktionary(edition: Edition, source: Lang, word: &str) -> String {
         "https://{}.wiktionary.org/wiki/{}#{}",
         edition,
         word.replace(' ', "%20"),
-        source.long()
+        source.long().replace(' ', "_")
     )
 }
 
