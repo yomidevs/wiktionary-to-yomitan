@@ -106,7 +106,12 @@ pub trait Renderer {
             b { (pt.reading) }
             ul {
                 @for tr in &pt.transcriptions {
-                    li { (tr.ipa) (tr.tags.join("|")) }
+                    li {
+                        (tr.ipa)
+                        @if !tr.tags.is_empty() {
+                            " (" (tr.tags.join(", ")) ")"
+                        }
+                    }
                 }
             }
         }
