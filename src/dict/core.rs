@@ -65,8 +65,9 @@ where
         Self::len(self)
     }
 
-    fn write(&self, _: &PathManager) -> Result<PathBuf> {
-        unimplemented!()
+    fn write(&self, pm: &PathManager) -> Result<PathBuf> {
+        let pairs: Vec<_> = self.iter().collect();
+        pairs.write(pm)
     }
 }
 
