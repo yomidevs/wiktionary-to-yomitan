@@ -5,7 +5,7 @@ use clap::ValueEnum;
 use pangloss::{AltEntry, Definition, Entry};
 
 use crate::{
-    Map,
+    Map, Set,
     cli::{LangSpecs, Options},
     dict::{Dictionary, Intermediate},
     models::yomitan::{DetailedDefinition, YomitanDict},
@@ -139,22 +139,28 @@ impl WriterFormat {
 
 /// Render every entry of `ydict` with `R`.
 fn build_entries<R: renderer::Renderer>(ydict: YomitanDict) -> Vec<Entry> {
-    let mut alts: Map<String, Vec<AltEntry>> = Map::default();
+    let mut alts: Map<String, Set<String>> = Map::default();
     for entry in &ydict.term_bank_form {
         for def in &entry.definitions {
             let DetailedDefinition::Inflection((from, _tags)) = def else {
                 panic!("forms must be made from inflections");
             };
-            alts.entry(from.clone())
-                .or_default()
-                .push(AltEntry::only_term(entry.term.clone()));
+            let terms = alts.entry(from.clone()).or_default();
+            if !terms.contains(&entry.term) {
+                terms.insert(entry.term.clone());
+            }
         }
     }
 
     ydict
         .into_iter_flat()
         .map(|entry| {
-            let alts = alts.swap_remove(entry.term()).unwrap_or_default();
+            let alts = alts
+                .swap_remove(entry.term())
+                .unwrap_or_default()
+                .into_iter()
+                .map(AltEntry::only_term)
+                .collect();
             Entry::new(
                 entry.term().to_string(),
                 Definition::Html(R::render_entry(&entry).into_string()),
