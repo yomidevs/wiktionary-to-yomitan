@@ -951,12 +951,19 @@ fn insert_glosses(
     // get or insert node with only tags at this level
     let node = gloss_tree
         .entry(head.clone())
-        // intersect tags with the ones already there
+        // intersect tags and topics with the ones already there
         .and_modify(|node| {
             if !node.tags.is_empty() {
                 node.tags = tags
                     .iter()
                     .filter(|&t| node.tags.contains(t))
+                    .cloned()
+                    .collect();
+            }
+            if !node.topics.is_empty() {
+                node.topics = topics
+                    .iter()
+                    .filter(|&t| node.topics.contains(t))
                     .cloned()
                     .collect();
             }

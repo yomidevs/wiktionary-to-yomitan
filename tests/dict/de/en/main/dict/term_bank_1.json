@@ -92,15 +92,6 @@
                               "category": "partOfSpeech"
                             },
                             "content": "vt"
-                          },
-                          {
-                            "tag": "span",
-                            "title": "medicine",
-                            "data": {
-                              "content": "tag",
-                              "category": "topic"
-                            },
-                            "content": "med"
                           }
                         ]
                       },
@@ -113,6 +104,23 @@
                       {
                         "tag": "li",
                         "content": [
+                          {
+                            "tag": "div",
+                            "data": {
+                              "content": "tags"
+                            },
+                            "content": [
+                              {
+                                "tag": "span",
+                                "title": "medicine",
+                                "data": {
+                                  "content": "tag",
+                                  "category": "topic"
+                                },
+                                "content": "med"
+                              }
+                            ]
+                          },
                           "to nurse; to care for someone in poor health",
                           {
                             "tag": "details",
