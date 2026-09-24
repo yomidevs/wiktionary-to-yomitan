@@ -180,19 +180,24 @@ fn add_db_metadata(root_dir: &Path, editions: &[Edition], metadata: &mut Metadat
     Ok(())
 }
 
+const METADATA_PATH: &str = "docs/release_metadata.json";
+
 /// Write the metadata of the release at `root_dir`.
 ///
 /// `time` is the total time of the release.
 pub fn write_dict_metadata(root_dir: &Path, editions: &[Edition], time: Duration) -> Result<()> {
+    let json = dict_metadata_json(root_dir, editions, time)?;
+    std::fs::write(METADATA_PATH, &json)?;
+    println!("[meta] Dict metadata written to {METADATA_PATH}");
+    Ok(())
+}
+
+fn dict_metadata_json(root_dir: &Path, editions: &[Edition], time: Duration) -> Result<String> {
     let dict_dir = root_dir.join("dict");
     let mut metadata = scan_and_group(&dict_dir)?;
     metadata.time = time;
     add_db_metadata(root_dir, editions, &mut metadata)?;
-    let json = serde_json::to_string_pretty(&metadata)?;
-    let out_path = Path::new("docs/release_metadata.json");
-    std::fs::write(out_path, &json)?;
-    println!("[meta] Dict metadata written to {}", out_path.display());
-    Ok(())
+    Ok(serde_json::to_string_pretty(&metadata)?)
 }
 
 #[cfg(test)]
