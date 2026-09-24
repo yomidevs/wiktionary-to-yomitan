@@ -63,7 +63,7 @@ mod html {
     use flate2::read::GzDecoder;
     use std::fs::File;
     use std::io::BufWriter;
-    use std::path::Path;
+    use std::path::{Path, PathBuf};
 
     use crate::{
         lang::Edition,
@@ -100,8 +100,18 @@ mod html {
         // https://github.com/tatuylonen/wiktextract/issues/1482
         let mut decoder = GzDecoder::new(reader);
 
-        let mut writer = BufWriter::new(File::create(path_jsonl)?);
-        std::io::copy(&mut decoder, &mut writer)?;
+        // Download to a temporary path, so that a partial one is never taken as complete.
+        {
+            let mut path_part = path_jsonl.as_os_str().to_owned();
+            path_part.push(".part");
+            let path_part = PathBuf::from(path_part);
+
+            let mut writer = BufWriter::new(File::create(&path_part)?);
+            std::io::copy(&mut decoder, &mut writer)?;
+            writer.into_inner()?;
+
+            std::fs::rename(&path_part, path_jsonl)?;
+        }
 
         if !quiet {
             pretty_println_at_path(&format!("{CHECK_C} Downloaded"), path_jsonl);
