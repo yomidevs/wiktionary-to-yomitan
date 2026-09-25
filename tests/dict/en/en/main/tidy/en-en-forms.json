@@ -186,5 +186,27 @@
         ]
       ]
     }
+  },
+  "cephal-": {
+    "cephalo-": {
+      "prefix": [
+        "altofsense",
+        [
+          "alt-of",
+          "alternative",
+          "morpheme"
+        ]
+      ]
+    },
+    "used before a vowel": {
+      "prefix": [
+        "altofsense",
+        [
+          "alt-of",
+          "alternative",
+          "morpheme"
+        ]
+      ]
+    }
   }
 }
