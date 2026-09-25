@@ -173,58 +173,28 @@ pub trait Renderer {
 
         // https://github.com/lambda-fairy/maud/issues/240
         // The attr=[value] syntax skips the attribute if the value is None
+        macro_rules! render {
+            ($tag:ident) => {
+                html! {
+                    $tag
+                        class=(class)
+                        title=[node.title.clone()]
+                        data-sc-content=[content_attr]
+                        data-sc-category=[category_attr]
+                        lang=[node.lang.map(ScriptTag::as_lang_attr)]
+                    { (content) }
+                }
+            };
+        }
+
         match node.tag {
-            NTag::Span => html! {
-                span
-                    class=(class)
-                    title=[node.title.clone()]
-                    data-sc-content=[content_attr]
-                    data-sc-category=[category_attr]
-                { (content) }
-            },
-            NTag::Div => html! {
-                div
-                    class=(class)
-                    data-sc-content=[content_attr]
-                    data-sc-category=[category_attr]
-                    lang=[node.lang.map(ScriptTag::as_lang_attr)]
-                { (content) }
-            },
-            NTag::Ol => html! {
-                ol
-                    class=(class)
-                    data-sc-content=[content_attr]
-                    data-sc-category=[category_attr]
-                { (content) }
-            },
-            NTag::Ul => html! {
-                ul
-                    class=(class)
-                    data-sc-content=[content_attr]
-                    data-sc-category=[category_attr]
-                { (content) }
-            },
-            NTag::Li => html! {
-                li
-                    class=(class)
-                    data-sc-content=[content_attr]
-                    data-sc-category=[category_attr]
-                { (content) }
-            },
-            NTag::Details => html! {
-                details
-                    class=(class)
-                    data-sc-content=[content_attr]
-                    data-sc-category=[category_attr]
-                { (content) }
-            },
-            NTag::Summary => html! {
-                summary
-                    class=(class)
-                    data-sc-content=[content_attr]
-                    data-sc-category=[category_attr]
-                { (content) }
-            },
+            NTag::Span => render!(span),
+            NTag::Div => render!(div),
+            NTag::Ol => render!(ol),
+            NTag::Ul => render!(ul),
+            NTag::Li => render!(li),
+            NTag::Details => render!(details),
+            NTag::Summary => render!(summary),
         }
     }
 
