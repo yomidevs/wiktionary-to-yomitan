@@ -16,10 +16,7 @@ use zip::{ZipArchive, ZipWriter};
 
 use crate::{
     cli::Options,
-    dict::{
-        index::get_index,
-        writer::{STYLES_CSS, STYLES_CSS_EXPERIMENTAL},
-    },
+    dict::{index::get_index, writer::STYLES_CSS},
     lang::Lang,
     models::yomitan::{YomitanDict, YomitanEntry},
     path::PathManager,
@@ -76,11 +73,7 @@ pub fn write_yomitan(
 
     // Zip a copy of styles.css
     zip.start_file("styles.css", zip_opts)?;
-    if opts.experimental {
-        zip.write_all(STYLES_CSS_EXPERIMENTAL)?;
-    } else {
-        zip.write_all(STYLES_CSS)?;
-    }
+    zip.write_all(STYLES_CSS)?;
 
     // Zip a (potentially localized) version without aliases of tag_bank_term.json
     let tag_bank = get_tag_bank_as_tag_info(target);
