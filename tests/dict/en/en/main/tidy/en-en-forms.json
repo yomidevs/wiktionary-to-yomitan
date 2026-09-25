@@ -197,16 +197,6 @@
           "morpheme"
         ]
       ]
-    },
-    "used before a vowel": {
-      "prefix": [
-        "altofsense",
-        [
-          "alt-of",
-          "alternative",
-          "morpheme"
-        ]
-      ]
     }
   }
 }

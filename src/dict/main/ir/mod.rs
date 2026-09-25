@@ -28,6 +28,8 @@ use crate::{
 
 const MAX_NUMBER_OF_SYNONYMS: usize = 3;
 const MAX_NUMBER_OF_EXAMPLES: usize = 3;
+/// An alt-of target longer than this is noise (heuristic).
+const MAX_ALT_OF_WORDS: usize = 3;
 const MAX_SIZE_OF_EXAMPLE: usize = 120;
 const MAX_SIZE_OF_EXAMPLE_REFERENCE: usize = 120;
 
@@ -1228,7 +1230,7 @@ fn handle_alt_of_sense(entry: &WordEntry, sense: &Sense, irs: &mut Tidy) -> bool
     // form_of is easy to redirect FROM form_of TO the lemma.
     //
     // At worst, just move this back to process_alt_forms, to not modify the senses.
-    for alt_form in &sense.alt_of {
+    for (i, alt_form) in sense.alt_of.iter().enumerate() {
         // If there was any alt_of, we consider this handled, even if we don't add it to forms
         handled = true;
 
@@ -1249,6 +1251,17 @@ fn handle_alt_of_sense(entry: &WordEntry, sense: &Sense, irs: &mut Tidy) -> bool
                 || tag == "obsolete"
                 || tag == "abbreviation"
         }) {
+            continue;
+        }
+
+        // heuristic to remove noise
+        if i > 0
+            && alt_form
+                .word
+                .split_whitespace()
+                .nth(MAX_ALT_OF_WORDS)
+                .is_some()
+        {
             continue;
         }
 
