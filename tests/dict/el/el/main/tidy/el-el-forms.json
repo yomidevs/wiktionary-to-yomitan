@@ -55,8 +55,7 @@
       "adjective": [
         "extracted",
         [
-          "accusative/vocative singular feminine",
-          "nominative singular feminine"
+          "nominative/accusative/vocative singular feminine"
         ]
       ]
     },
@@ -65,8 +64,7 @@
         "extracted",
         [
           "accusative singular masculine",
-          "accusative/vocative singular neuter",
-          "nominative singular neuter"
+          "nominative/accusative/vocative singular neuter"
         ]
       ]
     },
@@ -192,8 +190,7 @@
       "verb": [
         "extracted",
         [
-          "accusative/vocative singular feminine",
-          "nominative singular feminine"
+          "nominative/accusative/vocative singular feminine"
         ]
       ]
     },
@@ -201,8 +198,7 @@
       "verb": [
         "extracted",
         [
-          "accusative/vocative singular neuter",
-          "nominative singular neuter"
+          "nominative/accusative/vocative singular neuter"
         ]
       ]
     },
@@ -277,8 +273,7 @@
       "verb": [
         "extracted",
         [
-          "accusative/vocative singular feminine",
-          "nominative singular feminine"
+          "nominative/accusative/vocative singular feminine"
         ]
       ]
     },
@@ -287,8 +282,7 @@
         "extracted",
         [
           "accusative singular masculine",
-          "accusative/vocative singular neuter",
-          "nominative singular neuter"
+          "nominative/accusative/vocative singular neuter"
         ]
       ]
     },
@@ -382,9 +376,8 @@
       "adjective": [
         "extracted",
         [
-          "accusative/vocative singular feminine",
-          "nominative singular feminine",
-          "nominative/accusative/vocative plural neuter"
+          "nominative/accusative/vocative plural neuter",
+          "nominative/accusative/vocative singular feminine"
         ]
       ]
     },
@@ -393,8 +386,7 @@
         "extracted",
         [
           "accusative singular masculine",
-          "accusative/vocative singular neuter",
-          "nominative singular neuter"
+          "nominative/accusative/vocative singular neuter"
         ]
       ]
     },

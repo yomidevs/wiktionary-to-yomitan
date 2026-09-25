@@ -117,13 +117,7 @@
       [
         "αζωικός",
         [
-          "accusative/vocative singular feminine"
-        ]
-      ],
-      [
-        "αζωικός",
-        [
-          "nominative singular feminine"
+          "nominative/accusative/vocative singular feminine"
         ]
       ]
     ],
@@ -146,13 +140,7 @@
       [
         "αζωικός",
         [
-          "accusative/vocative singular neuter"
-        ]
-      ],
-      [
-        "αζωικός",
-        [
-          "nominative singular neuter"
+          "nominative/accusative/vocative singular neuter"
         ]
       ]
     ],
@@ -407,13 +395,7 @@
       [
         "ψηφίσας",
         [
-          "accusative/vocative singular feminine"
-        ]
-      ],
-      [
-        "ψηφίσας",
-        [
-          "nominative singular feminine"
+          "nominative/accusative/vocative singular feminine"
         ]
       ]
     ],
@@ -430,13 +412,7 @@
       [
         "ψηφίσας",
         [
-          "accusative/vocative singular neuter"
-        ]
-      ],
-      [
-        "ψηφίσας",
-        [
-          "nominative singular neuter"
+          "nominative/accusative/vocative singular neuter"
         ]
       ]
     ],
@@ -595,13 +571,7 @@
       [
         "εκφρασμένος",
         [
-          "accusative/vocative singular feminine"
-        ]
-      ],
-      [
-        "εκφρασμένος",
-        [
-          "nominative singular feminine"
+          "nominative/accusative/vocative singular feminine"
         ]
       ]
     ],
@@ -624,13 +594,7 @@
       [
         "εκφρασμένος",
         [
-          "accusative/vocative singular neuter"
-        ]
-      ],
-      [
-        "εκφρασμένος",
-        [
-          "nominative singular neuter"
+          "nominative/accusative/vocative singular neuter"
         ]
       ]
     ],
@@ -817,19 +781,13 @@
       [
         "αμελητέος",
         [
-          "accusative/vocative singular feminine"
-        ]
-      ],
-      [
-        "αμελητέος",
-        [
-          "nominative singular feminine"
-        ]
-      ],
-      [
-        "αμελητέος",
-        [
           "nominative/accusative/vocative plural neuter"
+        ]
+      ],
+      [
+        "αμελητέος",
+        [
+          "nominative/accusative/vocative singular feminine"
         ]
       ]
     ],
@@ -852,13 +810,7 @@
       [
         "αμελητέος",
         [
-          "accusative/vocative singular neuter"
-        ]
-      ],
-      [
-        "αμελητέος",
-        [
-          "nominative singular neuter"
+          "nominative/accusative/vocative singular neuter"
         ]
       ]
     ],

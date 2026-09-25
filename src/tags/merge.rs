@@ -129,19 +129,27 @@ fn merge_tags(tags: &mut Vec<Tag>, category: Category, combine: impl Fn(&[&str])
     let mut old_tags = Vec::with_capacity(tags.capacity());
     std::mem::swap(&mut old_tags, tags);
 
-    let mut grouped: Map<Vec<&str>, Vec<&str>> = Map::default();
+    let mut grouped: Map<Vec<&str>, (Vec<&str>, Vec<&str>)> = Map::default();
 
     for tag in &old_tags {
         let (matched, other_tags): (Vec<_>, Vec<_>) =
             tag.split(' ').partition(|t| category_tags.contains(t));
 
         match matched.as_slice() {
-            [one] => grouped.entry(other_tags).or_default().push(one),
+            [one] => {
+                let mut key = other_tags.clone();
+                key.sort_unstable();
+                grouped
+                    .entry(key)
+                    .or_insert_with(|| (other_tags, Vec::new()))
+                    .1
+                    .push(one);
+            }
             _ => tags.push(tag.clone()),
         }
     }
 
-    for (other_tags, mut matches) in grouped {
+    for (_, (other_tags, mut matches)) in grouped {
         matches.sort_by_key(|x| category_tags.iter().position(|p| p == x).unwrap_or(999));
 
         let merged = combine(&matches);
