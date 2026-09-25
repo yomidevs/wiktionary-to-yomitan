@@ -222,11 +222,11 @@ impl WordEntry {
                 .tags
                 .iter()
                 .any(|tag| BLACKLISTED_FORM_TAGS.contains(&tag.as_str()));
-            let is_identity = form
+            let is_untagged_or_identity = form
                 .tags
                 .iter()
                 .all(|tag| IDENTITY_FORM_TAGS.contains(&tag.as_str()));
-            if is_blacklisted || is_identity {
+            if is_blacklisted || is_untagged_or_identity {
                 return false;
             }
 
