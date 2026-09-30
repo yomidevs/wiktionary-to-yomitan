@@ -15,6 +15,7 @@ fn preprocess_tags_ja_ja(entry: &mut WordEntry) {
     let forms = entry.forms.iter_mut().map(|form| &mut form.tags);
     let senses = entry.senses.iter_mut().map(|sense| &mut sense.tags);
     for tags in std::iter::once(&mut entry.tags).chain(forms).chain(senses) {
+        tags.retain(|tag| !tag.ends_with("-row"));
         if tags.iter().any(|tag| tag == "ichidan") {
             tags.retain(|tag| tag != "shimoichidan" && tag != "kamiichidan");
         }

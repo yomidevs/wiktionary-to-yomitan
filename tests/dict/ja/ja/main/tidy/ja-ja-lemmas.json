@@ -195,8 +195,7 @@
             "コンピューターに指示して処理をさせるための文字列。コマンド。": {}
           },
           "tags": [
-            "irregular",
-            "sa-row"
+            "irregular"
           ],
           "synonyms": [
             {
@@ -394,7 +393,6 @@
             "植物を他の鉢や場所に移して植える。": {}
           },
           "tags": [
-            "a-row",
             "ichidan"
           ],
           "wlink": "https://ja.wiktionary.org/wiki/うえかえる#Japanese",
@@ -468,7 +466,6 @@
             }
           },
           "tags": [
-            "a-row",
             "ichidan"
           ],
           "wlink": "https://ja.wiktionary.org/wiki/つけくわえる#Japanese",
@@ -569,7 +566,6 @@
             "植物を他の鉢や場所に移して植える。": {}
           },
           "tags": [
-            "a-row",
             "ichidan"
           ],
           "wlink": "https://ja.wiktionary.org/wiki/うえかえる#Japanese",
@@ -586,7 +582,6 @@
             "植物を他の鉢や場所に移して植える。": {}
           },
           "tags": [
-            "a-row",
             "ichidan"
           ],
           "wlink": "https://ja.wiktionary.org/wiki/うえかえる#Japanese",
@@ -607,7 +602,6 @@
             }
           },
           "tags": [
-            "a-row",
             "ichidan"
           ],
           "wlink": "https://ja.wiktionary.org/wiki/つけくわえる#Japanese",
