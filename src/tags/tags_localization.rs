@@ -24,7 +24,7 @@ pub fn localize_tag_info(lang: Lang, tag_info: &mut TagInfo) {
     }
 }
 
-/// Coverage: 67/386 tags (17.4%)
+/// Coverage: 67/387 tags (17.3%)
 fn localize_tag_de(short_tag: &str) -> Option<(&'static str, &'static str)> {
     match short_tag {
         "arch" => Some(("veraltet", "veraltet")),
@@ -98,7 +98,7 @@ fn localize_tag_de(short_tag: &str) -> Option<(&'static str, &'static str)> {
     }
 }
 
-/// Coverage: 26/386 tags (6.7%)
+/// Coverage: 26/387 tags (6.7%)
 fn localize_tag_el(short_tag: &str) -> Option<(&'static str, &'static str)> {
     match short_tag {
         "arch" => Some(("απαρχ", "απαρχαιωμένο")),
@@ -131,7 +131,7 @@ fn localize_tag_el(short_tag: &str) -> Option<(&'static str, &'static str)> {
     }
 }
 
-/// Coverage: 74/386 tags (19.2%)
+/// Coverage: 75/387 tags (19.4%)
 fn localize_tag_ja(short_tag: &str) -> Option<(&'static str, &'static str)> {
     match short_tag {
         "arch" => Some(("古語", "古語")),
@@ -207,6 +207,7 @@ fn localize_tag_ja(short_tag: &str) -> Option<(&'static str, &'static str)> {
         "onoma" => Some(("オノマ", "オノマトペ")),
         "shimoichidan" => Some(("下一段", "下一段活用")),
         "shimonidan" => Some(("下二段", "下二段活用")),
+        "suru" => Some(("サ変", "サ行変格活用")),
         "yodan" => Some(("四段", "四段活用")),
         _ => None,
     }
