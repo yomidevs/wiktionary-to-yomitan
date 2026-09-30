@@ -12,6 +12,9 @@ use heap::HeapSize;
 mod preprocess_forms;
 use preprocess_forms::preprocess_forms;
 
+mod preprocess_tags;
+use preprocess_tags::preprocess_tags;
+
 mod postprocess;
 pub use postprocess::postprocess_main;
 
@@ -455,8 +458,11 @@ pub fn preprocess_main(
     entry: &mut WordEntry,
     irs: &mut Tidy,
 ) {
-    // WARN:: mutates entry::forms (and entry::forms::form)
+    // WARN: mutates entry::forms and entry::forms::form
     preprocess_forms(edition, source, entry);
+
+    // WARN: mutates entry::tags, entry::forms::form::tags and entry::senses::sense::tags
+    preprocess_tags(edition, source, entry);
 
     // WARN: mutates entry::senses::sense::tags
     match edition {
@@ -492,7 +498,7 @@ pub fn preprocess_main(
         _ => (),
     }
 
-    // WARN: mutates entry::senses
+    // WARN: mutates entry::senses::sense::glosses
     //
     // Deal with "no definition" glosses, cf. https://it.wiktionary.org/wiki/cartoccio#Italian
     // That is, glosses that are of no value, usually of the shape "Empty definition, add one at
@@ -547,7 +553,7 @@ pub fn preprocess_main(
     }
     entry.senses = senses_without_inflections;
 
-    // WARN: mutates entry::senses::glosses
+    // WARN: mutates entry::senses::sense::glosses
     //
     // rg: full stop
     // https://github.com/yomidevs/yomitan/issues/2232

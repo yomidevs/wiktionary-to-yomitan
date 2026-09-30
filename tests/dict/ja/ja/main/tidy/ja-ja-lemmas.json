@@ -195,8 +195,7 @@
             "コンピューターに指示して処理をさせるための文字列。コマンド。": {}
           },
           "tags": [
-            "irregular",
-            "sa-row"
+            "suru"
           ],
           "synonyms": [
             {
@@ -394,9 +393,7 @@
             "植物を他の鉢や場所に移して植える。": {}
           },
           "tags": [
-            "a-row",
-            "ichidan",
-            "shimoichidan"
+            "ichidan"
           ],
           "wlink": "https://ja.wiktionary.org/wiki/うえかえる#Japanese",
           "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/う/うえ/うえかえる.html"
@@ -469,9 +466,7 @@
             }
           },
           "tags": [
-            "a-row",
-            "ichidan",
-            "shimoichidan"
+            "ichidan"
           ],
           "wlink": "https://ja.wiktionary.org/wiki/つけくわえる#Japanese",
           "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/つ/つけ/つけくわえる.html"
@@ -571,9 +566,7 @@
             "植物を他の鉢や場所に移して植える。": {}
           },
           "tags": [
-            "a-row",
-            "ichidan",
-            "shimoichidan"
+            "ichidan"
           ],
           "wlink": "https://ja.wiktionary.org/wiki/うえかえる#Japanese",
           "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/う/うえ/うえかえる.html"
@@ -589,9 +582,7 @@
             "植物を他の鉢や場所に移して植える。": {}
           },
           "tags": [
-            "a-row",
-            "ichidan",
-            "shimoichidan"
+            "ichidan"
           ],
           "wlink": "https://ja.wiktionary.org/wiki/うえかえる#Japanese",
           "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/う/うえ/うえかえる.html"
@@ -611,9 +602,7 @@
             }
           },
           "tags": [
-            "a-row",
-            "ichidan",
-            "shimoichidan"
+            "ichidan"
           ],
           "wlink": "https://ja.wiktionary.org/wiki/つけくわえる#Japanese",
           "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/つ/つけ/つけくわえる.html"

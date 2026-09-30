@@ -91,7 +91,7 @@ pub fn tag_order(tag: &str) -> Option<usize> {
 }
 
 #[rustfmt::skip]
-pub static TAG_BANK: [(&str, &str, i32, &[&str], i32); 386] = [
+pub static TAG_BANK: [(&str, &str, i32, &[&str], i32); 387] = [
     ("animate", "animacy", 0, &["animate"], 0),
     ("inanim", "animacy", 0, &["inanimate"], 0),
     ("arch", "archaism", 4, &["archaic"], -4),
@@ -473,6 +473,7 @@ pub static TAG_BANK: [(&str, &str, i32, &[&str], i32); 386] = [
     ("shimoichidan", "", 0, &["shimoichidan"], 0),
     ("shimonidan", "", 0, &["shimonidan"], 0),
     ("strong", "", 0, &["strong"], 0),
+    ("suru", "", 0, &["suru"], 0),
     ("symb", "", 0, &["symbol"], 0),
     ("weak", "", 0, &["weak"], 0),
     ("yodan", "", 0, &["yodan"], 0),
