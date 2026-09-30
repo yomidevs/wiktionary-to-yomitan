@@ -550,6 +550,19 @@
       ]
     }
   },
+  "仮葬": {
+    "かそうする": {
+      "verb": [
+        {
+          "gloss_tree": {
+            "仮に葬る": {}
+          },
+          "wlink": "https://ja.wiktionary.org/wiki/仮葬#Japanese",
+          "klink": "https://kaikki.org/jawiktionary/All%20languages%20combined/meaning/仮/仮葬/仮葬.html"
+        }
+      ]
+    }
+  },
   "植え替える": {
     "うえかえる": {
       "verb": [
