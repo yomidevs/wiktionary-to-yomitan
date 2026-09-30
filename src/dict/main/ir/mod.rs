@@ -758,7 +758,13 @@ pub fn get_reading(edition: Edition, source: Lang, entry: &WordEntry) -> Option<
     match (edition, source) {
         (Edition::En | Edition::Zh, Lang::Ja) => get_japanese_reading(entry),
         (Edition::En, Lang::Fa) => entry.romanization_form().map(|f| f.form.clone()),
-        (Edition::Ja, _) => entry.transliteration_form().map(|f| f.form.clone()),
+        (Edition::Ja, _) => entry.transliteration_form().map(|f| {
+            f.form
+                .strip_suffix("する")
+                .filter(|stem| !stem.is_empty() && !entry.word.ends_with("する"))
+                .unwrap_or(&f.form)
+                .to_string()
+        }),
         (Edition::En | Edition::Zh, Lang::Zh) => entry.pinyin().map(String::from),
         _ => get_canonical_word(source, entry),
     }
