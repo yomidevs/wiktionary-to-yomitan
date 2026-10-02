@@ -120,74 +120,56 @@
                 "data": {
                   "content": "synonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "synonyms-label"
-                    },
-                    "content": "Synonyme"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "synonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "synonyms-list"
-                    },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "Rock 'n' Roll"
-                      }
-                    ]
-                  }
-                ]
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
+                      },
+                      "content": "Rock 'n' Roll"
+                    }
+                  ]
+                }
               },
               {
                 "tag": "div",
                 "data": {
                   "content": "antonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "antonyms-label"
-                    },
-                    "content": "Antonyme"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "antonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "antonyms-list"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
+                      },
+                      "content": "Blues"
                     },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "Blues"
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "Country"
+                      "content": "Country"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "Folk"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "Folk"
+                    }
+                  ]
+                }
               }
             ]
           },
@@ -336,30 +318,21 @@
                 "data": {
                   "content": "synonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "synonyms-label"
-                    },
-                    "content": "Synonyme"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "synonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "synonyms-list"
-                    },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "Simurgh"
-                      }
-                    ]
-                  }
-                ]
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
+                      },
+                      "content": "Simurgh"
+                    }
+                  ]
+                }
               }
             ]
           },
@@ -813,30 +786,21 @@
                 "data": {
                   "content": "synonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "synonyms-label"
-                    },
-                    "content": "Synonyme"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "synonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "synonyms-list"
-                    },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "Autowerkstatt"
-                      }
-                    ]
-                  }
-                ]
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
+                      },
+                      "content": "Autowerkstatt"
+                    }
+                  ]
+                }
               }
             ]
           },
@@ -1669,88 +1633,70 @@
                 "data": {
                   "content": "synonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "synonyms-label"
-                    },
-                    "content": "Synonyme"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "synonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "synonyms-list"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
+                      },
+                      "content": "verabreden"
                     },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "verabreden"
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "vereinbaren"
+                      "content": "vereinbaren"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "abmachen"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "abmachen"
+                    }
+                  ]
+                }
               },
               {
                 "tag": "div",
                 "data": {
                   "content": "antonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "antonyms-label"
-                    },
-                    "content": "Antonyme"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "antonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "antonyms-list"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
+                      },
+                      "content": "anmachen"
                     },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "anmachen"
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "aktivieren"
+                      "content": "aktivieren"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "einschalten"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "einschalten"
+                    }
+                  ]
+                }
               }
             ]
           },
@@ -2362,44 +2308,35 @@
                 "data": {
                   "content": "synonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "synonyms-label"
-                    },
-                    "content": "Synonyme"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "synonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "synonyms-list"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
+                      },
+                      "content": "jetzt"
                     },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "jetzt"
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "augenblicklich"
+                      "content": "augenblicklich"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "gegenwärtig"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "gegenwärtig"
+                    }
+                  ]
+                }
               }
             ]
           },
@@ -3064,44 +3001,35 @@
                 "data": {
                   "content": "synonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "synonyms-label"
-                    },
-                    "content": "Synonyme"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "synonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "synonyms-list"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
+                      },
+                      "content": "an"
                     },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "an"
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "auf"
+                      "content": "auf"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "nach"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "nach"
+                    }
+                  ]
+                }
               }
             ]
           },
@@ -3421,37 +3349,28 @@
                 "data": {
                   "content": "synonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "synonyms-label"
-                    },
-                    "content": "Synonyme"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "synonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "synonyms-list"
-                    },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "tragen"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "schaden"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "tragen"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
+                      },
+                      "content": "schaden"
+                    }
+                  ]
+                }
               }
             ]
           },
@@ -3798,44 +3717,35 @@
                 "data": {
                   "content": "antonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "antonyms-label"
-                    },
-                    "content": "Antonyme"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "antonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "antonyms-list"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
+                      },
+                      "content": "fühlen"
                     },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "fühlen"
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "hören"
+                      "content": "hören"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "spüren"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "spüren"
+                    }
+                  ]
+                }
               }
             ]
           },
@@ -4054,81 +3964,63 @@
                 "data": {
                   "content": "synonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "synonyms-label"
-                    },
-                    "content": "Synonyme"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "synonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "synonyms-list"
-                    },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "dezent"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "unscheinbar"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "dezent"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
+                      },
+                      "content": "unscheinbar"
+                    }
+                  ]
+                }
               },
               {
                 "tag": "div",
                 "data": {
                   "content": "antonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "antonyms-label"
-                    },
-                    "content": "Antonyme"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "antonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "antonyms-list"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
+                      },
+                      "content": "auffallend"
                     },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "auffallend"
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "aufsehenerregend"
+                      "content": "aufsehenerregend"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "eklatant"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "eklatant"
+                    }
+                  ]
+                }
               }
             ]
           },

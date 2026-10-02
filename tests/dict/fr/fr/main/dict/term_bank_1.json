@@ -1048,81 +1048,63 @@
                 "data": {
                   "content": "synonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "synonyms-label"
-                    },
-                    "content": "Synonymes"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "synonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "synonyms-list"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
+                      },
+                      "content": "bouffer"
                     },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "bouffer"
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "becqueter"
+                      "content": "becqueter"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "bouffer"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "bouffer"
+                    }
+                  ]
+                }
               },
               {
                 "tag": "div",
                 "data": {
                   "content": "antonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "antonyms-label"
-                    },
-                    "content": "Antonymes"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "antonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "antonyms-list"
-                    },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "jeûner"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "se serrer la ceinture"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "jeûner"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
+                      },
+                      "content": "se serrer la ceinture"
+                    }
+                  ]
+                }
               }
             ]
           },

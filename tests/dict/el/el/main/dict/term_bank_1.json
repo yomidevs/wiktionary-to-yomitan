@@ -540,88 +540,70 @@
                 "data": {
                   "content": "synonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "synonyms-label"
-                    },
-                    "content": "Συνώνυμα"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "synonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "synonyms-list"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
+                      },
+                      "content": "αγνοητέος"
                     },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "αγνοητέος"
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "αναξιοπρόσεχτος"
+                      "content": "αναξιοπρόσεχτος"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "ασήμαντος"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "ασήμαντος"
+                    }
+                  ]
+                }
               },
               {
                 "tag": "div",
                 "data": {
                   "content": "antonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "antonyms-label"
-                    },
-                    "content": "Αντώνυμα"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "antonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "antonyms-list"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
+                      },
+                      "content": "αξιόλογος"
                     },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "αξιόλογος"
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "δυσκαταφρόνητος"
+                      "content": "δυσκαταφρόνητος"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "σημαντικός"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "σημαντικός"
+                    }
+                  ]
+                }
               }
             ]
           },

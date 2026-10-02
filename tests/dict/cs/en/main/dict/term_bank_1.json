@@ -1180,30 +1180,21 @@
                 "data": {
                   "content": "antonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "antonyms-label"
-                    },
-                    "content": "Antonyms"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "antonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "antonyms-list"
-                    },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "nebýt"
-                      }
-                    ]
-                  }
-                ]
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
+                      },
+                      "content": "nebýt"
+                    }
+                  ]
+                }
               }
             ]
           },

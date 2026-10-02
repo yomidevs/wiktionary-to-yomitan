@@ -281,44 +281,35 @@
                 "data": {
                   "content": "synonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "synonyms-label"
-                    },
-                    "content": "Sinónimos"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "synonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "synonyms-list"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
+                      },
+                      "content": "nevada"
                     },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "nevada"
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "helado"
+                      "content": "helado"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "sorbete"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "sorbete"
+                    }
+                  ]
+                }
               }
             ]
           },
@@ -539,44 +530,35 @@
                 "data": {
                   "content": "synonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "synonyms-label"
-                    },
-                    "content": "Sinónimos"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "synonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "synonyms-list"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
+                      },
+                      "content": "meterse entre pecho y espalda"
                     },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "meterse entre pecho y espalda"
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "yantar"
+                      "content": "yantar"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "almorzar"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "almorzar"
+                    }
+                  ]
+                }
               }
             ]
           },

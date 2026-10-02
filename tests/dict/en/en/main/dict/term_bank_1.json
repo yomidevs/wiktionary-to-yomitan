@@ -2018,88 +2018,70 @@
                 "data": {
                   "content": "synonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "synonyms-label"
-                    },
-                    "content": "Synonyms"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "synonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "synonyms-list"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
+                      },
+                      "content": "mystic"
                     },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "mystic"
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "mystical"
+                      "content": "mystical"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "synonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "synonym-item"
-                        },
-                        "content": "numinous"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "numinous"
+                    }
+                  ]
+                }
               },
               {
                 "tag": "div",
                 "data": {
                   "content": "antonyms"
                 },
-                "content": [
-                  {
-                    "tag": "div",
-                    "data": {
-                      "content": "antonyms-label"
-                    },
-                    "content": "Antonyms"
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "antonyms-list"
                   },
-                  {
-                    "tag": "ul",
-                    "data": {
-                      "content": "antonyms-list"
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
+                      },
+                      "content": "nonmagical"
                     },
-                    "content": [
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "nonmagical"
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "nonmystic"
+                      "content": "nonmystic"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "antonym-item"
                       },
-                      {
-                        "tag": "li",
-                        "data": {
-                          "content": "antonym-item"
-                        },
-                        "content": "nonmystical"
-                      }
-                    ]
-                  }
-                ]
+                      "content": "nonmystical"
+                    }
+                  ]
+                }
               }
             ]
           },
