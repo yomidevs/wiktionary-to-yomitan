@@ -7,8 +7,7 @@ use crate::{
         main::{
             ir::{FormMap, GlossInfo, GlossTree, LemmaInfo, LemmaMap, Tidy, normalize_orthography},
             locale::{
-                localize_antonyms_string, localize_etymology_string, localize_examples_string,
-                localize_grammar_string, localize_synonyms_string,
+                localize_etymology_string, localize_examples_string, localize_grammar_string,
             },
         },
         rules::rule_identifiers,
@@ -79,7 +78,7 @@ fn to_yomitan_lemma(
         &common_short_tags_found,
     ));
 
-    if let Some(related_words_node) = structured_related_words(target, info) {
+    if let Some(related_words_node) = structured_related_words(info) {
         detailed_definition_content.push(related_words_node);
     }
 
@@ -424,11 +423,17 @@ fn structured_example_text(text: &str, offsets: &[Offset]) -> Node {
     content
 }
 
-fn structured_related_words(target: Lang, info: &LemmaInfo) -> Option<Node> {
-    let nodes: Vec<Node> = structured_synonyms(target, &info.synonyms)
-        .into_iter()
-        .chain(structured_antonyms(target, &info.antonyms))
-        .collect();
+fn structured_related_words(info: &LemmaInfo) -> Option<Node> {
+    let nodes: Vec<Node> = structured_linkages(
+        &info.synonyms,
+        ["synonyms", "synonyms-list", "synonym-item"],
+    )
+    .into_iter()
+    .chain(structured_linkages(
+        &info.antonyms,
+        ["antonyms", "antonyms-list", "antonym-item"],
+    ))
+    .collect();
     if nodes.is_empty() {
         return None;
     }
@@ -436,36 +441,9 @@ fn structured_related_words(target: Lang, info: &LemmaInfo) -> Option<Node> {
     Some(wrap(NTag::Div, "related-words", Node::Array(nodes)))
 }
 
-fn structured_synonyms(target: Lang, synonyms: &[Linkage]) -> Option<Node> {
-    structured_linkages(
-        synonyms,
-        localize_synonyms_string(target),
-        [
-            "synonyms",
-            "synonyms-label",
-            "synonyms-list",
-            "synonym-item",
-        ],
-    )
-}
-
-fn structured_antonyms(target: Lang, antonyms: &[Linkage]) -> Option<Node> {
-    structured_linkages(
-        antonyms,
-        localize_antonyms_string(target),
-        [
-            "antonyms",
-            "antonyms-label",
-            "antonyms-list",
-            "antonym-item",
-        ],
-    )
-}
-
 fn structured_linkages(
     words: &[Linkage],
-    label: &str,
-    [container, label_content, list_content, item_content]: [&str; 4],
+    [container, list_content, item_content]: [&str; 3],
 ) -> Option<Node> {
     if words.is_empty() {
         return None;
@@ -474,19 +452,16 @@ fn structured_linkages(
     Some(wrap(
         NTag::Div,
         container,
-        Node::Array(vec![
-            wrap(NTag::Div, label_content, Node::Text(label.into())),
-            wrap(
-                NTag::Ul,
-                list_content,
-                Node::Array(
-                    words
-                        .iter()
-                        .map(|word| wrap(NTag::Li, item_content, Node::Text(word.word.clone())))
-                        .collect(),
-                ),
+        wrap(
+            NTag::Ul,
+            list_content,
+            Node::Array(
+                words
+                    .iter()
+                    .map(|word| wrap(NTag::Li, item_content, Node::Text(word.word.clone())))
+                    .collect(),
             ),
-        ]),
+        ),
     ))
 }
 
