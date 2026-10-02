@@ -1,6 +1,6 @@
 [package]
 name = "wty"
-version = "0.8.6"
+version = "0.9.0"
 edition = "2024"
 description = "Yomitan-compatible dictionaries from wikitionary data"
 license = "MIT"
