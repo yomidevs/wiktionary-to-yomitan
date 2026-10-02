@@ -204,3 +204,32 @@ div[data-sc-content="sense-label"] {
 .gloss-separator {
     display: none !important;
 }
+
+/* The examples toggle is an accent glyph at the end of the gloss line, open or closed */
+details[data-sc-content="details-entry-examples"] {
+    display: inline;
+}
+details[data-sc-content="details-entry-examples"] > summary {
+    display: inline;
+    font-size: 0;
+}
+details[data-sc-content="details-entry-examples"] > summary::before {
+    content: "▸";
+    display: inline-block;
+    width: 1.1em;
+    margin-left: 0.3rem;
+    font-size: 0.85rem;
+    text-align: center;
+    border-radius: 0.3em;
+    color: var(--link-color, #1a73e8);
+}
+details[data-sc-content="details-entry-examples"]:lang(ja) > summary::before {
+    margin-left: 0;
+}
+details[data-sc-content="details-entry-examples"][open] > summary::before {
+    content: "▾";
+}
+details[data-sc-content="details-entry-examples"] > summary:hover::before,
+details[data-sc-content="details-entry-examples"][open] > summary::before {
+    background-color: rgba(26, 115, 232, 0.14);
+}
