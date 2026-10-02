@@ -1,30 +1,75 @@
-/* Data-category is locale independent */
-.tag[data-category='gender-feminine'] .tag-label{background-color: #ca4d93;}
-.tag[data-category='gender-masculine'] .tag-label{background-color: #4d82e8;}
-.tag[data-category='gender-neuter'] .tag-label{background-color: #40ac65;}
-
-/* Category colouring is only valid for top-level tags
+/* Tags: top-level and inner tags share one chip look.
+   Category colouring is only valid for top-level tags
    https://github.com/yomidevs/yomitan/blob/master/docs/making-yomitan-dictionaries.md
    So we need to add them again for the relevant categories used in inner tags.
-*/
-div[data-sc-content="tags"] span[data-sc-category="frequent"] {
-    background-color: #5bc0de;
+   The dictionary tag keeps Yomitan's own pill and purple.
+   Data-category is locale independent. */
+.tag .tag-label,
+div[data-sc-content="tags"] span {
+    background-color: rgba(128, 128, 128, 0.2);
+    border: 1px solid rgba(128, 128, 128, 0.45);
+    border-radius: 1em;
+    color: inherit;
 }
-div[data-sc-content="tags"] span[data-sc-category="archaism"] {
-    background-color: #d9534f;
+.tag .tag-label {
+    padding: 0.1em 0.55em;
 }
-
+.tag {
+    min-height: 0;
+}
+.tag .tag-label-content {
+    font-size: 0.9em;
+    font-weight: normal;
+    line-height: 1.2;
+}
+div[data-sc-content="tags"] {
+    display: inline;
+}
+div[data-sc-content="tags"]:has(> span:nth-child(4)) {
+    display: block;
+    margin-bottom: 0.15em;
+}
 div[data-sc-content="tags"] span {
     font-size: 0.8em;
-    font-weight: bold;
-    padding: 0.2em 0.3em;
+    color: var(--text-color-light3, #777);
+    padding: 0.1em 0.55em;
     word-break: keep-all;
-    border-radius: 0.3em;
-    vertical-align: text-bottom;
-    background-color: #565656;
-    color: white;
     cursor: help;
-    margin-right: 0.25em;
+    margin-right: 0.4em;
+}
+.tag[data-category='dictionary'] .tag-label {
+    padding: calc(2.5em / 14) 0.375em;
+    background-color: var(--tag-color);
+    border: 0;
+    border-radius: var(--tag-border-radius);
+    color: var(--tag-text-color);
+}
+.tag[data-category='dictionary'] .tag-label-content {
+    font-size: var(--tag-font-size);
+    font-weight: bold;
+    line-height: normal;
+}
+.tag[data-category='frequent'] .tag-label,
+div[data-sc-content="tags"] span[data-sc-category="frequent"] {
+    background-color: rgba(91, 192, 222, 0.25);
+    border-color: rgba(91, 192, 222, 0.65);
+}
+.tag[data-category='archaism'] .tag-label,
+div[data-sc-content="tags"] span[data-sc-category="archaism"] {
+    background-color: rgba(217, 83, 79, 0.22);
+    border-color: rgba(217, 83, 79, 0.65);
+}
+.tag[data-category='gender-feminine'] .tag-label {
+    background-color: rgba(202, 77, 147, 0.22);
+    border-color: rgba(202, 77, 147, 0.65);
+}
+.tag[data-category='gender-masculine'] .tag-label {
+    background-color: rgba(77, 130, 232, 0.22);
+    border-color: rgba(77, 130, 232, 0.65);
+}
+.tag[data-category='gender-neuter'] .tag-label {
+    background-color: rgba(64, 172, 101, 0.22);
+    border-color: rgba(64, 172, 101, 0.65);
 }
 div[data-sc-content="extra-info"] {
     margin-left: 0.5em;
