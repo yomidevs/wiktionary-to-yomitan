@@ -132,21 +132,32 @@ details[data-sc-content^="details-entry-Etymology"] summary[data-sc-content="sum
     font-weight: bold;
 }
 
-/* Make the label bold, and group synonyms inline, separated by ' • ' */
-div[data-sc-content="synonyms"] div[data-sc-content="synonyms-label"] {
-    font-weight: bold;
-    display: block;
-    margin-top: 0.3em;
+/* Synonyms (blue) and antonyms (red) as chips on one line, aligned with the gloss text */
+div[data-sc-content="related-words"] {
+    padding-left: var(--list-padding2, 1.4em);
 }
-div[data-sc-content="synonyms"] ul[data-sc-content="synonyms-list"] {
-    list-style: none;
-    padding-left: 1.5em;
-}
-div[data-sc-content="synonyms"] ul[data-sc-content="synonyms-list"] li {
+div[data-sc-content="synonyms"],
+div[data-sc-content="antonyms"],
+div[data-sc-content="synonyms"] ul[data-sc-content="synonyms-list"],
+div[data-sc-content="antonyms"] ul[data-sc-content="antonyms-list"] {
     display: inline;
+    list-style: none;
+    padding-left: 0;
 }
-div[data-sc-content="synonyms"] ul[data-sc-content="synonyms-list"] li:not(:last-child)::after {
-    content: " • ";
+div[data-sc-content="synonyms"] li,
+div[data-sc-content="antonyms"] li {
+    display: inline-block;
+    padding: 0 0.55em;
+    margin: 0.35em 0.3em 0.1em 0;
+    border-radius: 1em;
+}
+div[data-sc-content="synonyms"] li {
+    background-color: rgba(66, 153, 225, 0.22);
+    border: 1px solid rgba(66, 153, 225, 0.6);
+}
+div[data-sc-content="antonyms"] li {
+    background-color: rgba(229, 83, 75, 0.22);
+    border: 1px solid rgba(229, 83, 75, 0.6);
 }
 
 details[data-sc-content^="details-entry"][open=""] summary[data-sc-content="summary-entry"] {
