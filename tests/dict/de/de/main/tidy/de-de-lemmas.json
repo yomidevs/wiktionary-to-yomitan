@@ -26,6 +26,17 @@
               "word": "Rock 'n' Roll"
             }
           ],
+          "antonyms": [
+            {
+              "word": "Blues"
+            },
+            {
+              "word": "Country"
+            },
+            {
+              "word": "Folk"
+            }
+          ],
           "etymology_text": "in den 50er Jahren des 20. Jahrhunderts von englisch rock ^(→ en) Rock 'n' Roll entlehnt, einem amerikanischen Slang-Ausdruck, nach den Schaukelbewegungen der Schiffe (to rock = stampfen und to roll = rollen)",
           "wlink": "https://de.wiktionary.org/wiki/Rock#German",
           "klink": "https://kaikki.org/dewiktionary/All%20languages%20combined/meaning/R/Ro/Rock.html"
@@ -382,6 +393,17 @@
             },
             {
               "word": "abmachen"
+            }
+          ],
+          "antonyms": [
+            {
+              "word": "anmachen"
+            },
+            {
+              "word": "aktivieren"
+            },
+            {
+              "word": "einschalten"
             }
           ],
           "etymology_text": "gebildet aus der Partikel aus als Verbzusatz und dem Verb machen",
@@ -887,6 +909,17 @@
           "tags": [
             "irregular"
           ],
+          "antonyms": [
+            {
+              "word": "fühlen"
+            },
+            {
+              "word": "hören"
+            },
+            {
+              "word": "spüren"
+            }
+          ],
           "etymology_text": "althochdeutsch sehan aus urgermanisch *sehwanan, aus urindogermanisch *sekʷ-. Daraus auch Latein sequi ^(→ la) (in romanischen Sprachen: französisch suivre ^(→ fr), italienisch seguire ^(→ it), katalanisch/portugiesisch/spanisch seguir ^(→ es)). Verwandt mit deutsch sagen, say ^(→ en).\nDas Verb ist seit dem 8. Jahrhundert belegt.",
           "wlink": "https://de.wiktionary.org/wiki/sehen#German",
           "klink": "https://kaikki.org/dewiktionary/All%20languages%20combined/meaning/s/se/sehen.html"
@@ -938,6 +971,17 @@
             },
             {
               "word": "unscheinbar"
+            }
+          ],
+          "antonyms": [
+            {
+              "word": "auffallend"
+            },
+            {
+              "word": "aufsehenerregend"
+            },
+            {
+              "word": "eklatant"
             }
           ],
           "etymology_text": "Ableitung zu auffällig mit dem Derivatem (Ableitungsmorphem) un-",

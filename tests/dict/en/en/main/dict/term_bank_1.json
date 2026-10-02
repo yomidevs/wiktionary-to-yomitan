@@ -2010,42 +2010,94 @@
           {
             "tag": "div",
             "data": {
-              "content": "synonyms"
+              "content": "related-words"
             },
             "content": [
               {
                 "tag": "div",
                 "data": {
-                  "content": "synonyms-label"
-                },
-                "content": "Synonyms"
-              },
-              {
-                "tag": "ul",
-                "data": {
-                  "content": "synonyms-list"
+                  "content": "synonyms"
                 },
                 "content": [
                   {
-                    "tag": "li",
+                    "tag": "div",
                     "data": {
-                      "content": "synonym-item"
+                      "content": "synonyms-label"
                     },
-                    "content": "mystic"
+                    "content": "Synonyms"
                   },
                   {
-                    "tag": "li",
+                    "tag": "ul",
                     "data": {
-                      "content": "synonym-item"
+                      "content": "synonyms-list"
                     },
-                    "content": "mystical"
+                    "content": [
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "synonym-item"
+                        },
+                        "content": "mystic"
+                      },
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "synonym-item"
+                        },
+                        "content": "mystical"
+                      },
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "synonym-item"
+                        },
+                        "content": "numinous"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "data": {
+                  "content": "antonyms"
+                },
+                "content": [
+                  {
+                    "tag": "div",
+                    "data": {
+                      "content": "antonyms-label"
+                    },
+                    "content": "Antonyms"
                   },
                   {
-                    "tag": "li",
+                    "tag": "ul",
                     "data": {
-                      "content": "synonym-item"
+                      "content": "antonyms-list"
                     },
-                    "content": "numinous"
+                    "content": [
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "antonym-item"
+                        },
+                        "content": "nonmagical"
+                      },
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "antonym-item"
+                        },
+                        "content": "nonmystic"
+                      },
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "antonym-item"
+                        },
+                        "content": "nonmystical"
+                      }
+                    ]
                   }
                 ]
               }

@@ -1172,6 +1172,44 @@
           {
             "tag": "div",
             "data": {
+              "content": "related-words"
+            },
+            "content": [
+              {
+                "tag": "div",
+                "data": {
+                  "content": "antonyms"
+                },
+                "content": [
+                  {
+                    "tag": "div",
+                    "data": {
+                      "content": "antonyms-label"
+                    },
+                    "content": "Antonyms"
+                  },
+                  {
+                    "tag": "ul",
+                    "data": {
+                      "content": "antonyms-list"
+                    },
+                    "content": [
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "antonym-item"
+                        },
+                        "content": "nebýt"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "data": {
               "content": "backlink"
             },
             "content": [

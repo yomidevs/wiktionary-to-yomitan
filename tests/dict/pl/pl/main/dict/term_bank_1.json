@@ -297,28 +297,73 @@
           {
             "tag": "div",
             "data": {
-              "content": "synonyms"
+              "content": "related-words"
             },
             "content": [
               {
                 "tag": "div",
                 "data": {
-                  "content": "synonyms-label"
-                },
-                "content": "Synonimy"
-              },
-              {
-                "tag": "ul",
-                "data": {
-                  "content": "synonyms-list"
+                  "content": "synonyms"
                 },
                 "content": [
                   {
-                    "tag": "li",
+                    "tag": "div",
                     "data": {
-                      "content": "synonym-item"
+                      "content": "synonyms-label"
                     },
-                    "content": "gw. (Górny Śląsk) śniyg"
+                    "content": "Synonimy"
+                  },
+                  {
+                    "tag": "ul",
+                    "data": {
+                      "content": "synonyms-list"
+                    },
+                    "content": [
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "synonym-item"
+                        },
+                        "content": "gw. (Górny Śląsk) śniyg"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "data": {
+                  "content": "antonyms"
+                },
+                "content": [
+                  {
+                    "tag": "div",
+                    "data": {
+                      "content": "antonyms-label"
+                    },
+                    "content": "Antonimy"
+                  },
+                  {
+                    "tag": "ul",
+                    "data": {
+                      "content": "antonyms-list"
+                    },
+                    "content": [
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "antonym-item"
+                        },
+                        "content": "deszcz"
+                      },
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "antonym-item"
+                        },
+                        "content": "słońce"
+                      }
+                    ]
                   }
                 ]
               }
@@ -631,42 +676,50 @@
           {
             "tag": "div",
             "data": {
-              "content": "synonyms"
+              "content": "related-words"
             },
             "content": [
               {
                 "tag": "div",
                 "data": {
-                  "content": "synonyms-label"
-                },
-                "content": "Synonimy"
-              },
-              {
-                "tag": "ul",
-                "data": {
-                  "content": "synonyms-list"
+                  "content": "synonyms"
                 },
                 "content": [
                   {
-                    "tag": "li",
+                    "tag": "div",
                     "data": {
-                      "content": "synonym-item"
+                      "content": "synonyms-label"
                     },
-                    "content": "pognać"
+                    "content": "Synonimy"
                   },
                   {
-                    "tag": "li",
+                    "tag": "ul",
                     "data": {
-                      "content": "synonym-item"
+                      "content": "synonyms-list"
                     },
-                    "content": "polecieć"
-                  },
-                  {
-                    "tag": "li",
-                    "data": {
-                      "content": "synonym-item"
-                    },
-                    "content": "popędzić"
+                    "content": [
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "synonym-item"
+                        },
+                        "content": "pognać"
+                      },
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "synonym-item"
+                        },
+                        "content": "polecieć"
+                      },
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "synonym-item"
+                        },
+                        "content": "popędzić"
+                      }
+                    ]
                   }
                 ]
               }

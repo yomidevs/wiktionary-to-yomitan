@@ -717,6 +717,11 @@
               ]
             }
           },
+          "antonyms": [
+            {
+              "word": "ex"
+            }
+          ],
           "etymology_text": "From earlier en, from Proto-Italic *en, from Proto-Indo-European *h₁én (“in”). Cognates include English in, Ancient Greek ἐν (en).\nThe ablative is from the locative, and the accusative is from the directional.",
           "head_info_text": "in (+ ablative)\nin (+ accusative)",
           "wlink": "https://en.wiktionary.org/wiki/in#Latin",

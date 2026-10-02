@@ -1040,42 +1040,87 @@
           {
             "tag": "div",
             "data": {
-              "content": "synonyms"
+              "content": "related-words"
             },
             "content": [
               {
                 "tag": "div",
                 "data": {
-                  "content": "synonyms-label"
-                },
-                "content": "Synonymes"
-              },
-              {
-                "tag": "ul",
-                "data": {
-                  "content": "synonyms-list"
+                  "content": "synonyms"
                 },
                 "content": [
                   {
-                    "tag": "li",
+                    "tag": "div",
                     "data": {
-                      "content": "synonym-item"
+                      "content": "synonyms-label"
                     },
-                    "content": "bouffer"
+                    "content": "Synonymes"
                   },
                   {
-                    "tag": "li",
+                    "tag": "ul",
                     "data": {
-                      "content": "synonym-item"
+                      "content": "synonyms-list"
                     },
-                    "content": "becqueter"
+                    "content": [
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "synonym-item"
+                        },
+                        "content": "bouffer"
+                      },
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "synonym-item"
+                        },
+                        "content": "becqueter"
+                      },
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "synonym-item"
+                        },
+                        "content": "bouffer"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "data": {
+                  "content": "antonyms"
+                },
+                "content": [
+                  {
+                    "tag": "div",
+                    "data": {
+                      "content": "antonyms-label"
+                    },
+                    "content": "Antonymes"
                   },
                   {
-                    "tag": "li",
+                    "tag": "ul",
                     "data": {
-                      "content": "synonym-item"
+                      "content": "antonyms-list"
                     },
-                    "content": "bouffer"
+                    "content": [
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "antonym-item"
+                        },
+                        "content": "jeûner"
+                      },
+                      {
+                        "tag": "li",
+                        "data": {
+                          "content": "antonym-item"
+                        },
+                        "content": "se serrer la ceinture"
+                      }
+                    ]
                   }
                 ]
               }

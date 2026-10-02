@@ -43,6 +43,17 @@
               "word": "salda"
             }
           ],
+          "antonyms": [
+            {
+              "word": "mobile"
+            },
+            {
+              "word": "sposta"
+            },
+            {
+              "word": "rimuove"
+            }
+          ],
           "etymology_text": "vedi fisso",
           "wlink": "https://it.wiktionary.org/wiki/fissa#Italian",
           "klink": "https://kaikki.org/itwiktionary/All%20languages%20combined/meaning/f/fi/fissa.html"
@@ -83,6 +94,17 @@
             },
             {
               "word": "coscienza"
+            }
+          ],
+          "antonyms": [
+            {
+              "word": "incuria"
+            },
+            {
+              "word": "negligenza"
+            },
+            {
+              "word": "superficialità"
             }
           ],
           "etymology_text": "dal latino cūra",
