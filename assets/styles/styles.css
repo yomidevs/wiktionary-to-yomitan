@@ -90,8 +90,7 @@ span[data-sc-content="bold-text"] {
     color: color-mix(in srgb, lime, var(--text-color, var(--fg, #333)));
 }
 div[data-sc-content="example-sentence-a"] {
-    font-size: 1.15em;
-    line-height: 1.6;
+    font-size: 1em;
 }
 div[data-sc-content="example-sentence-b"] {
     font-size: 0.8em;
@@ -99,6 +98,36 @@ div[data-sc-content="example-sentence-b"] {
 div[data-sc-content="example-sentence-c"] {
     font-size: 0.75em;
     text-align: right;
+}
+/* CJK glyphs are denser, so they get larger sizes and more line height.
+   Wiktionary does the same per script: Hani/Hans/Hant, Hira/Jpan/Kana and Hang/Kore are 120%
+   (with line-height 1 on the span), while Latin, Cyrillic and Greek are left alone
+   https://en.wiktionary.org/wiki/MediaWiki:Gadget-LanguagesAndScripts.css
+   Yomitan marks text containers with lang="ja" or lang="zh" for these scripts. */
+div[data-sc-content="example-sentence-a"]:is(:lang(ja), :lang(zh)) {
+    font-size: 1.2em;
+    line-height: 1.19;
+}
+ol[data-sc-content="glosses"] > li > div:is(:lang(ja), :lang(zh)),
+ol[data-sc-content="glosses"] > li > ul > li:is(:lang(ja), :lang(zh)) {
+    font-size: 1.2em;
+}
+/* Keep the sizes of what is nested in a CJK gloss, so they do not grow with it */
+ol[data-sc-content="glosses"] > li > div:is(:lang(ja), :lang(zh)) div[data-sc-content="example-sentence-a"],
+ol[data-sc-content="glosses"] > li > ul > li:is(:lang(ja), :lang(zh)) div[data-sc-content="example-sentence-a"] {
+    font-size: 1em;
+}
+ol[data-sc-content="glosses"] > li > div:is(:lang(ja), :lang(zh)) div[data-sc-content="example-sentence-b"],
+ol[data-sc-content="glosses"] > li > ul > li:is(:lang(ja), :lang(zh)) div[data-sc-content="example-sentence-b"] {
+    font-size: 0.6667em;
+}
+ol[data-sc-content="glosses"] > li > div:is(:lang(ja), :lang(zh)) div[data-sc-content="example-sentence-c"],
+ol[data-sc-content="glosses"] > li > ul > li:is(:lang(ja), :lang(zh)) div[data-sc-content="example-sentence-c"] {
+    font-size: 0.625em;
+}
+ol[data-sc-content="glosses"] > li > div:is(:lang(ja), :lang(zh)) div[data-sc-content="tags"] span,
+ol[data-sc-content="glosses"] > li > ul > li:is(:lang(ja), :lang(zh)) div[data-sc-content="tags"] span {
+    font-size: 0.6667em;
 }
 details[data-sc-content^="details-entry"] {
     padding-left: 0;
