@@ -135,10 +135,6 @@ summary[data-sc-content="summary-entry"] {
     list-style-position: inside;
     color: var(--text-color-light4);
 }
-details[data-sc-content^="details-entry-Grammar"] summary[data-sc-content="summary-entry"],
-details[data-sc-content^="details-entry-Etymology"] summary[data-sc-content="summary-entry"] {
-    font-weight: bold;
-}
 
 /* Synonyms (blue) and antonyms (red) as chips on one line, aligned with the gloss text */
 div[data-sc-content="related-words"] {
@@ -203,6 +199,43 @@ div[data-sc-content="sense-label"] {
 /* Remove the newline left by the now empty gloss separator */
 .gloss-separator {
     display: none !important;
+}
+
+/* Grammar and Etymology toggles share one row; an opened one takes the full row */
+div[data-sc-content="preamble"] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.75em;
+}
+div[data-sc-content="preamble"] > details[open] {
+    flex: 1 1 100%;
+}
+/* Where supported, they behave like tabs: toggles stay in one row, content opens below */
+@supports selector(::details-content) {
+    div[data-sc-content="preamble"] {
+        display: grid;
+        grid-template-columns: max-content max-content 1fr;
+        column-gap: 0.75em;
+    }
+    div[data-sc-content="preamble"] > details {
+        display: contents;
+    }
+    div[data-sc-content="preamble"] > details > summary {
+        grid-row: 1;
+    }
+    div[data-sc-content="preamble"] > details::details-content {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Grammar and Etymology toggles share the accent color of the examples toggle */
+div[data-sc-content="preamble"] summary[data-sc-content="summary-entry"],
+div[data-sc-content="preamble"] details[open] > summary[data-sc-content="summary-entry"] {
+    color: var(--link-color, #1a73e8);
+}
+div[data-sc-content="preamble"] summary[data-sc-content="summary-entry"]::marker,
+div[data-sc-content="preamble"] details[open] > summary[data-sc-content="summary-entry"]::marker {
+    color: var(--link-color, #1a73e8);
 }
 
 /* The examples toggle is an accent glyph at the end of the gloss line, open or closed */
