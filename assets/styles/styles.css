@@ -1,30 +1,75 @@
-/* Data-category is locale independent */
-.tag[data-category='gender-feminine'] .tag-label{background-color: #ca4d93;}
-.tag[data-category='gender-masculine'] .tag-label{background-color: #4d82e8;}
-.tag[data-category='gender-neuter'] .tag-label{background-color: #40ac65;}
-
-/* Category colouring is only valid for top-level tags
+/* Tags: top-level and inner tags share one chip look.
+   Category colouring is only valid for top-level tags
    https://github.com/yomidevs/yomitan/blob/master/docs/making-yomitan-dictionaries.md
    So we need to add them again for the relevant categories used in inner tags.
-*/
-div[data-sc-content="tags"] span[data-sc-category="frequent"] {
-    background-color: #5bc0de;
+   The dictionary tag keeps Yomitan's own pill and purple.
+   Data-category is locale independent. */
+.tag .tag-label,
+div[data-sc-content="tags"] span {
+    background-color: rgba(128, 128, 128, 0.2);
+    border: 1px solid rgba(128, 128, 128, 0.45);
+    border-radius: 1em;
+    color: inherit;
 }
-div[data-sc-content="tags"] span[data-sc-category="archaism"] {
-    background-color: #d9534f;
+.tag .tag-label {
+    padding: 0.1em 0.55em;
 }
-
+.tag {
+    min-height: 0;
+}
+.tag .tag-label-content {
+    font-size: 0.9em;
+    font-weight: normal;
+    line-height: 1.2;
+}
+div[data-sc-content="tags"] {
+    display: inline;
+}
+div[data-sc-content="tags"]:has(> span:nth-child(4)) {
+    display: block;
+    margin-bottom: 0.15em;
+}
 div[data-sc-content="tags"] span {
     font-size: 0.8em;
-    font-weight: bold;
-    padding: 0.2em 0.3em;
+    color: var(--text-color-light3, #777);
+    padding: 0.1em 0.55em;
     word-break: keep-all;
-    border-radius: 0.3em;
-    vertical-align: text-bottom;
-    background-color: #565656;
-    color: white;
     cursor: help;
-    margin-right: 0.25em;
+    margin-right: 0.4em;
+}
+.tag[data-category='dictionary'] .tag-label {
+    padding: calc(2.5em / 14) 0.375em;
+    background-color: var(--tag-color);
+    border: 0;
+    border-radius: var(--tag-border-radius);
+    color: var(--tag-text-color);
+}
+.tag[data-category='dictionary'] .tag-label-content {
+    font-size: var(--tag-font-size);
+    font-weight: bold;
+    line-height: normal;
+}
+.tag[data-category='frequent'] .tag-label,
+div[data-sc-content="tags"] span[data-sc-category="frequent"] {
+    background-color: rgba(91, 192, 222, 0.25);
+    border-color: rgba(91, 192, 222, 0.65);
+}
+.tag[data-category='archaism'] .tag-label,
+div[data-sc-content="tags"] span[data-sc-category="archaism"] {
+    background-color: rgba(217, 83, 79, 0.22);
+    border-color: rgba(217, 83, 79, 0.65);
+}
+.tag[data-category='gender-feminine'] .tag-label {
+    background-color: rgba(202, 77, 147, 0.22);
+    border-color: rgba(202, 77, 147, 0.65);
+}
+.tag[data-category='gender-masculine'] .tag-label {
+    background-color: rgba(77, 130, 232, 0.22);
+    border-color: rgba(77, 130, 232, 0.65);
+}
+.tag[data-category='gender-neuter'] .tag-label {
+    background-color: rgba(64, 172, 101, 0.22);
+    border-color: rgba(64, 172, 101, 0.65);
 }
 div[data-sc-content="extra-info"] {
     margin-left: 0.5em;
@@ -41,10 +86,11 @@ div[data-sc-content="example-sentence"] {
 }
 span[data-sc-content="bold-text"] {
     font-weight: bold;
+    color: #2e9e2e;
+    color: color-mix(in srgb, lime, var(--text-color, var(--fg, #333)));
 }
 div[data-sc-content="example-sentence-a"] {
-    font-size: 1.1em;
-    font-style: italic;
+    font-size: 1em;
 }
 div[data-sc-content="example-sentence-b"] {
     font-size: 0.8em;
@@ -52,6 +98,36 @@ div[data-sc-content="example-sentence-b"] {
 div[data-sc-content="example-sentence-c"] {
     font-size: 0.75em;
     text-align: right;
+}
+/* CJK glyphs are denser, so they get larger sizes and more line height.
+   Wiktionary does the same per script: Hani/Hans/Hant, Hira/Jpan/Kana and Hang/Kore are 120%
+   (with line-height 1 on the span), while Latin, Cyrillic and Greek are left alone
+   https://en.wiktionary.org/wiki/MediaWiki:Gadget-LanguagesAndScripts.css
+   Yomitan marks text containers with lang="ja" or lang="zh" for these scripts. */
+div[data-sc-content="example-sentence-a"]:is(:lang(ja), :lang(zh)) {
+    font-size: 1.2em;
+    line-height: 1.19;
+}
+ol[data-sc-content="glosses"] > li > div:is(:lang(ja), :lang(zh)),
+ol[data-sc-content="glosses"] > li > ul > li:is(:lang(ja), :lang(zh)) {
+    font-size: 1.2em;
+}
+/* Keep the sizes of what is nested in a CJK gloss, so they do not grow with it */
+ol[data-sc-content="glosses"] > li > div:is(:lang(ja), :lang(zh)) div[data-sc-content="example-sentence-a"],
+ol[data-sc-content="glosses"] > li > ul > li:is(:lang(ja), :lang(zh)) div[data-sc-content="example-sentence-a"] {
+    font-size: 1em;
+}
+ol[data-sc-content="glosses"] > li > div:is(:lang(ja), :lang(zh)) div[data-sc-content="example-sentence-b"],
+ol[data-sc-content="glosses"] > li > ul > li:is(:lang(ja), :lang(zh)) div[data-sc-content="example-sentence-b"] {
+    font-size: 0.6667em;
+}
+ol[data-sc-content="glosses"] > li > div:is(:lang(ja), :lang(zh)) div[data-sc-content="example-sentence-c"],
+ol[data-sc-content="glosses"] > li > ul > li:is(:lang(ja), :lang(zh)) div[data-sc-content="example-sentence-c"] {
+    font-size: 0.625em;
+}
+ol[data-sc-content="glosses"] > li > div:is(:lang(ja), :lang(zh)) div[data-sc-content="tags"] span,
+ol[data-sc-content="glosses"] > li > ul > li:is(:lang(ja), :lang(zh)) div[data-sc-content="tags"] span {
+    font-size: 0.6667em;
 }
 details[data-sc-content^="details-entry"] {
     padding-left: 0;
@@ -61,75 +137,34 @@ summary[data-sc-content="summary-entry"] {
     width: max-content;
     padding: 0.1em 0.2em;
 }
-ol[data-sc-content="glosses"] {
-    list-style-type: upper-roman;
-}
 [data-sc-content="summary-entry"]::marker {
     color: var(--checkbox-disabled-color);
 }
 
-/* Circled numbers (note: they contain a space after the number) */
+/* Gloss numbers as muted numerals, drawn in CSS so they do not depend on the font */
 ol[data-sc-content="glosses"] {
-    list-style-type: none;
+    list-style: none;
+    counter-reset: gloss;
 }
-ol[data-sc-content="glosses"] > li:nth-child(1) { list-style-type: "① "; }
-ol[data-sc-content="glosses"] > li:nth-child(2) { list-style-type: "② "; }
-ol[data-sc-content="glosses"] > li:nth-child(3) { list-style-type: "③ "; }
-ol[data-sc-content="glosses"] > li:nth-child(4) { list-style-type: "④ "; }
-ol[data-sc-content="glosses"] > li:nth-child(5) { list-style-type: "⑤ "; }
-ol[data-sc-content="glosses"] > li:nth-child(6) { list-style-type: "⑥ "; }
-ol[data-sc-content="glosses"] > li:nth-child(7) { list-style-type: "⑦ "; }
-ol[data-sc-content="glosses"] > li:nth-child(8) { list-style-type: "⑧ "; }
-ol[data-sc-content="glosses"] > li:nth-child(9) { list-style-type: "⑨ "; }
-ol[data-sc-content="glosses"] > li:nth-child(10) { list-style-type: "⑩ "; }
-ol[data-sc-content="glosses"] > li:nth-child(11) { list-style-type: "⑪ "; }
-ol[data-sc-content="glosses"] > li:nth-child(12) { list-style-type: "⑫ "; }
-ol[data-sc-content="glosses"] > li:nth-child(13) { list-style-type: "⑬ "; }
-ol[data-sc-content="glosses"] > li:nth-child(14) { list-style-type: "⑭ "; }
-ol[data-sc-content="glosses"] > li:nth-child(15) { list-style-type: "⑮ "; }
-ol[data-sc-content="glosses"] > li:nth-child(16) { list-style-type: "⑯ "; }
-ol[data-sc-content="glosses"] > li:nth-child(17) { list-style-type: "⑰ "; }
-ol[data-sc-content="glosses"] > li:nth-child(18) { list-style-type: "⑱ "; }
-ol[data-sc-content="glosses"] > li:nth-child(19) { list-style-type: "⑲ "; }
-ol[data-sc-content="glosses"] > li:nth-child(20) { list-style-type: "⑳ "; }
-ol[data-sc-content="glosses"] > li:nth-child(21) { list-style-type: "㉑ "; }
-ol[data-sc-content="glosses"] > li:nth-child(22) { list-style-type: "㉒ "; }
-ol[data-sc-content="glosses"] > li:nth-child(23) { list-style-type: "㉓ "; }
-ol[data-sc-content="glosses"] > li:nth-child(24) { list-style-type: "㉔ "; }
-ol[data-sc-content="glosses"] > li:nth-child(25) { list-style-type: "㉕ "; }
-ol[data-sc-content="glosses"] > li:nth-child(26) { list-style-type: "㉖ "; }
-ol[data-sc-content="glosses"] > li:nth-child(27) { list-style-type: "㉗ "; }
-ol[data-sc-content="glosses"] > li:nth-child(28) { list-style-type: "㉘ "; }
-ol[data-sc-content="glosses"] > li:nth-child(29) { list-style-type: "㉙ "; }
-ol[data-sc-content="glosses"] > li:nth-child(30) { list-style-type: "㉚ "; }
-ol[data-sc-content="glosses"] > li:nth-child(31) { list-style-type: "㉛ "; }
-ol[data-sc-content="glosses"] > li:nth-child(32) { list-style-type: "㉜ "; }
-ol[data-sc-content="glosses"] > li:nth-child(33) { list-style-type: "㉝ "; }
-ol[data-sc-content="glosses"] > li:nth-child(34) { list-style-type: "㉞ "; }
-ol[data-sc-content="glosses"] > li:nth-child(35) { list-style-type: "㉟ "; }
-ol[data-sc-content="glosses"] > li:nth-child(36) { list-style-type: "㊱ "; }
-ol[data-sc-content="glosses"] > li:nth-child(37) { list-style-type: "㊲ "; }
-ol[data-sc-content="glosses"] > li:nth-child(38) { list-style-type: "㊳ "; }
-ol[data-sc-content="glosses"] > li:nth-child(39) { list-style-type: "㊴ "; }
-ol[data-sc-content="glosses"] > li:nth-child(40) { list-style-type: "㊵ "; }
-ol[data-sc-content="glosses"] > li:nth-child(41) { list-style-type: "㊶ "; }
-ol[data-sc-content="glosses"] > li:nth-child(42) { list-style-type: "㊷ "; }
-ol[data-sc-content="glosses"] > li:nth-child(43) { list-style-type: "㊸ "; }
-ol[data-sc-content="glosses"] > li:nth-child(44) { list-style-type: "㊹ "; }
-ol[data-sc-content="glosses"] > li:nth-child(45) { list-style-type: "㊺ "; }
-ol[data-sc-content="glosses"] > li:nth-child(46) { list-style-type: "㊻ "; }
-ol[data-sc-content="glosses"] > li:nth-child(47) { list-style-type: "㊼ "; }
-ol[data-sc-content="glosses"] > li:nth-child(48) { list-style-type: "㊽ "; }
-ol[data-sc-content="glosses"] > li:nth-child(49) { list-style-type: "㊾ "; }
-ol[data-sc-content="glosses"] > li:nth-child(50) { list-style-type: "㊿ "; }
+ol[data-sc-content="glosses"] > li {
+    position: relative;
+    counter-increment: gloss;
+}
+ol[data-sc-content="glosses"] > li::before {
+    content: counter(gloss) ".";
+    position: absolute;
+    left: -2em;
+    top: 0.2em;
+    width: 1.6em;
+    font-size: 0.85em;
+    line-height: 1.5;
+    text-align: right;
+    color: var(--text-color-light3, #777);
+}
 
 summary[data-sc-content="summary-entry"] {
     list-style-position: inside;
     color: var(--text-color-light4);
-}
-details[data-sc-content^="details-entry-Grammar"] summary[data-sc-content="summary-entry"],
-details[data-sc-content^="details-entry-Etymology"] summary[data-sc-content="summary-entry"] {
-    font-weight: bold;
 }
 
 /* Synonyms (blue) and antonyms (red) as chips on one line, aligned with the gloss text */
@@ -195,4 +230,70 @@ div[data-sc-content="sense-label"] {
 /* Remove the newline left by the now empty gloss separator */
 .gloss-separator {
     display: none !important;
+}
+
+/* Grammar and Etymology toggles share one row; an opened one takes the full row */
+div[data-sc-content="preamble"] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.75em;
+}
+div[data-sc-content="preamble"] > details[open] {
+    flex: 1 1 100%;
+}
+/* Where supported, they behave like tabs: toggles stay in one row, content opens below */
+@supports selector(::details-content) {
+    div[data-sc-content="preamble"] {
+        display: grid;
+        grid-template-columns: max-content max-content 1fr;
+        column-gap: 0.75em;
+    }
+    div[data-sc-content="preamble"] > details {
+        display: contents;
+    }
+    div[data-sc-content="preamble"] > details > summary {
+        grid-row: 1;
+    }
+    div[data-sc-content="preamble"] > details::details-content {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Grammar and Etymology toggles share the accent color of the examples toggle */
+div[data-sc-content="preamble"] summary[data-sc-content="summary-entry"],
+div[data-sc-content="preamble"] details[open] > summary[data-sc-content="summary-entry"] {
+    color: var(--link-color, #1a73e8);
+}
+div[data-sc-content="preamble"] summary[data-sc-content="summary-entry"]::marker,
+div[data-sc-content="preamble"] details[open] > summary[data-sc-content="summary-entry"]::marker {
+    color: var(--link-color, #1a73e8);
+}
+
+/* The examples toggle is an accent glyph at the end of the gloss line, open or closed */
+details[data-sc-content="details-entry-examples"] {
+    display: inline;
+}
+details[data-sc-content="details-entry-examples"] > summary {
+    display: inline;
+    font-size: 0;
+}
+details[data-sc-content="details-entry-examples"] > summary::before {
+    content: "▸";
+    display: inline-block;
+    width: 1.1em;
+    margin-left: 0.3rem;
+    font-size: 0.85rem;
+    text-align: center;
+    border-radius: 0.3em;
+    color: var(--link-color, #1a73e8);
+}
+details[data-sc-content="details-entry-examples"]:lang(ja) > summary::before {
+    margin-left: 0;
+}
+details[data-sc-content="details-entry-examples"][open] > summary::before {
+    content: "▾";
+}
+details[data-sc-content="details-entry-examples"] > summary:hover::before,
+details[data-sc-content="details-entry-examples"][open] > summary::before {
+    background-color: rgba(26, 115, 232, 0.14);
 }
