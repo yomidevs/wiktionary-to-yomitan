@@ -23,13 +23,13 @@ use crate::{
     cli::{LangSpecs, Options},
     dict::Intermediate,
     lang::{Edition, Lang},
-    models::kaikki::{Example, Form, HeadTemplate, Sense, Synonym, Tag, WordEntry},
+    models::kaikki::{Example, Form, HeadTemplate, Linkage, Sense, Tag, WordEntry},
     path::PathManager,
     tags::{Pos, REDUNDANT_FORM_TAGS},
     utils::{human_size, link_kaikki, link_wiktionary},
 };
 
-const MAX_NUMBER_OF_SYNONYMS: usize = 3;
+const MAX_NUMBER_OF_RELATED_WORDS: usize = 3;
 const MAX_NUMBER_OF_EXAMPLES: usize = 3;
 /// An alt-of target longer than this is noise (heuristic).
 const MAX_ALT_OF_WORDS: usize = 3;
@@ -383,7 +383,10 @@ pub struct LemmaInfo {
     pub tags: Vec<Tag>,
 
     #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub synonyms: Vec<Synonym>,
+    pub synonyms: Vec<Linkage>,
+
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub antonyms: Vec<Linkage>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     pub etymology_text: Option<String>,
@@ -854,17 +857,21 @@ fn get_japanese_reading(entry: &WordEntry) -> Option<String> {
     None
 }
 
+fn related_words(words: &[Linkage], word: &str) -> Vec<Linkage> {
+    words
+        .iter()
+        .filter(|related| related.word != word)
+        .take(MAX_NUMBER_OF_RELATED_WORDS)
+        .cloned()
+        .collect()
+}
+
 fn process_entry(edition: Edition, source: Lang, entry: &WordEntry) -> LemmaInfo {
     LemmaInfo {
         gloss_tree: get_gloss_tree(entry),
         tags: entry.tags.clone(),
-        synonyms: entry
-            .synonyms
-            .iter()
-            .filter(|syn| syn.word != entry.word)
-            .take(MAX_NUMBER_OF_SYNONYMS)
-            .cloned()
-            .collect(),
+        synonyms: related_words(&entry.synonyms, &entry.word),
+        antonyms: related_words(&entry.antonyms, &entry.word),
         etymology_text: entry
             .etymology_texts()
             // TODO: patch this in wiktextract
