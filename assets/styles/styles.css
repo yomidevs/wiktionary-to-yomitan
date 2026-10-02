@@ -86,10 +86,12 @@ div[data-sc-content="example-sentence"] {
 }
 span[data-sc-content="bold-text"] {
     font-weight: bold;
+    color: #2e9e2e;
+    color: color-mix(in srgb, lime, var(--text-color, var(--fg, #333)));
 }
 div[data-sc-content="example-sentence-a"] {
-    font-size: 1.1em;
-    font-style: italic;
+    font-size: 1.15em;
+    line-height: 1.6;
 }
 div[data-sc-content="example-sentence-b"] {
     font-size: 0.8em;
