@@ -44,7 +44,8 @@ pub struct WordEntry {
     pub form_of: Vec<AltForm>,
     pub alt_of: Vec<AltForm>,
 
-    pub synonyms: Vec<Synonym>,
+    pub synonyms: Vec<Linkage>,
+    pub antonyms: Vec<Linkage>,
 
     pub translations: Vec<Translation>, // used in glossary
 }
@@ -124,14 +125,14 @@ pub struct Form {
     pub ruby: Vec<(String, String)>, // [ja] (kanji, hiragana)
 }
 
-// * We don't extract Synonyms in Senses, even though some editions use them.
-// * We also don't disambiguate to which Sense matches a certain Synonym because
+// * We don't extract Synonyms or Antonyms in Senses, even though some editions use them.
+// * We also don't disambiguate to which Sense matches a certain Linkage because
 // the wiktextract field sense_index is sometimes an int / sometimes a String.
 // TODO: report / fix the above in wiktextract...
 #[derive(Debug, Deserialize, Serialize, Default, Clone)]
 #[serde(default)]
 #[derive(rkyv::Archive, rkyv::Deserialize, rkyv::Serialize)]
-pub struct Synonym {
+pub struct Linkage {
     pub word: String,
     // Unused for the moment
     // #[serde(skip_serializing_if = "Vec::is_empty")]

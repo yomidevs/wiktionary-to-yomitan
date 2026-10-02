@@ -114,3 +114,28 @@ pub const fn localize_synonyms_string(target: Lang) -> &'static str {
         _ => "Synonyms",
     }
 }
+
+/// Localize Antonyms
+pub const fn localize_antonyms_string(target: Lang) -> &'static str {
+    match target {
+        Lang::Zh => "反义词",
+        Lang::Cs => "Antonyma",
+        Lang::Nl => "Antoniemen",
+        Lang::Fr => "Antonymes",
+        Lang::De => "Antonyme",
+        Lang::El => "Αντώνυμα",
+        Lang::Id => "Antonim",
+        Lang::It => "Contrari",
+        Lang::Ja => "対義語",
+        Lang::Ko => "반의어",
+        Lang::Ms => "Antonim",
+        Lang::Pl => "Antonimy",
+        Lang::Pt => "Antónimos",
+        Lang::Ru => "Антонимы",
+        Lang::Es => "Antónimos",
+        Lang::Th => "คำตรงข้าม",
+        Lang::Tr => "Zıt anlamlılar",
+        Lang::Vi => "Từ trái nghĩa",
+        _ => "Antonyms",
+    }
+}
