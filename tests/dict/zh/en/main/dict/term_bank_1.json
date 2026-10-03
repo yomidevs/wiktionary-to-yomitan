@@ -519,6 +519,23 @@
                   {
                     "tag": "div",
                     "content": [
+                      {
+                        "tag": "div",
+                        "data": {
+                          "content": "tags"
+                        },
+                        "content": [
+                          {
+                            "tag": "span",
+                            "title": "anime, comics and games",
+                            "data": {
+                              "content": "tag",
+                              "category": "topic"
+                            },
+                            "content": "ACG"
+                          }
+                        ]
+                      },
                       "-chan",
                       {
                         "tag": "details",

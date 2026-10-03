@@ -91,7 +91,7 @@ pub fn tag_order(tag: &str) -> Option<usize> {
 }
 
 #[rustfmt::skip]
-pub static TAG_BANK: [(&str, &str, i32, &[&str], i32); 387] = [
+pub static TAG_BANK: [(&str, &str, i32, &[&str], i32); 388] = [
     ("animate", "animacy", 0, &["animate"], 0),
     ("inanim", "animacy", 0, &["inanimate"], 0),
     ("arch", "archaism", 4, &["archaic"], -4),
@@ -206,6 +206,7 @@ pub static TAG_BANK: [(&str, &str, i32, &[&str], i32); 387] = [
     ("vern", "register", 0, &["vernacular"], 0),
     ("vulg", "register", 0, &["vulgar"], 0),
     ("youth-sl", "register", 0, &["youth slang"], 0),
+    ("ACG", "topic", 0, &["anime, comics and games", "ACG"], 0),
     ("BDSM", "topic", 0, &["BDSM"], 0),
     ("LGBT", "topic", 0, &["LGBT"], 0),
     ("OOP", "topic", 0, &["object-oriented programming"], 0),
