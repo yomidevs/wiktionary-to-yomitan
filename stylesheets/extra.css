@@ -10,30 +10,14 @@
 
 .download-table {
   border-collapse: separate;
-  border-spacing: 0 8px; /* spacing between rows */
-  margin: 1.5rem 0;
+  border-spacing: 0;
+  margin: 1.5rem 0 0;
   width: 100%;
 }
 
-.download-table th,
 .download-table td {
   vertical-align: middle;
-  padding: 6px 12px;
-}
-
-.download-table th {
-  text-align: left;
-  white-space: nowrap;
-}
-
-.download-table tr td:first-child {
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-}
-
-.download-table tr td:nth-last-child(2) {
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+  padding: 0 12px;
 }
 
 /* Combobox */
@@ -87,15 +71,21 @@
 
 /* Download button */
 .dl-btn {
-  padding: 7px 16px;
-  border-radius: 6px;
-  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  text-decoration: none;
+  border-radius: 50%;
   background: var(--md-primary-fg-color);
-  color: white;
-  font-weight: 500;
   font-size: 14px;
-  cursor: pointer;
   transition: all 0.2s;
+}
+
+.md-typeset a.dl-btn,
+.md-typeset a.dl-btn:hover {
+  color: white;
 }
 
 .dl-btn:hover {
@@ -103,14 +93,65 @@
   transform: translateY(-1px);
 }
 
-.dl-btn:disabled {
-  background: var(--md-default-fg-color--lighter);
-  cursor: not-allowed;
-  transform: none;
+.dl-results {
+  margin: 1.5rem 0;
+  padding: 0 12px;
 }
 
-.dl-info {
+.dl-results .dl-empty {
+  text-align: center;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .dl-results ul {
+  display: grid;
+  grid-template-columns: max-content 34px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dl-results li {
+  display: contents;
+}
+
+.dl-results .dl-label {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.dl-results .dl-name {
+  font-weight: 500;
+}
+
+.dl-results .dl-size {
   font-size: 13px;
   color: var(--md-default-fg-color--light);
+}
+
+.dl-results .dl-url {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--md-code-bg-color);
+}
+
+.dl-results .dl-url code {
+  flex: 1;
+  overflow-x: auto;
   white-space: nowrap;
+  background: none;
+  font-size: 10.5px;
+}
+
+.dl-results .copy-url-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
 }
