@@ -4,7 +4,7 @@
       "noun": [
         "extracted",
         [
-          "genitive singular indefinite"
+          "genitive singular"
         ]
       ]
     },
@@ -12,8 +12,7 @@
       "noun": [
         "extracted",
         [
-          "genitive singular definite",
-          "vocative singular indefinite"
+          "genitive singular definite"
         ]
       ]
     },
@@ -41,8 +40,8 @@
       "noun": [
         "extracted",
         [
-          "genitive singular indefinite",
-          "nominative/dative plural definite/indefinite"
+          "genitive singular",
+          "nominative/dative plural definite"
         ]
       ]
     },
@@ -50,16 +49,7 @@
       "noun": [
         "extracted",
         [
-          "genitive singular definite",
-          "vocative singular indefinite"
-        ]
-      ]
-    },
-    "chrodha": {
-      "noun": [
-        "extracted",
-        [
-          "vocative plural indefinite"
+          "genitive singular definite"
         ]
       ]
     },
