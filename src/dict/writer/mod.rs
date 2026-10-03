@@ -167,3 +167,62 @@ fn build_entries<R: renderer::Renderer>(ydict: YomitanDict) -> Vec<Entry> {
         })
         .collect()
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::models::yomitan::{TermBankEntry, TermBankEntryForm};
+
+    struct Plain;
+    impl renderer::Renderer for Plain {}
+
+    fn lemma(term: &str) -> TermBankEntry {
+        TermBankEntry::new(
+            term.to_string(),
+            String::new(),
+            Vec::new(),
+            String::new(),
+            vec![DetailedDefinition::Text("def".to_string())],
+        )
+    }
+
+    fn form(term: &str, of: &str) -> TermBankEntryForm {
+        TermBankEntryForm::new(
+            term.to_string(),
+            String::new(),
+            String::new(),
+            vec![DetailedDefinition::Inflection((
+                of.to_string(),
+                vec!["past".to_string()],
+            ))],
+        )
+    }
+
+    fn alt_terms(entry: &Entry) -> Vec<&str> {
+        entry.alts().iter().map(AltEntry::term).collect()
+    }
+
+    #[test]
+    fn forms_are_entries_and_redirects() {
+        let ydict = YomitanDict::new(
+            vec![lemma("食べる"), lemma("行く")],
+            vec![
+                form("食べた", "食べる"),
+                form("食べない", "食べる"),
+                form("行った", "行く"),
+                form("行った", "行う"),
+            ],
+            Vec::new(),
+        );
+
+        let entries = build_entries::<Plain>(ydict);
+
+        let terms: Vec<_> = entries.iter().map(Entry::term).collect();
+        assert_eq!(
+            terms,
+            ["食べる", "行く", "食べた", "食べない", "行った", "行った"]
+        );
+        assert_eq!(alt_terms(&entries[0]), ["食べた", "食べない"]);
+        assert_eq!(alt_terms(&entries[1]), ["行った"]);
+    }
+}
