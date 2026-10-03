@@ -55,43 +55,12 @@ def render_combobox(cl: str, placeholder: str, langs: list[Lang]) -> str:
 </div>""".strip()
 
 
-def render_line(
-    label: str,
-    dtype: str,
-    source_langs: list[Lang],
-    target_langs: list[Lang],
-) -> str:
-    if source_langs:
-        source_html = render_combobox("dl-source", "Search source...", source_langs)
-        line_class = "download-line"
-    else:
-        source_html = ""
-        line_class = "download-line no source"
-
-    return f"""
-<tr data-type="{dtype}" class="{line_class}">
-  <th>{label}</th>
-  <td>{source_html}</td>
-  <td>{render_combobox("dl-target", "Search target...", target_langs)}</td>
-  <td><button class="dl-btn">📥</button></td>
-  <td class="dl-info"></td>
+def generate_downloads_page(all_langs: list[Lang]) -> str:
+    table_html = f"""
+<tr>
+  <td>{render_combobox("dl-source", "Source: language of the word...", all_langs)}</td>
+  <td>{render_combobox("dl-target", "Target: language of the definition...", all_langs)}</td>
 </tr>""".strip()
-
-
-def generate_downloads_page(all_langs: list[Lang], editions: list[Lang]) -> str:
-    all_langs_no_simple = [lang for lang in all_langs if lang.iso != "simple"]
-    editions_no_simple = [lang for lang in editions if lang.iso != "simple"]
-
-    table_html = "\n".join(
-        [
-            render_line("📘 Main", "main", all_langs, editions),
-            render_line("🔤 IPA", "ipa", all_langs_no_simple, editions_no_simple),
-            render_line("🧬 IPA merged", "ipa-merged", [], all_langs_no_simple),
-            render_line(
-                "🌍 Glossary", "glossary", editions_no_simple, all_langs_no_simple
-            ),
-        ]
-    )
 
     return f"""# Download
 
@@ -100,6 +69,8 @@ def generate_downloads_page(all_langs: list[Lang], editions: list[Lang]) -> str:
 {table_html}
   </tbody>
 </table>
+
+<div class="dl-results"></div>
 
 !!! warning "If you get an "Entry not found" error, please **open an [issue](https://github.com/yomidevs/wiktionary-to-yomitan/issues/new)**."
 
@@ -150,7 +121,7 @@ def main() -> None:
     print(f"Found {len(all_langs)} languages, {len(editions)} with edition")
 
     print(f"Generating downloads page @ {path_download}")
-    path_download.write_text(generate_downloads_page(all_langs, editions))
+    path_download.write_text(generate_downloads_page(all_langs))
 
     print(f"Generating language page @ {path_language}")
     path_language.write_text(generate_language_page(all_langs, editions))
