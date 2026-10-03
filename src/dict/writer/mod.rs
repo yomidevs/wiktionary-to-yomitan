@@ -136,7 +136,7 @@ impl WriterFormat {
 }
 
 /// Render every entry of `ydict` with `R`.
-fn build_entries<R: renderer::Renderer>(ydict: YomitanDict) -> Vec<Entry> {
+fn build_entries<R: renderer::Renderer>(mut ydict: YomitanDict) -> Vec<Entry> {
     let mut alts: Map<String, Set<String>> = Map::default();
     for entry in &ydict.term_bank_form {
         for def in &entry.definitions {
@@ -149,6 +149,9 @@ fn build_entries<R: renderer::Renderer>(ydict: YomitanDict) -> Vec<Entry> {
             }
         }
     }
+
+    // Forms only exist as redirects on their lemma. A form whose lemma is missing is dropped.
+    ydict.term_bank_form.clear();
 
     ydict
         .into_iter_flat()
@@ -203,7 +206,7 @@ mod tests {
     }
 
     #[test]
-    fn forms_are_entries_and_redirects() {
+    fn forms_are_redirects_on_their_lemma() {
         let ydict = YomitanDict::new(
             vec![lemma("食べる"), lemma("行く")],
             vec![
@@ -218,10 +221,7 @@ mod tests {
         let entries = build_entries::<Plain>(ydict);
 
         let terms: Vec<_> = entries.iter().map(Entry::term).collect();
-        assert_eq!(
-            terms,
-            ["食べる", "行く", "食べた", "食べない", "行った", "行った"]
-        );
+        assert_eq!(terms, ["食べる", "行く"]);
         assert_eq!(alt_terms(&entries[0]), ["食べた", "食べない"]);
         assert_eq!(alt_terms(&entries[1]), ["行った"]);
     }
