@@ -829,9 +829,9 @@ dependencies = [
 
 [[package]]
 name = "pangloss"
-version = "0.1.9"
+version = "0.1.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "61964b9b74a4b49c5a86d778a343f3f0b7cbfbf2953489f30d677c4e5ece834f"
+checksum = "b2102559cd37ff21098b297d0de4e801f36b001b689c6c982ca43dec50552e5f"
 dependencies = [
  "anyhow",
  "byteorder",
