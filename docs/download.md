@@ -2,10 +2,9 @@
 
 <table class="download-table">
   <tbody>
-<tr data-type="main" class="download-line">
-  <th>📘 Main</th>
+<tr>
   <td><div class="dl-source-combobox">
-  <input class="dl-source-search" placeholder="Search source..." autocomplete="off">
+  <input class="dl-source-search" placeholder="Source: language of the word..." autocomplete="off">
   <div class="dl-source-dropdown">
     <option value="af">Afrikaans</option>
   <option value="sq">Albanian</option>
@@ -168,273 +167,48 @@
   <input type="hidden" class="dl-source">
 </div></td>
   <td><div class="dl-target-combobox">
-  <input class="dl-target-search" placeholder="Search target..." autocomplete="off">
+  <input class="dl-target-search" placeholder="Target: language of the definition..." autocomplete="off">
   <div class="dl-target-dropdown">
-    <option value="zh">Chinese</option>
+    <option value="af">Afrikaans</option>
+  <option value="sq">Albanian</option>
+  <option value="arz">Arabic, Egyptian</option>
+  <option value="afb">Arabic, Gulf</option>
+  <option value="ar">Arabic, MSA</option>
+  <option value="apc">Arabic, North Levantine</option>
+  <option value="ajp">Arabic, South Levantine</option>
+  <option value="hy">Armenian</option>
+  <option value="xcl">Armenian, Old</option>
+  <option value="rup">Aromanian</option>
+  <option value="as">Assamese</option>
+  <option value="aii">Assyrian Neo-Aramaic</option>
+  <option value="ast">Asturian</option>
+  <option value="az">Azerbaijani</option>
+  <option value="ba">Bashkir</option>
+  <option value="eu">Basque</option>
+  <option value="be">Belarusian</option>
+  <option value="bn">Bengali</option>
+  <option value="bcl">Bikol, Central</option>
+  <option value="bg">Bulgarian</option>
+  <option value="my">Burmese</option>
+  <option value="ca">Catalan</option>
+  <option value="ceb">Cebuano</option>
+  <option value="zh">Chinese</option>
+  <option value="yue">Chinese, Cantonese</option>
+  <option value="cmn">Chinese, Mandarin</option>
+  <option value="cim">Cimbrian</option>
+  <option value="cop">Coptic</option>
+  <option value="kw">Cornish</option>
+  <option value="crh">Crimean Tatar</option>
   <option value="cs">Czech</option>
+  <option value="zlw-ocs">Czech, Old</option>
+  <option value="da">Danish</option>
   <option value="nl">Dutch</option>
+  <option value="dum">Dutch, Middle</option>
+  <option value="egy">Egyptian</option>
   <option value="en">English</option>
+  <option value="enm">English, Middle</option>
+  <option value="ang">English, Old</option>
   <option value="simple">English, Simple</option>
-  <option value="fr">French</option>
-  <option value="de">German</option>
-  <option value="el">Greek</option>
-  <option value="id">Indonesian</option>
-  <option value="it">Italian</option>
-  <option value="ja">Japanese</option>
-  <option value="ko">Korean</option>
-  <option value="ku">Kurdish</option>
-  <option value="ms">Malay</option>
-  <option value="pl">Polish</option>
-  <option value="pt">Portuguese</option>
-  <option value="ru">Russian</option>
-  <option value="es">Spanish</option>
-  <option value="th">Thai</option>
-  <option value="tr">Turkish</option>
-  <option value="vi">Vietnamese</option>
-  </div>
-  <input type="hidden" class="dl-target">
-</div></td>
-  <td><button class="dl-btn">📥</button></td>
-  <td class="dl-info"></td>
-</tr>
-<tr data-type="ipa" class="download-line">
-  <th>🔤 IPA</th>
-  <td><div class="dl-source-combobox">
-  <input class="dl-source-search" placeholder="Search source..." autocomplete="off">
-  <div class="dl-source-dropdown">
-    <option value="af">Afrikaans</option>
-  <option value="sq">Albanian</option>
-  <option value="arz">Arabic, Egyptian</option>
-  <option value="afb">Arabic, Gulf</option>
-  <option value="ar">Arabic, MSA</option>
-  <option value="apc">Arabic, North Levantine</option>
-  <option value="ajp">Arabic, South Levantine</option>
-  <option value="hy">Armenian</option>
-  <option value="xcl">Armenian, Old</option>
-  <option value="rup">Aromanian</option>
-  <option value="as">Assamese</option>
-  <option value="aii">Assyrian Neo-Aramaic</option>
-  <option value="ast">Asturian</option>
-  <option value="az">Azerbaijani</option>
-  <option value="ba">Bashkir</option>
-  <option value="eu">Basque</option>
-  <option value="be">Belarusian</option>
-  <option value="bn">Bengali</option>
-  <option value="bcl">Bikol, Central</option>
-  <option value="bg">Bulgarian</option>
-  <option value="my">Burmese</option>
-  <option value="ca">Catalan</option>
-  <option value="ceb">Cebuano</option>
-  <option value="zh">Chinese</option>
-  <option value="yue">Chinese, Cantonese</option>
-  <option value="cmn">Chinese, Mandarin</option>
-  <option value="cim">Cimbrian</option>
-  <option value="cop">Coptic</option>
-  <option value="kw">Cornish</option>
-  <option value="crh">Crimean Tatar</option>
-  <option value="cs">Czech</option>
-  <option value="zlw-ocs">Czech, Old</option>
-  <option value="da">Danish</option>
-  <option value="nl">Dutch</option>
-  <option value="dum">Dutch, Middle</option>
-  <option value="egy">Egyptian</option>
-  <option value="en">English</option>
-  <option value="enm">English, Middle</option>
-  <option value="ang">English, Old</option>
-  <option value="eo">Esperanto</option>
-  <option value="et">Estonian</option>
-  <option value="fo">Faroese</option>
-  <option value="fi">Finnish</option>
-  <option value="fr">French</option>
-  <option value="frm">French, Middle</option>
-  <option value="fro">French, Old</option>
-  <option value="gl">Galician</option>
-  <option value="ka">Georgian</option>
-  <option value="de">German</option>
-  <option value="goh">German, Old High</option>
-  <option value="got">Gothic</option>
-  <option value="el">Greek</option>
-  <option value="grc">Greek, Ancient</option>
-  <option value="gu">Gujarati</option>
-  <option value="haw">Hawaiian</option>
-  <option value="he">Hebrew</option>
-  <option value="hi">Hindi</option>
-  <option value="hu">Hungarian</option>
-  <option value="is">Icelandic</option>
-  <option value="io">Ido</option>
-  <option value="id">Indonesian</option>
-  <option value="izh">Ingrian</option>
-  <option value="ia">Interlingua</option>
-  <option value="ga">Irish</option>
-  <option value="sga">Irish, Old</option>
-  <option value="it">Italian</option>
-  <option value="ja">Japanese</option>
-  <option value="jv">Javanese</option>
-  <option value="kn">Kannada</option>
-  <option value="csb">Kashubian</option>
-  <option value="kk">Kazakh</option>
-  <option value="kix">Khiamniungan Naga</option>
-  <option value="km">Khmer</option>
-  <option value="ko">Korean</option>
-  <option value="ku">Kurdish</option>
-  <option value="kmr">Kurdish, Northern</option>
-  <option value="ky">Kyrgyz</option>
-  <option value="lld">Ladin</option>
-  <option value="lo">Lao</option>
-  <option value="la">Latin</option>
-  <option value="lv">Latvian</option>
-  <option value="lzz">Laz</option>
-  <option value="lt">Lithuanian</option>
-  <option value="liv">Livonian</option>
-  <option value="lb">Luxembourgish</option>
-  <option value="mk">Macedonian</option>
-  <option value="mg">Malagasy</option>
-  <option value="ms">Malay</option>
-  <option value="ml">Malayalam</option>
-  <option value="mt">Maltese</option>
-  <option value="gv">Manx</option>
-  <option value="mr">Marathi</option>
-  <option value="mn">Mongolian</option>
-  <option value="mi">Māori</option>
-  <option value="nah">Nahuatl, Classical</option>
-  <option value="nv">Navajo</option>
-  <option value="nrf">Norman</option>
-  <option value="se">Northern Sami</option>
-  <option value="no">Norwegian</option>
-  <option value="nb">Norwegian, Bokmål</option>
-  <option value="nn">Norwegian, Nynorsk</option>
-  <option value="oc">Occitan</option>
-  <option value="or">Odia</option>
-  <option value="cu">Old Church Slavonic</option>
-  <option value="non">Old Norse</option>
-  <option value="pi">Pali</option>
-  <option value="rsk">Pannonian Rusyn</option>
-  <option value="fa">Persian</option>
-  <option value="pdt">Plautdietsch</option>
-  <option value="pl">Polish</option>
-  <option value="zlw-opl">Polish, Old</option>
-  <option value="pt">Portuguese</option>
-  <option value="urj-fin-pro">Proto-Finnic</option>
-  <option value="gem-pro">Proto-Germanic</option>
-  <option value="sla-pro">Proto-Slavic</option>
-  <option value="gmw-pro">Proto-West Germanic</option>
-  <option value="pa">Punjabi</option>
-  <option value="ro">Romanian</option>
-  <option value="ru">Russian</option>
-  <option value="sa">Sanskrit</option>
-  <option value="sco">Scots</option>
-  <option value="gd">Scottish Gaelic</option>
-  <option value="sh">Serbo-Croatian</option>
-  <option value="scn">Sicilian</option>
-  <option value="sk">Slovak</option>
-  <option value="sl">Slovene</option>
-  <option value="dsb">Sorbian, Lower</option>
-  <option value="es">Spanish</option>
-  <option value="su">Sundanese</option>
-  <option value="sw">Swahili</option>
-  <option value="sv">Swedish</option>
-  <option value="syc">Syriac, Classical</option>
-  <option value="tl">Tagalog</option>
-  <option value="tg">Tajik</option>
-  <option value="ta">Tamil</option>
-  <option value="te">Telugu</option>
-  <option value="th">Thai</option>
-  <option value="bo">Tibetan</option>
-  <option value="tok">Toki Pona</option>
-  <option value="tr">Turkish</option>
-  <option value="ota">Turkish, Ottoman</option>
-  <option value="uk">Ukrainian</option>
-  <option value="ur">Urdu</option>
-  <option value="ug">Uyghur</option>
-  <option value="uz">Uzbek</option>
-  <option value="vec">Venetan</option>
-  <option value="vi">Vietnamese</option>
-  <option value="vo">Volapük</option>
-  <option value="vot">Votic</option>
-  <option value="cy">Welsh</option>
-  <option value="ady">West Circassian</option>
-  <option value="fy">West Frisian</option>
-  <option value="sah">Yakut</option>
-  <option value="yi">Yiddish</option>
-  <option value="yo">Yoruba</option>
-  <option value="zu">Zulu</option>
-  </div>
-  <input type="hidden" class="dl-source">
-</div></td>
-  <td><div class="dl-target-combobox">
-  <input class="dl-target-search" placeholder="Search target..." autocomplete="off">
-  <div class="dl-target-dropdown">
-    <option value="zh">Chinese</option>
-  <option value="cs">Czech</option>
-  <option value="nl">Dutch</option>
-  <option value="en">English</option>
-  <option value="fr">French</option>
-  <option value="de">German</option>
-  <option value="el">Greek</option>
-  <option value="id">Indonesian</option>
-  <option value="it">Italian</option>
-  <option value="ja">Japanese</option>
-  <option value="ko">Korean</option>
-  <option value="ku">Kurdish</option>
-  <option value="ms">Malay</option>
-  <option value="pl">Polish</option>
-  <option value="pt">Portuguese</option>
-  <option value="ru">Russian</option>
-  <option value="es">Spanish</option>
-  <option value="th">Thai</option>
-  <option value="tr">Turkish</option>
-  <option value="vi">Vietnamese</option>
-  </div>
-  <input type="hidden" class="dl-target">
-</div></td>
-  <td><button class="dl-btn">📥</button></td>
-  <td class="dl-info"></td>
-</tr>
-<tr data-type="ipa-merged" class="download-line no source">
-  <th>🧬 IPA merged</th>
-  <td></td>
-  <td><div class="dl-target-combobox">
-  <input class="dl-target-search" placeholder="Search target..." autocomplete="off">
-  <div class="dl-target-dropdown">
-    <option value="af">Afrikaans</option>
-  <option value="sq">Albanian</option>
-  <option value="arz">Arabic, Egyptian</option>
-  <option value="afb">Arabic, Gulf</option>
-  <option value="ar">Arabic, MSA</option>
-  <option value="apc">Arabic, North Levantine</option>
-  <option value="ajp">Arabic, South Levantine</option>
-  <option value="hy">Armenian</option>
-  <option value="xcl">Armenian, Old</option>
-  <option value="rup">Aromanian</option>
-  <option value="as">Assamese</option>
-  <option value="aii">Assyrian Neo-Aramaic</option>
-  <option value="ast">Asturian</option>
-  <option value="az">Azerbaijani</option>
-  <option value="ba">Bashkir</option>
-  <option value="eu">Basque</option>
-  <option value="be">Belarusian</option>
-  <option value="bn">Bengali</option>
-  <option value="bcl">Bikol, Central</option>
-  <option value="bg">Bulgarian</option>
-  <option value="my">Burmese</option>
-  <option value="ca">Catalan</option>
-  <option value="ceb">Cebuano</option>
-  <option value="zh">Chinese</option>
-  <option value="yue">Chinese, Cantonese</option>
-  <option value="cmn">Chinese, Mandarin</option>
-  <option value="cim">Cimbrian</option>
-  <option value="cop">Coptic</option>
-  <option value="kw">Cornish</option>
-  <option value="crh">Crimean Tatar</option>
-  <option value="cs">Czech</option>
-  <option value="zlw-ocs">Czech, Old</option>
-  <option value="da">Danish</option>
-  <option value="nl">Dutch</option>
-  <option value="dum">Dutch, Middle</option>
-  <option value="egy">Egyptian</option>
-  <option value="en">English</option>
-  <option value="enm">English, Middle</option>
-  <option value="ang">English, Old</option>
   <option value="eo">Esperanto</option>
   <option value="et">Estonian</option>
   <option value="fo">Faroese</option>
@@ -555,204 +329,11 @@
   </div>
   <input type="hidden" class="dl-target">
 </div></td>
-  <td><button class="dl-btn">📥</button></td>
-  <td class="dl-info"></td>
-</tr>
-<tr data-type="glossary" class="download-line">
-  <th>🌍 Glossary</th>
-  <td><div class="dl-source-combobox">
-  <input class="dl-source-search" placeholder="Search source..." autocomplete="off">
-  <div class="dl-source-dropdown">
-    <option value="zh">Chinese</option>
-  <option value="cs">Czech</option>
-  <option value="nl">Dutch</option>
-  <option value="en">English</option>
-  <option value="fr">French</option>
-  <option value="de">German</option>
-  <option value="el">Greek</option>
-  <option value="id">Indonesian</option>
-  <option value="it">Italian</option>
-  <option value="ja">Japanese</option>
-  <option value="ko">Korean</option>
-  <option value="ku">Kurdish</option>
-  <option value="ms">Malay</option>
-  <option value="pl">Polish</option>
-  <option value="pt">Portuguese</option>
-  <option value="ru">Russian</option>
-  <option value="es">Spanish</option>
-  <option value="th">Thai</option>
-  <option value="tr">Turkish</option>
-  <option value="vi">Vietnamese</option>
-  </div>
-  <input type="hidden" class="dl-source">
-</div></td>
-  <td><div class="dl-target-combobox">
-  <input class="dl-target-search" placeholder="Search target..." autocomplete="off">
-  <div class="dl-target-dropdown">
-    <option value="af">Afrikaans</option>
-  <option value="sq">Albanian</option>
-  <option value="arz">Arabic, Egyptian</option>
-  <option value="afb">Arabic, Gulf</option>
-  <option value="ar">Arabic, MSA</option>
-  <option value="apc">Arabic, North Levantine</option>
-  <option value="ajp">Arabic, South Levantine</option>
-  <option value="hy">Armenian</option>
-  <option value="xcl">Armenian, Old</option>
-  <option value="rup">Aromanian</option>
-  <option value="as">Assamese</option>
-  <option value="aii">Assyrian Neo-Aramaic</option>
-  <option value="ast">Asturian</option>
-  <option value="az">Azerbaijani</option>
-  <option value="ba">Bashkir</option>
-  <option value="eu">Basque</option>
-  <option value="be">Belarusian</option>
-  <option value="bn">Bengali</option>
-  <option value="bcl">Bikol, Central</option>
-  <option value="bg">Bulgarian</option>
-  <option value="my">Burmese</option>
-  <option value="ca">Catalan</option>
-  <option value="ceb">Cebuano</option>
-  <option value="zh">Chinese</option>
-  <option value="yue">Chinese, Cantonese</option>
-  <option value="cmn">Chinese, Mandarin</option>
-  <option value="cim">Cimbrian</option>
-  <option value="cop">Coptic</option>
-  <option value="kw">Cornish</option>
-  <option value="crh">Crimean Tatar</option>
-  <option value="cs">Czech</option>
-  <option value="zlw-ocs">Czech, Old</option>
-  <option value="da">Danish</option>
-  <option value="nl">Dutch</option>
-  <option value="dum">Dutch, Middle</option>
-  <option value="egy">Egyptian</option>
-  <option value="en">English</option>
-  <option value="enm">English, Middle</option>
-  <option value="ang">English, Old</option>
-  <option value="eo">Esperanto</option>
-  <option value="et">Estonian</option>
-  <option value="fo">Faroese</option>
-  <option value="fi">Finnish</option>
-  <option value="fr">French</option>
-  <option value="frm">French, Middle</option>
-  <option value="fro">French, Old</option>
-  <option value="gl">Galician</option>
-  <option value="ka">Georgian</option>
-  <option value="de">German</option>
-  <option value="goh">German, Old High</option>
-  <option value="got">Gothic</option>
-  <option value="el">Greek</option>
-  <option value="grc">Greek, Ancient</option>
-  <option value="gu">Gujarati</option>
-  <option value="haw">Hawaiian</option>
-  <option value="he">Hebrew</option>
-  <option value="hi">Hindi</option>
-  <option value="hu">Hungarian</option>
-  <option value="is">Icelandic</option>
-  <option value="io">Ido</option>
-  <option value="id">Indonesian</option>
-  <option value="izh">Ingrian</option>
-  <option value="ia">Interlingua</option>
-  <option value="ga">Irish</option>
-  <option value="sga">Irish, Old</option>
-  <option value="it">Italian</option>
-  <option value="ja">Japanese</option>
-  <option value="jv">Javanese</option>
-  <option value="kn">Kannada</option>
-  <option value="csb">Kashubian</option>
-  <option value="kk">Kazakh</option>
-  <option value="kix">Khiamniungan Naga</option>
-  <option value="km">Khmer</option>
-  <option value="ko">Korean</option>
-  <option value="ku">Kurdish</option>
-  <option value="kmr">Kurdish, Northern</option>
-  <option value="ky">Kyrgyz</option>
-  <option value="lld">Ladin</option>
-  <option value="lo">Lao</option>
-  <option value="la">Latin</option>
-  <option value="lv">Latvian</option>
-  <option value="lzz">Laz</option>
-  <option value="lt">Lithuanian</option>
-  <option value="liv">Livonian</option>
-  <option value="lb">Luxembourgish</option>
-  <option value="mk">Macedonian</option>
-  <option value="mg">Malagasy</option>
-  <option value="ms">Malay</option>
-  <option value="ml">Malayalam</option>
-  <option value="mt">Maltese</option>
-  <option value="gv">Manx</option>
-  <option value="mr">Marathi</option>
-  <option value="mn">Mongolian</option>
-  <option value="mi">Māori</option>
-  <option value="nah">Nahuatl, Classical</option>
-  <option value="nv">Navajo</option>
-  <option value="nrf">Norman</option>
-  <option value="se">Northern Sami</option>
-  <option value="no">Norwegian</option>
-  <option value="nb">Norwegian, Bokmål</option>
-  <option value="nn">Norwegian, Nynorsk</option>
-  <option value="oc">Occitan</option>
-  <option value="or">Odia</option>
-  <option value="cu">Old Church Slavonic</option>
-  <option value="non">Old Norse</option>
-  <option value="pi">Pali</option>
-  <option value="rsk">Pannonian Rusyn</option>
-  <option value="fa">Persian</option>
-  <option value="pdt">Plautdietsch</option>
-  <option value="pl">Polish</option>
-  <option value="zlw-opl">Polish, Old</option>
-  <option value="pt">Portuguese</option>
-  <option value="urj-fin-pro">Proto-Finnic</option>
-  <option value="gem-pro">Proto-Germanic</option>
-  <option value="sla-pro">Proto-Slavic</option>
-  <option value="gmw-pro">Proto-West Germanic</option>
-  <option value="pa">Punjabi</option>
-  <option value="ro">Romanian</option>
-  <option value="ru">Russian</option>
-  <option value="sa">Sanskrit</option>
-  <option value="sco">Scots</option>
-  <option value="gd">Scottish Gaelic</option>
-  <option value="sh">Serbo-Croatian</option>
-  <option value="scn">Sicilian</option>
-  <option value="sk">Slovak</option>
-  <option value="sl">Slovene</option>
-  <option value="dsb">Sorbian, Lower</option>
-  <option value="es">Spanish</option>
-  <option value="su">Sundanese</option>
-  <option value="sw">Swahili</option>
-  <option value="sv">Swedish</option>
-  <option value="syc">Syriac, Classical</option>
-  <option value="tl">Tagalog</option>
-  <option value="tg">Tajik</option>
-  <option value="ta">Tamil</option>
-  <option value="te">Telugu</option>
-  <option value="th">Thai</option>
-  <option value="bo">Tibetan</option>
-  <option value="tok">Toki Pona</option>
-  <option value="tr">Turkish</option>
-  <option value="ota">Turkish, Ottoman</option>
-  <option value="uk">Ukrainian</option>
-  <option value="ur">Urdu</option>
-  <option value="ug">Uyghur</option>
-  <option value="uz">Uzbek</option>
-  <option value="vec">Venetan</option>
-  <option value="vi">Vietnamese</option>
-  <option value="vo">Volapük</option>
-  <option value="vot">Votic</option>
-  <option value="cy">Welsh</option>
-  <option value="ady">West Circassian</option>
-  <option value="fy">West Frisian</option>
-  <option value="sah">Yakut</option>
-  <option value="yi">Yiddish</option>
-  <option value="yo">Yoruba</option>
-  <option value="zu">Zulu</option>
-  </div>
-  <input type="hidden" class="dl-target">
-</div></td>
-  <td><button class="dl-btn">📥</button></td>
-  <td class="dl-info"></td>
 </tr>
   </tbody>
 </table>
+
+<div class="dl-results"></div>
 
 !!! warning "If you get an "Entry not found" error, please **open an [issue](https://github.com/yomidevs/wiktionary-to-yomitan/issues/new)**."
 

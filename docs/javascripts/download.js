@@ -1,49 +1,38 @@
 // Simple javascript script to generate the download urls from the language selection.
 
-function _availableTargets(metadata, type, source) {
-    return Object.keys(metadata[type]?.sources?.[source]?.targets ?? {});
-}
+const TYPES = [
+    ["main", "Main"],
+    ["glossary", "Glossary"],
+    ["ipa", "IPA"],
+    ["ipa-merged", "IPA merged"],
+];
 
-// group by sources containing this target
-function _availableSources(metadata, type, target) {
-    const sources = metadata[type]?.sources ?? {};
+const PAIR_TYPES = ["main", "glossary", "ipa"];
 
-    return Object.keys(sources).filter(source =>
-        Object.keys(sources[source]?.targets ?? {}).includes(target)
-    );
-}
-
-function availableTargets(metadata, type, source) {
-    switch (type) {
-        case "main":
-        case "ipa":
-        case "glossary":
-            return _availableTargets(metadata, type, source);
-        case "ipa-merged":
-            console.warn(`availableTargets called for ipa-merged with source=${source}`);
-        default:
-            return null;
+function availableTargets(metadata, source) {
+    const targets = new Set();
+    for (const type of PAIR_TYPES) {
+        for (const target of Object.keys(metadata[type]?.sources?.[source]?.targets ?? {})) {
+            targets.add(target);
+        }
     }
+    return targets;
 }
 
-function availableSources(metadata, type, target) {
-    switch (type) {
-        case "main":
-        case "ipa":
-        case "glossary":
-            return _availableSources(metadata, type, target);
-        case "ipa-merged":
-            console.warn(`availableSources called for ipa-merged with target=${target}`);
-        default:
-            return null;
+function availableSources(metadata, target) {
+    const sources = new Set();
+    for (const type of PAIR_TYPES) {
+        const bySource = metadata[type]?.sources ?? {};
+        for (const source of Object.keys(bySource)) {
+            if (target in (bySource[source].targets ?? {})) sources.add(source);
+        }
     }
+    return sources;
 }
 
 function filterDropdown(box, allowed) {
-    const set = new Set(allowed);
-    // We set matchesFilter and read matchesSearch from setupCombobox
     box.querySelectorAll("div[data-value]").forEach(div => {
-        div.dataset.matchesFilter = set.has(div.dataset.value) ? "1" : "0";
+        div.dataset.matchesFilter = (!allowed || allowed.has(div.dataset.value)) ? "1" : "0";
         div.style.display = (div.dataset.matchesFilter === "1" && div.dataset.matchesSearch !== "0") ? "" : "none";
     });
 }
@@ -64,10 +53,21 @@ function buildUrl(type, source, target) {
 
         case "glossary":
             return `${BASE_URL}/${source}/${target}/wty-${source}-${target}-gloss.zip`;
-
-        default:
-            return null;
     }
+}
+
+// Every dictionary that exists for the pair, in display order.
+function dictsForPair(metadata, source, target) {
+    const found = [];
+    for (const [type, label] of TYPES) {
+        const merged = type === "ipa-merged";
+        const size = merged
+            ? metadata[type]?.sources?.all?.targets?.[source]
+            : metadata[type]?.sources?.[source]?.targets?.[target];
+        if (!size) continue;
+        found.push({ label, size, url: buildUrl(type, source, merged ? source : target) });
+    }
+    return found;
 }
 
 // Converts a combobox wrapper into an interactive searchable dropdown.
@@ -139,76 +139,99 @@ function setupCombobox(box) {
     });
 }
 
-// Wires up a table row: initialises its comboboxes, listens for selections,
-// and enables the download / copy-URL buttons when both languages are chosen.
-function setupRow(row, metadata) {
-    const type = row.dataset.type;
-    const sourceHidden = row.querySelector(".dl-source");
-    const targetHidden = row.querySelector(".dl-target");
-    const btn = row.querySelector(".dl-btn");
-    const info = row.querySelector(".dl-info");
+function renderResult({ label, size, url }) {
+    const name = document.createElement("span");
+    name.className = "dl-name";
+    name.textContent = label;
 
-    row.querySelectorAll(".dl-source-combobox, .dl-target-combobox").forEach(
+    const sizeEl = document.createElement("span");
+    sizeEl.className = "dl-size";
+    sizeEl.textContent = size;
+
+    const labelEl = document.createElement("div");
+    labelEl.className = "dl-label";
+    labelEl.append(name, sizeEl);
+
+    const link = document.createElement("a");
+    link.className = "dl-btn";
+    link.href = `${url}?download=true`;
+    link.textContent = "↓";
+    link.title = "Download";
+
+    const code = document.createElement("code");
+    code.textContent = url;
+
+    const copyBtn = document.createElement("button");
+    copyBtn.textContent = "Copy";
+    copyBtn.title = "Copy URL";
+    copyBtn.className = "copy-url-btn";
+    copyBtn.onclick = async () => {
+        try {
+            await navigator.clipboard.writeText(url);
+            copyBtn.textContent = "Copied";
+            setTimeout(() => (copyBtn.textContent = "Copy"), 1500);
+        } catch {
+            copyBtn.textContent = "Failed";
+        }
+    };
+
+    const block = document.createElement("div");
+    block.className = "dl-url";
+    block.append(copyBtn, code);
+
+    const li = document.createElement("li");
+    li.append(labelEl, link, block);
+    return li;
+}
+
+// Wires up the page: initialises both comboboxes and lists the dictionaries of the chosen pair.
+function setupPage(table, metadata) {
+    const sourceHidden = table.querySelector(".dl-source");
+    const targetHidden = table.querySelector(".dl-target");
+    const results = document.querySelector(".dl-results");
+
+    table.querySelectorAll(".dl-source-combobox, .dl-target-combobox").forEach(
         setupCombobox,
     );
 
+    function showMessage(text) {
+        const message = document.createElement("div");
+        message.className = "dl-empty";
+        message.textContent = text;
+        results.replaceChildren(message);
+    }
+
     function update() {
-        const source = sourceHidden?.value;
-        const target = targetHidden?.value;
+        const source = sourceHidden.value;
+        const target = targetHidden.value;
 
-        // console.log(`[download-${type}] source=${source} target=${target}`);
+        filterDropdown(
+            table.querySelector(".dl-target-combobox"),
+            source ? availableTargets(metadata, source) : null,
+        );
+        filterDropdown(
+            table.querySelector(".dl-source-combobox"),
+            target ? availableSources(metadata, target) : null,
+        );
 
-        // Filter targets based on selected source
-        if (source) {
-            const allowedTargets = availableTargets(metadata, type, source);
-            filterDropdown(row.querySelector(".dl-target-combobox"), allowedTargets);
-        }
-
-        // Filter sources based on selected target
-        if (target && type !== "ipa-merged") {
-            const allowedSources = availableSources(metadata, type, target);
-            filterDropdown(row.querySelector(".dl-source-combobox"), allowedSources);
-        }
-
-        // Can't do (!target || !source) because of ipa-merged
-        if (!target || (sourceHidden && !source)) {
-            btn.disabled = true;
-            info.textContent = "Select the language(s)";
+        if (!source || !target) {
+            showMessage("Select the languages");
             return;
         }
 
-        const url = buildUrl(type, source, target);
-        if (!url) return;
+        const found = dictsForPair(metadata, source, target);
+        if (found.length === 0) {
+            showMessage("No dictionary for this pair");
+            return;
+        }
 
-        const downloadUrl = `${url}?download=true`;
-
-        btn.disabled = false;
-
-        // Copy URL button logic
-        info.innerHTML = "";
-        const copyBtn = document.createElement("button");
-        copyBtn.type = "button";
-        copyBtn.textContent = "📋 Copy URL";
-        copyBtn.className = "copy-url-btn";
-
-        copyBtn.onclick = async () => {
-            try {
-                await navigator.clipboard.writeText(downloadUrl);
-                copyBtn.textContent = "✅ Copied!";
-                setTimeout(() => (copyBtn.textContent = "📋 Copy URL"), 1500);
-            } catch {
-                copyBtn.textContent = "❌ Failed";
-            }
-        };
-        info.appendChild(copyBtn);
-
-        btn.onclick = () => {
-            window.location.href = downloadUrl;
-        };
+        const list = document.createElement("ul");
+        list.append(...found.map(renderResult));
+        results.replaceChildren(list);
     }
 
-    sourceHidden?.addEventListener("change", update);
-    targetHidden?.addEventListener("change", update);
+    sourceHidden.addEventListener("change", update);
+    targetHidden.addEventListener("change", update);
 
     update();
 }
@@ -233,8 +256,6 @@ document$.subscribe(function () {
         // Mark table as loaded to fade it in
         table.classList.add("loaded");
 
-        table.querySelectorAll("tr[data-type]").forEach(row => {
-            setupRow(row, metadata);
-        });
+        setupPage(table, metadata);
     });
 });
