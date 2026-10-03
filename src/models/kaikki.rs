@@ -46,6 +46,7 @@ pub struct WordEntry {
 
     pub synonyms: Vec<Linkage>,
     pub antonyms: Vec<Linkage>,
+    pub coordinate_terms: Vec<Linkage>, // [zh]
 
     pub translations: Vec<Translation>, // used in glossary
 }

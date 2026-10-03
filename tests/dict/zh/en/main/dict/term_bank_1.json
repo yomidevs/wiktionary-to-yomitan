@@ -638,6 +638,49 @@
           {
             "tag": "div",
             "data": {
+              "content": "related-words"
+            },
+            "content": [
+              {
+                "tag": "div",
+                "data": {
+                  "content": "coordinate-terms"
+                },
+                "content": {
+                  "tag": "ul",
+                  "data": {
+                    "content": "coordinate-terms-list"
+                  },
+                  "content": [
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "coordinate-term-item"
+                      },
+                      "content": "桑"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "coordinate-term-item"
+                      },
+                      "content": "炭"
+                    },
+                    {
+                      "tag": "li",
+                      "data": {
+                        "content": "coordinate-term-item"
+                      },
+                      "content": "君"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "data": {
               "content": "backlink"
             },
             "content": [

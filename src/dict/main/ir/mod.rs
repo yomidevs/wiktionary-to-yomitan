@@ -388,6 +388,9 @@ pub struct LemmaInfo {
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub antonyms: Vec<Linkage>,
 
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub coordinate_terms: Vec<Linkage>,
+
     #[serde(skip_serializing_if = "Option::is_none")]
     pub etymology_text: Option<String>,
 
@@ -872,6 +875,10 @@ fn process_entry(edition: Edition, source: Lang, entry: &WordEntry) -> LemmaInfo
         tags: entry.tags.clone(),
         synonyms: related_words(&entry.synonyms, &entry.word),
         antonyms: related_words(&entry.antonyms, &entry.word),
+        coordinate_terms: match source {
+            Lang::Zh => related_words(&entry.coordinate_terms, &entry.word),
+            _ => Vec::new(),
+        },
         etymology_text: entry
             .etymology_texts()
             // TODO: patch this in wiktextract

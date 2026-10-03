@@ -433,6 +433,10 @@ fn structured_related_words(info: &LemmaInfo) -> Option<Node> {
         &info.antonyms,
         ["antonyms", "antonyms-list", "antonym-item"],
     ))
+    .chain(structured_linkages(
+        &info.coordinate_terms,
+        ["coordinate-terms", "coordinate-terms-list", "coordinate-term-item"],
+    ))
     .collect();
     if nodes.is_empty() {
         return None;
