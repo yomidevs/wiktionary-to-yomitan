@@ -16,5 +16,55 @@
         ]
       ]
     }
+  },
+  "醬": {
+    "𪧷": {
+      "character": [
+        "extracted",
+        [
+          "Second-Round-Simplified-Chinese"
+        ]
+      ]
+    },
+    "𨟻": {
+      "character": [
+        "extracted",
+        [
+          "alternative"
+        ]
+      ]
+    },
+    "𤖙": {
+      "character": [
+        "extracted",
+        [
+          "alternative"
+        ]
+      ]
+    },
+    "𨡰": {
+      "character": [
+        "extracted",
+        [
+          "alternative"
+        ]
+      ]
+    },
+    "𤖕": {
+      "character": [
+        "extracted",
+        [
+          "alternative"
+        ]
+      ]
+    },
+    "𨡓": {
+      "character": [
+        "extracted",
+        [
+          "alternative"
+        ]
+      ]
+    }
   }
 }

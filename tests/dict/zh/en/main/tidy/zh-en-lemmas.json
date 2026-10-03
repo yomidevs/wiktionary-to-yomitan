@@ -128,5 +128,63 @@
         }
       ]
     }
+  },
+  "醬": {
+    "jiàng (jiang⁴)": {
+      "character": [
+        {
+          "gloss_tree": {
+            "-chan": {
+              "tags": [
+                "Internet"
+              ],
+              "topics": [
+                "ACG",
+                "video-games"
+              ],
+              "examples": [
+                {
+                  "text": "初音醬",
+                  "translation": "Hatsune Miku-chan",
+                  "bold_text_offsets": [
+                    [
+                      2,
+                      3
+                    ]
+                  ],
+                  "bold_translation_offsets": [
+                    [
+                      12,
+                      17
+                    ]
+                  ],
+                  "lang": "zh-Hant"
+                },
+                {
+                  "text": "初音酱",
+                  "translation": "Hatsune Miku-chan",
+                  "bold_text_offsets": [
+                    [
+                      2,
+                      3
+                    ]
+                  ],
+                  "bold_translation_offsets": [
+                    [
+                      12,
+                      17
+                    ]
+                  ],
+                  "lang": "zh-Hans"
+                }
+              ]
+            }
+          },
+          "etymology_text": "Borrowed from Japanese ちゃん (-chan).",
+          "wlink": "https://en.wiktionary.org/wiki/醬#Chinese",
+          "klink": "https://kaikki.org/dictionary/Chinese/meaning/醬/醬/醬.html"
+        }
+      ]
+    }
   }
 }
