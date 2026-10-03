@@ -4,7 +4,9 @@ use std::{
 };
 
 use anyhow::Result;
-use pangloss::{DataEntry, Glossary, GlossaryInfo, Writer, formats::mdict::MdictFormat};
+use pangloss::{
+    DataEntry, Glossary, GlossaryInfo, Writer, css::merge_css_files, formats::mdict::MdictFormat,
+};
 
 use crate::{
     cli::Options,
@@ -29,7 +31,8 @@ pub fn write_mdict(
 
     let dict_name = format!("wty-{source}-{target}");
     let mdx_path = dir_in_stage.join(format!("{dict_name}.mdx"));
-    let glossary = build_glossary(&dict_name, ydict);
+    let mut glossary = build_glossary(&dict_name, ydict);
+    merge_css_files(&mut glossary);
 
     MdictFormat::default().write(&mdx_path, &glossary)?;
 
