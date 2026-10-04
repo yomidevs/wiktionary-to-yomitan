@@ -681,7 +681,7 @@
 <tr>
 <td><code>mdict</code></td>
 <td>❌</td>
-<td>❌</td>
+<td>✅</td>
 <td>GoldenDict-ng</td>
 </tr>
 <tr>
@@ -702,12 +702,15 @@
 
 <span class="gp"># </span>Ipa<span class="w"> </span>dictionary<span class="w"> </span><span class="k">in</span><span class="w"> </span>stardict
 <span class="gp">$ </span>wty<span class="w"> </span>ipa<span class="w"> </span>el<span class="w"> </span>el<span class="w"> </span>--format<span class="o">=</span>stardict
+
+<span class="gp"># </span>Several<span class="w"> </span>formats<span class="w"> </span>at<span class="w"> </span>once<span class="w"> </span><span class="o">(</span>the<span class="w"> </span>dump<span class="w"> </span>is<span class="w"> </span><span class="nb">read</span><span class="w"> </span>once<span class="o">)</span>
+<span class="gp">$ </span>wty<span class="w"> </span>main<span class="w"> </span>ja<span class="w"> </span>en<span class="w"> </span>--format<span class="o">=</span>yomitan,mdict
 </code></pre></div>
 <hr />
 <h2 id="yomitan-default"><code>yomitan</code> <em>(default)</em><a class="headerlink" href="#yomitan-default" title="Permanent link">&para;</a></h2>
 <p>Produces a zip archive importable into yomitan. Downloads are available <a href="../download/">here</a>.</p>
 <h2 id="mdict"><code>mdict</code><a class="headerlink" href="#mdict" title="Permanent link">&para;</a></h2>
-<p>Produces a <code>*.mdx</code> file, with the css bundled in, that can be imported as is. It is written with <a href="https://github.com/daxida/pangloss">pangloss</a>, so no external MDict conversion tool is needed.</p>
+<p>Produces a <code>*.mdx</code> file and a <code>*.mdd</code> file holding the css, that can be imported as is. It is written with <a href="https://github.com/daxida/pangloss">pangloss</a>, so no external MDict conversion tool is needed. Downloads are available <a href="../download/">here</a> as a zip with both files: unzip it and import the folder.</p>
 <h2 id="stardict"><code>stardict</code><a class="headerlink" href="#stardict" title="Permanent link">&para;</a></h2>
 <p>Produces a folder with <code>*.ifo</code>, <code>*.dict</code> etc. files that can be directly imported.</p>
 <p>KOReader dictionary install <a href="https://github.com/koreader/koreader/wiki/Dictionary-support">guide</a>.</p>
