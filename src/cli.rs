@@ -139,9 +139,9 @@ pub struct ReleaseArgs {
     #[arg(long, default_value = "data")]
     pub root_dir: PathBuf,
 
-    /// Writer format for all dictionaries
-    #[arg(long, default_value_t = WriterFormat::Yomitan)]
-    pub format: WriterFormat,
+    /// Writer formats for all dictionaries (comma separated)
+    #[arg(long = "format", value_delimiter = ',', default_values_t = [WriterFormat::Yomitan])]
+    pub formats: Vec<WriterFormat>,
 
     /// Only release these editions (defaults to all)
     #[arg(value_delimiter = ',')]
@@ -154,7 +154,7 @@ impl ReleaseArgs {
         Options {
             quiet: true,
             root_dir: self.root_dir.clone(),
-            format: self.format,
+            formats: self.formats.clone(),
             min_entries: DEFAULT_MIN_ENTRIES,
             ..Default::default()
         }
@@ -313,9 +313,9 @@ pub struct Options {
     #[arg(long, default_value = "data")]
     pub root_dir: PathBuf,
 
-    /// Writer format
-    #[arg(long, default_value_t = WriterFormat::Yomitan)]
-    pub format: WriterFormat,
+    /// Writer formats (comma separated)
+    #[arg(long = "format", value_delimiter = ',', default_values_t = [WriterFormat::Yomitan])]
+    pub formats: Vec<WriterFormat>,
 
     /// Do not write dictionaries with fewer than this many entries
     #[arg(long, default_value_t = DEFAULT_MIN_ENTRIES)]
@@ -613,6 +613,24 @@ mod tests {
         assert!(MainArgs::try_parse_from(["_pname", "el", "el", "--filter", "foo,bar"]).is_err());
         assert!(MainArgs::try_parse_from(["_pname", "el", "el", "--filter", "word,hello"]).is_ok());
         assert!(MainArgs::try_parse_from(["_pname", "el", "el", "--reject", "pos,name"]).is_ok());
+    }
+
+    #[test]
+    fn format_flag_takes_several_formats() {
+        let args = MainArgs::try_parse_from(["_pname", "el", "el"]).unwrap();
+        assert_eq!(args.options.formats, [WriterFormat::Yomitan]);
+
+        let args =
+            MainArgs::try_parse_from(["_pname", "el", "el", "--format", "yomitan,mdict"]).unwrap();
+        assert_eq!(
+            args.options.formats,
+            [WriterFormat::Yomitan, WriterFormat::Mdict]
+        );
+
+        let args =
+            ReleaseArgs::try_parse_from(["_pname", "--format=yomitan,mdict", "de,en"]).unwrap();
+        assert_eq!(args.formats, [WriterFormat::Yomitan, WriterFormat::Mdict]);
+        assert_eq!(args.editions.len(), 2);
     }
 
     #[test]

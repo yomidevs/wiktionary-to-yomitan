@@ -29,7 +29,7 @@ use yomitan::{write_test_yomitan, write_yomitan};
 pub const STYLES_CSS: &[u8] = include_bytes!("../../../assets/styles/styles.css");
 pub const YOMITAN_CSS: &[u8] = include_bytes!("../../../assets/styles/styles_yomitan.css");
 
-#[derive(ValueEnum, Debug, Default, Clone, Copy)]
+#[derive(ValueEnum, Debug, Default, Clone, Copy, PartialEq, Eq)]
 pub enum WriterFormat {
     // Yomitan zipped
     #[default]

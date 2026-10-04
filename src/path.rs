@@ -188,7 +188,7 @@ impl PathManager {
         fs::create_dir_all(self.dir_dict())?;
 
         // TODO: test this
-        if matches!(self.opts.format, WriterFormat::Ir) {
+        if self.opts.formats.contains(&WriterFormat::Ir) {
             fs::create_dir_all(self.dir_tidy())?;
             fs::create_dir_all(self.dir_temp_dict())?;
         }

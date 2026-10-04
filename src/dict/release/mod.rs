@@ -303,7 +303,9 @@ pub fn make_dict_from_db<D: Dictionary + DQuery>(
         return Ok(());
     }
 
-    opts.format.write(&dict, pm.langs, opts, pm, &irs)?;
+    for format in &opts.formats {
+        format.write(&dict, pm.langs, opts, pm, &irs)?;
+    }
 
     Ok(())
 }

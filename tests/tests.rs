@@ -71,7 +71,7 @@ fn fixture_options(fixture_dir: &Path, format: WriterFormat) -> Options {
         pretty: true,
         experimental: false,
         root_dir: fixture_dir.to_path_buf(),
-        format,
+        formats: vec![format],
         ..Default::default()
     }
 }

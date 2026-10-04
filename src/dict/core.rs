@@ -270,7 +270,9 @@ pub fn make_dict_from_jsonl<D: Dictionary>(dict: D, raw_args: D::A) -> Result<()
         return Ok(());
     }
 
-    opts.format.write(&dict, pm.langs, opts, pm, &irs)?;
+    for format in &opts.formats {
+        format.write(&dict, pm.langs, opts, pm, &irs)?;
+    }
 
     Ok(())
 }

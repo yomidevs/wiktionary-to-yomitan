@@ -21,7 +21,7 @@ fn fixture_options(fixture_dir: &Path) -> Options {
         experimental: false,
         quiet: true,
         root_dir: fixture_dir.to_path_buf(),
-        format: WriterFormat::Ir,
+        formats: vec![WriterFormat::Ir],
         ..Default::default()
     }
 }
