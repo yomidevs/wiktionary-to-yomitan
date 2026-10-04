@@ -341,8 +341,6 @@
   </tbody>
 </table>
 
-<div class="dl-date"></div>
-
 <div class="dl-results"></div>
 
 !!! warning "If you get an "Entry not found" error, please **open an [issue](https://github.com/yomidevs/wiktionary-to-yomitan/issues/new)**."
