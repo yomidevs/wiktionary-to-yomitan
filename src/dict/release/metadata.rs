@@ -46,6 +46,7 @@ struct DbInfo {
 
 #[derive(Debug, Default)]
 struct Metadata {
+    date: String,
     time: Duration,
     size: u64,
     count: u64,
@@ -81,7 +82,8 @@ impl serde::Serialize for TypeInfo {
 
 impl serde::Serialize for Metadata {
     fn serialize<S: serde::Serializer>(&self, s: S) -> Result<S::Ok, S::Error> {
-        let mut state = s.serialize_struct("Metadata", 5)?;
+        let mut state = s.serialize_struct("Metadata", 6)?;
+        state.serialize_field("date", &self.date)?;
         state.serialize_field("time", &human_time(self.time))?;
         state.serialize_field("size", &human_size(self.size as f64))?;
         state.serialize_field("count", &self.count)?;
@@ -154,6 +156,7 @@ pub fn write_dict_metadata(
 
     for format in formats {
         let mut metadata = group(built, format);
+        metadata.date = chrono::Utc::now().format("%Y-%m-%d").to_string();
         metadata.time = time;
         add_db_metadata(root_dir, editions, &mut metadata)?;
 
