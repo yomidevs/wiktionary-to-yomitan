@@ -19,6 +19,11 @@ import datetime
 import subprocess
 import sys
 from dataclasses import dataclass
+
+# huggingface_hub applies `allow_patterns` and `delete_patterns` with `fnmatchcase` on the path
+# relative to the uploaded folder, and `*` matches across `/`. See `filter_repo_objects` in
+# huggingface_hub/utils/_paths.py, called from `upload_folder` in hf_api.py (checked at d711944).
+from fnmatch import fnmatchcase
 from pathlib import Path
 from typing import Literal
 
@@ -28,6 +33,9 @@ from huggingface_hub import HfApi, RepoFile, whoami
 REPO_ID_HF = "daxida/wty-release"
 REPO_HF = f"https://huggingface.co/datasets/{REPO_ID_HF}"
 REPO_ID_GH = "https://github.com/yomidevs/wiktionary-to-yomitan"
+
+# dict/ also holds the loose files of the formats that are zipped, only the zips are uploaded
+ALLOW_PATTERNS = {"dict": "*.zip"}
 
 type CmdTy = Literal["publish", "squash", "tag"]
 type TagCmdTy = Literal["list", "create", "delete"]
@@ -125,7 +133,7 @@ def print_deletions(api: HfApi, sample: int = 10) -> None:
         local = {
             f"{destination}/{path.relative_to(source).as_posix()}"
             for path in source.rglob("*")
-            if path.is_file()
+            if path.is_file() and fnmatchcase(path.name, ALLOW_PATTERNS.get(folder, "*"))
         }
         stale += sorted(remote - local)
 
@@ -174,6 +182,7 @@ def upload_release(api: HfApi, version: str) -> None:
             repo_id=REPO_ID_HF,
             repo_type="dataset",
             commit_message=f"[{version}] upload {destination}",
+            allow_patterns=ALLOW_PATTERNS.get(folder),
             delete_patterns="*",
         )
         print(f"[upload] complete @ {destination}")
