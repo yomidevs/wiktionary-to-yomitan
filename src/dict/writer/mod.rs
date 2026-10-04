@@ -1,4 +1,4 @@
-use std::fmt;
+use std::{fmt, path::PathBuf};
 
 use anyhow::Result;
 use clap::ValueEnum;
@@ -83,7 +83,7 @@ impl WriterFormat {
         opts: &Options,
         pm: &PathManager,
         irs: &D::I,
-    ) -> Result<()> {
+    ) -> Result<Option<PathBuf>> {
         let wrote_at_path = match self {
             Self::Yomitan => write_yomitan(
                 langs.source,
@@ -113,25 +113,25 @@ impl WriterFormat {
             // We don't need to pretty print a message for these.
             Self::TestHtml => {
                 write_test_html(opts, pm, dict.to_yomitan(langs, irs))?;
-                return Ok(());
+                return Ok(None);
             }
             Self::TestYomitan => {
                 write_test_yomitan(opts, pm, dict.to_yomitan(langs, irs))?;
-                return Ok(());
+                return Ok(None);
             }
             Self::TestYomitanMain => {
                 irs.write(pm)?;
                 write_test_yomitan(opts, pm, dict.to_yomitan(langs, irs))?;
-                return Ok(());
+                return Ok(None);
             }
-            Self::Skip => return Ok(()),
+            Self::Skip => return Ok(None),
         };
 
         if !opts.quiet {
-            pretty_println_at_path(&format!("{CHECK_C} Wrote dict"), wrote_at_path);
+            pretty_println_at_path(&format!("{CHECK_C} Wrote dict"), &wrote_at_path);
         }
 
-        Ok(())
+        Ok(Some(wrote_at_path))
     }
 }
 

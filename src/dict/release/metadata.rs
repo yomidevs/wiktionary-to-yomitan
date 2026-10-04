@@ -14,6 +14,7 @@ use anyhow::Result;
 use serde::ser::SerializeStruct;
 
 use super::Built;
+use crate::dict::WriterFormat;
 use crate::lang::Edition;
 use crate::utils::{human_size, human_time};
 
@@ -102,18 +103,25 @@ fn group(built: &[Built]) -> Metadata {
     let mut meta = Metadata::default();
 
     for dict in built {
+        let Some(&(_, size)) = dict
+            .sizes
+            .iter()
+            .find(|(format, _)| *format == WriterFormat::Yomitan)
+        else {
+            continue;
+        };
+
         let type_entry = meta.dicts.entry(dict.ty.to_string()).or_default();
         let src = type_entry.sources.entry(dict.source.clone()).or_default();
 
-        src.targets
-            .insert(dict.target.clone(), TargetInfo { size: dict.size });
-        src.size += dict.size;
+        src.targets.insert(dict.target.clone(), TargetInfo { size });
+        src.size += size;
         src.count += 1;
 
-        type_entry.size += dict.size;
+        type_entry.size += size;
         type_entry.count += 1;
 
-        meta.size += dict.size;
+        meta.size += size;
         meta.count += 1;
     }
 
@@ -143,20 +151,15 @@ pub fn write_dict_metadata(
     built: &[Built],
     time: Duration,
 ) -> Result<()> {
-    let json = dict_metadata_json(root_dir, editions, built, time)?;
-    std::fs::write(METADATA_PATH, &json)?;
-    println!("[meta] Dict metadata written to {METADATA_PATH}");
-    Ok(())
-}
-
-fn dict_metadata_json(
-    root_dir: &Path,
-    editions: &[Edition],
-    built: &[Built],
-    time: Duration,
-) -> Result<String> {
     let mut metadata = group(built);
+    if metadata.count == 0 {
+        println!("[meta] No yomitan dictionary was built, metadata not written");
+        return Ok(());
+    }
+
     metadata.time = time;
     add_db_metadata(root_dir, editions, &mut metadata)?;
-    Ok(serde_json::to_string_pretty(&metadata)?)
+    std::fs::write(METADATA_PATH, serde_json::to_string_pretty(&metadata)?)?;
+    println!("[meta] Dict metadata written to {METADATA_PATH}");
+    Ok(())
 }

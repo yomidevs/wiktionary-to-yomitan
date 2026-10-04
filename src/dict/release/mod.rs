@@ -5,7 +5,7 @@
 //! Command to limit memory usage (linux):
 //! systemd-run --user --scope -p MemoryMax=24G -p MemoryHigh=24G cargo run -r -- release -v
 
-use std::time::Instant;
+use std::{path::Path, time::Instant};
 
 use anyhow::Result;
 use rayon::ThreadPoolBuilder;
@@ -24,7 +24,7 @@ use crate::{
     },
     db::WiktextractDb,
     dict::{
-        DGlossary, DGlossaryExtended, DIpa, DIpaMerged, DMain, Dictionary, Langs,
+        DGlossary, DGlossaryExtended, DIpa, DIpaMerged, DMain, Dictionary, Langs, WriterFormat,
         core::skip_below_min_entries,
     },
     lang::{Edition, EditionSpec, Lang},
@@ -33,25 +33,22 @@ use crate::{
 
 const MAX_NUM_THREADS_MAIN: usize = 4;
 
-/// A dictionary the release wrote.
+/// A dictionary the release wrote, with the size of each format.
 pub struct Built {
     ty: DictionaryType,
     source: String,
     target: String,
-    size: u64,
+    sizes: Vec<(WriterFormat, u64)>,
 }
 
-impl Built {
-    fn of(pm: &PathManager) -> Option<Self> {
-        let size = pm.path_dict().metadata().ok()?.len();
-        let (source, target) = pm.dir_pair();
-        Some(Self {
-            ty: pm.dict_ty,
-            source,
-            target,
-            size,
-        })
-    }
+fn size_of(path: &Path) -> u64 {
+    walkdir::WalkDir::new(path)
+        .into_iter()
+        .filter_map(Result::ok)
+        .filter_map(|entry| entry.metadata().ok())
+        .filter(std::fs::Metadata::is_file)
+        .map(|metadata| metadata.len())
+        .sum()
 }
 
 /// Build a dictionary release.
@@ -340,9 +337,17 @@ pub fn make_dict_from_db<D: Dictionary + DQuery>(
         return Ok(None);
     }
 
+    let mut sizes = Vec::new();
     for format in &opts.formats {
-        format.write(&dict, pm.langs, opts, pm, &irs)?;
+        let path = format.write(&dict, pm.langs, opts, pm, &irs)?;
+        sizes.extend(path.map(|path| (*format, size_of(&path))));
     }
 
-    Ok(Built::of(pm))
+    let (source, target) = pm.dir_pair();
+    Ok((!sizes.is_empty()).then(|| Built {
+        ty: pm.dict_ty,
+        source,
+        target,
+        sizes,
+    }))
 }
