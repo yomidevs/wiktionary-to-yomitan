@@ -38,26 +38,27 @@ function filterDropdown(box, allowed) {
 }
 
 // Cf. src/path.rs::dict_name_expanded
-function buildUrl(type, source, target) {
+function buildUrl(format, type, source, target) {
     const BASE_URL =
         "https://huggingface.co/datasets/daxida/wty-release/resolve/main/latest/dict";
+    const folder = format === "yomitan" ? "" : `${format}/`;
     switch (type) {
         case "main":
-            return `${BASE_URL}/${source}/${target}/wty-${source}-${target}.zip`;
+            return `${BASE_URL}/${source}/${target}/${folder}wty-${source}-${target}.zip`;
 
         case "ipa":
-            return `${BASE_URL}/${source}/${target}/wty-${source}-${target}-ipa.zip`;
+            return `${BASE_URL}/${source}/${target}/${folder}wty-${source}-${target}-ipa.zip`;
 
         case "ipa-merged":
-            return `${BASE_URL}/all/${target}/wty-${target}-ipa.zip`;
+            return `${BASE_URL}/all/${target}/${folder}wty-${target}-ipa.zip`;
 
         case "glossary":
-            return `${BASE_URL}/${source}/${target}/wty-${source}-${target}-gloss.zip`;
+            return `${BASE_URL}/${source}/${target}/${folder}wty-${source}-${target}-gloss.zip`;
     }
 }
 
 // Every dictionary that exists for the pair, in display order.
-function dictsForPair(metadata, source, target) {
+function dictsForPair(metadata, source, target, format) {
     const found = [];
     for (const [type, label] of TYPES) {
         const merged = type === "ipa-merged";
@@ -65,7 +66,7 @@ function dictsForPair(metadata, source, target) {
             ? metadata[type]?.sources?.all?.targets?.[source]
             : metadata[type]?.sources?.[source]?.targets?.[target];
         if (!size) continue;
-        found.push({ label, size, url: buildUrl(type, source, merged ? source : target) });
+        found.push({ label, size, url: buildUrl(format, type, source, merged ? source : target) });
     }
     return found;
 }
@@ -235,7 +236,7 @@ function setupPage(table) {
             return;
         }
 
-        const found = dictsForPair(metadata, source, target);
+        const found = dictsForPair(metadata, source, target, format);
         if (found.length === 0) {
             showMessage("No dictionary for this pair");
             return;

@@ -333,6 +333,7 @@
   <input class="dl-format-search" placeholder="Format..." autocomplete="off">
   <div class="dl-format-dropdown">
     <option value="yomitan">Yomitan</option>
+  <option value="mdict">Mdict</option>
   </div>
   <input type="hidden" class="dl-format">
 </div></td>

@@ -38,7 +38,7 @@ def load_langs(path: Path) -> list[Lang]:
 
 
 # (value, label) of the formats with a release_metadata_<format>.json
-FORMATS = [("yomitan", "Yomitan")]
+FORMATS = [("yomitan", "Yomitan"), ("mdict", "Mdict")]
 
 
 def render_dropdown_options(options: list[tuple[str, str]]) -> str:

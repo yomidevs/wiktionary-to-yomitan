@@ -5,7 +5,7 @@ The full list of available formats can be seen in the CLI passing the `--help` f
 | Format | Requires extra tools | Downloads | Used in |
 |--------|----------------------|-----------|---------|
 | `yomitan` | ❌ | ✅ | Yomitan |
-| `mdict` | ❌ | ❌ | GoldenDict-ng |
+| `mdict` | ❌ | ✅ | GoldenDict-ng |
 | `stardict` | ❌ | ❌ | KOReader |
 
 The remaining values (`html`, `ir`, `debug-forms`, `skip`) are debugging aids.
@@ -21,6 +21,9 @@ $ wty glossary de en --format=mdict
 
 # Ipa dictionary in stardict
 $ wty ipa el el --format=stardict
+
+# Several formats at once (the dump is read once)
+$ wty main ja en --format=yomitan,mdict
 ```
 
 ---
@@ -31,7 +34,7 @@ Produces a zip archive importable into yomitan. Downloads are available [here](d
 
 ## `mdict`
 
-Produces a `*.mdx` file, with the css bundled in, that can be imported as is. It is written with [pangloss](https://github.com/daxida/pangloss), so no external MDict conversion tool is needed.
+Produces a `*.mdx` file and a `*.mdd` file holding the css, that can be imported as is. It is written with [pangloss](https://github.com/daxida/pangloss), so no external MDict conversion tool is needed. Downloads are available [here](download.md) as a zip with both files: unzip it and import the folder.
 
 ## `stardict`
 
