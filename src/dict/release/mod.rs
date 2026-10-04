@@ -5,11 +5,17 @@
 //! Command to limit memory usage (linux):
 //! systemd-run --user --scope -p MemoryMax=24G -p MemoryHigh=24G cargo run -r -- release -v
 
-use std::{path::Path, time::Instant};
+use std::{
+    fs::{self, File},
+    io,
+    path::{Path, PathBuf},
+    time::Instant,
+};
 
 use anyhow::Result;
 use rayon::ThreadPoolBuilder;
 use rayon::prelude::*;
+use zip::{CompressionMethod, ZipWriter, write::SimpleFileOptions};
 
 mod index;
 mod metadata;
@@ -39,6 +45,26 @@ pub struct Built {
     source: String,
     target: String,
     sizes: Vec<(WriterFormat, u64)>,
+}
+
+/// Packs the `.mdx` and `.mdd` into a single download: the `.mdx` is already compressed, so the
+/// files are stored in the zip, not deflated again. Done only for convenience.
+fn zip_mdict(pm: &PathManager, dir: &Path) -> Result<PathBuf> {
+    let yomitan = pm.path_dict();
+    let dir_zip = yomitan.with_file_name("mdict");
+    fs::create_dir_all(&dir_zip)?;
+    let path = dir_zip.join(yomitan.file_name().expect("the dictionary zip has a name"));
+
+    let mut zip = ZipWriter::new(File::create(&path)?);
+    let options = SimpleFileOptions::default().compression_method(CompressionMethod::Stored);
+    for entry in fs::read_dir(dir)? {
+        let entry = entry?;
+        zip.start_file(entry.file_name().to_string_lossy(), options)?;
+        io::copy(&mut File::open(entry.path())?, &mut zip)?;
+    }
+    zip.finish()?;
+
+    Ok(path)
 }
 
 fn size_of(path: &Path) -> u64 {
@@ -339,7 +365,10 @@ pub fn make_dict_from_db<D: Dictionary + DQuery>(
 
     let mut sizes = Vec::new();
     for format in &opts.formats {
-        let path = format.write(&dict, pm.langs, opts, pm, &irs)?;
+        let path = match format.write(&dict, pm.langs, opts, pm, &irs)? {
+            Some(dir) if *format == WriterFormat::Mdict => Some(zip_mdict(pm, &dir)?),
+            path => path,
+        };
         sizes.extend(path.map(|path| (*format, size_of(&path))));
     }
 

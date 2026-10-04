@@ -24,6 +24,7 @@ pub fn extract_indexes(rargs: &ReleaseArgs) -> Result<()> {
     let mut n_indexes = 0;
 
     for entry in walkdir::WalkDir::new(&dict_dir)
+        .max_depth(3)
         .into_iter()
         .filter_map(Result::ok)
         .filter(|e| e.path().extension().is_some_and(|x| x == "zip"))
