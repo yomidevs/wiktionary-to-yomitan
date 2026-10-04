@@ -96,6 +96,8 @@ pub fn release(rargs: ReleaseArgs) -> Result<()> {
     let elapsed = start.elapsed();
     println!("Finished dictionaries in {elapsed:.2?}");
 
+    anyhow::ensure!(!built.is_empty(), "the release built no dictionary");
+
     extract_indexes(&rargs)?;
 
     let elapsed = start_release.elapsed();
