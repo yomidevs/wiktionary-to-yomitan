@@ -78,9 +78,7 @@ def generate_downloads_page(all_langs: list[Lang]) -> str:
 
 <div class="dl-results"></div>
 
-!!! warning "If you get an "Entry not found" error, please **open an [issue](https://github.com/yomidevs/wiktionary-to-yomitan/issues/new)**."
-
-!!! tip "You can import a dictionary directly to Yomitan by pasting the URL into "Import from URLs""
+!!! tip "You can import a dictionary directly to Yomitan by pasting the URL into "Import from URLs" (requires **Advanced** settings)"
 
 Files are hosted [here]({
         REPO_URL
