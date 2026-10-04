@@ -329,9 +329,18 @@
   </div>
   <input type="hidden" class="dl-target">
 </div></td>
+  <td><div class="dl-format-combobox">
+  <input class="dl-format-search" placeholder="Format..." autocomplete="off">
+  <div class="dl-format-dropdown">
+    <option value="yomitan">Yomitan</option>
+  </div>
+  <input type="hidden" class="dl-format">
+</div></td>
 </tr>
   </tbody>
 </table>
+
+<div class="dl-date"></div>
 
 <div class="dl-results"></div>
 

@@ -22,12 +22,14 @@
 
 /* Combobox */
 .dl-target-combobox,
-.dl-source-combobox {
+.dl-source-combobox,
+.dl-format-combobox {
   position: relative;
 }
 
 .dl-target-dropdown,
-.dl-source-dropdown {
+.dl-source-dropdown,
+.dl-format-dropdown {
   display: none;
   position: absolute;
   z-index: 100;
@@ -40,19 +42,22 @@
 
 /* Options shown in the combobox dropdown */
 .dl-target-dropdown div,
-.dl-source-dropdown div {
+.dl-source-dropdown div,
+.dl-format-dropdown div {
   padding: 4px 8px;
   cursor: pointer;
   font-size: 13px;
 }
 
 .dl-target-dropdown div:hover,
-.dl-source-dropdown div:hover {
+.dl-source-dropdown div:hover,
+.dl-format-dropdown div:hover {
   background: var(--md-accent-fg-color--transparent);
 }
 
 .dl-target-search,
-.dl-source-search {
+.dl-source-search,
+.dl-format-search {
   padding: 6px 10px;
   font-size: 14px;
   border-radius: 6px;
@@ -64,7 +69,8 @@
 }
 
 .dl-target-search:focus,
-.dl-source-search:focus {
+.dl-source-search:focus,
+.dl-format-search:focus {
   outline: 2px solid var(--md-primary-fg-color);
   outline-offset: 2px;
 }
@@ -154,4 +160,11 @@
   border: none;
   background: none;
   cursor: pointer;
+}
+
+.dl-date {
+  margin-top: 1rem;
+  padding: 0 12px;
+  font-size: 13px;
+  color: var(--md-default-fg-color--light);
 }

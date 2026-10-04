@@ -37,29 +37,35 @@ def load_langs(path: Path) -> list[Lang]:
     return [load_lang(item) for item in data]
 
 
-def render_dropdown_options(langs: list[Lang]) -> str:
+# (value, label) of the formats with a release_metadata_<format>.json
+FORMATS = [("yomitan", "Yomitan")]
+
+
+def render_dropdown_options(options: list[tuple[str, str]]) -> str:
     return "\n".join(
-        f'  <option value="{lang.iso}">{lang.display_name}</option>' for lang in langs
+        f'  <option value="{value}">{label}</option>' for value, label in options
     ).strip()
 
 
-def render_combobox(cl: str, placeholder: str, langs: list[Lang]) -> str:
-    assert cl in ("dl-source", "dl-target")
+def render_combobox(cl: str, placeholder: str, options: list[tuple[str, str]]) -> str:
+    assert cl in ("dl-source", "dl-target", "dl-format")
     return f"""
 <div class="{cl}-combobox">
   <input class="{cl}-search" placeholder="{placeholder}" autocomplete="off">
   <div class="{cl}-dropdown">
-    {render_dropdown_options(langs)}
+    {render_dropdown_options(options)}
   </div>
   <input type="hidden" class="{cl}">
 </div>""".strip()
 
 
 def generate_downloads_page(all_langs: list[Lang]) -> str:
+    langs = [(lang.iso, lang.display_name) for lang in all_langs]
     table_html = f"""
 <tr>
-  <td>{render_combobox("dl-source", "Source: language of the word...", all_langs)}</td>
-  <td>{render_combobox("dl-target", "Target: language of the definition...", all_langs)}</td>
+  <td>{render_combobox("dl-source", "Source: language of the word...", langs)}</td>
+  <td>{render_combobox("dl-target", "Target: language of the definition...", langs)}</td>
+  <td>{render_combobox("dl-format", "Format...", FORMATS)}</td>
 </tr>""".strip()
 
     return f"""# Download
@@ -69,6 +75,8 @@ def generate_downloads_page(all_langs: list[Lang]) -> str:
 {table_html}
   </tbody>
 </table>
+
+<div class="dl-date"></div>
 
 <div class="dl-results"></div>
 
