@@ -147,12 +147,18 @@ impl PathManager {
     pub fn dir_dicts(&self) -> PathBuf {
         self.root_dir().join("dict")
     }
+    /// The two folders holding the dictionary. Example: `("el", "en")`
+    pub fn dir_pair(&self) -> (String, String) {
+        let first = match self.dict_ty {
+            DictionaryType::IpaMerged => self.langs.edition.to_string(),
+            _ => self.langs.source.to_string(),
+        };
+        (first, self.langs.target.to_string())
+    }
     /// Example: `data/dict/el/el`
     fn dir_dict(&self) -> PathBuf {
-        self.dir_dicts().join(match self.dict_ty {
-            DictionaryType::IpaMerged => format!("{}/{}", self.langs.edition, self.langs.target),
-            _ => format!("{}/{}", self.langs.source, self.langs.target),
-        })
+        let (first, second) = self.dir_pair();
+        self.dir_dicts().join(first).join(second)
     }
     /// Depends on the type of dictionary being made.
     ///

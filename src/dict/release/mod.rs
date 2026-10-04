@@ -5,11 +5,17 @@
 //! Command to limit memory usage (linux):
 //! systemd-run --user --scope -p MemoryMax=24G -p MemoryHigh=24G cargo run -r -- release -v
 
-use std::time::Instant;
+use std::{
+    fs::{self, File},
+    io,
+    path::{Path, PathBuf},
+    time::Instant,
+};
 
 use anyhow::Result;
 use rayon::ThreadPoolBuilder;
 use rayon::prelude::*;
+use zip::{CompressionMethod, ZipWriter, write::SimpleFileOptions};
 
 mod index;
 mod metadata;
@@ -24,14 +30,52 @@ use crate::{
     },
     db::WiktextractDb,
     dict::{
-        DGlossary, DGlossaryExtended, DIpa, DIpaMerged, DMain, Dictionary, Langs,
+        DGlossary, DGlossaryExtended, DIpa, DIpaMerged, DMain, Dictionary, Langs, WriterFormat,
         core::skip_below_min_entries,
     },
     lang::{Edition, EditionSpec, Lang},
-    path::PathManager,
+    path::{DictionaryType, PathManager},
 };
 
 const MAX_NUM_THREADS_MAIN: usize = 4;
+
+/// A dictionary the release wrote, with the size of each format.
+pub struct Built {
+    ty: DictionaryType,
+    source: String,
+    target: String,
+    sizes: Vec<(WriterFormat, u64)>,
+}
+
+/// Packs the `.mdx` and `.mdd` into a single download: the `.mdx` is already compressed, so the
+/// files are stored in the zip, not deflated again. Done only for convenience.
+fn zip_mdict(pm: &PathManager, dir: &Path) -> Result<PathBuf> {
+    let yomitan = pm.path_dict();
+    let dir_zip = yomitan.with_file_name("mdict");
+    fs::create_dir_all(&dir_zip)?;
+    let path = dir_zip.join(yomitan.file_name().expect("the dictionary zip has a name"));
+
+    let mut zip = ZipWriter::new(File::create(&path)?);
+    let options = SimpleFileOptions::default().compression_method(CompressionMethod::Stored);
+    for entry in fs::read_dir(dir)? {
+        let entry = entry?;
+        zip.start_file(entry.file_name().to_string_lossy(), options)?;
+        io::copy(&mut File::open(entry.path())?, &mut zip)?;
+    }
+    zip.finish()?;
+
+    Ok(path)
+}
+
+fn size_of(path: &Path) -> u64 {
+    walkdir::WalkDir::new(path)
+        .into_iter()
+        .filter_map(Result::ok)
+        .filter_map(|entry| entry.metadata().ok())
+        .filter(std::fs::Metadata::is_file)
+        .map(|metadata| metadata.len())
+        .sum()
+}
 
 /// Build a dictionary release.
 pub fn release(rargs: ReleaseArgs) -> Result<()> {
@@ -57,29 +101,32 @@ pub fn release(rargs: ReleaseArgs) -> Result<()> {
 
     let start = Instant::now();
 
-    editions.iter().for_each(|edition| {
-        release_main(&rargs, *edition, &editions);
-        release_ipa(&rargs, *edition, &editions);
-        release_glossary(&rargs, *edition, &editions);
-    });
+    let mut built = Vec::new();
+    for edition in &editions {
+        built.extend(release_main(&rargs, *edition, &editions));
+        built.extend(release_ipa(&rargs, *edition, &editions));
+        built.extend(release_glossary(&rargs, *edition, &editions));
+    }
 
     let targets = Lang::all();
     // let targets = [Lang::Afb];
     // let targets: Vec<Lang> = editions.iter().map(|ed| (*ed).into()).collect();
-    targets.par_iter().for_each(|target| {
-        release_ipa_merged(&rargs, *target, &editions);
+    built.par_extend(targets.par_iter().filter_map(|target| {
         // release_glossary_extended(&rargs, *target, &editions);
-    });
+        release_ipa_merged(&rargs, *target, &editions)
+    }));
 
     let elapsed = start.elapsed();
     println!("Finished dictionaries in {elapsed:.2?}");
+
+    anyhow::ensure!(!built.is_empty(), "the release built no dictionary");
 
     extract_indexes(&rargs)?;
 
     let elapsed = start_release.elapsed();
     println!("Finished release in {elapsed:.2?}");
 
-    write_dict_metadata(&rargs.root_dir, &editions, elapsed)?;
+    write_dict_metadata(&rargs.root_dir, &editions, &built, elapsed)?;
 
     Ok(())
 }
@@ -97,7 +144,7 @@ fn download_and_create_db(rargs: &ReleaseArgs, editions: &[Edition]) {
     println!("Finished download & db creation in {:.2?}", start.elapsed());
 }
 
-fn release_main(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition]) {
+fn release_main(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition]) -> Vec<Built> {
     // Limit only this workload (as opposed to the full logic. IPA and glossaries are completely
     // fine and will never OOM).
     let pool = ThreadPoolBuilder::new()
@@ -108,13 +155,42 @@ fn release_main(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition]) {
         .expect("Failed to build local thread pool");
 
     pool.install(|| {
-        Lang::all().par_iter().for_each(|source| {
+        Lang::all()
+            .par_iter()
+            .filter_map(|source| {
+                // Simple English only pairs with itself
+                if (edition == Edition::Simple) != (*source == Lang::Simple) {
+                    return None;
+                }
+
+                let args = MainArgs {
+                    langs: MainLangs {
+                        source: *source,
+                        target: edition,
+                    },
+                    dict_name: DictName::default(),
+                    options: rargs.options(),
+                };
+
+                make_dict_from_db(DMain, args, editions)
+                    .inspect_err(|err| tracing::error!("[main-{source}-{edition}] ERROR: {err:?}"))
+                    .ok()
+                    .flatten()
+            })
+            .collect()
+    })
+}
+
+fn release_ipa(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition]) -> Vec<Built> {
+    Lang::all()
+        .par_iter()
+        .filter_map(|source| {
             // Simple English only pairs with itself
             if (edition == Edition::Simple) != (*source == Lang::Simple) {
-                return;
+                return None;
             }
 
-            let args = MainArgs {
+            let args = IpaArgs {
                 langs: MainLangs {
                     source: *source,
                     target: edition,
@@ -123,38 +199,17 @@ fn release_main(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition]) {
                 options: rargs.options(),
             };
 
-            if let Err(err) = make_dict_from_db(DMain, args, editions) {
-                tracing::error!("[main-{source}-{edition}] ERROR: {err:?}");
-            }
-        });
-    });
+            make_dict_from_db(DIpa, args, editions)
+                .inspect_err(|err| tracing::error!("[ipa-{source}-{edition}] ERROR: {err:?}"))
+                .ok()
+                .flatten()
+        })
+        .collect()
 }
 
-fn release_ipa(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition]) {
-    Lang::all().par_iter().for_each(|source| {
-        // Simple English only pairs with itself
-        if (edition == Edition::Simple) != (*source == Lang::Simple) {
-            return;
-        }
-
-        let args = IpaArgs {
-            langs: MainLangs {
-                source: *source,
-                target: edition,
-            },
-            dict_name: DictName::default(),
-            options: rargs.options(),
-        };
-
-        if let Err(err) = make_dict_from_db(DIpa, args, editions) {
-            tracing::error!("[ipa-{source}-{edition}] ERROR: {err:?}");
-        }
-    });
-}
-
-fn release_ipa_merged(rargs: &ReleaseArgs, target: Lang, editions: &[Edition]) {
+fn release_ipa_merged(rargs: &ReleaseArgs, target: Lang, editions: &[Edition]) -> Option<Built> {
     if target == Lang::Simple {
-        return;
+        return None;
     }
 
     let args = IpaMergedArgs {
@@ -163,32 +218,37 @@ fn release_ipa_merged(rargs: &ReleaseArgs, target: Lang, editions: &[Edition]) {
         options: rargs.options(),
     };
 
-    if let Err(err) = make_dict_from_db(DIpaMerged, args, editions) {
-        tracing::error!("[ipa-merged-{target}] ERROR: {err:?}");
-    }
+    make_dict_from_db(DIpaMerged, args, editions)
+        .inspect_err(|err| tracing::error!("[ipa-merged-{target}] ERROR: {err:?}"))
+        .ok()
+        .flatten()
 }
 
-fn release_glossary(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition]) {
-    Lang::all().par_iter().for_each(|target| {
-        let langs = match (edition, target) {
-            (Edition::Simple, _) | (_, Lang::Simple) => return,
-            _ if Lang::from(edition) == *target => return,
-            _ => GlossaryLangs {
-                source: edition,
-                target: *target,
-            },
-        };
+fn release_glossary(rargs: &ReleaseArgs, edition: Edition, editions: &[Edition]) -> Vec<Built> {
+    Lang::all()
+        .par_iter()
+        .filter_map(|target| {
+            let langs = match (edition, target) {
+                (Edition::Simple, _) | (_, Lang::Simple) => return None,
+                _ if Lang::from(edition) == *target => return None,
+                _ => GlossaryLangs {
+                    source: edition,
+                    target: *target,
+                },
+            };
 
-        let args = GlossaryArgs {
-            langs,
-            dict_name: DictName::default(),
-            options: rargs.options(),
-        };
+            let args = GlossaryArgs {
+                langs,
+                dict_name: DictName::default(),
+                options: rargs.options(),
+            };
 
-        if let Err(err) = make_dict_from_db(DGlossary, args, editions) {
-            tracing::error!("[glossary-{edition}-{target}] ERROR: {err:?}");
-        }
-    });
+            make_dict_from_db(DGlossary, args, editions)
+                .inspect_err(|err| tracing::error!("[glossary-{edition}-{target}] ERROR: {err:?}"))
+                .ok()
+                .flatten()
+        })
+        .collect()
 }
 
 #[allow(unused)]
@@ -252,7 +312,7 @@ pub fn make_dict_from_db<D: Dictionary + DQuery>(
     dict: D,
     raw_args: D::A,
     editions: &[Edition],
-) -> Result<()> {
+) -> Result<Option<Built>> {
     let pm: &PathManager = &raw_args.try_into()?;
     let (edition_pm, source_pm, target_pm) = pm.langs();
     let opts = &pm.opts;
@@ -300,12 +360,23 @@ pub fn make_dict_from_db<D: Dictionary + DQuery>(
     dict.postprocess(pm.langs, &mut irs);
 
     if skip_below_min_entries(&irs, pm) {
-        return Ok(());
+        return Ok(None);
     }
 
+    let mut sizes = Vec::new();
     for format in &opts.formats {
-        format.write(&dict, pm.langs, opts, pm, &irs)?;
+        let path = match format.write(&dict, pm.langs, opts, pm, &irs)? {
+            Some(dir) if *format == WriterFormat::Mdict => Some(zip_mdict(pm, &dir)?),
+            path => path,
+        };
+        sizes.extend(path.map(|path| (*format, size_of(&path))));
     }
 
-    Ok(())
+    let (source, target) = pm.dir_pair();
+    Ok((!sizes.is_empty()).then(|| Built {
+        ty: pm.dict_ty,
+        source,
+        target,
+        sizes,
+    }))
 }

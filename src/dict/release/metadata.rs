@@ -1,7 +1,7 @@
 //! Dictionary release metadata.
 //!
-//! Scans the release `dict/` folder and produces a `release_metadata.json` summarizing
-//! the size of each dictionary type, source language, and target language.
+//! Produces a `release_metadata_<format>.json` per format from the dictionaries the release
+//! built, summarizing the size of each dictionary type, source language, and target language.
 //!
 //! Metadata is written to the `docs/` folder to be used in the downloads page.
 //!
@@ -13,6 +13,8 @@ use std::{collections::BTreeMap, path::Path, time::Duration};
 use anyhow::Result;
 use serde::ser::SerializeStruct;
 
+use super::Built;
+use crate::dict::WriterFormat;
 use crate::lang::Edition;
 use crate::utils::{human_size, human_time};
 
@@ -44,6 +46,7 @@ struct DbInfo {
 
 #[derive(Debug, Default)]
 struct Metadata {
+    date: String,
     time: Duration,
     size: u64,
     count: u64,
@@ -79,7 +82,8 @@ impl serde::Serialize for TypeInfo {
 
 impl serde::Serialize for Metadata {
     fn serialize<S: serde::Serializer>(&self, s: S) -> Result<S::Ok, S::Error> {
-        let mut state = s.serialize_struct("Metadata", 5)?;
+        let mut state = s.serialize_struct("Metadata", 6)?;
+        state.serialize_field("date", &self.date)?;
         state.serialize_field("time", &human_time(self.time))?;
         state.serialize_field("size", &human_size(self.size as f64))?;
         state.serialize_field("count", &self.count)?;
@@ -97,64 +101,18 @@ impl serde::Serialize for DbInfo {
     }
 }
 
-/// Which dictionary wrote `<source>/<target>/<stem>.zip`.
-fn classify_dict(source: &str, target: &str, stem: &str) -> &'static str {
-    if source == "all" {
-        return "ipa-merged";
-    }
-
-    if stem.ends_with("-ipa") {
-        return "ipa";
-    }
-
-    let Some(body) = stem.strip_suffix("-gloss") else {
-        return "main";
-    };
-
-    // glossary is  `<name>-<source>-<target>`
-    // glossary-ext `<name>-<edition>-<source>-<target>`.
-    let head = body
-        .strip_suffix(&format!("-{source}-{target}"))
-        .unwrap_or(body);
-    if head.contains('-') {
-        "glossary-ext"
-    } else {
-        "glossary"
-    }
-}
-
-fn scan_and_group(root_dir: &Path) -> Result<Metadata> {
+fn group(built: &[Built], format: WriterFormat) -> Metadata {
     let mut meta = Metadata::default();
 
-    for entry in walkdir::WalkDir::new(root_dir)
-        .into_iter()
-        .filter_map(Result::ok)
-        .filter(|e| e.path().extension().is_some_and(|x| x == "zip"))
-    {
-        let path = entry.path();
-
-        // Expect <root>/<source>/<target>/<dict-name>.zip
-        let rel = path.strip_prefix(root_dir)?;
-        let parts: Vec<_> = rel.components().collect();
-        if parts.len() != 3 {
+    for dict in built {
+        let Some(&(_, size)) = dict.sizes.iter().find(|(f, _)| *f == format) else {
             continue;
-        }
+        };
 
-        let source = parts[0].as_os_str().to_string_lossy().into_owned();
-        let target = parts[1].as_os_str().to_string_lossy().into_owned();
-        let filename = parts[2].as_os_str().to_string_lossy();
+        let type_entry = meta.dicts.entry(dict.ty.to_string()).or_default();
+        let src = type_entry.sources.entry(dict.source.clone()).or_default();
 
-        let stem = filename.strip_suffix(".zip").unwrap_or(&filename);
-        let dict_type = classify_dict(&source, &target, stem);
-        let size = path.metadata()?.len();
-
-        let type_entry = meta.dicts.entry(dict_type.to_string()).or_default();
-        let src = type_entry.sources.entry(source.clone()).or_default();
-
-        let target_info = TargetInfo { size };
-
-        // Insert or update target info
-        src.targets.insert(target.clone(), target_info);
+        src.targets.insert(dict.target.clone(), TargetInfo { size });
         src.size += size;
         src.count += 1;
 
@@ -165,7 +123,7 @@ fn scan_and_group(root_dir: &Path) -> Result<Metadata> {
         meta.count += 1;
     }
 
-    Ok(meta)
+    meta
 }
 
 fn add_db_metadata(root_dir: &Path, editions: &[Edition], metadata: &mut Metadata) -> Result<()> {
@@ -180,46 +138,32 @@ fn add_db_metadata(root_dir: &Path, editions: &[Edition], metadata: &mut Metadat
     Ok(())
 }
 
-const METADATA_PATH: &str = "docs/release_metadata.json";
-
-/// Write the metadata of the release at `root_dir`.
+/// Write the metadata of the release at `root_dir`, one file per format built.
 ///
 /// `time` is the total time of the release.
-pub fn write_dict_metadata(root_dir: &Path, editions: &[Edition], time: Duration) -> Result<()> {
-    let json = dict_metadata_json(root_dir, editions, time)?;
-    std::fs::write(METADATA_PATH, &json)?;
-    println!("[meta] Dict metadata written to {METADATA_PATH}");
-    Ok(())
-}
-
-fn dict_metadata_json(root_dir: &Path, editions: &[Edition], time: Duration) -> Result<String> {
-    let dict_dir = root_dir.join("dict");
-    let mut metadata = scan_and_group(&dict_dir)?;
-    metadata.time = time;
-    add_db_metadata(root_dir, editions, &mut metadata)?;
-    Ok(serde_json::to_string_pretty(&metadata)?)
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn classify() {
-        assert_eq!(classify_dict("el", "en", "wty-el-en"), "main");
-        assert_eq!(classify_dict("el", "en", "wty-el-en-gloss"), "glossary");
-        assert_eq!(
-            classify_dict("el", "en", "wty-all-el-en-gloss"),
-            "glossary-ext"
-        );
-        assert_eq!(
-            classify_dict("el", "en", "wty-de-el-en-gloss"),
-            "glossary-ext"
-        );
-        assert_eq!(classify_dict("el", "en", "wty-el-en-ipa"), "ipa");
-        assert_eq!(classify_dict("all", "en", "wty-en-ipa"), "ipa-merged");
-
-        // isos containing a dash
-        assert_eq!(classify_dict("gem-pro", "en", "wty-gem-pro-en-ipa"), "ipa");
+pub fn write_dict_metadata(
+    root_dir: &Path,
+    editions: &[Edition],
+    built: &[Built],
+    time: Duration,
+) -> Result<()> {
+    let mut formats = Vec::new();
+    for (format, _) in built.iter().flat_map(|dict| &dict.sizes) {
+        if !formats.contains(format) {
+            formats.push(*format);
+        }
     }
+
+    for format in formats {
+        let mut metadata = group(built, format);
+        metadata.date = chrono::Utc::now().format("%Y-%m-%d").to_string();
+        metadata.time = time;
+        add_db_metadata(root_dir, editions, &mut metadata)?;
+
+        let path = format!("docs/release_metadata_{format}.json");
+        std::fs::write(&path, serde_json::to_string_pretty(&metadata)?)?;
+        println!("[meta] Dict metadata written to {path}");
+    }
+
+    Ok(())
 }

@@ -75,7 +75,7 @@ function dictsForPair(metadata, source, target) {
 function setupCombobox(box) {
     if (!box) return;
     const search = box.querySelector("input:not([type=hidden])");
-    const dropdown = box.querySelector(".dl-source-dropdown, .dl-target-dropdown");
+    const dropdown = box.querySelector(".dl-source-dropdown, .dl-target-dropdown, .dl-format-dropdown");
     const hidden = box.querySelector("input[type=hidden]");
     const items = Array.from(dropdown.querySelectorAll("option"));
 
@@ -185,14 +185,16 @@ function renderResult({ label, size, url }) {
 }
 
 // Wires up the page: initialises both comboboxes and lists the dictionaries of the chosen pair.
-function setupPage(table, metadata) {
+function setupPage(table) {
     const sourceHidden = table.querySelector(".dl-source");
     const targetHidden = table.querySelector(".dl-target");
+    const formatHidden = table.querySelector(".dl-format");
+    const date = document.querySelector(".dl-date");
     const results = document.querySelector(".dl-results");
 
-    table.querySelectorAll(".dl-source-combobox, .dl-target-combobox").forEach(
-        setupCombobox,
-    );
+    table.querySelectorAll(
+        ".dl-source-combobox, .dl-target-combobox, .dl-format-combobox",
+    ).forEach(setupCombobox);
 
     function showMessage(text) {
         const message = document.createElement("div");
@@ -201,21 +203,35 @@ function setupPage(table, metadata) {
         results.replaceChildren(message);
     }
 
-    function update() {
+    let latest = 0;
+
+    async function update() {
+        const run = ++latest;
         const source = sourceHidden.value;
         const target = targetHidden.value;
+        const format = formatHidden.value;
+
+        const meta = format ? await metadataFor(format) : null;
+        if (run !== latest) return;
+        const metadata = meta?.dicts;
+        date.textContent = meta?.date ? `${formatHidden.dataset.label} release: ${meta.date}` : "";
 
         filterDropdown(
             table.querySelector(".dl-target-combobox"),
-            source ? availableTargets(metadata, source) : null,
+            source && metadata ? availableTargets(metadata, source) : null,
         );
         filterDropdown(
             table.querySelector(".dl-source-combobox"),
-            target ? availableSources(metadata, target) : null,
+            target && metadata ? availableSources(metadata, target) : null,
         );
 
-        if (!source || !target) {
-            showMessage("Select the languages");
+        if (!source || !target || !format) {
+            showMessage("Select the languages and the format");
+            return;
+        }
+
+        if (!meta) {
+            showMessage("Could not load the release metadata");
             return;
         }
 
@@ -232,30 +248,30 @@ function setupPage(table, metadata) {
 
     sourceHidden.addEventListener("change", update);
     targetHidden.addEventListener("change", update);
+    formatHidden.addEventListener("change", update);
 
-    update();
+    // Preselect the first format
+    table.querySelector(".dl-format-combobox div[data-value]").dispatchEvent(new Event("mousedown"));
 }
 
-// Mojo so that fetching works both locally and in a project repo
-// There MUST be a better way to do this...
-const REPO_NAME = "wiktionary-to-yomitan";
-const BRANCH = "gh-pages"; // branch that serves the site
-const base = document.querySelector('base')?.href || `https://yomidevs.github.io/${REPO_NAME}/`;
-const metadataPromise = fetch(`${base}release_metadata.json`)
-    .then(res => res.json())
-    .then(json => json["dicts"]);
+// The page is at <site>/download/ and the metadata at the root of the site, locally and deployed
+const metadataCache = {};
+function metadataFor(format) {
+    metadataCache[format] ??= fetch(`../release_metadata_${format}.json`)
+        .then(res => res.json())
+        .catch(() => null);
+    return metadataCache[format];
+}
 
 // I don't think this is ideal (it is called on every tab switch, and not only on the download's one),
 // but it's the only thing I got working...
 // cf. https://github.com/squidfunk/mkdocs-material/discussions/6788#discussioncomment-8498415
 document$.subscribe(function () {
-    metadataPromise.then((metadata) => {
-        const table = document.querySelector(".download-table");
-        if (!table) return;
+    const table = document.querySelector(".download-table");
+    if (!table) return;
 
-        // Mark table as loaded to fade it in
-        table.classList.add("loaded");
+    // Mark table as loaded to fade it in
+    table.classList.add("loaded");
 
-        setupPage(table, metadata);
-    });
+    setupPage(table);
 });
