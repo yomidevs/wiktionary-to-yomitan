@@ -241,7 +241,7 @@ function setupPage(table, metadata) {
 const REPO_NAME = "wiktionary-to-yomitan";
 const BRANCH = "gh-pages"; // branch that serves the site
 const base = document.querySelector('base')?.href || `https://yomidevs.github.io/${REPO_NAME}/`;
-const metadataPromise = fetch(`${base}release_metadata.json`)
+const metadataPromise = fetch(`${base}release_metadata_yomitan.json`)
     .then(res => res.json())
     .then(json => json["dicts"]);
 

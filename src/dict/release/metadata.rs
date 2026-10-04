@@ -1,7 +1,7 @@
 //! Dictionary release metadata.
 //!
-//! Produces a `release_metadata.json` from the dictionaries the release built, summarizing
-//! the size of each dictionary type, source language, and target language.
+//! Produces a `release_metadata_<format>.json` per format from the dictionaries the release
+//! built, summarizing the size of each dictionary type, source language, and target language.
 //!
 //! Metadata is written to the `docs/` folder to be used in the downloads page.
 //!
@@ -99,15 +99,11 @@ impl serde::Serialize for DbInfo {
     }
 }
 
-fn group(built: &[Built]) -> Metadata {
+fn group(built: &[Built], format: WriterFormat) -> Metadata {
     let mut meta = Metadata::default();
 
     for dict in built {
-        let Some(&(_, size)) = dict
-            .sizes
-            .iter()
-            .find(|(format, _)| *format == WriterFormat::Yomitan)
-        else {
+        let Some(&(_, size)) = dict.sizes.iter().find(|(f, _)| *f == format) else {
             continue;
         };
 
@@ -140,9 +136,7 @@ fn add_db_metadata(root_dir: &Path, editions: &[Edition], metadata: &mut Metadat
     Ok(())
 }
 
-const METADATA_PATH: &str = "docs/release_metadata.json";
-
-/// Write the metadata of the release at `root_dir`.
+/// Write the metadata of the release at `root_dir`, one file per format built.
 ///
 /// `time` is the total time of the release.
 pub fn write_dict_metadata(
@@ -151,15 +145,22 @@ pub fn write_dict_metadata(
     built: &[Built],
     time: Duration,
 ) -> Result<()> {
-    let mut metadata = group(built);
-    if metadata.count == 0 {
-        println!("[meta] No yomitan dictionary was built, metadata not written");
-        return Ok(());
+    let mut formats = Vec::new();
+    for (format, _) in built.iter().flat_map(|dict| &dict.sizes) {
+        if !formats.contains(format) {
+            formats.push(*format);
+        }
     }
 
-    metadata.time = time;
-    add_db_metadata(root_dir, editions, &mut metadata)?;
-    std::fs::write(METADATA_PATH, serde_json::to_string_pretty(&metadata)?)?;
-    println!("[meta] Dict metadata written to {METADATA_PATH}");
+    for format in formats {
+        let mut metadata = group(built, format);
+        metadata.time = time;
+        add_db_metadata(root_dir, editions, &mut metadata)?;
+
+        let path = format!("docs/release_metadata_{format}.json");
+        std::fs::write(&path, serde_json::to_string_pretty(&metadata)?)?;
+        println!("[meta] Dict metadata written to {path}");
+    }
+
     Ok(())
 }

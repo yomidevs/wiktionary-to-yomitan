@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 import json
+import sys
 
 
 @dataclass
@@ -55,7 +56,8 @@ def extract_dictionaries(data) -> list[DictInfo]:
 
 
 def main() -> None:
-    with open("docs/release_metadata.json", "r") as f:
+    fmt = sys.argv[1] if len(sys.argv) > 1 else "yomitan"
+    with open(f"docs/release_metadata_{fmt}.json", "r") as f:
         data = json.load(f)
 
     all_dicts = extract_dictionaries(data)
