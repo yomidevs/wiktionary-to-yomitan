@@ -190,12 +190,16 @@ function setupPage(table) {
     const sourceHidden = table.querySelector(".dl-source");
     const targetHidden = table.querySelector(".dl-target");
     const formatHidden = table.querySelector(".dl-format");
-    const date = document.querySelector(".dl-date");
     const results = document.querySelector(".dl-results");
 
     table.querySelectorAll(
         ".dl-source-combobox, .dl-target-combobox, .dl-format-combobox",
     ).forEach(setupCombobox);
+
+    table.querySelectorAll(".dl-format-dropdown div[data-value]").forEach(async (option) => {
+        const meta = await metadataFor(option.dataset.value);
+        if (meta?.date) option.dataset.note = meta.date;
+    });
 
     function showMessage(text) {
         const message = document.createElement("div");
@@ -215,7 +219,6 @@ function setupPage(table) {
         const meta = format ? await metadataFor(format) : null;
         if (run !== latest) return;
         const metadata = meta?.dicts;
-        date.textContent = meta?.date ? `${formatHidden.dataset.label} release: ${meta.date}` : "";
 
         filterDropdown(
             table.querySelector(".dl-target-combobox"),

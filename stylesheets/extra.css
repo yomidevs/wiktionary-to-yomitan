@@ -75,6 +75,20 @@
   outline-offset: 2px;
 }
 
+.dl-format-dropdown div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+/* The release date, set by the script */
+.dl-format-dropdown div::after {
+  content: attr(data-note);
+  font-size: 11px;
+  color: var(--md-default-fg-color--light);
+}
+
 /* Download button */
 .dl-btn {
   display: inline-flex;
@@ -162,9 +176,3 @@
   cursor: pointer;
 }
 
-.dl-date {
-  margin-top: 1rem;
-  padding: 0 12px;
-  font-size: 13px;
-  color: var(--md-default-fg-color--light);
-}
