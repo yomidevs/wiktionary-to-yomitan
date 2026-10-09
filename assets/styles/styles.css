@@ -4,20 +4,20 @@
    So we need to add them again for the relevant categories used in inner tags.
    The dictionary tag keeps Yomitan's own pill and purple.
    Data-category is locale independent. */
-.tag .tag-label,
+.tag:not([data-category$='dictionary']) .tag-label,
 div[data-sc-content="tags"] span {
     background-color: rgba(128, 128, 128, 0.2);
     border: 1px solid rgba(128, 128, 128, 0.45);
     border-radius: 1em;
     color: inherit;
 }
-.tag .tag-label {
+.tag:not([data-category$='dictionary']) .tag-label {
     padding: 0.1em 0.55em;
 }
 .tag {
     min-height: 0;
 }
-.tag .tag-label-content {
+.tag:not([data-category$='dictionary']) .tag-label-content {
     font-size: 0.9em;
     font-weight: normal;
     line-height: 1.2;
@@ -36,18 +36,6 @@ div[data-sc-content="tags"] span {
     word-break: keep-all;
     cursor: help;
     margin-right: 0.4em;
-}
-.tag[data-category='dictionary'] .tag-label {
-    padding: calc(2.5em / 14) 0.375em;
-    background-color: var(--tag-color);
-    border: 0;
-    border-radius: var(--tag-border-radius);
-    color: var(--tag-text-color);
-}
-.tag[data-category='dictionary'] .tag-label-content {
-    font-size: var(--tag-font-size);
-    font-weight: bold;
-    line-height: normal;
 }
 .tag[data-category='frequent'] .tag-label,
 div[data-sc-content="tags"] span[data-sc-category="frequent"] {
