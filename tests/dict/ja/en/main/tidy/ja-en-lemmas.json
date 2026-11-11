@@ -4,7 +4,11 @@
       "adjective": [
         {
           "gloss_tree": {
-            "pleasant, delightful, fun, enjoyable": {}
+            "pleasant, delightful, fun, enjoyable": {
+              "tags": [
+                "-i"
+              ]
+            }
           },
           "synonyms": [
             {
@@ -33,6 +37,9 @@
         {
           "gloss_tree": {
             "liked, likable": {
+              "tags": [
+                "-na"
+              ],
               "examples": [
                 {
                   "text": "好きな食べ物は？ アイスクリームです。",
@@ -186,6 +193,10 @@
         {
           "gloss_tree": {
             "to run (move fast on foot)": {
+              "tags": [
+                "godan",
+                "intransitive"
+              ],
               "examples": [
                 {
                   "text": "マラソン選手が走り出した。",
@@ -222,6 +233,10 @@
               ]
             },
             "to move forward; (of a machine) to operate, function; (of objects) to move at a high speed (of a vehicle)": {
+              "tags": [
+                "godan",
+                "intransitive"
+              ],
               "examples": [
                 {
                   "text": "車が走る",
@@ -230,6 +245,10 @@
               ]
             },
             "to flow vigorously (of liquid)": {
+              "tags": [
+                "godan",
+                "intransitive"
+              ],
               "examples": [
                 {
                   "text": "石の上を水が走る。",
@@ -250,6 +269,10 @@
               ]
             },
             "to move smoothly; to slide": {
+              "tags": [
+                "godan",
+                "intransitive"
+              ],
               "examples": [
                 {
                   "text": "刀が鞘から走る。",
@@ -269,9 +292,23 @@
                 }
               ]
             },
-            "to run away, escape": {},
-            "to rush, hurry around": {},
+            "to run away, escape": {
+              "tags": [
+                "godan",
+                "intransitive"
+              ]
+            },
+            "to rush, hurry around": {
+              "tags": [
+                "godan",
+                "intransitive"
+              ]
+            },
             "to give over oneself to; to commit oneself to (usually something bad)": {
+              "tags": [
+                "godan",
+                "intransitive"
+              ],
               "examples": [
                 {
                   "text": "彼は敵に走った。",
@@ -307,8 +344,17 @@
                 }
               ]
             },
-            "to spread out, scatter, splatter, spout": {},
+            "to spread out, scatter, splatter, spout": {
+              "tags": [
+                "godan",
+                "intransitive"
+              ]
+            },
             "to lead or extend in a certain direction": {
+              "tags": [
+                "godan",
+                "intransitive"
+              ],
               "examples": [
                 {
                   "text": "山脈が南北に走る。",
@@ -345,6 +391,10 @@
               ]
             },
             "to appear briefly; to flash": {
+              "tags": [
+                "godan",
+                "intransitive"
+              ],
               "examples": [
                 {
                   "text": "稲妻が走る",
@@ -374,10 +424,17 @@
                 }
               ]
             },
-            "to feel palpitations; to have a sense of unease": {},
+            "to feel palpitations; to have a sense of unease": {
+              "tags": [
+                "godan",
+                "intransitive"
+              ]
+            },
             "to crack": {
               "tags": [
-                "euphemistic"
+                "euphemistic",
+                "godan",
+                "intransitive"
               ]
             }
           },
@@ -473,8 +530,18 @@
       "verb": [
         {
           "gloss_tree": {
-            "use": {},
-            "lend money": {}
+            "use": {
+              "tags": [
+                "ichidan",
+                "transitive"
+              ]
+            },
+            "lend money": {
+              "tags": [
+                "ichidan",
+                "transitive"
+              ]
+            }
           },
           "head_info_text": "用(よう)立(だ)てる • (yōdateru) transitive ichidan (stem 用(よう)立(だ)て (yōdate), past 用(よう)立(だ)てた (yōdateta))",
           "wlink": "https://en.wiktionary.org/wiki/用立てる#Japanese",

@@ -665,7 +665,9 @@
         "altofsense",
         [
           "alt-of",
-          "alternative"
+          "alternative",
+          "godan",
+          "intransitive"
         ]
       ]
     }

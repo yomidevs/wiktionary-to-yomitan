@@ -1103,6 +1103,16 @@
           ]
         },
         {
+          "ipa": "piényi",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Nanjing",
+            "Nanjing",
+            "Pinyin"
+          ]
+        },
+        {
           "ipa": "пянйи (pianyi, I-II)",
           "tags": [
             "zh_pron",
@@ -1444,6 +1454,45 @@
           "tags": [
             "Mandarin",
             "Chengdu",
+            "Sinological-IPA"
+          ]
+        },
+        {
+          "ipa": "piényi [Phonetic: piěnyi",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Nanjing",
+            "Nanjing",
+            "Pinyin"
+          ]
+        },
+        {
+          "ipa": "pien² yi⁰",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Nanjing",
+            "Nanjing",
+            "Pinyin"
+          ]
+        },
+        {
+          "ipa": "pien³ yi⁰",
+          "tags": [
+            "zh_pron",
+            "Mandarin",
+            "Nanjing",
+            "Nanjing",
+            "Pinyin",
+            "phonetic"
+          ]
+        },
+        {
+          "ipa": "/pʰiẽ²⁴⁻¹¹ i/",
+          "tags": [
+            "Mandarin",
+            "Nanjing",
             "Sinological-IPA"
           ]
         },

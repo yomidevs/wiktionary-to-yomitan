@@ -45,6 +45,24 @@
       ]
     }
   },
+  "日本国": {
+    "にっぽんこく": {
+      "noun": [
+        "extracted",
+        [
+          "transliteration"
+        ]
+      ]
+    },
+    "にほんこく": {
+      "noun": [
+        "extracted",
+        [
+          "transliteration"
+        ]
+      ]
+    }
+  },
   "弁当": {
     "べんとう": {
       "noun": [
