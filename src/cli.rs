@@ -72,7 +72,7 @@ pub struct MainArgs {
     pub options: Options,
 }
 
-#[derive(Parser, Debug)]
+#[derive(Parser, Debug, Clone)]
 pub struct GlossaryArgs {
     #[command(flatten)]
     pub langs: GlossaryLangs,
@@ -85,7 +85,7 @@ pub struct GlossaryArgs {
     pub options: Options,
 }
 
-#[derive(Parser, Debug)]
+#[derive(Parser, Debug, Clone)]
 pub struct GlossaryExtendedArgs {
     #[command(flatten)]
     pub langs: GlossaryExtendedLangs,
@@ -98,7 +98,7 @@ pub struct GlossaryExtendedArgs {
     pub options: Options,
 }
 
-#[derive(Parser, Debug)]
+#[derive(Parser, Debug, Clone)]
 pub struct IpaArgs {
     #[command(flatten)]
     pub langs: MainLangs,

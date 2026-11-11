@@ -46,7 +46,9 @@ fn cases() -> &'static (Vec<(Lang, Lang)>, Vec<Lang>) {
 
 /// Scan folders under "root" recursively and assert no zip files are present.
 fn assert_no_zip_files(root: &Path) {
-    let entries = fs::read_dir(root).unwrap();
+    let Result::Ok(entries) = fs::read_dir(root) else {
+        return;
+    };
     for entry in entries.flatten() {
         let path = entry.path();
         if path.is_dir() {
@@ -212,6 +214,7 @@ fn snapshot_glossary() {
                 fixture_dir,
                 WriterFormat::TestYomitan,
             );
+            delete_previous_output(&PathManager::try_from(args.clone()).unwrap()).unwrap();
             make_dict_from_jsonl(DGlossary, args).unwrap();
         }
     }
@@ -236,6 +239,7 @@ fn snapshot_glossary_extended() {
             fixture_dir,
             WriterFormat::TestYomitan,
         );
+        delete_previous_output(&PathManager::try_from(args.clone()).unwrap()).unwrap();
         make_dict_from_jsonl(DGlossaryExtended, args).unwrap();
     }
 }
@@ -250,6 +254,7 @@ fn snapshot_ipa() {
             continue; // skip if target is not edition
         };
         let args = fixture_ipa_args(*source, target, fixture_dir, WriterFormat::TestYomitan);
+        delete_previous_output(&PathManager::try_from(args.clone()).unwrap()).unwrap();
         make_dict_from_jsonl(DIpa, args).unwrap();
     }
 }
