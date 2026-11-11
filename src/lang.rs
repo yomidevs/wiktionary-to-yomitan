@@ -232,6 +232,8 @@ pub enum Lang {
     Oc,
     /// Odia
     Or,
+    /// Ojibwe
+    Oj,
     /// Old Church Slavonic
     Cu,
     /// Old Norse
@@ -312,6 +314,8 @@ pub enum Lang {
     Ota,
     /// Ukrainian
     Uk,
+    /// Unami
+    Unm,
     /// Urdu
     Ur,
     /// Uyghur
@@ -372,11 +376,11 @@ impl From<Edition> for Lang {
 
 impl Lang {
     pub const fn help_isos() -> &'static str {
-        "Supported isos: af | sq | am | arz | afb | ar | apc | ajp | hy | xcl | rup | as | aii | ast | az | ba | eu | be | bn | bcl | bg | my | ca | ceb | zh | yue | cmn | cim | cop | kw | crh | cs | zlw-ocs | da | nl | dum | egy | en | enm | ang | simple | eo | et | fo | fi | fr | frm | fro | gl | ka | de | goh | got | el | grc | gu | haw | he | hi | hu | is | io | id | izh | ia | ga | sga | it | ja | jv | kn | csb | kk | kix | km | ko | ku | kmr | ky | lld | lo | la | lv | lzz | lt | liv | lb | mk | mg | ms | ml | mt | gv | mr | mn | mi | nah | nv | nrf | se | no | nb | nn | oc | or | cu | non | pi | rsk | fa | pdt | pl | zlw-opl | pt | urj-fin-pro | gem-pro | sla-pro | gmw-pro | pa | ro | ru | sa | sco | gd | sh | scn | sk | sl | dsb | es | su | sw | sv | syc | tl | tg | ta | tt | te | th | bo | tok | tr | ota | uk | ur | ug | uz | vec | vi | vo | vot | cy | ady | fy | sah | yi | yo | zu"
+        "Supported isos: af | sq | am | arz | afb | ar | apc | ajp | hy | xcl | rup | as | aii | ast | az | ba | eu | be | bn | bcl | bg | my | ca | ceb | zh | yue | cmn | cim | cop | kw | crh | cs | zlw-ocs | da | nl | dum | egy | en | enm | ang | simple | eo | et | fo | fi | fr | frm | fro | gl | ka | de | goh | got | el | grc | gu | haw | he | hi | hu | is | io | id | izh | ia | ga | sga | it | ja | jv | kn | csb | kk | kix | km | ko | ku | kmr | ky | lld | lo | la | lv | lzz | lt | liv | lb | mk | mg | ms | ml | mt | gv | mr | mn | mi | nah | nv | nrf | se | no | nb | nn | oc | or | oj | cu | non | pi | rsk | fa | pdt | pl | zlw-opl | pt | urj-fin-pro | gem-pro | sla-pro | gmw-pro | pa | ro | ru | sa | sco | gd | sh | scn | sk | sl | dsb | es | su | sw | sv | syc | tl | tg | ta | tt | te | th | bo | tok | tr | ota | uk | unm | ur | ug | uz | vec | vi | vo | vot | cy | ady | fy | sah | yi | yo | zu"
     }
 
     pub const fn help_isos_coloured() -> &'static str {
-        "Supported isos: af | sq | am | arz | afb | ar | apc | ajp | hy | xcl | rup | as | aii | ast | az | ba | eu | be | bn | bcl | bg | my | ca | ceb | [32mzh[0m | yue | cmn | cim | cop | kw | crh | [32mcs[0m | zlw-ocs | da | [32mnl[0m | dum | egy | [32men[0m | enm | ang | [32msimple[0m | eo | et | fo | fi | [32mfr[0m | frm | fro | gl | ka | [32mde[0m | goh | got | [32mel[0m | grc | gu | haw | he | hi | hu | is | io | [32mid[0m | izh | ia | ga | sga | [32mit[0m | [32mja[0m | jv | kn | csb | kk | kix | km | [32mko[0m | [32mku[0m | kmr | ky | lld | lo | la | lv | lzz | lt | liv | lb | mk | mg | [32mms[0m | ml | mt | gv | mr | mn | mi | nah | nv | nrf | se | no | nb | nn | oc | or | cu | non | pi | rsk | fa | pdt | [32mpl[0m | zlw-opl | [32mpt[0m | urj-fin-pro | gem-pro | sla-pro | gmw-pro | pa | ro | [32mru[0m | sa | sco | gd | sh | scn | sk | sl | dsb | [32mes[0m | su | sw | sv | syc | tl | tg | ta | tt | te | [32mth[0m | bo | tok | [32mtr[0m | ota | uk | ur | ug | uz | vec | [32mvi[0m | vo | vot | cy | ady | fy | sah | yi | yo | zu"
+        "Supported isos: af | sq | am | arz | afb | ar | apc | ajp | hy | xcl | rup | as | aii | ast | az | ba | eu | be | bn | bcl | bg | my | ca | ceb | [32mzh[0m | yue | cmn | cim | cop | kw | crh | [32mcs[0m | zlw-ocs | da | [32mnl[0m | dum | egy | [32men[0m | enm | ang | [32msimple[0m | eo | et | fo | fi | [32mfr[0m | frm | fro | gl | ka | [32mde[0m | goh | got | [32mel[0m | grc | gu | haw | he | hi | hu | is | io | [32mid[0m | izh | ia | ga | sga | [32mit[0m | [32mja[0m | jv | kn | csb | kk | kix | km | [32mko[0m | [32mku[0m | kmr | ky | lld | lo | la | lv | lzz | lt | liv | lb | mk | mg | [32mms[0m | ml | mt | gv | mr | mn | mi | nah | nv | nrf | se | no | nb | nn | oc | or | oj | cu | non | pi | rsk | fa | pdt | [32mpl[0m | zlw-opl | [32mpt[0m | urj-fin-pro | gem-pro | sla-pro | gmw-pro | pa | ro | [32mru[0m | sa | sco | gd | sh | scn | sk | sl | dsb | [32mes[0m | su | sw | sv | syc | tl | tg | ta | tt | te | [32mth[0m | bo | tok | [32mtr[0m | ota | uk | unm | ur | ug | uz | vec | [32mvi[0m | vo | vot | cy | ady | fy | sah | yi | yo | zu"
     }
 
     pub const fn help_editions() -> &'static str {
@@ -490,6 +494,7 @@ impl Lang {
             Self::Nn => "Norwegian Nynorsk",
             Self::Oc => "Occitan",
             Self::Or => "Odia",
+            Self::Oj => "Ojibwe",
             Self::Cu => "Old Church Slavonic",
             Self::Non => "Old Norse",
             Self::Pi => "Pali",
@@ -530,6 +535,7 @@ impl Lang {
             Self::Tr => "Turkish",
             Self::Ota => "Ottoman Turkish",
             Self::Uk => "Ukrainian",
+            Self::Unm => "Unami",
             Self::Ur => "Urdu",
             Self::Ug => "Uyghur",
             Self::Uz => "Uzbek",
@@ -654,6 +660,7 @@ impl Lang {
             Self::Nn,
             Self::Oc,
             Self::Or,
+            Self::Oj,
             Self::Cu,
             Self::Non,
             Self::Pi,
@@ -694,6 +701,7 @@ impl Lang {
             Self::Tr,
             Self::Ota,
             Self::Uk,
+            Self::Unm,
             Self::Ur,
             Self::Ug,
             Self::Uz,
@@ -853,6 +861,7 @@ impl FromStr for Lang {
             "nn" => Ok(Self::Nn),
             "oc" => Ok(Self::Oc),
             "or" => Ok(Self::Or),
+            "oj" => Ok(Self::Oj),
             "cu" => Ok(Self::Cu),
             "non" => Ok(Self::Non),
             "pi" => Ok(Self::Pi),
@@ -893,6 +902,7 @@ impl FromStr for Lang {
             "tr" => Ok(Self::Tr),
             "ota" => Ok(Self::Ota),
             "uk" => Ok(Self::Uk),
+            "unm" => Ok(Self::Unm),
             "ur" => Ok(Self::Ur),
             "ug" => Ok(Self::Ug),
             "uz" => Ok(Self::Uz),
@@ -1020,6 +1030,7 @@ impl AsRef<str> for Lang {
             Self::Nn => "nn",
             Self::Oc => "oc",
             Self::Or => "or",
+            Self::Oj => "oj",
             Self::Cu => "cu",
             Self::Non => "non",
             Self::Pi => "pi",
@@ -1060,6 +1071,7 @@ impl AsRef<str> for Lang {
             Self::Tr => "tr",
             Self::Ota => "ota",
             Self::Uk => "uk",
+            Self::Unm => "unm",
             Self::Ur => "ur",
             Self::Ug => "ug",
             Self::Uz => "uz",
