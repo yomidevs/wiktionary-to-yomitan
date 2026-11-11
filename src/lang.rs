@@ -26,6 +26,8 @@ pub enum Lang {
     Af,
     /// Albanian
     Sq,
+    /// Amharic
+    Am,
     /// Egyptian Arabic
     Arz,
     /// Gulf Arabic
@@ -370,11 +372,11 @@ impl From<Edition> for Lang {
 
 impl Lang {
     pub const fn help_isos() -> &'static str {
-        "Supported isos: af | sq | arz | afb | ar | apc | ajp | hy | xcl | rup | as | aii | ast | az | ba | eu | be | bn | bcl | bg | my | ca | ceb | zh | yue | cmn | cim | cop | kw | crh | cs | zlw-ocs | da | nl | dum | egy | en | enm | ang | simple | eo | et | fo | fi | fr | frm | fro | gl | ka | de | goh | got | el | grc | gu | haw | he | hi | hu | is | io | id | izh | ia | ga | sga | it | ja | jv | kn | csb | kk | kix | km | ko | ku | kmr | ky | lld | lo | la | lv | lzz | lt | liv | lb | mk | mg | ms | ml | mt | gv | mr | mn | mi | nah | nv | nrf | se | no | nb | nn | oc | or | cu | non | pi | rsk | fa | pdt | pl | zlw-opl | pt | urj-fin-pro | gem-pro | sla-pro | gmw-pro | pa | ro | ru | sa | sco | gd | sh | scn | sk | sl | dsb | es | su | sw | sv | syc | tl | tg | ta | tt | te | th | bo | tok | tr | ota | uk | ur | ug | uz | vec | vi | vo | vot | cy | ady | fy | sah | yi | yo | zu"
+        "Supported isos: af | sq | am | arz | afb | ar | apc | ajp | hy | xcl | rup | as | aii | ast | az | ba | eu | be | bn | bcl | bg | my | ca | ceb | zh | yue | cmn | cim | cop | kw | crh | cs | zlw-ocs | da | nl | dum | egy | en | enm | ang | simple | eo | et | fo | fi | fr | frm | fro | gl | ka | de | goh | got | el | grc | gu | haw | he | hi | hu | is | io | id | izh | ia | ga | sga | it | ja | jv | kn | csb | kk | kix | km | ko | ku | kmr | ky | lld | lo | la | lv | lzz | lt | liv | lb | mk | mg | ms | ml | mt | gv | mr | mn | mi | nah | nv | nrf | se | no | nb | nn | oc | or | cu | non | pi | rsk | fa | pdt | pl | zlw-opl | pt | urj-fin-pro | gem-pro | sla-pro | gmw-pro | pa | ro | ru | sa | sco | gd | sh | scn | sk | sl | dsb | es | su | sw | sv | syc | tl | tg | ta | tt | te | th | bo | tok | tr | ota | uk | ur | ug | uz | vec | vi | vo | vot | cy | ady | fy | sah | yi | yo | zu"
     }
 
     pub const fn help_isos_coloured() -> &'static str {
-        "Supported isos: af | sq | arz | afb | ar | apc | ajp | hy | xcl | rup | as | aii | ast | az | ba | eu | be | bn | bcl | bg | my | ca | ceb | [32mzh[0m | yue | cmn | cim | cop | kw | crh | [32mcs[0m | zlw-ocs | da | [32mnl[0m | dum | egy | [32men[0m | enm | ang | [32msimple[0m | eo | et | fo | fi | [32mfr[0m | frm | fro | gl | ka | [32mde[0m | goh | got | [32mel[0m | grc | gu | haw | he | hi | hu | is | io | [32mid[0m | izh | ia | ga | sga | [32mit[0m | [32mja[0m | jv | kn | csb | kk | kix | km | [32mko[0m | [32mku[0m | kmr | ky | lld | lo | la | lv | lzz | lt | liv | lb | mk | mg | [32mms[0m | ml | mt | gv | mr | mn | mi | nah | nv | nrf | se | no | nb | nn | oc | or | cu | non | pi | rsk | fa | pdt | [32mpl[0m | zlw-opl | [32mpt[0m | urj-fin-pro | gem-pro | sla-pro | gmw-pro | pa | ro | [32mru[0m | sa | sco | gd | sh | scn | sk | sl | dsb | [32mes[0m | su | sw | sv | syc | tl | tg | ta | tt | te | [32mth[0m | bo | tok | [32mtr[0m | ota | uk | ur | ug | uz | vec | [32mvi[0m | vo | vot | cy | ady | fy | sah | yi | yo | zu"
+        "Supported isos: af | sq | am | arz | afb | ar | apc | ajp | hy | xcl | rup | as | aii | ast | az | ba | eu | be | bn | bcl | bg | my | ca | ceb | [32mzh[0m | yue | cmn | cim | cop | kw | crh | [32mcs[0m | zlw-ocs | da | [32mnl[0m | dum | egy | [32men[0m | enm | ang | [32msimple[0m | eo | et | fo | fi | [32mfr[0m | frm | fro | gl | ka | [32mde[0m | goh | got | [32mel[0m | grc | gu | haw | he | hi | hu | is | io | [32mid[0m | izh | ia | ga | sga | [32mit[0m | [32mja[0m | jv | kn | csb | kk | kix | km | [32mko[0m | [32mku[0m | kmr | ky | lld | lo | la | lv | lzz | lt | liv | lb | mk | mg | [32mms[0m | ml | mt | gv | mr | mn | mi | nah | nv | nrf | se | no | nb | nn | oc | or | cu | non | pi | rsk | fa | pdt | [32mpl[0m | zlw-opl | [32mpt[0m | urj-fin-pro | gem-pro | sla-pro | gmw-pro | pa | ro | [32mru[0m | sa | sco | gd | sh | scn | sk | sl | dsb | [32mes[0m | su | sw | sv | syc | tl | tg | ta | tt | te | [32mth[0m | bo | tok | [32mtr[0m | ota | uk | ur | ug | uz | vec | [32mvi[0m | vo | vot | cy | ady | fy | sah | yi | yo | zu"
     }
 
     pub const fn help_editions() -> &'static str {
@@ -385,6 +387,7 @@ impl Lang {
         match self {
             Self::Af => "Afrikaans",
             Self::Sq => "Albanian",
+            Self::Am => "Amharic",
             Self::Arz => "Egyptian Arabic",
             Self::Afb => "Gulf Arabic",
             Self::Ar => "Arabic",
@@ -548,6 +551,7 @@ impl Lang {
         vec![
             Self::Af,
             Self::Sq,
+            Self::Am,
             Self::Arz,
             Self::Afb,
             Self::Ar,
@@ -746,6 +750,7 @@ impl FromStr for Lang {
         match s.to_lowercase().as_str() {
             "af" => Ok(Self::Af),
             "sq" => Ok(Self::Sq),
+            "am" => Ok(Self::Am),
             "arz" => Ok(Self::Arz),
             "afb" => Ok(Self::Afb),
             "ar" => Ok(Self::Ar),
@@ -912,6 +917,7 @@ impl AsRef<str> for Lang {
         match self {
             Self::Af => "af",
             Self::Sq => "sq",
+            Self::Am => "am",
             Self::Arz => "arz",
             Self::Afb => "afb",
             Self::Ar => "ar",

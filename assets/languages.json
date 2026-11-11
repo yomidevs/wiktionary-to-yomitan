@@ -1,6 +1,7 @@
 [
     {"iso": "af",  "language": "Afrikaans",              "displayName": "Afrikaans",                "flag": "🇿🇦"                       },
     {"iso": "sq",  "language": "Albanian",               "displayName": "Albanian",                 "flag": "🇦🇱"                       },
+    {"iso": "am",  "language": "Amharic",                "displayName": "Amharic",                  "flag": "🇪🇹"                       },
     {"iso": "arz", "language": "Egyptian Arabic",        "displayName": "Arabic, Egyptian",         "flag": "🇪🇬"                       },
     {"iso": "afb", "language": "Gulf Arabic",            "displayName": "Arabic, Gulf",             "flag": "🇦🇪"                       },
     {"iso": "ar",  "language": "Arabic",                 "displayName": "Arabic, MSA",              "flag": "🟩"                       },
